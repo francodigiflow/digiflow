@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<DespatchAdvice xmlns="urn:oasis:names:specification:ubl:schema:xsd:DespatchAdvice-2" xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2" xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2" xmlns:ccts="urn:un:unece:uncefact:documentation:2" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:ext="urn:oasis:names:specification:ubl:schema:xsd:CommonExtensionComponents-2" xmlns:qdt="urn:oasis:names:specification:ubl:schema:xsd:QualifiedDatatypes-2" xmlns:sac="urn:sunat:names:specification:ubl:peru:schema:xsd:SunatAggregateComponents-1" xmlns:udt="urn:un:unece:uncefact:data:specification:UnqualifiedDataTypesSchemaModule:2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <ext:UBLExtensions>
+    <ext:UBLExtension>
+      <ext:ExtensionContent>
+        <DatosAdicionales>
+          <Documento>
+            <Nombre>20136836545-09-TL99-22091699</Nombre>
+          </Documento>
+        </DatosAdicionales>
+      </ext:ExtensionContent>
+    </ext:UBLExtension>
+    <ext:UBLExtension>
+      <ext:ExtensionContent><ds:Signature Id="Digiflow"><ds:SignedInfo><ds:CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /><ds:SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1" /><ds:Reference URI=""><ds:Transforms><ds:Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><ds:Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /></ds:Transforms><ds:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" /><ds:DigestValue>rpYZoA+WeoQj9KE8vHrl8MSgHac=</ds:DigestValue></ds:Reference></ds:SignedInfo><ds:SignatureValue>FBmIcwCm/acbi+5wHlB46GFa2/xPnRzOHLXgoyeg5Wb9r3mO3QTTKEHnn5yGHlXukduhmK0n/SVk4p8JhxlaBIIpMNLklvjn/+G/+JRkMp9xwpIrWcugvsNtoRpYh4RrVG3sRRE9QIRgXsBZhWHQbCzbtkukjQD6QnDIsIYBwhFSChO7A/1r9n08CvvFml7mINYYl+AEP65C03V/YZUzMEKFHVF5bvEbynbFobmiYDbUSqAw5YxqJ5JSDhEhmw/md0CfUfGm9oJRUbzahmfGInzZaJ0XEU1Y/jMld+1IykkG93xbhLRypqeOTjC9JGa0KqLLKO4lQz/CrtLv0DEWmA==</ds:SignatureValue><ds:KeyInfo><ds:X509Data><ds:X509IssuerSerial><ds:X509IssuerName>C=PE, S=LIMA, L=LIMA, OU=see current address at www.camerfirma.com.pe/address, OU=AC CAMERFIRMA PERÚ CERTIFICADOS - 2016, SERIALNUMBER=20566302447, OID.2.5.4.97=NTRPE-20566302447, O=CAMERFIRMA PERÚ S.A.C., CN=AC CAMERFIRMA PERÚ CERTIFICADOS - 2016</ds:X509IssuerName><ds:X509SerialNumber>1743414306488918503513</ds:X509SerialNumber></ds:X509IssuerSerial><ds:X509Certificate>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</ds:X509Certificate></ds:X509Data></ds:KeyInfo></ds:Signature></ext:ExtensionContent>
+    </ext:UBLExtension>
+  </ext:UBLExtensions>
+  <cbc:UBLVersionID>2.1</cbc:UBLVersionID>
+  <cbc:CustomizationID>1.0</cbc:CustomizationID>
+  <cbc:ID>TL99-22091699</cbc:ID>
+  <cbc:IssueDate>2022-10-18</cbc:IssueDate>
+  <cbc:DespatchAdviceTypeCode>09</cbc:DespatchAdviceTypeCode>
+  <cbc:Note><![CDATA[PRUEBA 8A]]></cbc:Note>
+  <cac:Signature>
+    <cbc:ID>TL99-22091699</cbc:ID>
+    <cac:SignatoryParty>
+      <cac:PartyIdentification>
+        <cbc:ID>20136836545</cbc:ID>
+      </cac:PartyIdentification>
+      <cac:PartyName>
+        <cbc:Name><![CDATA[DIGIFLOW S.A.]]></cbc:Name>
+      </cac:PartyName>
+    </cac:SignatoryParty>
+    <cac:DigitalSignatureAttachment>
+      <cac:ExternalReference>
+        <cbc:URI>20136836545-TL99-22091699</cbc:URI>
+      </cac:ExternalReference>
+    </cac:DigitalSignatureAttachment>
+  </cac:Signature>
+  <cac:DespatchSupplierParty>
+    <cbc:CustomerAssignedAccountID schemeID="6">20136836545</cbc:CustomerAssignedAccountID>
+    <cac:Party>
+      <cac:PartyLegalEntity>
+        <cbc:RegistrationName><![CDATA[DIGIFLOW S.A.]]></cbc:RegistrationName>
+      </cac:PartyLegalEntity>
+    </cac:Party>
+  </cac:DespatchSupplierParty>
+  <cac:DeliveryCustomerParty>
+    <cbc:CustomerAssignedAccountID schemeID="6">20101330258</cbc:CustomerAssignedAccountID>
+    <cac:Party>
+      <cac:PartyLegalEntity>
+        <cbc:RegistrationName><![CDATA[INGENIERIA DE LA CONSTRUCCION S.A.C]]></cbc:RegistrationName>
+      </cac:PartyLegalEntity>
+    </cac:Party>
+  </cac:DeliveryCustomerParty>
+  <cac:Shipment>
+    <cbc:ID>1</cbc:ID>
+    <cbc:HandlingCode>01</cbc:HandlingCode>
+    <cbc:Information><![CDATA[Venta]]></cbc:Information>
+    <cbc:GrossWeightMeasure unitCode="KGM">1.00</cbc:GrossWeightMeasure>
+    <cbc:TotalTransportHandlingUnitQuantity>0</cbc:TotalTransportHandlingUnitQuantity>
+    <cbc:SplitConsignmentIndicator>false</cbc:SplitConsignmentIndicator>
+    <cac:ShipmentStage>
+      <cbc:TransportModeCode>01</cbc:TransportModeCode>
+      <cac:TransitPeriod>
+        <cbc:StartDate>2022-09-07</cbc:StartDate>
+      </cac:TransitPeriod>
+      <cac:CarrierParty>
+        <cac:PartyIdentification>
+          <cbc:ID>20557436490</cbc:ID>
+        </cac:PartyIdentification>
+        <cac:PartyName>
+          <cbc:Name>BONNETT SERVICIOS LOGISTICOS S</cbc:Name>
+        </cac:PartyName>
+      </cac:CarrierParty>
+      <cac:TransportMeans>
+        <cbc:RegistrationNationalityID />
+        <cac:RoadTransport>
+          <cbc:LicensePlateID />
+        </cac:RoadTransport>
+      </cac:TransportMeans>
+      <cac:DriverPerson>
+        <cbc:ID schemeID="1">12345678</cbc:ID>
+      </cac:DriverPerson>
+    </cac:ShipmentStage>
+    <cac:Delivery>
+      <cac:DeliveryAddress>
+        <cbc:ID>150141</cbc:ID>
+        <cbc:StreetName><![CDATA[CAL.LOS NEGOCIOS NRO. 340 INT. 346 URB. LIMATAMBO - SURQUILLO - LIMA - LIMA]]></cbc:StreetName>
+      </cac:DeliveryAddress>
+    </cac:Delivery>
+    <cac:TransportHandlingUnit>
+      <cbc:ID />
+    </cac:TransportHandlingUnit>
+    <cac:OriginAddress>
+      <cbc:ID>150113</cbc:ID>
+      <cbc:StreetName><![CDATA[JR. PACHACUTEC NRO. 1315 URB. SANTA BEATRIZ (OFICINA 403) LIMA - LIMA - JESUS MARIA]]></cbc:StreetName>
+    </cac:OriginAddress>
+  </cac:Shipment>
+  <cac:DespatchLine>
+    <cbc:ID>1</cbc:ID>
+    <cbc:DeliveredQuantity unitCode="NIU">1.000</cbc:DeliveredQuantity>
+    <cac:OrderLineReference>
+      <cbc:LineID>1</cbc:LineID>
+    </cac:OrderLineReference>
+    <cac:Item>
+      <cbc:Name><![CDATA[AUTOMATICO DE NIVEL "LUISE" GL90 CABLE DE NEOPRENO DE 3 MTS.]]></cbc:Name>
+      <cac:SellersItemIdentification>
+        <cbc:ID><![CDATA[AC01L101G930]]></cbc:ID>
+      </cac:SellersItemIdentification>
+      <cac:CommodityClassification>
+        <cbc:ItemClassificationCode><![CDATA[]]></cbc:ItemClassificationCode>
+      </cac:CommodityClassification>
+    </cac:Item>
+  </cac:DespatchLine>
+</DespatchAdvice>
