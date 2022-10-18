@@ -52,7 +52,7 @@
 												<br/>Agentes Generales, Remolcaje, Practicaje, Serv. Lanchas.
 												</xsl:if>-->
 														<xsl:when test="//cac:SignatoryParty/cac:PartyIdentification/cbc:ID = '20109969452'">IAN TAYLOR PERU S.A.C.
-														<br/>Agentes Generales, Remolcaje, Practicaje, Serv. Lanchas.
+														<!--<br/>Agentes Generales, Remolcaje, Practicaje, Serv. Lanchas.-->
 															<!--<br/>Agentes Generales, Practicaje, Serv. Lanchas, Ag.de Carga, Logistica--></xsl:when>
 														<!--<xsl:if test="//cac:AccountingSupplierParty/cbc:CustomerAssignedAccountID = '20345286081'">TAYLOR LOGISTICS PERU S.A.C. 
 													<br/>Forwarding - Project Forwarding - Transports 
@@ -78,8 +78,8 @@
 												<td vAlign="middle" align="center">
 													<font color="#000000" size="2" face="Arial, Helvetica, sans-serif">Of. Miraflores: Av. Armendariz 480 oficina 502 - Miraflores - Central: (511-615-5000) 
 													<br/>LIMA 18 - PERU
-													<br/>
-														Of. Callao: Av Oscar R. Benavides N° 3866, EC01-3B (Oficinas administrativas del Mall Plaza) Bellavista.
+													<!--<br/>-->
+														
 													</font>
 												</td>
 											</tr>
