@@ -46,7 +46,7 @@
 								<tr>
 									<td vAlign="baseline" width="50%" align="center">
 										<font size="2" face="Arial, Helvetica, sans-serif">Representación impresa de la Factura Electrónica
-											<br/>Podrá ser consultada en http://ecomprobantes.pe/TAYLOR/Formularios/frmInicio.aspx
+											<br/>Podrá ser consultada en https://facturacion.ecomprobantes.pe/SAAM
 											<xsl:if test="//cac:AccountingSupplierParty/cbc:CustomerAssignedAccountID = '20109969452'">
 											<br/>Autorizado mediante resolución: N° 018-005-0002469/SUNAT
 											</xsl:if>

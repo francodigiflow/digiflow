@@ -25,31 +25,8 @@
 										</font>
 										 <br/><br/><br/>
 												<font face="Arial, Helvetica, sans-serif" size="1">
-											<b> Observación:</b>
+											<b> Sello del SAT:</b>
 										</font>
-										<font face="Arial, Helvetica, sans-serif" size="1">:
-																				<xsl:for-each select="//ext:UBLExtensions/ext:UBLExtension/ext:ExtensionContent/pe:DatosAdicionales/pe:DatoAdicional">
-										<xsl:if test="pe:Codigo='11'">
-											<xsl:if test="pe:Valor !='-'">
-										<xsl:value-of select="pe:Valor"/>
-											</xsl:if>
-										</xsl:if>
-									</xsl:for-each>
-									<xsl:for-each select="//ext:UBLExtensions/ext:UBLExtension/ext:ExtensionContent/pe1:DatosAdicionales/pe1:DatoAdicional">
-										<xsl:if test="pe1:Codigo='11'">
-											<xsl:if test="pe1:Valor !='-'">
-										<xsl:value-of select="pe1:Valor"/>
-											</xsl:if>
-										</xsl:if>
-									</xsl:for-each>
-									<xsl:for-each select="//ext:UBLExtensions/ext:UBLExtension/ext:ExtensionContent/pe2:DatosAdicionales/pe2:DatoAdicional">
-										<xsl:if test="pe2:Codigo='11'">
-											<xsl:if test="pe2:Valor !='-'">
-										<xsl:value-of select="pe2:Valor"/>
-											</xsl:if>
-										</xsl:if>
-									</xsl:for-each>
-									</font>
 							</table>
 						</td>
 						<td align="right">

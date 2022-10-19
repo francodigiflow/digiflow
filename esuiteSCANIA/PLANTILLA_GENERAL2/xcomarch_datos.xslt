@@ -485,156 +485,149 @@
 										<font face="Arial, Helvetica, sans-serif" size="1">
 										
 											<b>
-												RUC
+												Nombre
 											</b>
 										</font>
 									</td>
 									<td width="20%" cellpadding="2" valign="top" align="left">
 										<font face="Arial, Helvetica, sans-serif" size="1">:
-											<xsl:value-of select="format-number(//cac:PartyIdentification/cbc:ID,'###########','pen')"/>&#xA0;
-										</font>
-									</td>
-
-								</tr>
-								<tr>
-									<td width="20%">
-										<font face="Arial, Helvetica, sans-serif" size="1">
-										
-											<b>
-												Tipo de documento
-											</b>
-										</font>
-									</td>
-									<td width="20%" cellpadding="2" valign="top" align="left">
-										<font face="Arial, Helvetica, sans-serif" size="1">:
-								<xsl:value-of select="/pe:Invoice/cbc:InvoiceTypeCode"/>&#xA0;
+								<xsl:value-of select="/pe:Invoice/cac:AccountingCustomerParty/cac:Party/cac:PartyLegalEntity/cbc:RegistrationName"/>
+							<xsl:value-of select="/pe1:CreditNote/cac:AccountingCustomerParty/cac:Party/cac:PartyLegalEntity/cbc:RegistrationName"/>
+							<xsl:value-of select="/pe2:DebitNote/cac:AccountingCustomerParty/cac:Party/cac:PartyLegalEntity/cbc:RegistrationName"/>&#xA0;
 							</font>
 								
 									</td>
 
 								</tr>
 								<tr>
-									<td width="20%">
+									<td width="15%">
 										<font face="Arial, Helvetica, sans-serif" size="1">
-										
-											<b>
-												Serie y número
-											</b>
+											<b>RFC</b>
 										</font>
 									</td>
-									<td width="20%" cellpadding="2" valign="top" align="left">
+									<td width="15%" cellpadding="2" valign="top" align="left">
 										<font face="Arial, Helvetica, sans-serif" size="1">:
-											<xsl:value-of select="/pe:Invoice/cbc:ID"/>
-											<xsl:value-of select="/pe1:CreditNote/cbc:ID"/>
-											<xsl:value-of select="/pe2:DebitNote/cbc:ID"/>&#xA0;
-										</font>
-								
-									</td>
-
+																				<xsl:for-each select="//ext:UBLExtensions/ext:UBLExtension/ext:ExtensionContent/pe:DatosAdicionales/pe:DatoAdicional">
+										<xsl:if test="pe:Codigo='11'">
+											<xsl:if test="pe:Valor !='-'">
+										<xsl:value-of select="pe:Valor"/>
+											</xsl:if>
+										</xsl:if>
+									</xsl:for-each>
+									<xsl:for-each select="//ext:UBLExtensions/ext:UBLExtension/ext:ExtensionContent/pe1:DatosAdicionales/pe1:DatoAdicional">
+										<xsl:if test="pe1:Codigo='11'">
+											<xsl:if test="pe1:Valor !='-'">
+										<xsl:value-of select="pe1:Valor"/>
+											</xsl:if>
+										</xsl:if>
+									</xsl:for-each>
+									<xsl:for-each select="//ext:UBLExtensions/ext:UBLExtension/ext:ExtensionContent/pe2:DatosAdicionales/pe2:DatoAdicional">
+										<xsl:if test="pe2:Codigo='11'">
+											<xsl:if test="pe2:Valor !='-'">
+										<xsl:value-of select="pe2:Valor"/>
+											</xsl:if>
+										</xsl:if>
+									</xsl:for-each>
+									</font>
+										</td>
 								</tr>
 								
-								<tr>
-									<td width="20%">
+									<tr>
+									<td width="15%">
 										<font face="Arial, Helvetica, sans-serif" size="1">
-										
-											<b>
-												Monto total IGV
-											</b>
+											<b>Certificado SAT</b>
 										</font>
 									</td>
-									<td width="20%" cellpadding="2" valign="top" align="left">
+									<td width="15%" cellpadding="2" valign="top" align="left">
 										<font face="Arial, Helvetica, sans-serif" size="1">:
-											<xsl:value-of select="format-number(//cac:TaxTotal/cbc:TaxAmount,'###,###,##0.00','pen')"/>&#xA0;
-										</font>
-									</td>
+																				<xsl:for-each select="//ext:UBLExtensions/ext:UBLExtension/ext:ExtensionContent/pe:DatosAdicionales/pe:DatoAdicional">
+										<xsl:if test="pe:Codigo='12'">
+											<xsl:if test="pe:Valor !='-'">
+										<xsl:value-of select="pe:Valor"/>
+											</xsl:if>
+										</xsl:if>
+									</xsl:for-each>
+									<xsl:for-each select="//ext:UBLExtensions/ext:UBLExtension/ext:ExtensionContent/pe1:DatosAdicionales/pe1:DatoAdicional">
+										<xsl:if test="pe1:Codigo='12'">
+											<xsl:if test="pe1:Valor !='-'">
+										<xsl:value-of select="pe1:Valor"/>
+											</xsl:if>
+										</xsl:if>
+									</xsl:for-each>
+									<xsl:for-each select="//ext:UBLExtensions/ext:UBLExtension/ext:ExtensionContent/pe2:DatosAdicionales/pe2:DatoAdicional">
+										<xsl:if test="pe2:Codigo='12'">
+											<xsl:if test="pe2:Valor !='-'">
+										<xsl:value-of select="pe2:Valor"/>
+											</xsl:if>
+										</xsl:if>
+									</xsl:for-each>
+									</font>
+										</td>
 								</tr>
-								<tr>
-									<td width="20%">
+									<tr>
+									<td width="15%">
 										<font face="Arial, Helvetica, sans-serif" size="1">
-										
-											<b>
-												Monto total Comprobante
-											</b>
+											<b>Folio Fiscal</b>
 										</font>
 									</td>
-									<td width="20%" cellpadding="2" valign="top" align="left">
+									<td width="15%" cellpadding="2" valign="top" align="left">
 										<font face="Arial, Helvetica, sans-serif" size="1">:
-											<xsl:value-of select="format-number(//cac:LegalMonetaryTotal/cbc:PayableAmount,'###,###,##0.00','pen')"/>&#xA0;
-										</font>
-								 	</td>
+																				<xsl:for-each select="//ext:UBLExtensions/ext:UBLExtension/ext:ExtensionContent/pe:DatosAdicionales/pe:DatoAdicional">
+										<xsl:if test="pe:Codigo='13'">
+											<xsl:if test="pe:Valor !='-'">
+										<xsl:value-of select="pe:Valor"/>
+											</xsl:if>
+										</xsl:if>
+									</xsl:for-each>
+									<xsl:for-each select="//ext:UBLExtensions/ext:UBLExtension/ext:ExtensionContent/pe1:DatosAdicionales/pe1:DatoAdicional">
+										<xsl:if test="pe1:Codigo='13'">
+											<xsl:if test="pe1:Valor !='-'">
+										<xsl:value-of select="pe1:Valor"/>
+											</xsl:if>
+										</xsl:if>
+									</xsl:for-each>
+									<xsl:for-each select="//ext:UBLExtensions/ext:UBLExtension/ext:ExtensionContent/pe2:DatosAdicionales/pe2:DatoAdicional">
+										<xsl:if test="pe2:Codigo='13'">
+											<xsl:if test="pe2:Valor !='-'">
+										<xsl:value-of select="pe2:Valor"/>
+											</xsl:if>
+										</xsl:if>
+									</xsl:for-each>
+									</font>
+										</td>
 								</tr>
-								<tr>
-									<td width="20%">
+									<tr>
+									<td width="15%">
 										<font face="Arial, Helvetica, sans-serif" size="1">
-										
-											<b>
-												Fecha de emisión
-											</b>
+											<b>F. Certif.CFDI </b>
 										</font>
 									</td>
-									<td width="20%" cellpadding="2" valign="top" align="left">
+									<td width="15%" cellpadding="2" valign="top" align="left">
 										<font face="Arial, Helvetica, sans-serif" size="1">:
-											<xsl:value-of select="/pe:Invoice/cbc:IssueDate"/>
-											<xsl:value-of select="/pe1:CreditNote/cbc:IssueDate"/>
-											<xsl:value-of select="/pe2:DebitNote/cbc:IssueDate"/>&#xA0;
-										</font>
-									</td>
+										<xsl:for-each select="//ext:UBLExtensions/ext:UBLExtension/ext:ExtensionContent/pe:DatosAdicionales/pe:DatoAdicional">
+										<xsl:if test="pe:Codigo='14'">
+											<xsl:if test="pe:Valor !='-'">
+										<xsl:value-of select="pe:Valor"/>
+											</xsl:if>
+										</xsl:if>
+									</xsl:for-each>
+									<xsl:for-each select="//ext:UBLExtensions/ext:UBLExtension/ext:ExtensionContent/pe1:DatosAdicionales/pe1:DatoAdicional">
+										<xsl:if test="pe1:Codigo='14'">
+											<xsl:if test="pe1:Valor !='-'">
+										<xsl:value-of select="pe1:Valor"/>
+											</xsl:if>
+										</xsl:if>
+									</xsl:for-each>
+									<xsl:for-each select="//ext:UBLExtensions/ext:UBLExtension/ext:ExtensionContent/pe2:DatosAdicionales/pe2:DatoAdicional">
+										<xsl:if test="pe2:Codigo='14'">
+											<xsl:if test="pe2:Valor !='-'">
+										<xsl:value-of select="pe2:Valor"/>
+											</xsl:if>
+										</xsl:if>
+									</xsl:for-each>
+									</font>
+										</td>
 								</tr>
-								<tr>
-									<td width="20%">
-										<font face="Arial, Helvetica, sans-serif" size="1">
-										
-											<b>
-												Tipo de documento Adquiriente
-											</b>
-										</font>
-									</td>
-									<td width="20%" cellpadding="2" valign="top" align="left">
-										<font face="Arial, Helvetica, sans-serif" size="1">:
-											<xsl:value-of select="/pe:Invoice/cac:AccountingCustomerParty/cac:Party/cac:PartyIdentification/cbc:ID/@schemeID"/>
-											<xsl:value-of select="/pe1:CreditNote/cac:AccountingCustomerParty/cac:Party/cac:PartyIdentification/cbc:ID/@schemeID"/>
-											<xsl:value-of select="/pe2:DebitNote/cac:AccountingCustomerParty/cac:Party/cac:PartyIdentification/cbc:ID/@schemeID"/>&#xA0;
-										</font>
-								
-									</td>
-
-								</tr>
-								<tr>
-									<td width="20%">
-										<font face="Arial, Helvetica, sans-serif" size="1">
-										
-											<b>
-												Número de documento Adquiriente
-											</b>
-										</font>
-									</td>
-									<td width="20%" cellpadding="2" valign="top" align="left">
-										<font face="Arial, Helvetica, sans-serif" size="1">:
-											<xsl:value-of select="/pe:Invoice/cac:AccountingCustomerParty/cac:Party/cac:PartyIdentification/cbc:ID"/>
-											<xsl:value-of select="/pe1:CreditNote/cac:AccountingCustomerParty/cac:Party/cac:PartyIdentification/cbc:ID"/>
-											<xsl:value-of select="/pe2:DebitNote/cac:AccountingCustomerParty/cac:Party/cac:PartyIdentification/cbc:ID"/>&#xA0;
-										</font>
-									</td>
-
-								</tr>
-								<tr>
-									<td width="20%">
-										<font face="Arial, Helvetica, sans-serif" size="1">
-										
-											<b>
-												Valor resumen
-											</b>
-										</font>
-									</td>
-									<td width="20%" cellpadding="2" valign="top" align="left">
-										<font face="Arial, Helvetica, sans-serif" size="1">:
-											
-										</font>
-								
-									</td>
-
-								</tr>
-								
 									<tr>
 									<td width="15%"></td>
 									<td width="15%"></td>
@@ -711,14 +704,34 @@
 									<tr>
 									<td length="25%" valign="top" align="left">
 										<font face="Arial, Helvetica, sans-serif" size="1">
-											<b> RUC</b>
+											<b> RFC</b>
 										</font>
 									</td>
 									<td length="25%"  valign="top" align="left">
 										<font face="Arial, Helvetica, sans-serif" size="1">:
-											<xsl:value-of select="format-number(//cac:PartyIdentification/cbc:ID,'###########','pen')"/>&#xA0;
-										</font>
-									</td>
+										<xsl:for-each select="//ext:UBLExtensions/ext:UBLExtension/ext:ExtensionContent/pe:DatosAdicionales/pe:DatoAdicional">
+										<xsl:if test="pe:Codigo='15'">
+											<xsl:if test="pe:Valor !='-'">
+										<xsl:value-of select="pe:Valor"/>
+											</xsl:if>
+										</xsl:if>
+									</xsl:for-each>
+									<xsl:for-each select="//ext:UBLExtensions/ext:UBLExtension/ext:ExtensionContent/pe1:DatosAdicionales/pe1:DatoAdicional">
+										<xsl:if test="pe1:Codigo='15'">
+											<xsl:if test="pe1:Valor !='-'">
+										<xsl:value-of select="pe1:Valor"/>
+											</xsl:if>
+										</xsl:if>
+									</xsl:for-each>
+									<xsl:for-each select="//ext:UBLExtensions/ext:UBLExtension/ext:ExtensionContent/pe2:DatosAdicionales/pe2:DatoAdicional">
+										<xsl:if test="pe2:Codigo='15'">
+											<xsl:if test="pe2:Valor !='-'">
+										<xsl:value-of select="pe2:Valor"/>
+											</xsl:if>
+										</xsl:if>
+									</xsl:for-each>
+									</font>
+										</td>
 								</tr>
 								<tr>
 									<td length="25%" valign="top" align="left">
@@ -728,8 +741,28 @@
 									</td>
 									<td length="25%"  valign="top" align="left">
 										<font face="Arial, Helvetica, sans-serif" size="1">:
-											<xsl:value-of select="(//cac:AccountingSupplierParty/cac:Party/cac:PartyName/cbc:Name)"/>&#xA0;
-										</font>
+										<xsl:for-each select="//ext:UBLExtensions/ext:UBLExtension/ext:ExtensionContent/pe:DatosAdicionales/pe:DatoAdicional">
+										<xsl:if test="pe:Codigo='16'">
+											<xsl:if test="pe:Valor !='-'">
+										<xsl:value-of select="pe:Valor"/>
+											</xsl:if>
+										</xsl:if>
+									</xsl:for-each>
+									<xsl:for-each select="//ext:UBLExtensions/ext:UBLExtension/ext:ExtensionContent/pe1:DatosAdicionales/pe1:DatoAdicional">
+										<xsl:if test="pe1:Codigo='16'">
+											<xsl:if test="pe1:Valor !='-'">
+										<xsl:value-of select="pe1:Valor"/>
+											</xsl:if>
+										</xsl:if>
+									</xsl:for-each>
+									<xsl:for-each select="//ext:UBLExtensions/ext:UBLExtension/ext:ExtensionContent/pe2:DatosAdicionales/pe2:DatoAdicional">
+										<xsl:if test="pe2:Codigo='16'">
+											<xsl:if test="pe2:Valor !='-'">
+										<xsl:value-of select="pe2:Valor"/>
+											</xsl:if>
+										</xsl:if>
+									</xsl:for-each>
+									</font>
 										</td>
 											</tr>
 								<tr>
@@ -831,16 +864,35 @@
 									<tr>
 									<td length="25%" valign="top" align="left">
 										<font face="Arial, Helvetica, sans-serif" size="1">
-											<b> RUC</b>
+											<b> RFC</b>
 										</font>
 									</td>
 									<td length="25%"  valign="top" align="left">
 										<font face="Arial, Helvetica, sans-serif" size="1">:
-											<xsl:value-of select="/pe:Invoice/cac:AccountingCustomerParty/cac:Party/cac:PartyIdentification/cbc:ID"/>
-											<xsl:value-of select="/pe1:CreditNote/cac:AccountingCustomerParty/cac:Party/cac:PartyIdentification/cbc:ID"/>
-											<xsl:value-of select="/pe2:DebitNote/cac:AccountingCustomerParty/cac:Party/cac:PartyIdentification/cbc:ID"/>&#xA0;	 
-										</font>
-									</td>
+											 
+										<xsl:for-each select="//ext:UBLExtensions/ext:UBLExtension/ext:ExtensionContent/pe:DatosAdicionales/pe:DatoAdicional">
+										<xsl:if test="pe:Codigo='17'">
+											<xsl:if test="pe:Valor !='-'">
+										<xsl:value-of select="pe:Valor"/>
+											</xsl:if>
+										</xsl:if>
+									</xsl:for-each>
+									<xsl:for-each select="//ext:UBLExtensions/ext:UBLExtension/ext:ExtensionContent/pe1:DatosAdicionales/pe1:DatoAdicional">
+										<xsl:if test="pe1:Codigo='17'">
+											<xsl:if test="pe1:Valor !='-'">
+										<xsl:value-of select="pe1:Valor"/>
+											</xsl:if>
+										</xsl:if>
+									</xsl:for-each>
+									<xsl:for-each select="//ext:UBLExtensions/ext:UBLExtension/ext:ExtensionContent/pe2:DatosAdicionales/pe2:DatoAdicional">
+										<xsl:if test="pe2:Codigo='17'">
+											<xsl:if test="pe2:Valor !='-'">
+										<xsl:value-of select="pe2:Valor"/>
+											</xsl:if>
+										</xsl:if>
+									</xsl:for-each>
+									</font>
+										</td>
 								</tr>
 								<tr>
 									<td length="25%" valign="top" align="left">
@@ -850,10 +902,29 @@
 									</td>
 									<td length="25%"  valign="top" align="left">
 										<font face="Arial, Helvetica, sans-serif" size="1">:
-											<xsl:value-of select="/pe:Invoice/cac:AccountingCustomerParty/cac:Party/cac:PartyLegalEntity/cbc:RegistrationName"/>
-											<xsl:value-of select="/pe1:CreditNote/cac:AccountingCustomerParty/cac:Party/cac:PartyLegalEntity/cbc:RegistrationName"/>
-											<xsl:value-of select="/pe2:DebitNote/cac:AccountingCustomerParty/cac:Party/cac:PartyLegalEntity/cbc:RegistrationName"/>&#xA0;
-										</font>
+									
+										<xsl:for-each select="//ext:UBLExtensions/ext:UBLExtension/ext:ExtensionContent/pe:DatosAdicionales/pe:DatoAdicional">
+										<xsl:if test="pe:Codigo='18'">
+											<xsl:if test="pe:Valor !='-'">
+										<xsl:value-of select="pe:Valor"/>
+											</xsl:if>
+										</xsl:if>
+									</xsl:for-each>
+									<xsl:for-each select="//ext:UBLExtensions/ext:UBLExtension/ext:ExtensionContent/pe1:DatosAdicionales/pe1:DatoAdicional">
+										<xsl:if test="pe1:Codigo='18'">
+											<xsl:if test="pe1:Valor !='-'">
+										<xsl:value-of select="pe1:Valor"/>
+											</xsl:if>
+										</xsl:if>
+									</xsl:for-each>
+									<xsl:for-each select="//ext:UBLExtensions/ext:UBLExtension/ext:ExtensionContent/pe2:DatosAdicionales/pe2:DatoAdicional">
+										<xsl:if test="pe2:Codigo='18'">
+											<xsl:if test="pe2:Valor !='-'">
+										<xsl:value-of select="pe2:Valor"/>
+											</xsl:if>
+										</xsl:if>
+									</xsl:for-each>
+									</font>
 										</td>
 											</tr>
 								<tr>
@@ -924,20 +995,8 @@
 		</xsl:for-each>
 	</xsl:template>
 
-
-<xsl:template match="cac:LegalMonetaryTotal">
-	
-</xsl:template>
-
-<xsl:template match="cbc:ID">
-	
-</xsl:template>
-
-<xsl:template match="cbc:InvoicedQuantity">
-	
-</xsl:template>
 </xsl:stylesheet><!-- Stylus Studio meta-information - (c) 2004-2006. Progress Software Corporation. All rights reserved.
 <metaInformation>
-<scenarios ><scenario default="yes" name="Scenario1" userelativepaths="yes" externalpreview="no" url="20101363008&#x2D;01&#x2D;F999&#x2D;00000001.xml" htmlbaseurl="" outputurl="" processortype="internal" useresolver="yes" profilemode="0" profiledepth="" profilelength="" urlprofilexml="" commandline="" additionalpath="" additionalclasspath="" postprocessortype="none" postprocesscommandline="" postprocessadditionalpath="" postprocessgeneratedext="" validateoutput="no" validator="internal" customvalidator=""/></scenarios><MapperMetaTag><MapperInfo srcSchemaPathIsRelative="yes" srcSchemaInterpretAsXML="no" destSchemaPath="" destSchemaRoot="" destSchemaPathIsRelative="yes" destSchemaInterpretAsXML="no"/><MapperBlockPosition></MapperBlockPosition><TemplateContext></TemplateContext><MapperFilter side="source"></MapperFilter></MapperMetaTag>
+<scenarios ><scenario default="yes" name="Scenario1" userelativepaths="yes" externalpreview="no" url="..\esuiteACI\xml\20492307298&#x2D;03&#x2D;B001&#x2D;00000107.xml" htmlbaseurl="" outputurl="" processortype="internal" useresolver="yes" profilemode="0" profiledepth="" profilelength="" urlprofilexml="" commandline="" additionalpath="" additionalclasspath="" postprocessortype="none" postprocesscommandline="" postprocessadditionalpath="" postprocessgeneratedext="" validateoutput="no" validator="internal" customvalidator=""/></scenarios><MapperMetaTag><MapperInfo srcSchemaPathIsRelative="yes" srcSchemaInterpretAsXML="no" destSchemaPath="" destSchemaRoot="" destSchemaPathIsRelative="yes" destSchemaInterpretAsXML="no"/><MapperBlockPosition></MapperBlockPosition><TemplateContext></TemplateContext><MapperFilter side="source"></MapperFilter></MapperMetaTag>
 </metaInformation>
 -->
