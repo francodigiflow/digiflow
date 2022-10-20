@@ -210,6 +210,46 @@
 								</td>
 							</tr>
 						</xsl:if>
+						
+						<xsl:if test="$v_Contador=4 and cbc:ID &gt; 80 and cbc:ID &lt;= 100">
+							<tr>
+							   <td width="10%" align="center" class="td_detalle">
+									<font face="Arial, Helvetica, sans-serif" size="2">
+									<xsl:value-of select="cac:Item/cac:SellersItemIdentification/cbc:ID"/>
+									</font>
+								</td>
+								<td width="64%" align="left" class="td_detalle">
+									<font face="Arial, Helvetica, sans-serif" size="2">
+										<xsl:value-of select="cac:Item/cbc:Name"/>
+									</font>
+								</td>
+								<td width="12%" align="center" class="td_detalle">
+									<font face="Arial, Helvetica, sans-serif" size="2">
+										<xsl:value-of select="cbc:DeliveredQuantity"/>
+									</font>
+								</td>
+								<td width="6%" align="center" class="td_detalle">
+									<font face="Arial, Helvetica, sans-serif" size="2">
+										<xsl:value-of select="cbc:DeliveredQuantity/@unitCode"/>
+									</font>
+								</td>
+								<td width="8%" align="center" class="td_detalle">
+									<font face="Arial, Helvetica, sans-serif" size="2">
+										<xsl:variable name="ValorAdicional1">
+											<xsl:call-template name="RetourneValAdItem">
+												<xsl:with-param name="NumLinea" select="cbc:ID"/>
+												<xsl:with-param name="NumAd" select="1"/>
+											</xsl:call-template>
+										</xsl:variable>
+
+										<xsl:if test="$ValorAdicional1 != '' and $ValorAdicional1 !='-' ">
+										<xsl:value-of select="format-number($ValorAdicional1,'###,###,##0.000','pen')"/>
+										</xsl:if>
+									</font>
+								</td>
+							</tr>
+						</xsl:if>
+						
 						</xsl:for-each>
 
 						<xsl:if test="$v_Contador = $v_CantidadTotalPagina">
@@ -226,6 +266,11 @@
 						 <xsl:if test="$v_Contador = 3">
 						 <xsl:call-template name="lineaBl"> 
 							 <xsl:with-param name="cont" select="90 - $numitems"/>							 
+						 </xsl:call-template>
+						 </xsl:if>
+						 <xsl:if test="$v_Contador = 4">
+						 <xsl:call-template name="lineaBl"> 
+							 <xsl:with-param name="cont" select="130 - $numitems"/>							 
 						 </xsl:call-template>
 						 </xsl:if>
 
