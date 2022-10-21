@@ -15,9 +15,12 @@
 						</xsl:for-each>
 						<xsl:value-of select="//cbc:Note[@languageLocaleID='1000']"/>
 						<xsl:if test="//cbc:UBLVersionID='2.0'">
-						<xsl:if test="//ext:ExtensionContent/pe:DatosAdicionales/pe:DatoAdicional[pe:Codigo='03' and pe:Valor='E']">
+						<xsl:if test="//ext:ExtensionContent/pe:DatosAdicionales/pe:DatoAdicional[pe:Codigo='03' and pe:Valor='E'] or /pe:Invoice/cbc:ID='F004-00002825' or /pe:Invoice/cbc:ID='F004-00002826'">
 						<br/>
-						<strong>SAY :</strong><xsl:for-each select="//ext:UBLExtensions/ext:UBLExtension/ext:ExtensionContent/pe:DatosAdicionales/pe:DatoAdicional">
+						<strong>SAY :</strong>
+							
+							
+							<xsl:for-each select="//ext:UBLExtensions/ext:UBLExtension/ext:ExtensionContent/pe:DatosAdicionales/pe:DatoAdicional">
 								<xsl:if test="pe:Codigo='19'">
 									<xsl:value-of select="pe:Valor"/>
 								</xsl:if>
@@ -38,7 +41,15 @@
 						<xsl:if test="//cbc:UBLVersionID='2.1'">
 							<xsl:if test="$tipoDoc = '40'">
 								<br/>
-								<strong>SAY :</strong><xsl:for-each select="//ext:UBLExtensions/ext:UBLExtension/ext:ExtensionContent/pe:DatosAdicionales/pe:DatoAdicional">
+								<strong>SAY :</strong>
+								<xsl:if test="/pe:Invoice/cbc:ID='F004-00002825'">
+								TWENTYNINE THOUSAND FOUR HUNDRED SIXTY TWO AND 93/100 US DOLLARS
+							</xsl:if>
+
+							<xsl:if test="/pe:Invoice/cbc:ID='F004-00002826'">
+								FORTY TWO THOUSAND SEVEN HUNDRED THIRTY FOUR AND 31/100 US DOLLARS
+							</xsl:if>
+								<xsl:for-each select="//ext:UBLExtensions/ext:UBLExtension/ext:ExtensionContent/pe:DatosAdicionales/pe:DatoAdicional">
 								<xsl:if test="pe:Codigo='19'">
 									<xsl:value-of select="pe:Valor"/>
 								</xsl:if>
@@ -126,7 +137,7 @@
 				<td width="100%" valign="top" align="justify">
 					<font face="Arial, Helvetica, sans-serif" size="1">
 						<xsl:choose>
-							<xsl:when test="//ext:ExtensionContent/pe:DatosAdicionales/pe:DatoAdicional[pe:Codigo='03' and pe:Valor='E']">
+							<xsl:when test="//ext:ExtensionContent/pe:DatosAdicionales/pe:DatoAdicional[pe:Codigo='03' and pe:Valor='E'] or /pe:Invoice/cbc:ID='F004-00002825' or /pe:Invoice/cbc:ID='F004-00002826'">
 							</xsl:when>
 							<xsl:otherwise>
 								** MEBOL SAC es agente de RETENCION. **
@@ -521,6 +532,13 @@
 										<xsl:call-template name="tmpImporteLetras"/>
 									</td>
 								</tr>
+								<xsl:if test="/pe:Invoice/cbc:ID='F004-00002825' or /pe:Invoice/cbc:ID='F004-00002826'">
+									<tr>
+										<td width="100%" align="left">
+											<xsl:call-template name="tmpInformacionAdicDirecto"/>
+										</td>
+									</tr>
+								</xsl:if>
 								<tr>
 									<td width="100%" align="left">
 										<xsl:choose>
@@ -532,7 +550,9 @@
 											</xsl:otherwise>
 										</xsl:choose>
 									</td>
-								</tr>
+								</tr>						
+								
+
 							</tbody>
 						</table>
 					</td>
@@ -650,6 +670,7 @@
 		</tbody>
 	</table>
 </xsl:template>
+
 <xsl:template name="tmpInformacionAdicExportacion">
 	<table border="0" width="100%" cellpadding="0" cellspacing="0">
 		<tr>
@@ -1090,6 +1111,147 @@
 		</tr>
 	</table>
 </xsl:template>
+
+<xsl:template name="tmpInformacionAdicDirecto">
+	<table border="0" width="100%" cellpadding="0" cellspacing="0">
+		<tr>
+			<td width="40%" align="left">
+				<font face="Arial, Helvetica, sans-serif" size="1">
+					<u><strong>FOR PAYMENTS FROM OUTSIDE THE USA</strong></u>
+				</font>
+			</td>			
+			<td width="2%">&#xA0;</td>
+			<td width="40%" align="left">
+				<font face="Arial, Helvetica, sans-serif" size="1">
+					<u><strong>FOR PAYMENTS FROM A BANK WITHIN THE USA</strong></u>
+				</font>
+			</td>
+			<td width="18%">&#xA0;</td>
+		</tr>
+
+		<tr>
+			<td width="34%" align="left">
+				<font face="Arial, Helvetica, sans-serif" size="1">
+					<strong>BENEFICIARY BANK : </strong> BANCO DE CREDITO DEL PERU- MIAMI AGENCY
+				</font>
+			</td>			
+			<td width="2%">&#xA0;</td>
+			<td width="34%" align="left">
+				<font face="Arial, Helvetica, sans-serif" size="1">
+					<strong>BENEFICIARY BANK : </strong>BANCO DE CREDITO DEL PERU- MIAMI AGENCY
+				</font>
+			</td>
+			<td width="15%">&#xA0;</td>
+		</tr>
+		
+		<tr>
+			<td width="34%" align="left">
+				<font face="Arial, Helvetica, sans-serif" size="1">
+					<strong>ADRESS : </strong>121 ALHAMBRA PLAZA, SUITE 1200, CORAL GABLES, FL 33134
+				</font>
+			</td>			
+			<td width="2%">&#xA0;</td>
+			<td width="30%" align="left">
+				<font face="Arial, Helvetica, sans-serif" size="1">
+					<strong>ADRESS : </strong>121 ALHAMBRA PLAZA, SUITE 1200, CORAL GABLES, FL 33134
+				</font>
+			</td>
+			<td width="15%">&#xA0;</td>
+		</tr>
+
+		<tr>
+			<td width="20%" align="left">
+				<font face="Arial, Helvetica, sans-serif" size="1">
+					<strong>SWIFT : </strong>BCPLUS33
+				</font>
+			</td>			
+			<td width="8%">&#xA0;</td>
+			<td width="15%" align="left">
+				<font face="Arial, Helvetica, sans-serif" size="1">
+					<strong>ABA : </strong>067015355
+				</font>
+			</td>
+			<td width="30%">&#xA0;</td>
+		</tr>
+
+		<tr>
+			<td width="20%" align="left">
+				<font face="Arial, Helvetica, sans-serif" size="1">
+					<strong>ABA : </strong>067015355
+				</font>
+			</td>			
+			<td width="8%">&#xA0;</td>
+			<td width="15%" align="left">
+				<font face="Arial, Helvetica, sans-serif" size="1">
+					<strong>BENEFICIARY ACCOUNTNAME : </strong>MEBOL SAC
+				</font>
+			</td>
+			<td width="30%">&#xA0;</td>
+		</tr>
+
+		<tr>
+			<td width="27%" align="left">
+				<font face="Arial, Helvetica, sans-serif" size="1">
+					<strong>INTERMEDIARY BANK : </strong>STANDARD CHARTERED BANK - NEW YORK
+				</font>
+			</td>			
+			<td width="1%">&#xA0;</td>
+			<td width="15%" align="left">
+				<font face="Arial, Helvetica, sans-serif" size="1">
+					<strong>BENEFICIARY ACCOUNT NUMBER : </strong>201030010007046
+				</font>
+			</td>
+			<td width="30%">&#xA0;</td>
+		</tr>
+
+		<tr>
+			<td width="20%" align="left">
+				<font face="Arial, Helvetica, sans-serif" size="1">
+					<strong>SWIFT: </strong>SCBLUS33
+				</font>
+			</td>			
+			<td width="8%">&#xA0;</td>
+			<td width="15%" align="left">
+				<font face="Arial, Helvetica, sans-serif" size="1">
+					<strong></strong>
+				</font>
+			</td>
+			<td width="30%">&#xA0;</td>
+		</tr>
+
+		<tr>
+			<td width="20%" align="left">
+				<font face="Arial, Helvetica, sans-serif" size="1">
+					<strong>BENEFICIARY ACCOUNT NAME : </strong>MEBOL SAC
+				</font>
+			</td>			
+			<td width="8%">&#xA0;</td>
+			<td width="15%" align="left">
+				<font face="Arial, Helvetica, sans-serif" size="1">
+					<strong></strong>
+				</font>
+			</td>
+			<td width="30%">&#xA0;</td>
+		</tr>
+
+		<tr>
+			<td width="27%" align="left">
+				<font face="Arial, Helvetica, sans-serif" size="1">
+					<strong>BENEFICIARY ACCOUNT NUMBER : </strong>201030010007046
+				</font>
+			</td>			
+			<td width="1%">&#xA0;</td>
+			<td width="15%" align="left">
+				<font face="Arial, Helvetica, sans-serif" size="1">
+					<strong></strong>
+				</font>
+			</td>
+			<td width="30%">&#xA0;</td>
+		</tr>
+
+	</table>
+</xsl:template>
+
 
 <xsl:template name="TipoDeDocumento">
 		<xsl:choose>

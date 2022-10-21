@@ -272,6 +272,9 @@
 					</td>
 					<td width="23%"> <!-- style="border:solid 1px black"-->
 						<font face="Arial, Helvetica, sans-serif" size="1">
+							<xsl:if test="/pe:Invoice/cbc:ID='F004-00002825' or /pe:Invoice/cbc:ID='F004-00002826'">								
+								LIMA-31
+							</xsl:if>							
 							<xsl:for-each select="//ext:UBLExtensions/ext:UBLExtension/ext:ExtensionContent/pe:DatosAdicionales/pe:DatoAdicional">
 								<xsl:if test="pe:Codigo='05'">
 									<xsl:value-of select="pe:Valor"/>
@@ -322,6 +325,9 @@
 					</td>
 					<td width="23%">  <!--style="border:solid 1px black" -->
 						<font face="Arial, Helvetica, sans-serif" size="1">
+							<xsl:if test="/pe:Invoice/cbc:ID='F004-00002825' or /pe:Invoice/cbc:ID='F004-00002826'">								
+								MONTREAL
+							</xsl:if>
 							<xsl:for-each select="//ext:UBLExtensions/ext:UBLExtension/ext:ExtensionContent/pe:DatosAdicionales/pe:DatoAdicional">
 								<xsl:if test="pe:Codigo='06'">
 									<xsl:value-of select="pe:Valor"/>
@@ -357,6 +363,9 @@
 					</td>
 					<td width="51%">  <!--style="border:solid 1px black"-->
 						<font face="Arial, Helvetica, sans-serif" size="1">
+							<xsl:if test="/pe:Invoice/cbc:ID='F004-00002825' or /pe:Invoice/cbc:ID='F004-00002826'">								
+								1-416-644 550
+							</xsl:if>
 							<xsl:for-each select="//ext:UBLExtensions/ext:UBLExtension/ext:ExtensionContent/pe:DatosAdicionales/pe:DatoAdicional">
 								<xsl:if test="pe:Codigo='04'">
 
@@ -391,6 +400,9 @@
 					</td>
 					<td width="23%"> <!--style="border:solid 1px black" -->
 						<font face="Arial, Helvetica, sans-serif" size="1">
+							<xsl:if test="/pe:Invoice/cbc:ID='F004-00002825' or /pe:Invoice/cbc:ID='F004-00002826'">								
+								FOB
+							</xsl:if>
 							<xsl:for-each select="//ext:UBLExtensions/ext:UBLExtension/ext:ExtensionContent/pe:DatosAdicionales/pe:DatoAdicional">
 								<xsl:if test="pe:Codigo='07'">
 
@@ -413,6 +425,37 @@
 							</xsl:for-each>
 						</font>
 					</td>
+
+				</tr>
+
+				<tr> 
+<!--forma de pago para correlativos-->
+
+					<xsl:if test="/pe:Invoice/cbc:ID='F004-00002825' or /pe:Invoice/cbc:ID='F004-00002826'">
+						<td width="18%" > <!--style="border:solid 1px black;background-color:#C0C0C0"-->
+							<font face="Arial, Helvetica, sans-serif" size="1">
+								<strong>FORMA DE PAGO (WAY TO PAY)</strong>
+							</font>
+						</td>
+						<td width="1%">
+							<font face="Arial, Helvetica, sans-serif" size="1">
+								<strong>:</strong>
+							</font>
+						</td>
+						<td width="15%" colspan="4"> <!--style="border:solid 1px black" -->
+							<font face="Arial, Helvetica, sans-serif" size="1">
+									<xsl:if test="//cac:PaymentTerms/cbc:PaymentMeansID='Credito'">
+									Crédito		
+									</xsl:if>
+									<xsl:if test="//cac:PaymentTerms/cbc:PaymentMeansID='Contado'">
+									Contado		
+									</xsl:if>
+							</font>
+						</td>			
+					</xsl:if>
+
+					<!--forma de pago para correlativos-->				
+
 				</tr>
 
 			</tbody>

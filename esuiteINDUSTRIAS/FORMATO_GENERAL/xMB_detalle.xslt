@@ -17,7 +17,7 @@
 								<th width="13%" align="center" style="border:solid 1px black;background-color:#C0C0C0">
 									<b>
 										<font face="Arial, Helvetica, sans-serif" size="1">
-											<xsl:if test="//ext:ExtensionContent/pe:DatosAdicionales/pe:DatoAdicional[pe:Codigo='03' and pe:Valor='E']">
+											<xsl:if test="//ext:ExtensionContent/pe:DatosAdicionales/pe:DatoAdicional[pe:Codigo='03' and pe:Valor='E'] or /pe:Invoice/cbc:ID='F004-00002825' or /pe:Invoice/cbc:ID='F004-00002826'">
 											CODE <br/>
 											</xsl:if>
 											CÓDIGO
@@ -27,7 +27,7 @@
 								<th width="36%" align="center" style="border:solid 1px black;background-color:#C0C0C0">
 									<b>
 										<font face="Arial, Helvetica, sans-serif" size="1">
-										<xsl:if test="//ext:ExtensionContent/pe:DatosAdicionales/pe:DatoAdicional[pe:Codigo='03' and pe:Valor='E']">
+										<xsl:if test="//ext:ExtensionContent/pe:DatosAdicionales/pe:DatoAdicional[pe:Codigo='03' and pe:Valor='E'] or /pe:Invoice/cbc:ID='F004-00002825' or /pe:Invoice/cbc:ID='F004-00002826'">
 										DESCRIPTION <br/>
 										</xsl:if>
 										DESCRIPCIÓN
@@ -37,7 +37,7 @@
 								<th width="8%" align="center" style="border:solid 1px black;background-color:#C0C0C0">
 									<b>
 										<font face="Arial, Helvetica, sans-serif" size="1">
-										<xsl:if test="//ext:ExtensionContent/pe:DatosAdicionales/pe:DatoAdicional[pe:Codigo='03' and pe:Valor='E']">
+										<xsl:if test="//ext:ExtensionContent/pe:DatosAdicionales/pe:DatoAdicional[pe:Codigo='03' and pe:Valor='E'] or /pe:Invoice/cbc:ID='F004-00002825' or /pe:Invoice/cbc:ID='F004-00002826'">
 										QUANTITY <br/>
 										</xsl:if>
 										CANTIDAD</font>
@@ -46,7 +46,7 @@
 								<th width="5%" align="center" style="border:solid 1px black;background-color:#C0C0C0">
 									<b>
 										<font face="Arial, Helvetica, sans-serif" size="1">
-										<xsl:if test="//ext:ExtensionContent/pe:DatosAdicionales/pe:DatoAdicional[pe:Codigo='03' and pe:Valor='E']">
+										<xsl:if test="//ext:ExtensionContent/pe:DatosAdicionales/pe:DatoAdicional[pe:Codigo='03' and pe:Valor='E'] or /pe:Invoice/cbc:ID='F004-00002825' or /pe:Invoice/cbc:ID='F004-00002826'">
 										UNIT <br/>
 										</xsl:if>
 										U.M.
@@ -56,7 +56,7 @@
 								<th width="10%" align="center" style="border:solid 1px black;background-color:#C0C0C0">
 									<b>
 										<font face="Arial, Helvetica, sans-serif" size="1">
-										<xsl:if test="//ext:ExtensionContent/pe:DatosAdicionales/pe:DatoAdicional[pe:Codigo='03' and pe:Valor='E']">
+										<xsl:if test="//ext:ExtensionContent/pe:DatosAdicionales/pe:DatoAdicional[pe:Codigo='03' and pe:Valor='E'] or /pe:Invoice/cbc:ID='F004-00002825' or /pe:Invoice/cbc:ID='F004-00002826'">
 										UNIT. PRICE <br/> 
 										</xsl:if>
 										PRECIO UNITARIO</font>
@@ -68,7 +68,7 @@
 									</b>
 								</th>-->
 								<xsl:choose>
-									<xsl:when test="//ext:ExtensionContent/pe:DatosAdicionales/pe:DatoAdicional[pe:Codigo='03' and pe:Valor='E']">
+									<xsl:when test="//ext:ExtensionContent/pe:DatosAdicionales/pe:DatoAdicional[pe:Codigo='03' and pe:Valor='E'] or /pe:Invoice/cbc:ID='F004-00002825' or /pe:Invoice/cbc:ID='F004-00002826'">
 									</xsl:when>
 									<xsl:otherwise>
 										<th width="7%" align="center" style="border:solid 1px black;background-color:#C0C0C0">
@@ -88,7 +88,7 @@
 								<th width="10%" align="center" style="border:solid 1px black;background-color:#C0C0C0">
 									<b>
 										<font face="Arial, Helvetica, sans-serif" size="1">
-										<xsl:if test="//ext:ExtensionContent/pe:DatosAdicionales/pe:DatoAdicional[pe:Codigo='03' and pe:Valor='E']">
+										<xsl:if test="//ext:ExtensionContent/pe:DatosAdicionales/pe:DatoAdicional[pe:Codigo='03' and pe:Valor='E'] or /pe:Invoice/cbc:ID='F004-00002825' or /pe:Invoice/cbc:ID='F004-00002826'">
 										VALUE SALE <br/>
 										</xsl:if>
 										VALOR VENTA</font>
@@ -120,8 +120,24 @@
 									<td width="37%" align="left" valign="top" style="border:solid 1px black;border-top:none;border-bottom:none">
 										<font face="Arial, Helvetica, sans-serif" size="1">
 											<xsl:value-of select="cac:Item/cbc:Description"/>
+											<xsl:if test="/pe:Invoice/cbc:ID='F004-00002825'">
+												<br/>
+												FRESA CONGELADA
+												<br/>
+												PACKING:30 LBS
+												<br/>
+												PA: 0811.10
+											</xsl:if>
+											<xsl:if test="/pe:Invoice/cbc:ID='F004-00002826'">
+												<br/>
+												FRESA CONGELADA
+												<br/>
+												PACKING:30 LBS
+												<br/>
+												PA: 0811.10	
+											</xsl:if>
 											<xsl:choose>
-												<xsl:when test="//ext:ExtensionContent/pe:DatosAdicionales/pe:DatoAdicional[pe:Codigo='03' and pe:Valor='E']">
+												<xsl:when test="//ext:ExtensionContent/pe:DatosAdicionales/pe:DatoAdicional[pe:Codigo='03' and pe:Valor='E'] or /pe:Invoice/cbc:ID='F004-00002825' or /pe:Invoice/cbc:ID='F004-00002826'">
 												<br/>
 											<xsl:call-template name="tmpDatosAdicionalesDetalle">
 														<xsl:with-param name="item" select="cbc:ID" />
@@ -167,7 +183,7 @@
 										</font>
 									</td>-->
 									<xsl:choose>
-									<xsl:when test="//ext:ExtensionContent/pe:DatosAdicionales/pe:DatoAdicional[pe:Codigo='03' and pe:Valor='E']">
+									<xsl:when test="//ext:ExtensionContent/pe:DatosAdicionales/pe:DatoAdicional[pe:Codigo='03' and pe:Valor='E'] or /pe:Invoice/cbc:ID='F004-00002825' or /pe:Invoice/cbc:ID='F004-00002826'">
 									</xsl:when>
 									<xsl:otherwise>
 									<td width="7%" align="right" valign="top" style="border:solid 1px black;border-top:none;border-bottom:none">
@@ -336,7 +352,8 @@
 							</xsl:call-template>
 							
 						</tbody>
-						<xsl:if test="//ext:ExtensionContent/pe:DatosAdicionales/pe:DatoAdicional[pe:Codigo='03' and pe:Valor='E']">
+
+						<xsl:if test="//ext:ExtensionContent/pe:DatosAdicionales/pe:DatoAdicional[pe:Codigo='03' and pe:Valor='E'] or /pe:Invoice/cbc:ID='F004-00002825' or /pe:Invoice/cbc:ID='F004-00002826'">
 						<tfoot style="border:none;display: table-header-group">
 							<tr>
 								<th width="4%" colspan="4" align="left">
@@ -404,22 +421,27 @@
 					<font face="Arial, Helvetica, sans-serif" size="1"> </font>
 				</td>-->
 				<xsl:choose>
-									<xsl:when test="//ext:ExtensionContent/pe:DatosAdicionales/pe:DatoAdicional[pe:Codigo='03' and pe:Valor='E']">
-									</xsl:when>
-									<xsl:otherwise>
-				<td width="7%" align="center" style="border:solid 1px black;border-top:none;border-bottom:none">
-					<font face="Arial, Helvetica, sans-serif" size="1"> </font>
-				</td>
-				<xsl:if test="/pe:Invoice/cbc:InvoiceTypeCode='01' or /pe1:CreditNote/cac:CreditNoteLine or /pe2:DebitNote/cac:DebitNoteLine">
-				<td width="7%" align="center" style="border:solid 1px black;border-top:none;border-bottom:none">
-					<font face="Arial, Helvetica, sans-serif" size="1"> </font>
-				</td>
-				</xsl:if>
-				</xsl:otherwise></xsl:choose>
-				<td width="10%" align="center" style="border:solid 1px black;border-top:none;border-bottom:none">
-					<font face="Arial, Helvetica, sans-serif" size="1"> </font>
-				</td>
-			</tr>
+					<xsl:when test="//ext:ExtensionContent/pe:DatosAdicionales/pe:DatoAdicional[pe:Codigo='03' and pe:Valor='E']">
+					
+					</xsl:when>
+					<xsl:when test="/pe:Invoice/cbc:ID='F004-00002825' or /pe:Invoice/cbc:ID='F004-00002826'">
+					
+					</xsl:when>					
+					<xsl:otherwise>
+						<td width="7%" align="center" style="border:solid 1px black;border-top:none;border-bottom:none">
+							<font face="Arial, Helvetica, sans-serif" size="1"> </font>
+						</td>
+						<xsl:if test="/pe:Invoice/cbc:InvoiceTypeCode='01' or /pe1:CreditNote/cac:CreditNoteLine or /pe2:DebitNote/cac:DebitNoteLine">
+							<td width="7%" align="center" style="border:solid 1px black;border-top:none;border-bottom:none">
+								<font face="Arial, Helvetica, sans-serif" size="1"> </font>
+							</td>
+						</xsl:if>
+					</xsl:otherwise>
+				</xsl:choose>
+					<td width="10%" align="center" style="border:solid 1px black;border-top:none;border-bottom:none">
+						<font face="Arial, Helvetica, sans-serif" size="1"> </font>
+					</td>
+				</tr>
 			<xsl:call-template name="lineaBl">
 				<xsl:with-param name="cont" select="$cont - 1"/>
 			</xsl:call-template>
@@ -500,7 +522,7 @@
 								<th width="13%" align="center" style="border:solid 1px black;background-color:#C0C0C0">
 									<b>
 										<font face="Arial, Helvetica, sans-serif" size="1">
-											<xsl:if test="//ext:ExtensionContent/pe:DatosAdicionales/pe:DatoAdicional[pe:Codigo='03' and pe:Valor='E']">
+											<xsl:if test="//ext:ExtensionContent/pe:DatosAdicionales/pe:DatoAdicional[pe:Codigo='03' and pe:Valor='E'] or /pe:Invoice/cbc:ID='F004-00002825' or /pe:Invoice/cbc:ID='F004-00002826'">
 											CODE <br/>
 											</xsl:if>
 											CÓDIGO
@@ -510,7 +532,7 @@
 								<th width="36%" align="center" style="border:solid 1px black;background-color:#C0C0C0">
 									<b>
 										<font face="Arial, Helvetica, sans-serif" size="1">
-										<xsl:if test="//ext:ExtensionContent/pe:DatosAdicionales/pe:DatoAdicional[pe:Codigo='03' and pe:Valor='E']">
+										<xsl:if test="//ext:ExtensionContent/pe:DatosAdicionales/pe:DatoAdicional[pe:Codigo='03' and pe:Valor='E'] or /pe:Invoice/cbc:ID='F004-00002825' or /pe:Invoice/cbc:ID='F004-00002826'">
 										DESCRIPTION <br/>
 										</xsl:if>
 										DESCRIPCIÓN
@@ -520,7 +542,7 @@
 								<th width="8%" align="center" style="border:solid 1px black;background-color:#C0C0C0">
 									<b>
 										<font face="Arial, Helvetica, sans-serif" size="1">
-										<xsl:if test="//ext:ExtensionContent/pe:DatosAdicionales/pe:DatoAdicional[pe:Codigo='03' and pe:Valor='E']">
+										<xsl:if test="//ext:ExtensionContent/pe:DatosAdicionales/pe:DatoAdicional[pe:Codigo='03' and pe:Valor='E'] or /pe:Invoice/cbc:ID='F004-00002825' or /pe:Invoice/cbc:ID='F004-00002826'">
 										QUANTITY <br/>
 										</xsl:if>
 										CANTIDAD</font>
@@ -529,7 +551,7 @@
 								<th width="5%" align="center" style="border:solid 1px black;background-color:#C0C0C0">
 									<b>
 										<font face="Arial, Helvetica, sans-serif" size="1">
-										<xsl:if test="//ext:ExtensionContent/pe:DatosAdicionales/pe:DatoAdicional[pe:Codigo='03' and pe:Valor='E']">
+										<xsl:if test="//ext:ExtensionContent/pe:DatosAdicionales/pe:DatoAdicional[pe:Codigo='03' and pe:Valor='E'] or /pe:Invoice/cbc:ID='F004-00002825' or /pe:Invoice/cbc:ID='F004-00002826'">
 										UNIT <br/>
 										</xsl:if>
 										U.M.
@@ -539,7 +561,7 @@
 								<th width="10%" align="center" style="border:solid 1px black;background-color:#C0C0C0">
 									<b>
 										<font face="Arial, Helvetica, sans-serif" size="1">
-										<xsl:if test="//ext:ExtensionContent/pe:DatosAdicionales/pe:DatoAdicional[pe:Codigo='03' and pe:Valor='E']">
+										<xsl:if test="//ext:ExtensionContent/pe:DatosAdicionales/pe:DatoAdicional[pe:Codigo='03' and pe:Valor='E'] or /pe:Invoice/cbc:ID='F004-00002825' or /pe:Invoice/cbc:ID='F004-00002826'">
 										UNIT. PRICE <br/> 
 										</xsl:if>
 										PRECIO UNITARIO</font>
@@ -551,7 +573,7 @@
 									</b>
 								</th>-->
 								<xsl:choose>
-									<xsl:when test="//ext:ExtensionContent/pe:DatosAdicionales/pe:DatoAdicional[pe:Codigo='03' and pe:Valor='E']">
+									<xsl:when test="//ext:ExtensionContent/pe:DatosAdicionales/pe:DatoAdicional[pe:Codigo='03' and pe:Valor='E'] or /pe:Invoice/cbc:ID='F004-00002825' or /pe:Invoice/cbc:ID='F004-00002826'">
 									</xsl:when>
 									<xsl:otherwise>
 										<th width="7%" align="center" style="border:solid 1px black;background-color:#C0C0C0">
@@ -571,7 +593,7 @@
 								<th width="10%" align="center" style="border:solid 1px black;background-color:#C0C0C0">
 									<b>
 										<font face="Arial, Helvetica, sans-serif" size="1">
-										<xsl:if test="//ext:ExtensionContent/pe:DatosAdicionales/pe:DatoAdicional[pe:Codigo='03' and pe:Valor='E']">
+										<xsl:if test="//ext:ExtensionContent/pe:DatosAdicionales/pe:DatoAdicional[pe:Codigo='03' and pe:Valor='E'] or /pe:Invoice/cbc:ID='F004-00002825' or /pe:Invoice/cbc:ID='F004-00002826'">
 										VALUE SALE <br/>
 										</xsl:if>
 										VALOR VENTA</font>
@@ -582,6 +604,6 @@
 	</xsl:template>
 </xsl:stylesheet><!-- Stylus Studio meta-information - (c) 2004-2006. Progress Software Corporation. All rights reserved.
 <metaInformation>
-<scenarios/><MapperMetaTag><MapperInfo srcSchemaPathIsRelative="yes" srcSchemaInterpretAsXML="no" destSchemaPath="" destSchemaRoot="" destSchemaPathIsRelative="yes" destSchemaInterpretAsXML="no"/><MapperBlockPosition></MapperBlockPosition><TemplateContext></TemplateContext><MapperFilter side="source"></MapperFilter></MapperMetaTag>
+<scenarios ><scenario default="yes" name="Scenario1" userelativepaths="yes" externalpreview="no" url="" htmlbaseurl="" outputurl="" processortype="internal" useresolver="yes" profilemode="0" profiledepth="" profilelength="" urlprofilexml="" commandline="" additionalpath="" additionalclasspath="" postprocessortype="none" postprocesscommandline="" postprocessadditionalpath="" postprocessgeneratedext="" validateoutput="no" validator="internal" customvalidator=""/></scenarios><MapperMetaTag><MapperInfo srcSchemaPathIsRelative="yes" srcSchemaInterpretAsXML="no" destSchemaPath="" destSchemaRoot="" destSchemaPathIsRelative="yes" destSchemaInterpretAsXML="no"/><MapperBlockPosition></MapperBlockPosition><TemplateContext></TemplateContext><MapperFilter side="source"></MapperFilter></MapperMetaTag>
 </metaInformation>
 -->
