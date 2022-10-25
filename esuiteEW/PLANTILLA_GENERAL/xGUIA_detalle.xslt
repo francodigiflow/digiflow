@@ -833,7 +833,7 @@
 		<xsl:param name="NumAd"/>
 		<xsl:for-each select="//ext:UBLExtensions/ext:UBLExtension/ext:ExtensionContent/pe:DatosAdicionales/pe:LineaDetalle">
 			<!--Como funciona-->
-			<xsl:if test="pe:Linea = format-number($NumLinea,'00','')">
+			<xsl:if test="pe:Linea = format-number($NumLinea,'00','pen')">
 					<xsl:value-of select="pe:Valor"/>
 			</xsl:if>
 			<!--Como estaba-->
