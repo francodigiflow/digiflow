@@ -47,8 +47,8 @@
 								<table cellSpacing="0" cellPadding="0" width="100%" border="0">
 								<tr>
 									<td align="right">
-										<img src="C:\Users\FrancoCabanillasGóme\Documents\Representaciones\representaciones\SCANIA\logo2.jpg" width="80" height="80"/>
-										<!--<img src="data:image/*;base64,[logo_2]" width="80" height="80" />-->
+										<!--<img src="C:\Users\FrancoCabanillasGóme\Documents\Representaciones\representaciones\SCANIA\logo2.jpg" width="80" height="80"/>-->
+										<img src="data:image/*;base64,[logo_2]" width="80" height="80" />
 									</td>
 								</tr>
 							</table>
