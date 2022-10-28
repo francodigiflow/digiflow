@@ -97,20 +97,16 @@
                                                 <xsl:value-of select="/pe:Invoice/cac:AccountingCustomerParty/cac:Party/cac:PostalAddress/cbc:StreetName"/>
 							                    <xsl:value-of select="/pe1:CreditNote/cac:AccountingCustomerParty/cac:Party/cac:PostalAddress/cbc:StreetName"/>
 							                    <xsl:value-of select="/pe2:DebitNote/cac:AccountingCustomerParty/cac:Party/cac:PostalAddress/cbc:StreetName"/>
-										<xsl:value-of select="/pe:Invoice/cac:AccountingCustomerParty/cac:Party/cac:PartyLegalEntity/cac:RegistrationAddress/cac:AddressLine/cbc:Line"/>
-										<xsl:value-of select="/pe1:CreditNote/cac:AccountingCustomerParty/cac:Party/cac:PartyLegalEntity/cac:RegistrationAddress/cac:AddressLine/cbc:Line"/>
-										<xsl:value-of select="/pe2:DebitNote/cac:AccountingCustomerParty/cac:Party/cac:PartyLegalEntity/cac:RegistrationAddress/cac:AddressLine/cbc:Line"/>
-									
-
-										
+												<xsl:value-of select="/pe:Invoice/cac:AccountingCustomerParty/cac:Party/cac:PartyLegalEntity/cac:RegistrationAddress/cac:AddressLine/cbc:Line"/>
+												<xsl:value-of select="/pe1:CreditNote/cac:AccountingCustomerParty/cac:Party/cac:PartyLegalEntity/cac:RegistrationAddress/cac:AddressLine/cbc:Line"/>
+												<xsl:value-of select="/pe2:DebitNote/cac:AccountingCustomerParty/cac:Party/cac:PartyLegalEntity/cac:RegistrationAddress/cac:AddressLine/cbc:Line"/>
 											</font>
 										</td>
-										<td width="15%" cellpadding="2" valign="top" align="left">
-											<font face="Arial, Helvetica, sans-serif" size="1">&#160;</font>
-										</td>
-										<td width="25%" cellpadding="2" valign="top" align="left">
-											<font face="Arial, Helvetica, sans-serif" size="1">&#160;</font>
-										</td>
+										
+
+										
+
+										
 									</tr>
 									
 								</tbody>
@@ -193,6 +189,7 @@
 										</td>
 										
 									</tr>
+
 									<tr>
 									<td width="10%" align="left">
 											<font face="Arial, Helvetica, sans-serif" size="1">
@@ -217,6 +214,33 @@
 											</font>
 										</td>
 									</tr>
+
+									<xsl:if test="//cac:PaymentTerms/cbc:ID='FormaPago' and //cac:PaymentTerms/cbc:PaymentMeansID='Contado' and /pe:Invoice/cbc:InvoiceTypeCode='01' and substring-before(/pe:Invoice/cbc:ID,'-')='F040'">
+										<tr>
+											<td width="10%" align="left">
+												<font face="Arial, Helvetica, sans-serif" size="1">
+													<b></b>
+												</font>
+											</td>
+											<td width="50%" cellpadding="2" valign="top" align="left">
+												<font face="Arial, Helvetica, sans-serif" size="1">
+												
+												</font>
+											</td>
+											<td width="15%" align="left">
+												<font face="Arial, Helvetica, sans-serif" size="1">
+													<b>FORMA DE PAGO:</b>
+												</font>
+											</td>
+											<td width="25%" cellpadding="2" valign="top" align="left">
+												<font face="Arial, Helvetica, sans-serif" size="1">
+													<!--FORMA DE PAGO-->
+													CONTADO
+												</font>
+											</td>
+										</tr>
+									</xsl:if>
+
 								</tbody></table>
 					</td></tr>
 					</xsl:if>
@@ -1966,8 +1990,8 @@
 			<xsl:otherwise>OTRA MONEDA</xsl:otherwise>
 		</xsl:choose>
 	</xsl:template>
-</xsl:stylesheet><!-- Stylus Studio meta-information - (c) 2004-2007. Progress Software Corporation. All rights reserved.
+</xsl:stylesheet><!-- Stylus Studio meta-information - (c) 2004-2006. Progress Software Corporation. All rights reserved.
 <metaInformation>
-<scenarios ><scenario default="yes" name="Scenario1" userelativepaths="yes" externalpreview="yes" url="..\..\Users\Usuario\Desktop\Felix TXT\xmls\20100049008-01-FF12-13131302.xml" htmlbaseurl="" outputurl="" processortype="internal" useresolver="no" profilemode="0" profiledepth="" profilelength="" urlprofilexml="" commandline="" additionalpath="" additionalclasspath="" postprocessortype="none" postprocesscommandline="" postprocessadditionalpath="" postprocessgeneratedext="" validateoutput="no" validator="internal" customvalidator="" ><advancedProp name="sInitialMode" value=""/><advancedProp name="bXsltOneIsOkay" value="true"/><advancedProp name="bSchemaAware" value="false"/><advancedProp name="bXml11" value="false"/><advancedProp name="iValidation" value="0"/><advancedProp name="bExtensions" value="true"/><advancedProp name="iWhitespace" value="0"/><advancedProp name="sInitialTemplate" value=""/><advancedProp name="bTinyTree" value="true"/><advancedProp name="bWarnings" value="true"/><advancedProp name="bUseDTD" value="false"/><advancedProp name="iErrorHandling" value="fatal"/></scenario></scenarios><MapperMetaTag><MapperInfo srcSchemaPathIsRelative="yes" srcSchemaInterpretAsXML="no" destSchemaPath="" destSchemaRoot="" destSchemaPathIsRelative="yes" destSchemaInterpretAsXML="no"/><MapperBlockPosition></MapperBlockPosition><TemplateContext></TemplateContext><MapperFilter side="source"></MapperFilter></MapperMetaTag>
+<scenarios ><scenario default="yes" name="Scenario1" userelativepaths="yes" externalpreview="yes" url="..\..\Users\Usuario\Desktop\Felix TXT\xmls\20100049008&#x2D;01&#x2D;FF12&#x2D;13131302.xml" htmlbaseurl="" outputurl="" processortype="internal" useresolver="no" profilemode="0" profiledepth="" profilelength="" urlprofilexml="" commandline="" additionalpath="" additionalclasspath="" postprocessortype="none" postprocesscommandline="" postprocessadditionalpath="" postprocessgeneratedext="" validateoutput="no" validator="internal" customvalidator="" ><advancedProp name="sInitialMode" value=""/><advancedProp name="bSchemaAware" value="false"/><advancedProp name="bXsltOneIsOkay" value="true"/><advancedProp name="bXml11" value="false"/><advancedProp name="iValidation" value="0"/><advancedProp name="bExtensions" value="true"/><advancedProp name="iWhitespace" value="0"/><advancedProp name="sInitialTemplate" value=""/><advancedProp name="bTinyTree" value="true"/><advancedProp name="bUseDTD" value="false"/><advancedProp name="bWarnings" value="true"/><advancedProp name="iErrorHandling" value="fatal"/></scenario></scenarios><MapperMetaTag><MapperInfo srcSchemaPathIsRelative="yes" srcSchemaInterpretAsXML="no" destSchemaPath="" destSchemaRoot="" destSchemaPathIsRelative="yes" destSchemaInterpretAsXML="no"/><MapperBlockPosition></MapperBlockPosition><TemplateContext></TemplateContext><MapperFilter side="source"></MapperFilter></MapperMetaTag>
 </metaInformation>
 -->
