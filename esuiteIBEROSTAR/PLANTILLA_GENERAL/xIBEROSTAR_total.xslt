@@ -32,7 +32,7 @@
 					<xsl:call-template name="RetourneValAd"><xsl:with-param name="NumAd" select="07"/></xsl:call-template>
 				</xsl:if>
 				<xsl:if test="$FLAG_R='1'">
-					-
+					<xsl:call-template name="RetourneValAd"><xsl:with-param name="NumAd" select="19"/></xsl:call-template>
 				</xsl:if>
 				<br/>
 				&#160;&#160;&#160;<strong>Formas de Pago: </strong>
