@@ -112,7 +112,7 @@
 	</table>
 </xsl:template>
 
-	<xsl:template name="tipodocu">
+<xsl:template name="tipodocu">
 	<xsl:choose>
 		<xsl:when test="/pe:Invoice/cbc:InvoiceTypeCode='01'">
 				<font color="#000000" size="4" face="Arial, Helvetica, sans-serif">FACTURA ELECTRÓNICA</font>

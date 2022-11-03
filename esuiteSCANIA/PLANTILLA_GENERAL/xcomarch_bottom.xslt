@@ -12,87 +12,55 @@
 						 border-radius:6px;
 					   -moz-border-radius:6px;">
 			<tbody>
-			<tr>
-						<td width="100%" >
-							<table cellSpacing="0" cellPadding="0" width="100%" border="0">
-						<tbody>
-						<tr>
-
-						<td align="left" valign="center">
-							<table cellSpacing="" cellPadding="0" width="75%" border="0" >
-									<font face="Arial, Helvetica, sans-serif" size="1">
-											<b> Sello digital emisor:</b>
-										</font>
-										 <br/><br/><br/>
+				<tr>
+					<td width="100%" >
+						<table cellSpacing="0" cellPadding="0" width="100%" border="0">
+							<tbody>
+								<tr>
+									<td align="left" valign="center">
+										<table cellSpacing="" cellPadding="0" width="75%" border="0" >
 												<font face="Arial, Helvetica, sans-serif" size="1">
-											<b> Observación:</b>
-										</font>
-										<font face="Arial, Helvetica, sans-serif" size="1">:
-																				<xsl:for-each select="//ext:UBLExtensions/ext:UBLExtension/ext:ExtensionContent/pe:DatosAdicionales/pe:DatoAdicional">
-										<xsl:if test="pe:Codigo='11'">
-											<xsl:if test="pe:Valor !='-'">
-										<xsl:value-of select="pe:Valor"/>
-											</xsl:if>
-										</xsl:if>
-									</xsl:for-each>
-									<xsl:for-each select="//ext:UBLExtensions/ext:UBLExtension/ext:ExtensionContent/pe1:DatosAdicionales/pe1:DatoAdicional">
-										<xsl:if test="pe1:Codigo='11'">
-											<xsl:if test="pe1:Valor !='-'">
-										<xsl:value-of select="pe1:Valor"/>
-											</xsl:if>
-										</xsl:if>
-									</xsl:for-each>
-									<xsl:for-each select="//ext:UBLExtensions/ext:UBLExtension/ext:ExtensionContent/pe2:DatosAdicionales/pe2:DatoAdicional">
-										<xsl:if test="pe2:Codigo='11'">
-											<xsl:if test="pe2:Valor !='-'">
-										<xsl:value-of select="pe2:Valor"/>
-											</xsl:if>
-										</xsl:if>
-									</xsl:for-each>
-									</font>
-							</table>
-						</td>
-						<td align="right">
-								<table cellSpacing="0" cellPadding="0" width="100%" border="0">
-									<xsl:call-template name="imp_timbre"/>
-									
-							</table>
-						</td>
-					</tr>
-						</tbody>
-							</table>
-						</td>
-					</tr>
+														<b> Sello digital emisor:</b>
+												</font>
+										</table>
+									</td>
+									<td align="right">
+										<table cellSpacing="0" cellPadding="0" width="100%" border="0">
+											<xsl:call-template name="imp_timbre"/>
+										</table>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</td>
+				</tr>
 			</tbody>
 		</table>
-		
-		
-		
-				<table border="0" bordercolor="#000000" cellpadding="1" cellspacing="2" width="100%">
-			<tbody>
-			<tr>
-						<td width="100%" >
-							<table cellSpacing="0" cellPadding="0" width="100%" border="0">
-						<tbody>
-						<tr>
 
-						<td valign="top" width="70%" align="center">
-						<font face="Arial, Helvetica, sans-serif" size="1">Operador de servicios Electronicos<br/>
-						Segun la Resolución N° 034-005-0010266
-						<br/>
-						<br/>
-						<!--<br/>-->
-						Representacion impresa de la factura Electrónica. 
-							<br/>
-							consulte en <a href="https://facturacion.ecomprobantes.pe/SCANIA" 
-							target="_blank"> https://facturacion.ecomprobantes.pe/SCANIA</a>
-						</font>
+	</xsl:template>
+
+	<xsl:template name="bottom_final">
+		<table border="0" bordercolor="#000000" cellpadding="1" cellspacing="2" width="100%">
+			<tbody>
+				<tr>
+					<td width="100%" >
+						<table cellSpacing="0" cellPadding="0" width="100%" border="0">
+							<tbody>
+								<tr>
+									<td valign="top" width="70%" align="center">
+										<font face="Arial, Helvetica, sans-serif" size="1">
+										<br/>
+											Representacion impresa de la factura Electrónica. 
+											<br/>
+											consulte en <a href="https://facturacion.ecomprobantes.pe/SCANIA" 
+											target="_blank"> https://facturacion.ecomprobantes.pe/SCANIA</a>
+										</font>
+									</td>
+								</tr>
+							</tbody>
+						</table>
 					</td>
-					</tr>
-						</tbody>
-							</table>
-						</td>
-					</tr>
+				</tr>
 			</tbody>
 		</table>
 	</xsl:template>

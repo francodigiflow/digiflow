@@ -316,7 +316,7 @@
 							<xsl:if test="//cac:PrepaidPayment/cbc:PaidAmount!=''">	
 							<td width="12.5%" align="right" style="border:solid 1px black;border-top:none;border-bottom:none">
 								<font face="Arial, Helvetica, sans-serif" size="1">
-													<xsl:choose>
+									<xsl:choose>
       									<xsl:when test="//cac:LegalMonetaryTotal/cbc:PrepaidAmount">
         								<xsl:value-of select="format-number(//cac:LegalMonetaryTotal/cbc:PrepaidAmount,'###,###,##0.00','pen')"/>
        									</xsl:when>

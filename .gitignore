@@ -7,3 +7,6 @@
 *.xml
 *.txt
 *.xlsx
+esuiteSCANIA/XML/ebxml.css
+esuiteSCANIA/XML/factura.xsl
+esuiteSCANIA/XML/libreria.xsl

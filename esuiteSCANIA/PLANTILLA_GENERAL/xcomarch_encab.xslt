@@ -252,21 +252,21 @@
 		<xsl:choose>
 			<xsl:when test="/pe:Invoice/cbc:InvoiceTypeCode='01'">
 			<xsl:if test="//cac:TaxSubtotal/cac:TaxCategory/cbc:TaxExemptionReasonCode!='40' and //cbc:UBLVersionID='2.1'">
-				<font color="#000000" size="1" face="Arial, Helvetica, sans-serif">FACTURA ELECTRONICA</font>
+				<font color="#000000" size="1" face="Arial, Helvetica, sans-serif">Factura electrónica</font>
 				</xsl:if>
 				<xsl:if test="//cac:TaxSubtotal/cac:TaxCategory/cbc:TaxExemptionReasonCode='40' and //cbc:UBLVersionID='2.1'">
-				<font color="#000000" size="1" face="Arial, Helvetica, sans-serif">FACTURA / INVOICE</font>
+				<font color="#000000" size="1" face="Arial, Helvetica, sans-serif">Factura / Invoice</font>
 				</xsl:if>
 			</xsl:when>
 			<xsl:when test="/pe:Invoice/cbc:InvoiceTypeCode='03'">
-				<font color="#000000" size="1" face="Arial, Helvetica, sans-serif">BOLETA DE VENTA ELECTRONICA</font>
+				<font color="#000000" size="1" face="Arial, Helvetica, sans-serif">Boleta de venta electrónica</font>
 			</xsl:when>
 			<xsl:otherwise>
 				<xsl:if test="/pe1:CreditNote">
-					<font color="#000000" size="1" face="Arial, Helvetica, sans-serif">NOTA DE CREDITO ELECTRONICA</font>
+					<font color="#000000" size="1" face="Arial, Helvetica, sans-serif">Nota de crédito electrónica</font>
 				</xsl:if>
 				<xsl:if test="/pe2:DebitNote">
-					<font color="#000000" size="1" face="Arial, Helvetica, sans-serif">NOTA DE DEBITO ELECTRONICA</font>
+					<font color="#000000" size="1" face="Arial, Helvetica, sans-serif">Nota de débito electrónica</font>
 				</xsl:if>
 			</xsl:otherwise>
 		</xsl:choose>

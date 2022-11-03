@@ -12,7 +12,7 @@ xmlns:qdt="urn:oasis:names:specification:ubl:schema:xsd:QualifiedDatatypes-2">
 
 	<xsl:template name="Detalle">
 		
-	<table rules="groups" width="100%" cellpadding="3" cellspacing="0"  
+		<table rules="groups" width="100%" cellpadding="3" cellspacing="0"  
 					style="border-collapse:separate;
 						border:solid #2F528F 2px;
 						 border-radius:6px;
@@ -23,14 +23,18 @@ xmlns:qdt="urn:oasis:names:specification:ubl:schema:xsd:QualifiedDatatypes-2">
 						 border-radius:6px;
 					   -moz-border-radius:6px;">
 							<tr >
-								<th width="13%" align="center" 
-								style="border-bottom: 1px solid #2F528F;">
+								<th width="5%" align="center" style="border-bottom: 1px solid #2F528F;">
+									<b>
+										<font face="Arial, Helvetica, sans-serif" size="1">Item</font>
+									</b>
+								</th>
+								<th width="9%" align="center" style="border-bottom: 1px solid #2F528F;">
 									<b>
 										<font face="Arial, Helvetica, sans-serif" size="1">No. Identificación</font>
 									</b>
 								</th>
 								
-								<th width="20%" align="center" 
+								<th width="30%" align="center" 
 								style=" border-bottom: 1px solid #2F528F;">
 									<b>
 										<font face="Arial, Helvetica, sans-serif" size="1">Descripción</font>
@@ -49,19 +53,8 @@ xmlns:qdt="urn:oasis:names:specification:ubl:schema:xsd:QualifiedDatatypes-2">
 										<font face="Arial, Helvetica, sans-serif" size="1">Cantidad</font>
 									</b>
 								</th>
+								
 								<th width="9%" align="center" 
-								style="border-bottom: 1px solid #2F528F;">
-									<b>
-										<font face="Arial, Helvetica, sans-serif" size="1">Clave <br/>Unidad</font>
-									</b>
-								</th>
-								<th width="9%" align="center" 
-								style="border-bottom: 1px solid #2F528F;">
-									<b>
-										<font face="Arial, Helvetica, sans-serif" size="1">Clave Prod.<br/>O Serv.</font>
-									</b>
-								</th>
-									<th width="9%" align="center" 
 									style="border-bottom: 1px solid #2F528F;">
 									<b>
 										<font face="Arial, Helvetica, sans-serif" size="1">Valor <br/>Unitario</font>
@@ -70,7 +63,7 @@ xmlns:qdt="urn:oasis:names:specification:ubl:schema:xsd:QualifiedDatatypes-2">
 								<th width="6%" align="center" 
 								style="border-bottom: 1px solid #2F528F;">
 									<b>
-										<font face="Arial, Helvetica, sans-serif" size="1">%Desc.</font>
+										<font face="Arial, Helvetica, sans-serif" size="1">Desc.</font>
 									</b>
 								</th>
 								
@@ -88,13 +81,17 @@ xmlns:qdt="urn:oasis:names:specification:ubl:schema:xsd:QualifiedDatatypes-2">
 						<tbody>
 							<xsl:for-each select="/pe:Invoice/cac:InvoiceLine">
 								<tr>
-								
-									<td width="13%" align="center" valign="top" style="border:solid 1px #fff;border-top:none;border-bottom:none;border-left: none;">
+									<td width="5%" align="center" valign="top" style="border:solid 1px #fff;border-top:none;border-bottom:none;border-left: none;">
+										<font face="Arial, Helvetica, sans-serif" size="1">
+											<xsl:value-of select="cbc:ID"/>
+										</font>
+									</td>
+									<td width="9%" align="center" valign="top" style="border:solid 1px #fff;border-top:none;border-bottom:none;border-left: none;">
 										<font face="Arial, Helvetica, sans-serif" size="1">
 											<xsl:value-of select="cac:Item/cac:SellersItemIdentification/cbc:ID"/>
 										</font>
 									</td>
-									<td width="20%" align="center" valign="top" style="border:solid 1px #fff;border-top:none;border-bottom:none;border-left: none;" >
+									<td width="30%" align="left" valign="top" style="border:solid 1px #fff;border-top:none;border-bottom:none;border-left: none;" >
 										<font face="Arial, Helvetica, sans-serif" size="1">
 											<xsl:value-of select="cac:Item/cbc:Description"/>
 										</font>
@@ -110,17 +107,6 @@ xmlns:qdt="urn:oasis:names:specification:ubl:schema:xsd:QualifiedDatatypes-2">
 											<xsl:value-of select="format-number(cbc:InvoicedQuantity,'###,###,##0.00','pen')"/>
 										</font>
 									</td>
-									<td width="9%" align="center" valign="top" style="border:solid 1px #fff;border-top:none;border-bottom:none;border-left: none;">
-										<font face="Arial, Helvetica, sans-serif" size="1">
-											
-										</font>
-									</td>
-									<td width="9%" align="center" valign="top" style="border:solid 1px #fff;border-top:none;border-bottom:none;border-left: none;">
-										<font face="Arial, Helvetica, sans-serif" size="1">
-										
-										</font>
-									</td>
-									
 									<td width="9%" align="center" valign="top" style="border:solid 1px #fff;border-top:none;border-bottom:none;border-left: none;">
 										<font face="Arial, Helvetica, sans-serif" size="1">
 										
@@ -372,11 +358,62 @@ xmlns:qdt="urn:oasis:names:specification:ubl:schema:xsd:QualifiedDatatypes-2">
 							</xsl:for-each>
 							
 							<!--xsl:call-template name="lineaBl"><xsl:with-param name="cont" select="$numColBl"/></xsl:call-template-->
-						
-						
+
+							<tr>
+								<td width="100%" align="center" valign="top" style="border:solid 1px #fff;border-top:none;border-bottom:none;border-left: none;" colspan="7">
+									<xsl:call-template name="tmpDatosLeyenda"/>
+								</td>
+							</tr>
+							<tr>
+								<td width="100%" align="center" valign="top" style="border:solid 1px #fff;border-top:none;border-bottom:none;border-left: none;" colspan="7">
+									
+								</td>
+							</tr>
 							
 						</tbody>
 						
+
+						<thead 
+						style="border-collapse:separate;
+						border:solid #2F528F 2px;
+						 border-radius:6px;
+					   -moz-border-radius:6px;">
+							<tr>
+								<th width="3%" align="left">
+									
+								</th>
+								<th width="94%" align="left" style="border-bottom: 1px solid #2F528F;" colspan="10">
+									<b>
+										<font face="Arial, Helvetica, sans-serif" size="1">Totales</font>
+									</b>
+								</th>
+								<th width="3%" align="left">
+									
+								</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td width="5%" align="center" valign="top" style="border:solid 1px #fff;border-top:none;border-bottom:none;border-left: none;">
+								</td>
+							</tr>	
+							<tr>
+								<td width="40%" align="right" valign="top" style="border:solid 1px #fff;border-top:none;border-bottom:none;border-left: none;" colspan="9">
+									<xsl:call-template name="tmpTotal"/>
+								</td>
+							</tr>	
+
+							<tr>
+								<td width="60%" align="left" valign="top" style="border:solid 1px #fff;border-top:none;border-bottom:none;border-left: none;" colspan="9">
+									<xsl:call-template name="tmpImporteLetras"/>
+								</td>
+							</tr>	
+							<tr>
+								<td width="60%" align="left" valign="top" style="border:solid 1px #fff;border-top:none;border-bottom:none;border-left: none;" colspan="9">									
+								</td>
+							</tr>
+							
+						</tbody>
 						
 					
 					</table>

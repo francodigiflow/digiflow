@@ -131,9 +131,8 @@
 					<xsl:call-template name="RetourneValAd"><xsl:with-param name="NumAd" select="15"/></xsl:call-template>
 				</xsl:if>
 				<xsl:if test="$FLAG_R='1'">
-					-
+					<xsl:call-template name="RetourneValAd"><xsl:with-param name="NumAd" select="20"/></xsl:call-template>	
 				</xsl:if>
-				
 			</td>
 		</tr>
 			</xsl:when>
