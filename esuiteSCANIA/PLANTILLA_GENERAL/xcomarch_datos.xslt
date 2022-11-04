@@ -127,11 +127,11 @@
 		<table cellSpacing="0" cellPadding="0" width="100%" border="0">
 			<tbody>
 				<tr>
-					<td vAlign="top" width="70%">
+					<td vAlign="top" width="70%"  border="0" >
 					<xsl:call-template name="DatosFiscales"/>
 					</td>
 					
-					<td vAlign="top" width="30%">
+					<td vAlign="top" width="30%"  border="0">
 					<xsl:call-template name="DatosTimbre"/>
 					</td>
 				</tr>
@@ -736,48 +736,51 @@
 	</xsl:template>
 
 	<xsl:template name="DatosDetracc">
-		<table width="80%" align="center" border="0" cellpadding="1">
-			<tr  style="">
-				<td width="80%">
-					<font face="Arial, Helvetica, sans-serif" size="1">
-						<strong>Detracción en Moneda Soles</strong><br/>
-					</font>
-				</td>				
-			</tr>
-			<tr  style="">
-				<td>
-					<table width="100%" align="center" cellpadding="2" cellspacing="0" style="border:solid 1px #A5A5A5;">
-						<tr>
-							<td width="20%" align="center">
-								<font face="Arial, Helvetica, sans-serif" size="1">
-									<strong>% Detracción:</strong>&#xA0;<xsl:value-of select="format-number(//cac:PaymentTerms/cbc:PaymentPercent,'##0.00','pen')"/>
-								</font>
-							</td>
-							<td width="20%" align="center">
-								<font face="Arial, Helvetica, sans-serif" size="1">
-									<strong>Monto Detracción:</strong>&#xA0;<xsl:value-of select="format-number(//cac:PaymentTerms/cbc:Amount,'###,###,##0','pen')"/>
-								</font>
-							</td>
-							<td width="20%" align="center">
-								<font face="Arial, Helvetica, sans-serif" size="1">
-									<strong>Número de cuenta:</strong>&#xA0;000000447765
-								</font>
-							</td>							
-							<td width="20%" align="center">
-								<font face="Arial, Helvetica, sans-serif" size="1">
-									<strong>Moneda:</strong>&#xA0;Sol
-								</font>
-							</td>
-							<td width="20%" align="center">
-								<font face="Arial, Helvetica, sans-serif" size="1">
-									<strong>Código de detracción:</strong>&#xA0;<xsl:value-of select="format-number(//cac:PaymentTerms/cbc:PaymentMeansID,'000','pen')"/>
-								</font>
-							</td>
-						</tr>						
-					</table>
-				</td>
-			</tr>
-		</table>
+		<xsl:if test="//cac:PaymentMeans/cbc:ID='Detraccion'">
+	
+			<table width="80%" align="center" border="0" cellpadding="1">
+				<tr  style="">
+					<td width="80%">
+						<font face="Arial, Helvetica, sans-serif" size="1">
+							<strong>Detracción en Moneda Soles</strong><br/>
+						</font>
+					</td>				
+				</tr>
+				<tr  style="">
+					<td>
+						<table width="100%" align="center" cellpadding="2" cellspacing="0" style="border:solid 1px #A5A5A5;">
+							<tr>
+								<td width="20%" align="center">
+									<font face="Arial, Helvetica, sans-serif" size="1">
+										<strong>% Detracción:</strong>&#xA0;<xsl:value-of select="format-number(//cac:PaymentTerms/cbc:PaymentPercent,'##0.00','pen')"/>
+									</font>
+								</td>
+								<td width="20%" align="center">
+									<font face="Arial, Helvetica, sans-serif" size="1">
+										<strong>Monto Detracción:</strong>&#xA0;<xsl:value-of select="format-number(//cac:PaymentTerms/cbc:Amount,'###,###,##0','pen')"/>
+									</font>
+								</td>
+								<td width="20%" align="center">
+									<font face="Arial, Helvetica, sans-serif" size="1">
+										<strong>Número de cuenta:</strong>&#xA0;000000447765
+									</font>
+								</td>							
+								<td width="20%" align="center">
+									<font face="Arial, Helvetica, sans-serif" size="1">
+										<strong>Moneda:</strong>&#xA0;Sol
+									</font>
+								</td>
+								<td width="20%" align="center">
+									<font face="Arial, Helvetica, sans-serif" size="1">
+										<strong>Código de detracción:</strong>&#xA0;<xsl:value-of select="format-number(//cac:PaymentTerms/cbc:PaymentMeansID,'000','pen')"/>
+									</font>
+								</td>
+							</tr>						
+						</table>
+					</td>
+				</tr>
+			</table>
+		</xsl:if>
 	</xsl:template>
 
 	<xsl:template name="DatosInfoAdicional">
@@ -1041,7 +1044,7 @@
 	</xsl:template>
 
 	<xsl:template name="DatosNota">
-		<xsl:if test="cbc:DocumentTypeCode='07' or cbc:DocumentTypeCode='08'">
+		<xsl:if test="/pe1:CreditNote or /pe2:DeditNote">
 			<table width="80%" align="center" border="0" cellpadding="1">
 				<tr  style="">
 					<td>
