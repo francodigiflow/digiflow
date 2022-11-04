@@ -20,7 +20,7 @@
 									<td align="left" valign="center">
 										<table cellSpacing="" cellPadding="0" width="75%" border="0" >
 												<font face="Arial, Helvetica, sans-serif" size="1">
-														<b> Sello digital emisor:</b>
+														<b> Sello digital emisor:</b> <xsl:value-of select="//ds:DigestValue"/>
 												</font>
 										</table>
 									</td>

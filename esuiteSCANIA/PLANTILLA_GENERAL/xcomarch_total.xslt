@@ -60,6 +60,7 @@
 						<strong>Operación gravada</strong>
 					</font>
 				</td>
+
 				<td width="5%" align="right" style="border: 1px solid #fff !important;
 				border-radius: 5px 5px 5px 5px !important;
 				-moz-border-radius: 5px 5px 5px 5px !important;
@@ -68,6 +69,7 @@
 						<xsl:call-template name="SimboloMoneda"/>
 					</font>
 				</td>
+
 				<td width="15%" align="right" style="border: 1px solid #fff !important;
 				border-radius: 5px 5px 5px 5px !important;
 				-moz-border-radius: 5px 5px 5px 5px !important;
@@ -76,6 +78,7 @@
 						<xsl:value-of select="format-number($OPGravada,'###,###,##0.00','pen')"/>&#xA0;
 					</font>
 				</td>
+
 			</tr>
 		
 	<xsl:if test="/pe:Invoice/cbc:InvoiceTypeCode='01'">
@@ -134,6 +137,115 @@
 			</xsl:for-each>
 		</xsl:for-each>	
 	</xsl:if>
+
+	<xsl:if test="/pe1:CreditNote or /pe2:DebitNote">
+		<xsl:for-each select="/pe1:CreditNote/cac:TaxTotal">
+				<tr>
+				<td width="80%" align="left"
+				style="border: 1px solid #fff !important;
+				border-radius: 5px 5px 5px 5px !important;
+				-moz-border-radius: 5px 5px 5px 5px !important;
+				-webkit-border-radius: 5px 5px 5px 5px !important;">
+						<font face="Arial, Helvetica, sans-serif" size="2">
+							<strong>IGV (18%)</strong>
+						</font>
+					</td>
+					<td width="5%" align="right" style="border: 1px solid #fff !important;
+				border-radius: 5px 5px 5px 5px !important;
+				-moz-border-radius: 5px 5px 5px 5px !important;
+				-webkit-border-radius: 5px 5px 5px 5px !important;">
+					<font face="Arial, Helvetica, sans-serif" size="2">
+						<xsl:call-template name="SimboloMoneda"/>
+					</font>
+				</td>
+					<td width="15%" align="right"
+						style="border: 1px solid #fff !important;
+						border-radius: 5px 5px 5px 5px !important;
+						-moz-border-radius: 5px 5px 5px 5px !important;
+						-webkit-border-radius: 5px 5px 5px 5px !important;"
+							>
+						<font face="Arial, Helvetica, sans-serif" size="2">
+							<xsl:if test="//cbc:UBLVersionID='2.0'">
+								<xsl:if test="/pe:Invoice/cbc:InvoiceTypeCode='01'">
+									<xsl:for-each select="/pe:Invoice/cac:TaxTotal">
+										<xsl:if test="cac:TaxSubtotal/cbc:TaxAmount!=''">
+											<xsl:value-of select="format-number(cac:TaxSubtotal/cbc:TaxAmount,'###,###,##0.00','pen')"/>
+										</xsl:if>
+									</xsl:for-each>
+								</xsl:if>
+								<xsl:for-each select="/pe1:CreditNote/cac:TaxTotal">
+									<xsl:if test="cac:TaxSubtotal/cbc:TaxAmount!=''">
+										<xsl:value-of select="format-number(cac:TaxSubtotal/cbc:TaxAmount,'###,###,##0.00','pen')"/>
+									</xsl:if>
+								</xsl:for-each>
+								<xsl:for-each select="/pe2:DebitNote/cac:TaxTotal">
+									<xsl:if test="cac:TaxSubtotal/cbc:TaxAmount!=''">
+										<xsl:value-of select="format-number(cac:TaxSubtotal/cbc:TaxAmount,'###,###,##0.00','pen')"/>
+									</xsl:if>								
+								</xsl:for-each>
+							</xsl:if>
+							<xsl:if test="//cbc:UBLVersionID='2.1'">
+							 	<xsl:value-of select="format-number($IGV,'###,###,##0.00','pen')"/>&#xA0;
+							</xsl:if> 
+						</font>
+					</td>
+				</tr>
+		</xsl:for-each>	
+		<xsl:for-each select="/pe2:DeditNote/cac:TaxTotal">
+				<tr>
+				<td width="80%" align="left"
+				style="border: 1px solid #fff !important;
+				border-radius: 5px 5px 5px 5px !important;
+				-moz-border-radius: 5px 5px 5px 5px !important;
+				-webkit-border-radius: 5px 5px 5px 5px !important;">
+						<font face="Arial, Helvetica, sans-serif" size="2">
+							<strong>IGV (18%)</strong>
+						</font>
+					</td>
+					<td width="5%" align="right" style="border: 1px solid #fff !important;
+				border-radius: 5px 5px 5px 5px !important;
+				-moz-border-radius: 5px 5px 5px 5px !important;
+				-webkit-border-radius: 5px 5px 5px 5px !important;">
+					<font face="Arial, Helvetica, sans-serif" size="2">
+						<xsl:call-template name="SimboloMoneda"/>
+					</font>
+				</td>
+					<td width="15%" align="right"
+						style="border: 1px solid #fff !important;
+						border-radius: 5px 5px 5px 5px !important;
+						-moz-border-radius: 5px 5px 5px 5px !important;
+						-webkit-border-radius: 5px 5px 5px 5px !important;"
+							>
+						<font face="Arial, Helvetica, sans-serif" size="2">
+							<xsl:if test="//cbc:UBLVersionID='2.0'">
+								<xsl:if test="/pe:Invoice/cbc:InvoiceTypeCode='01'">
+									<xsl:for-each select="/pe:Invoice/cac:TaxTotal">
+										<xsl:if test="cac:TaxSubtotal/cbc:TaxAmount!=''">
+											<xsl:value-of select="format-number(cac:TaxSubtotal/cbc:TaxAmount,'###,###,##0.00','pen')"/>
+										</xsl:if>
+									</xsl:for-each>
+								</xsl:if>
+								<xsl:for-each select="/pe1:CreditNote/cac:TaxTotal">
+									<xsl:if test="cac:TaxSubtotal/cbc:TaxAmount!=''">
+										<xsl:value-of select="format-number(cac:TaxSubtotal/cbc:TaxAmount,'###,###,##0.00','pen')"/>
+									</xsl:if>
+								</xsl:for-each>
+								<xsl:for-each select="/pe2:DebitNote/cac:TaxTotal">
+									<xsl:if test="cac:TaxSubtotal/cbc:TaxAmount!=''">
+										<xsl:value-of select="format-number(cac:TaxSubtotal/cbc:TaxAmount,'###,###,##0.00','pen')"/>
+									</xsl:if>								
+								</xsl:for-each>
+							</xsl:if>
+							<xsl:if test="//cbc:UBLVersionID='2.1'">
+							 	<xsl:value-of select="format-number($IGV,'###,###,##0.00','pen')"/>&#xA0;
+							</xsl:if> 
+						</font>
+					</td>
+				</tr>
+		</xsl:for-each>
+	</xsl:if>
+
+
 			<tr>
 				<td width="80%" align="left"
 				style="border: 1px solid #fff !important;
@@ -157,7 +269,7 @@
 				-moz-border-radius: 5px 5px 5px 5px !important;
 				-webkit-border-radius: 5px 5px 5px 5px !important;">
 					<font face="Arial, Helvetica, sans-serif" size="2">
-						<xsl:value-of select="format-number($OPInafecta,'###,###,##0.00','pen')"/>
+						<xsl:value-of select="format-number($OPInafecta,'###,###,##0.00','pen')"/>&#xA0;
 					</font>
 				</td>
 			</tr>
@@ -505,6 +617,6 @@
 
 </xsl:stylesheet><!-- Stylus Studio meta-information - (c) 2004-2006. Progress Software Corporation. All rights reserved.
 <metaInformation>
-<scenarios ><scenario default="yes" name="Scenario1" userelativepaths="yes" externalpreview="no" url="20101363008&#x2D;01&#x2D;F999&#x2D;00000001.xml" htmlbaseurl="" outputurl="" processortype="saxon8" useresolver="yes" profilemode="0" profiledepth="" profilelength="" urlprofilexml="" commandline="" additionalpath="" additionalclasspath="" postprocessortype="none" postprocesscommandline="" postprocessadditionalpath="" postprocessgeneratedext="" validateoutput="no" validator="internal" customvalidator="" ><advancedProp name="sInitialMode" value=""/><advancedProp name="bXsltOneIsOkay" value="true"/><advancedProp name="bSchemaAware" value="true"/><advancedProp name="bGenerateByteCode" value="true"/><advancedProp name="bXml11" value="false"/><advancedProp name="iValidation" value="0"/><advancedProp name="bExtensions" value="true"/><advancedProp name="iWhitespace" value="0"/><advancedProp name="sInitialTemplate" value=""/><advancedProp name="bTinyTree" value="true"/><advancedProp name="bUseDTD" value="false"/><advancedProp name="bWarnings" value="true"/><advancedProp name="xsltVersion" value="2.0"/><advancedProp name="iErrorHandling" value="fatal"/></scenario></scenarios><MapperMetaTag><MapperInfo srcSchemaPathIsRelative="yes" srcSchemaInterpretAsXML="no" destSchemaPath="" destSchemaRoot="" destSchemaPathIsRelative="yes" destSchemaInterpretAsXML="no"/><MapperBlockPosition></MapperBlockPosition><TemplateContext></TemplateContext><MapperFilter side="source"></MapperFilter></MapperMetaTag>
+<scenarios ><scenario default="yes" name="Scenario1" userelativepaths="yes" externalpreview="no" url="20101363008&#x2D;01&#x2D;F999&#x2D;00000001.xml" htmlbaseurl="" outputurl="" processortype="saxon8" useresolver="yes" profilemode="0" profiledepth="" profilelength="" urlprofilexml="" commandline="" additionalpath="" additionalclasspath="" postprocessortype="none" postprocesscommandline="" postprocessadditionalpath="" postprocessgeneratedext="" validateoutput="no" validator="internal" customvalidator="" ><advancedProp name="sInitialMode" value=""/><advancedProp name="bSchemaAware" value="true"/><advancedProp name="bXsltOneIsOkay" value="true"/><advancedProp name="bXml11" value="false"/><advancedProp name="bGenerateByteCode" value="true"/><advancedProp name="iValidation" value="0"/><advancedProp name="bExtensions" value="true"/><advancedProp name="iWhitespace" value="0"/><advancedProp name="sInitialTemplate" value=""/><advancedProp name="bTinyTree" value="true"/><advancedProp name="xsltVersion" value="2.0"/><advancedProp name="bWarnings" value="true"/><advancedProp name="bUseDTD" value="false"/><advancedProp name="iErrorHandling" value="fatal"/></scenario></scenarios><MapperMetaTag><MapperInfo srcSchemaPathIsRelative="yes" srcSchemaInterpretAsXML="no" destSchemaPath="" destSchemaRoot="" destSchemaPathIsRelative="yes" destSchemaInterpretAsXML="no"/><MapperBlockPosition></MapperBlockPosition><TemplateContext></TemplateContext><MapperFilter side="source"></MapperFilter></MapperMetaTag>
 </metaInformation>
 -->

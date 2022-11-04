@@ -151,21 +151,19 @@ xmlns:qdt="urn:oasis:names:specification:ubl:schema:xsd:QualifiedDatatypes-2">
 									</td>
 									<td width="6%" align="center" valign="top" style="border:solid 1px #fff;border-top:none;border-bottom:none;border-left: none;">
 										<font face="Arial, Helvetica, sans-serif" size="1">
-								<xsl:variable name="Descuento">
-									<xsl:value-of select="0"/>
-									<xsl:if test="cac:AllowanceCharge/cbc:Amount">
-										<xsl:value-of select="cac:AllowanceCharge/cbc:Amount"/>
-									</xsl:if>
-								</xsl:variable>
+											<xsl:variable name="Descuento">
+												<xsl:value-of select="0"/>
+												<xsl:if test="cac:AllowanceCharge/cbc:Amount">
+													<xsl:value-of select="cac:AllowanceCharge/cbc:Amount"/>
+												</xsl:if>
+											</xsl:variable>
 											<xsl:choose>
-											<xsl:when test="//cac:PartyIdentification/cbc:ID='20138651917'">
-											
-												<xsl:value-of select="format-number($Descuento*1.18,'###,###,##0.00','pen')"/>
-											</xsl:when>
-											<xsl:otherwise>
-											
-												<xsl:value-of select="format-number($Descuento,'###,###,##0.00','pen')"/>
-											</xsl:otherwise>
+												<xsl:when test="//cac:PartyIdentification/cbc:ID='20138651917'">
+													<xsl:value-of select="format-number($Descuento*1.18,'###,###,##0.00','pen')"/>
+												</xsl:when>
+												<xsl:otherwise>
+													<xsl:value-of select="format-number($Descuento,'###,###,##0.00','pen')"/>
+												</xsl:otherwise>
 											</xsl:choose>
 										</font>
 									</td>
@@ -188,7 +186,11 @@ xmlns:qdt="urn:oasis:names:specification:ubl:schema:xsd:QualifiedDatatypes-2">
 								</xsl:variable>
 
 								<tr>
-									
+									<td width="5%" align="center" valign="top" style="border:solid 1px #fff;border-top:none;border-bottom:none;border-left: none;">
+										<font face="Arial, Helvetica, sans-serif" size="1">
+											<xsl:value-of select="cbc:ID"/>
+										</font>
+									</td>
 									<td width="13%" align="center" valign="top" style="border:solid 1px #fff;border-top:none;border-bottom:none;border-left: none;">
 										<font face="Arial, Helvetica, sans-serif" size="1">
 											<xsl:value-of select="cac:Item/cac:SellersItemIdentification/cbc:ID"/>
@@ -211,46 +213,77 @@ xmlns:qdt="urn:oasis:names:specification:ubl:schema:xsd:QualifiedDatatypes-2">
 									</td>
 									<td width="9%" align="center" valign="top" style="border:solid 1px #fff;border-top:none;border-bottom:none;border-left: none;">
 										<font face="Arial, Helvetica, sans-serif" size="1">
-											
-										</font>
-									</td>
-									<td width="9%" align="center" valign="top" style="border:solid 1px #fff;border-top:none;border-bottom:none;border-left: none;">
-										<font face="Arial, Helvetica, sans-serif" size="1">
 										
-										</font>
-									</td>
+											<xsl:variable name="CTSValor1">
+												<xsl:for-each select="cac:PricingReference/cac:AlternativeConditionPrice">
+													<xsl:if test="cbc:PriceTypeCode = '02'">
+														<xsl:value-of select="cbc:PriceAmount"/>
+													</xsl:if>
+												</xsl:for-each>
+											</xsl:variable>
 
-									<td width="9%" align="center" valign="top" style="border:solid 1px #fff;border-top:none;border-bottom:none;border-left: none;">
-										<font face="Arial, Helvetica, sans-serif" size="1">
-
-												0.00
+											<xsl:variable name="CTSValorFinal">
+												<xsl:if test="$CTSValor1 = ''">
+													<xsl:value-of select="cac:Price/cbc:PriceAmount"/>
+												</xsl:if>
+												<xsl:if test="$CTSValor1 != ''">
+													<xsl:value-of select="$CTSValor1"/>
+												</xsl:if>
+											</xsl:variable>
+										
+												<xsl:choose>
+												<xsl:when test="string-length(substring-after($CTSValorFinal, '.')) = 3">
+													<xsl:value-of select="format-number($CTSValorFinal, '###,###,##0.000', 'pen')"/>&#xA0;</xsl:when>
+												<xsl:when test="string-length(substring-after($CTSValorFinal, '.')) = 4">
+													<xsl:value-of select="format-number($CTSValorFinal, '###,###,##0.0000', 'pen')"/>&#xA0;</xsl:when>
+												<xsl:when test="string-length(substring-after($CTSValorFinal, '.')) = 5">
+													<xsl:value-of select="format-number($CTSValorFinal, '###,###,##0.00000', 'pen')"/>&#xA0;</xsl:when>
+												<xsl:when test="string-length(substring-after($CTSValorFinal, '.')) = 6">
+													<xsl:value-of select="format-number($CTSValorFinal, '###,###,##0.000000', 'pen')"/>&#xA0;</xsl:when>
+												<xsl:when test="string-length(substring-after($CTSValorFinal, '.')) = 7">
+													<xsl:value-of select="format-number($CTSValorFinal, '###,###,##0.0000000', 'pen')"/>&#xA0;</xsl:when>
+												<xsl:when test="string-length(substring-after($CTSValorFinal, '.')) = 8">
+													<xsl:value-of select="format-number($CTSValorFinal, '###,###,##0.00000000', 'pen')"/>&#xA0;</xsl:when>
+												<xsl:when test="string-length(substring-after($CTSValorFinal, '.')) = 9">
+													<xsl:value-of select="format-number($CTSValorFinal, '###,###,##0.000000000', 'pen')"/>&#xA0;</xsl:when>
+												<xsl:when test="string-length(substring-after($CTSValorFinal, '.')) = 10">
+													<xsl:value-of select="format-number($CTSValorFinal, '###,###,##0.0000000000', 'pen')"/>&#xA0;</xsl:when>
+												<xsl:otherwise>
+													<xsl:value-of select="format-number($CTSValorFinal, '###,###,##0.00', 'pen')"/>&#xA0;</xsl:otherwise>
+											</xsl:choose>
 										</font>
 									</td>
 									<td width="6%" align="center" valign="top" style="border:solid 1px #fff;border-top:none;border-bottom:none;border-left: none;">
 										<font face="Arial, Helvetica, sans-serif" size="1">
 											<xsl:choose>
 											<xsl:when test="//cac:PartyIdentification/cbc:ID='20138651917'">
-											<xsl:variable name="Descuento">
-									<xsl:value-of select="0"/>
-									<xsl:if test="cac:AllowanceCharge/cbc:Amount">
-										<xsl:value-of select="cac:AllowanceCharge/cbc:Amount"/>
-									</xsl:if>
-								</xsl:variable>
+												<xsl:variable name="Descuento">
+													<xsl:value-of select="0"/>
+													<xsl:if test="cac:AllowanceCharge/cbc:Amount">
+														<xsl:value-of select="cac:AllowanceCharge/cbc:Amount"/>
+													</xsl:if>
+												</xsl:variable>
 												<xsl:value-of select="format-number($Descuento*1.18,'###,###,##0.00','pen')"/>
 											</xsl:when>
-											<xsl:otherwise>
-											<xsl:variable name="Descuento">
-									<xsl:value-of select="0"/>
-									<xsl:if test="cac:AllowanceCharge/cbc:Amount">
-										<xsl:value-of select="cac:AllowanceCharge/cbc:Amount"/>
-									</xsl:if>
-								</xsl:variable>
+												<xsl:otherwise>
+														<xsl:variable name="Descuento">
+												<xsl:value-of select="0"/>
+												<xsl:if test="cac:AllowanceCharge/cbc:Amount">
+													<xsl:value-of select="cac:AllowanceCharge/cbc:Amount"/>
+												</xsl:if>
+											</xsl:variable>
 												<xsl:value-of select="format-number($Descuento,'###,###,##0.00','pen')"/>
 											</xsl:otherwise>
 											</xsl:choose>
 										</font>
 									</td>
 									<td width="9%" align="center" valign="top" style="border:solid 1px #fff;border-top:none;border-bottom:none;border-left: none;">
+										<font face="Arial, Helvetica, sans-serif" size="1">
+											<xsl:value-of select="format-number(cbc:LineExtensionAmount, '###,###,##0.00', 'pen')"/>
+											
+										</font>
+									</td>
+									<!--<td width="9%" align="center" valign="top" style="border:solid 1px #fff;border-top:none;border-bottom:none;border-left: none;">
 										<font face="Arial, Helvetica, sans-serif" size="1">
 											
 
@@ -267,7 +300,7 @@ xmlns:qdt="urn:oasis:names:specification:ubl:schema:xsd:QualifiedDatatypes-2">
 											
 											
 										</font>
-									</td>
+									</td>-->
 								</tr>
 							</xsl:for-each>
 
@@ -280,6 +313,11 @@ xmlns:qdt="urn:oasis:names:specification:ubl:schema:xsd:QualifiedDatatypes-2">
 								</xsl:variable>
 
 								<tr>
+									<td width="5%" align="center" valign="top" style="border:solid 1px #fff;border-top:none;border-bottom:none;border-left: none;">
+										<font face="Arial, Helvetica, sans-serif" size="1">
+											<xsl:value-of select="cbc:ID"/>
+										</font>
+									</td>
 									<td width="13%" align="center" valign="top" style="border:solid 1px #fff;border-top:none;border-bottom:none;border-left: none;">
 										<font face="Arial, Helvetica, sans-serif" size="1">
 											<xsl:value-of select="cac:Item/cac:SellersItemIdentification/cbc:ID"/>
@@ -302,38 +340,63 @@ xmlns:qdt="urn:oasis:names:specification:ubl:schema:xsd:QualifiedDatatypes-2">
 									</td>
 									<td width="9%" align="center" valign="top" style="border:solid 1px #fff;border-top:none;border-bottom:none;border-left: none;">
 										<font face="Arial, Helvetica, sans-serif" size="1">
-											
-										</font>
-									</td>
-									<td width="9%" align="center" valign="top" style="border:solid 1px #fff;border-top:none;border-bottom:none;border-left: none;">
-										<font face="Arial, Helvetica, sans-serif" size="1">
 										
-										</font>
-									</td>
-									<td width="9%" align="right" valign="top" style="border:solid 1px #fff;border-top:none;border-bottom:none;border-left: none;">
-										<font face="Arial, Helvetica, sans-serif" size="1">
-											0.00
+											<xsl:variable name="CTSValor1">
+												<xsl:for-each select="cac:PricingReference/cac:AlternativeConditionPrice">
+													<xsl:if test="cbc:PriceTypeCode = '02'">
+														<xsl:value-of select="cbc:PriceAmount"/>
+													</xsl:if>
+												</xsl:for-each>
+											</xsl:variable>
+											<xsl:variable name="CTSValorFinal">
+												<xsl:if test="$CTSValor1 = ''">
+													<xsl:value-of select="cac:Price/cbc:PriceAmount"/>
+												</xsl:if>
+												<xsl:if test="$CTSValor1 != ''">
+													<xsl:value-of select="$CTSValor1"/>
+												</xsl:if>
+											</xsl:variable>
+											<xsl:choose>
+												<xsl:when test="string-length(substring-after($CTSValorFinal, '.')) = 3">
+													<xsl:value-of select="format-number($CTSValorFinal, '###,###,##0.000', 'pen')"/>&#xA0;</xsl:when>
+												<xsl:when test="string-length(substring-after($CTSValorFinal, '.')) = 4">
+													<xsl:value-of select="format-number($CTSValorFinal, '###,###,##0.0000', 'pen')"/>&#xA0;</xsl:when>
+												<xsl:when test="string-length(substring-after($CTSValorFinal, '.')) = 5">
+													<xsl:value-of select="format-number($CTSValorFinal, '###,###,##0.00000', 'pen')"/>&#xA0;</xsl:when>
+												<xsl:when test="string-length(substring-after($CTSValorFinal, '.')) = 6">
+													<xsl:value-of select="format-number($CTSValorFinal, '###,###,##0.000000', 'pen')"/>&#xA0;</xsl:when>
+												<xsl:when test="string-length(substring-after($CTSValorFinal, '.')) = 7">
+													<xsl:value-of select="format-number($CTSValorFinal, '###,###,##0.0000000', 'pen')"/>&#xA0;</xsl:when>
+												<xsl:when test="string-length(substring-after($CTSValorFinal, '.')) = 8">
+													<xsl:value-of select="format-number($CTSValorFinal, '###,###,##0.00000000', 'pen')"/>&#xA0;</xsl:when>
+												<xsl:when test="string-length(substring-after($CTSValorFinal, '.')) = 9">
+													<xsl:value-of select="format-number($CTSValorFinal, '###,###,##0.000000000', 'pen')"/>&#xA0;</xsl:when>
+												<xsl:when test="string-length(substring-after($CTSValorFinal, '.')) = 10">
+													<xsl:value-of select="format-number($CTSValorFinal, '###,###,##0.0000000000', 'pen')"/>&#xA0;</xsl:when>
+												<xsl:otherwise>
+													<xsl:value-of select="format-number($CTSValorFinal, '###,###,##0.00', 'pen')"/>&#xA0;</xsl:otherwise>
+											</xsl:choose>
 										</font>
 									</td>
 									<td width="6%" align="right" valign="top" style="border:solid 1px #fff;border-top:none;border-bottom:none;border-left: none;">
 										<font face="Arial, Helvetica, sans-serif" size="1">
 											<xsl:choose>
 											<xsl:when test="//cac:PartyIdentification/cbc:ID='20138651917'">
-											<xsl:variable name="Descuento">
-									<xsl:value-of select="0"/>
-									<xsl:if test="cac:AllowanceCharge/cbc:Amount">
-										<xsl:value-of select="cac:AllowanceCharge/cbc:Amount"/>
-									</xsl:if>
-								</xsl:variable>
+												<xsl:variable name="Descuento">
+													<xsl:value-of select="0"/>
+													<xsl:if test="cac:AllowanceCharge/cbc:Amount">
+														<xsl:value-of select="cac:AllowanceCharge/cbc:Amount"/>
+													</xsl:if>
+												</xsl:variable>
 												<xsl:value-of select="format-number($Descuento*1.18,'###,###,##0.00','pen')"/>
 											</xsl:when>
 											<xsl:otherwise>
-											<xsl:variable name="Descuento">
-									<xsl:value-of select="0"/>
-									<xsl:if test="cac:AllowanceCharge/cbc:Amount">
-										<xsl:value-of select="cac:AllowanceCharge/cbc:Amount"/>
-									</xsl:if>
-								</xsl:variable>
+												<xsl:variable name="Descuento">
+													<xsl:value-of select="0"/>
+													<xsl:if test="cac:AllowanceCharge/cbc:Amount">
+														<xsl:value-of select="cac:AllowanceCharge/cbc:Amount"/>
+													</xsl:if>
+												</xsl:variable>
 												<xsl:value-of select="format-number($Descuento,'###,###,##0.00','pen')"/>
 											</xsl:otherwise>
 											</xsl:choose>
