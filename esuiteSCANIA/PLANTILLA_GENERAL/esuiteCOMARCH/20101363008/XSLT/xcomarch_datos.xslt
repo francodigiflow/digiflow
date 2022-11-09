@@ -162,7 +162,8 @@
 				<tr>
 					<td valign="top" width="100%">
 						<table border="0" width="100%" cellSpacing="0" cellPadding="2" rules="none"
-						style="">
+						style="border-collapse:separate;border-spacing: 1;border:solid #2F528F 2px;border-radius:10px;
+						-moz-border-radius:10px;-webkit-border-radius: 5px;">
 							<tbody>
 								<tr>
 									<td width="100%" colspan="4">

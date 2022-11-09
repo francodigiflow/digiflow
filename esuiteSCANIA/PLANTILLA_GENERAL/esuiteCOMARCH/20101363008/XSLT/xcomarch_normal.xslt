@@ -93,7 +93,7 @@
 							</tr>
 							<tr>
 								<td>
-									<!--<xsl:call-template name="DatosCliente"/>-->
+									<xsl:call-template name="DatosCliente"/>
 								</td>
 							</tr>
 							<tr>
