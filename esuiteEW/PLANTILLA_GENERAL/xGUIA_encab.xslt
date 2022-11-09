@@ -147,10 +147,12 @@ xmlns:sac="urn:sunat:names:specification:ubl:peru:schema:xsd:SunatAggregateCompo
 			<tr>
 				<td width="100%" align="center">
 						<strong>
+						 <br/>
 							R.U.C. N°&#160;&#160;
 							<xsl:value-of select="format-number(//cac:DespatchSupplierParty/cbc:CustomerAssignedAccountID, '###########', 'pen')"/>
-							<br/><br/><xsl:call-template name="tipodocu"/>
-							<br/><br/><xsl:call-template name="NFolio"/>
+							<br/><xsl:call-template name="tipodocu"/>
+							<br/><xsl:call-template name="NFolio"/>
+							<br/>
 						</strong>
 				</td>
 			</tr>
@@ -161,7 +163,7 @@ xmlns:sac="urn:sunat:names:specification:ubl:peru:schema:xsd:SunatAggregateCompo
 	
 		<xsl:if test="//cbc:DespatchAdviceTypeCode='09'">
 			<font color="#000000" size="4" face="Arial, Helvetica, sans-serif">
-			GUÍA DE REMISIÓN ELECTRÓNICA
+			GUÍA DE REMISIÓN ELECTRÓNICA <br/> REMITENTE
 			</font>
 		</xsl:if>
 		
