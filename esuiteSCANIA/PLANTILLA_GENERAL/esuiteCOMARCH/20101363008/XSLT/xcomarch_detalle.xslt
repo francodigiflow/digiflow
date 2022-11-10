@@ -25,52 +25,52 @@ xmlns:qdt="urn:oasis:names:specification:ubl:schema:xsd:QualifiedDatatypes-2">
 							<tr >
 								<th width="5%" align="center" style="border-bottom: 1px solid #2F528F;">
 									<b>
-										<font face="Arial, Helvetica, sans-serif" size="1">Item</font>
+										<font face="Arial, Helvetica, sans-serif" size="1" color="blue">Item</font>
 									</b>
 								</th>
 								<th width="9%" align="center" style="border-bottom: 1px solid #2F528F;">
 									<b>
-										<font face="Arial, Helvetica, sans-serif" size="1">No. Identificación</font>
+										<font face="Arial, Helvetica, sans-serif" size="1" color="blue">Código</font>
 									</b>
 								</th>
 								
 								<th width="30%" align="center" 
 								style=" border-bottom: 1px solid #2F528F;">
 									<b>
-										<font face="Arial, Helvetica, sans-serif" size="1">Descripción</font>
+										<font face="Arial, Helvetica, sans-serif" size="1" color="blue">Descripción</font>
 									</b>
 								</th>
 								
 								<th width="4%" align="center" 
 								style="border-bottom: 1px solid #2F528F;">
 									<b>
-										<font face="Arial, Helvetica, sans-serif" size="1">U/M</font>
+										<font face="Arial, Helvetica, sans-serif" size="1" color="blue">Und</font>
 									</b>
 								</th>
 								<th width="6%" align="center" 
 								style="border-bottom: 1px solid #2F528F;">
 									<b>
-										<font face="Arial, Helvetica, sans-serif" size="1">Cantidad</font>
+										<font face="Arial, Helvetica, sans-serif" size="1" color="blue">Cantidad</font>
 									</b>
 								</th>
 								
 								<th width="9%" align="center" 
 									style="border-bottom: 1px solid #2F528F;">
 									<b>
-										<font face="Arial, Helvetica, sans-serif" size="1">Valor <br/>Unitario</font>
+										<font face="Arial, Helvetica, sans-serif" size="1" color="blue">V.Unitario</font>
 									</b>
 								</th>
 								<th width="6%" align="center" 
 								style="border-bottom: 1px solid #2F528F;">
 									<b>
-										<font face="Arial, Helvetica, sans-serif" size="1">Desc.</font>
+										<font face="Arial, Helvetica, sans-serif" size="1" color="blue">Importe Dscto</font>
 									</b>
 								</th>
 								
 								<th width="9%" align="center" 
 								style="border-bottom: 1px solid #2F528F;">
 									<b>
-										<font face="Arial, Helvetica, sans-serif" size="1">Importe</font>
+										<font face="Arial, Helvetica, sans-serif" size="1" color="blue">Valor venta</font>
 									</b>
 								</th>
 

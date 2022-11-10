@@ -5,6 +5,56 @@
 
 	<xsl:output method="html" indent="yes" encoding="ISO-8859-1" omit-xml-declaration="yes"/>
 
+	<xsl:template name="fechaddmmyyyy">
+		<xsl:if test="/pe:Invoice">		
+			<xsl:variable name="aa">
+	        	<xsl:value-of select="substring-before(/pe:Invoice/cbc:IssueDate, '-')"/>
+	      	</xsl:variable>
+	      	<xsl:variable name="mmdd">
+	         	<xsl:value-of select="substring-after(/pe:Invoice/cbc:IssueDate, '-')"/>
+	      	</xsl:variable>
+	      	<xsl:variable name="mm">
+	         	<xsl:value-of select="substring-before($mmdd, '-')"/>
+	      	</xsl:variable>
+	      	<xsl:variable name="dd">
+	         	<xsl:value-of select="substring-after($mmdd, '-')"/>
+	      	</xsl:variable>
+	      	<xsl:value-of select="concat($dd, '/', $mm, '/' , $aa)"/>
+		</xsl:if>
+
+		<xsl:if test="/pe1:CreditNote">		
+			<xsl:variable name="aa">
+	        	<xsl:value-of select="substring-before(/pe1:CreditNote/cbc:IssueDate, '-')"/>
+	      	</xsl:variable>
+	      	<xsl:variable name="mmdd">
+	         	<xsl:value-of select="substring-after(/pe1:CreditNote/cbc:IssueDate, '-')"/>
+	      	</xsl:variable>
+	      	<xsl:variable name="mm">
+	         	<xsl:value-of select="substring-before($mmdd, '-')"/>
+	      	</xsl:variable>
+	      	<xsl:variable name="dd">
+	         	<xsl:value-of select="substring-after($mmdd, '-')"/>
+	      	</xsl:variable>
+	      	<xsl:value-of select="concat($dd, '/', $mm, '/' , $aa)"/>
+		</xsl:if>
+
+		<xsl:if test="/pe2:DebitNote">		
+			<xsl:variable name="aa">
+	        	<xsl:value-of select="substring-before(/pe2:DebitNote/cbc:IssueDate, '-')"/>
+	      	</xsl:variable>
+	      	<xsl:variable name="mmdd">
+	         	<xsl:value-of select="substring-after(/pe2:DebitNote/cbc:IssueDate, '-')"/>
+	      	</xsl:variable>
+	      	<xsl:variable name="mm">
+	         	<xsl:value-of select="substring-before($mmdd, '-')"/>
+	      	</xsl:variable>
+	      	<xsl:variable name="dd">
+	         	<xsl:value-of select="substring-after($mmdd, '-')"/>
+	      	</xsl:variable>
+	      	<xsl:value-of select="concat($dd, '/', $mm, '/' , $aa)"/>
+		</xsl:if>
+	</xsl:template>
+	
 	<xsl:template name="tmpDatosAdicional">
 		<table border="0" bordercolor="#000000" cellpadding="1" cellspacing="2" width="100%"
 		style="border-collapse:separate;
@@ -188,6 +238,17 @@
 									
 								</tr>
 								<tr>
+									<td width="100%"  colspan="5">
+										<font face="Arial, Helvetica, sans-serif" size="1">
+											<xsl:value-of select="//cac:AccountingSupplierParty/cac:Party/cac:PartyLegalEntity/cac:RegistrationAddress/cac:AddressLine/cbc:Line"/>-
+											<xsl:value-of select="//cac:AccountingSupplierParty/cac:Party/cac:PartyLegalEntity/cac:RegistrationAddress/cbc:CityName"/>-
+											<xsl:value-of select="//cac:AccountingSupplierParty/cac:Party/cac:PartyLegalEntity/cac:RegistrationAddress/cbc:CountrySubentity"/>-
+											<xsl:value-of select="//cac:AccountingSupplierParty/cac:Party/cac:PartyLegalEntity/cac:RegistrationAddress/cbc:District"/>
+										</font>
+									</td>
+									
+								</tr>
+								<tr>
 									<td width="13%">
 										<font face="Arial, Helvetica, sans-serif" size="1">
 											
@@ -254,9 +315,10 @@
 									</td>
 									<td length="18%"  valign="top" align="left">
 										<font face="Arial, Helvetica, sans-serif" size="1">:&#xA0;
-											<xsl:value-of select="/pe:Invoice/cbc:IssueDate"/>
+											<!--<xsl:value-of select="/pe:Invoice/cbc:IssueDate"/>
 											<xsl:value-of select="/pe1:CreditNote/cbc:IssueDate"/>
-											<xsl:value-of select="/pe2:DebitNote/cbc:IssueDate"/>
+											<xsl:value-of select="/pe2:DebitNote/cbc:IssueDate"/>-->
+											<xsl:call-template name="fechaddmmyyyy"/>
 										</font>
 									</td>
 									<td length="8%" valign="top" align="left">
@@ -311,7 +373,9 @@
 									</td>
 									<td length="25%" valign="top" align="left">
 										<font face="Arial, Helvetica, sans-serif" size="1">:&#xA0;
-											<xsl:call-template name="RetourneValAd"><xsl:with-param name="NumAd" select="06"/></xsl:call-template>
+											<xsl:if test="/pe:Invoice/cbc:InvoiceTypeCode='01' or /pe:Invoice/cbc:InvoiceTypeCode='03'">
+												<xsl:call-template name="RetourneValAd"><xsl:with-param name="NumAd" select="06"/></xsl:call-template>
+											</xsl:if>
 										</font>
 									</td>
 								</tr>
@@ -333,7 +397,9 @@
 									</td>
 									<td length="15%" valign="top" align="left">
 										<font face="Arial, Helvetica, sans-serif" size="1">:&#xA0;
-											<xsl:call-template name="RetourneValAd"><xsl:with-param name="NumAd" select="17"/></xsl:call-template>											
+											<xsl:value-of select="//cac:AccountingSupplierParty/cac:Party/cac:PartyLegalEntity/cac:RegistrationAddress/cbc:CityName"/>-
+											<xsl:value-of select="//cac:AccountingSupplierParty/cac:Party/cac:PartyLegalEntity/cac:RegistrationAddress/cbc:CountrySubentity"/>-
+											<xsl:value-of select="//cac:AccountingSupplierParty/cac:Party/cac:PartyLegalEntity/cac:RegistrationAddress/cbc:District"/>
 										</font>
 									</td>
 								</tr>
@@ -663,14 +729,20 @@
 								</td>
 								<td width="15%" align="center" style="border:solid 1px #A5A5A5;" >
 									<font face="Arial, Helvetica, sans-serif" size="1">
-										<strong>Monto</strong>
+										<strong>Fecha de <br/>Vencimiento</strong>
 									</font>
 								</td>
 								<td width="15%" align="center" style="border:solid 1px #A5A5A5;" >
 									<font face="Arial, Helvetica, sans-serif" size="1">
-										<strong>Fecha</strong>
+										<strong>Tipo de <br/>Moneda</strong>
 									</font>
 								</td>
+								<td width="15%" align="center" style="border:solid 1px #A5A5A5;" >
+									<font face="Arial, Helvetica, sans-serif" size="1">
+										<strong>Monto de cuota</strong>
+									</font>
+								</td>
+								
 							</tr>
 							<xsl:for-each select="/pe:Invoice/cac:PaymentTerms">
 								<xsl:if test="cbc:ID !='Detraccion'">
@@ -682,9 +754,9 @@
 														<xsl:value-of select="substring-after(cbc:PaymentMeansID,'Cuota00')"/>
 													</font>							
 												</td>
-												<td width="12%" align="center" style="border:solid 1px #A5A5A5;" >
+												<td width="10%" align="center" style="border:solid 1px #A5A5A5;" >
 													<font face="Arial, Helvetica, sans-serif" size="1">
-														<xsl:value-of select="format-number(cbc:Amount,'###,###,##0.00','pen')"/>
+														<xsl:call-template name="tmpDescripcionMoneda"/>
 													</font>
 												</td>
 												<td width="10%" align="center" style="border:solid 1px #A5A5A5;" >
@@ -692,6 +764,11 @@
 														<xsl:value-of select="cbc:PaymentDueDate"/>
 													</font>
 												</td>
+												<td width="12%" align="center" style="border:solid 1px #A5A5A5;" >
+													<font face="Arial, Helvetica, sans-serif" size="1">
+														<xsl:value-of select="format-number(cbc:Amount,'###,###,##0.00','pen')"/>
+													</font>
+												</td>												
 											</tr>
 										</xsl:if>
 									</xsl:if>
@@ -980,23 +1057,6 @@
 								<td width="70%" style="border:solid 1px #A5A5A5;">
 									<font face="Arial, Helvetica, sans-serif" size="1">
 										<xsl:call-template name="RetourneValAd"><xsl:with-param name="NumAd" select="11"/></xsl:call-template>
-									</font>
-								</td>							
-							</tr>
-							<tr>
-								<td width="5%" align="center" style="border:solid 1px #A5A5A5;">
-									<font face="Arial, Helvetica, sans-serif" size="1">
-										1
-									</font>
-								</td>
-								<td width="25%" style="border:solid 1px #A5A5A5;">
-									<font face="Arial, Helvetica, sans-serif" size="1">
-										Código de cliente
-									</font>
-								</td>
-								<td width="70%" style="border:solid 1px #A5A5A5;">
-									<font face="Arial, Helvetica, sans-serif" size="1">
-										<xsl:call-template name="RetourneValAd"><xsl:with-param name="NumAd" select="02"/></xsl:call-template>
 									</font>
 								</td>							
 							</tr>
