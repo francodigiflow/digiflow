@@ -57,7 +57,7 @@
 							</td>
 							<td width="10%" align="right">
 								<font face="Arial, Helvetica, sans-serif" size="1">
-									<strong>Precio Total<br/>Inc.Igv</strong>
+									<strong>Precio Total&#xA0;<br/>Inc.Igv</strong>&#xA0;
 								</font>
 							</td>
 						</tr>
@@ -96,7 +96,7 @@
 							</td>
 							<td width="10%" align="right">
 								<font face="Arial, Helvetica, sans-serif" size="1">
-									<strong>Precio Total<br/>Inc.IGV</strong>
+									<strong>Precio Total&#xA0;<br/>Inc.Igv</strong>&#xA0;
 								</font>
 							</td>
 						</tr>
@@ -135,7 +135,7 @@
 							</td>
 							<td width="10%" align="right">
 								<font face="Arial, Helvetica, sans-serif" size="1">
-									<strong>Precio Total<br/>Inc.IGV</strong>
+									<strong>Precio Total&#xA0;<br/>Inc.Igv</strong>&#xA0;
 								</font>
 							</td>
 						</tr>
@@ -228,7 +228,7 @@
 											</xsl:variable>
 											<xsl:if test="$ValorAdicional2">
 												<font face="Arial, Helvetica, sans-serif" size="1">
-													<xsl:value-of select="format-number($ValorAdicional2,'###,###,##0.00','pen')"/>
+													<xsl:value-of select="format-number($ValorAdicional2,'###,###,##0.00','pen')"/>&#xA0;
 												</font>
 											</xsl:if>
 										</font>
@@ -297,7 +297,7 @@
 											</xsl:variable>
 											<xsl:if test="$ValorAdicional2">
 												<font face="Arial, Helvetica, sans-serif" size="1">
-													<xsl:value-of select="format-number($ValorAdicional2,'###,###,##0.00','pen')"/>
+													<xsl:value-of select="format-number($ValorAdicional2,'###,###,##0.00','pen')"/>&#xA0;
 												</font>
 											</xsl:if>
 										</font>
@@ -366,7 +366,7 @@
 											</xsl:variable>
 											<xsl:if test="$ValorAdicional2">
 												<font face="Arial, Helvetica, sans-serif" size="1">
-													<xsl:value-of select="format-number($ValorAdicional2,'###,###,##0.00','pen')"/>
+													<xsl:value-of select="format-number($ValorAdicional2,'###,###,##0.00','pen')"/>&#xA0;
 												</font>
 											</xsl:if>
 										</font>
@@ -583,17 +583,17 @@
 								<font face="Arial, Helvetica, sans-serif" size="1">
 									<xsl:for-each select="//ext:UBLExtensions/ext:UBLExtension/ext:ExtensionContent/pe:DatosAdicionales/pe:DatoAdicional">
 											<xsl:if test="pe:Codigo='15'">
-												<xsl:value-of select="pe:Valor"/>
+												<xsl:value-of select="pe:Valor"/>&#xA0;
 											</xsl:if>
 										</xsl:for-each>
 										<xsl:for-each select="//ext:UBLExtensions/ext:UBLExtension/ext:ExtensionContent/pe1:DatosAdicionales/pe1:DatoAdicional">
 											<xsl:if test="pe1:Codigo='15'">
-												<xsl:value-of select="pe1:Valor"/>
+												<xsl:value-of select="pe1:Valor"/>&#xA0;
 											</xsl:if>
 										</xsl:for-each>
 										<xsl:for-each select="//ext:UBLExtensions/ext:UBLExtension/ext:ExtensionContent/pe2:DatosAdicionales/pe2:DatoAdicional">
 											<xsl:if test="pe2:Codigo='15'">
-												<xsl:value-of select="pe2:Valor"/>
+												<xsl:value-of select="pe2:Valor"/>&#xA0;
 											</xsl:if>
 										</xsl:for-each>	
 								</font>
@@ -656,7 +656,7 @@
 							</td>
 							<td width="10%" align="right">
 								<font face="Arial, Helvetica, sans-serif" size="1">
-									<strong>Precio Total<br/>Inc.IGV</strong>
+									<strong>Precio Total&#xA0;<br/>Inc.Igv</strong>&#xA0;
 								</font>
 							</td>
 						</tr>
@@ -695,7 +695,7 @@
 							</td>
 							<td width="10%" align="right">
 								<font face="Arial, Helvetica, sans-serif" size="1">
-									<strong>Precio Total<br/>Inc.IGV</strong>
+									<strong>Precio Total&#xA0;<br/>Inc.Igv</strong>&#xA0;
 								</font>
 							</td>
 						</tr>
@@ -734,7 +734,7 @@
 							</td>
 							<td width="10%" align="right">
 								<font face="Arial, Helvetica, sans-serif" size="1">
-									<strong>Precio Total<br/>Inc.IGV</strong>
+									<strong>Precio Total&#xA0;<br/>Inc.Igv</strong>&#xA0;
 								</font>
 							</td>
 						</tr>
@@ -829,7 +829,7 @@
 											</xsl:variable>
 											<xsl:if test="$ValorAdicional2">
 												<font face="Arial, Helvetica, sans-serif" size="1">
-													<xsl:value-of select="format-number($ValorAdicional2,'###,###,##0.00','pen')"/>
+													<xsl:value-of select="format-number($ValorAdicional2,'###,###,##0.00','pen')"/>&#xA0;
 												</font>
 											</xsl:if>
 										</font>
@@ -898,7 +898,7 @@
 											</xsl:variable>
 											<xsl:if test="$ValorAdicional2">
 												<font face="Arial, Helvetica, sans-serif" size="1">
-													<xsl:value-of select="format-number($ValorAdicional2,'###,###,##0.00','pen')"/>
+													<xsl:value-of select="format-number($ValorAdicional2,'###,###,##0.00','pen')"/>&#xA0;
 												</font>
 											</xsl:if>
 										</font>
@@ -967,7 +967,7 @@
 											</xsl:variable>
 											<xsl:if test="$ValorAdicional2">
 												<font face="Arial, Helvetica, sans-serif" size="1">
-													<xsl:value-of select="format-number($ValorAdicional2,'###,###,##0.00','pen')"/>
+													<xsl:value-of select="format-number($ValorAdicional2,'###,###,##0.00','pen')"/>&#xA0;
 												</font>
 											</xsl:if>
 										</font>
@@ -1183,17 +1183,17 @@
 								<font face="Arial, Helvetica, sans-serif" size="1">
 									<xsl:for-each select="//ext:UBLExtensions/ext:UBLExtension/ext:ExtensionContent/pe:DatosAdicionales/pe:DatoAdicional">
 											<xsl:if test="pe:Codigo='15'">
-												<xsl:value-of select="pe:Valor"/>
+												<xsl:value-of select="pe:Valor"/>&#xA0;
 											</xsl:if>
 										</xsl:for-each>
 										<xsl:for-each select="//ext:UBLExtensions/ext:UBLExtension/ext:ExtensionContent/pe1:DatosAdicionales/pe1:DatoAdicional">
 											<xsl:if test="pe1:Codigo='15'">
-												<xsl:value-of select="pe1:Valor"/>
+												<xsl:value-of select="pe1:Valor"/>&#xA0;
 											</xsl:if>
 										</xsl:for-each>
 										<xsl:for-each select="//ext:UBLExtensions/ext:UBLExtension/ext:ExtensionContent/pe2:DatosAdicionales/pe2:DatoAdicional">
 											<xsl:if test="pe2:Codigo='15'">
-												<xsl:value-of select="pe2:Valor"/>
+												<xsl:value-of select="pe2:Valor"/>&#xA0;
 											</xsl:if>
 										</xsl:for-each>	
 								</font>
@@ -1257,7 +1257,7 @@
 							</td>
 							<td width="10%" align="right">
 								<font face="Arial, Helvetica, sans-serif" size="1">
-									<strong>Precio Total<br/>Inc.IGV</strong>
+									<strong>Precio Total&#xA0;<br/>Inc.Igv</strong>&#xA0;
 								</font>
 							</td>
 						</tr>
@@ -1296,7 +1296,7 @@
 							</td>
 							<td width="10%" align="right">
 								<font face="Arial, Helvetica, sans-serif" size="1">
-									<strong>Precio Total<br/>Inc.IGV</strong>
+									<strong>Precio Total&#xA0;<br/>Inc.Igv</strong>&#xA0;
 								</font>
 							</td>
 						</tr>
@@ -1335,7 +1335,7 @@
 							</td>
 							<td width="10%" align="right">
 								<font face="Arial, Helvetica, sans-serif" size="1">
-									<strong>Precio Total<br/>Inc.IGV</strong>
+									<strong>Precio Total&#xA0;<br/>Inc.Igv</strong>&#xA0;
 								</font>
 							</td>
 						</tr>
@@ -1430,7 +1430,7 @@
 											</xsl:variable>
 											<xsl:if test="$ValorAdicional2">
 												<font face="Arial, Helvetica, sans-serif" size="1">
-													<xsl:value-of select="format-number($ValorAdicional2,'###,###,##0.00','pen')"/>
+													<xsl:value-of select="format-number($ValorAdicional2,'###,###,##0.00','pen')"/>&#xA0;
 												</font>
 											</xsl:if>
 										</font>
@@ -1499,7 +1499,7 @@
 											</xsl:variable>
 											<xsl:if test="$ValorAdicional2">
 												<font face="Arial, Helvetica, sans-serif" size="1">
-													<xsl:value-of select="format-number($ValorAdicional2,'###,###,##0.00','pen')"/>
+													<xsl:value-of select="format-number($ValorAdicional2,'###,###,##0.00','pen')"/>&#xA0;
 												</font>
 											</xsl:if>
 										</font>
@@ -1568,7 +1568,7 @@
 											</xsl:variable>
 											<xsl:if test="$ValorAdicional2">
 												<font face="Arial, Helvetica, sans-serif" size="1">
-													<xsl:value-of select="format-number($ValorAdicional2,'###,###,##0.00','pen')"/>
+													<xsl:value-of select="format-number($ValorAdicional2,'###,###,##0.00','pen')"/>&#xA0;
 												</font>
 											</xsl:if>
 										</font>
@@ -1784,17 +1784,17 @@
 								<font face="Arial, Helvetica, sans-serif" size="1">
 									<xsl:for-each select="//ext:UBLExtensions/ext:UBLExtension/ext:ExtensionContent/pe:DatosAdicionales/pe:DatoAdicional">
 											<xsl:if test="pe:Codigo='15'">
-												<xsl:value-of select="pe:Valor"/>
+												<xsl:value-of select="pe:Valor"/>&#xA0;
 											</xsl:if>
 										</xsl:for-each>
 										<xsl:for-each select="//ext:UBLExtensions/ext:UBLExtension/ext:ExtensionContent/pe1:DatosAdicionales/pe1:DatoAdicional">
 											<xsl:if test="pe1:Codigo='15'">
-												<xsl:value-of select="pe1:Valor"/>
+												<xsl:value-of select="pe1:Valor"/>&#xA0;
 											</xsl:if>
 										</xsl:for-each>
 										<xsl:for-each select="//ext:UBLExtensions/ext:UBLExtension/ext:ExtensionContent/pe2:DatosAdicionales/pe2:DatoAdicional">
 											<xsl:if test="pe2:Codigo='15'">
-												<xsl:value-of select="pe2:Valor"/>
+												<xsl:value-of select="pe2:Valor"/>&#xA0;
 											</xsl:if>
 										</xsl:for-each>	
 								</font>
@@ -1858,7 +1858,7 @@
 							</td>
 							<td width="10%" align="right">
 								<font face="Arial, Helvetica, sans-serif" size="1">
-									<strong>Precio Total<br/>Inc.IGV</strong>
+									<strong>Precio Total&#xA0;<br/>Inc.Igv</strong>&#xA0;
 								</font>
 							</td>
 						</tr>
@@ -1897,7 +1897,7 @@
 							</td>
 							<td width="10%" align="right">
 								<font face="Arial, Helvetica, sans-serif" size="1">
-									<strong>Precio Total<br/>Inc.IGV</strong>
+									<strong>Precio Total&#xA0;<br/>Inc.Igv</strong>&#xA0;
 								</font>
 							</td>
 						</tr>
@@ -1936,7 +1936,7 @@
 							</td>
 							<td width="10%" align="right">
 								<font face="Arial, Helvetica, sans-serif" size="1">
-									<strong>Precio Total<br/>Inc.IGV</strong>
+									<strong>Precio Total&#xA0;<br/>Inc.Igv</strong>&#xA0;
 								</font>
 							</td>
 						</tr>
@@ -2031,7 +2031,7 @@
 											</xsl:variable>
 											<xsl:if test="$ValorAdicional2">
 												<font face="Arial, Helvetica, sans-serif" size="1">
-													<xsl:value-of select="format-number($ValorAdicional2,'###,###,##0.00','pen')"/>
+													<xsl:value-of select="format-number($ValorAdicional2,'###,###,##0.00','pen')"/>&#xA0;
 												</font>
 											</xsl:if>
 										</font>
@@ -2100,7 +2100,7 @@
 											</xsl:variable>
 											<xsl:if test="$ValorAdicional2">
 												<font face="Arial, Helvetica, sans-serif" size="1">
-													<xsl:value-of select="format-number($ValorAdicional2,'###,###,##0.00','pen')"/>
+													<xsl:value-of select="format-number($ValorAdicional2,'###,###,##0.00','pen')"/>&#xA0;
 												</font>
 											</xsl:if>
 										</font>
@@ -2169,7 +2169,7 @@
 											</xsl:variable>
 											<xsl:if test="$ValorAdicional2">
 												<font face="Arial, Helvetica, sans-serif" size="1">
-													<xsl:value-of select="format-number($ValorAdicional2,'###,###,##0.00','pen')"/>
+													<xsl:value-of select="format-number($ValorAdicional2,'###,###,##0.00','pen')"/>&#xA0;
 												</font>
 											</xsl:if>
 										</font>
@@ -2384,17 +2384,17 @@
 								<font face="Arial, Helvetica, sans-serif" size="1">
 									<xsl:for-each select="//ext:UBLExtensions/ext:UBLExtension/ext:ExtensionContent/pe:DatosAdicionales/pe:DatoAdicional">
 											<xsl:if test="pe:Codigo='15'">
-												<xsl:value-of select="pe:Valor"/>
+												<xsl:value-of select="pe:Valor"/>&#xA0;
 											</xsl:if>
 										</xsl:for-each>
 										<xsl:for-each select="//ext:UBLExtensions/ext:UBLExtension/ext:ExtensionContent/pe1:DatosAdicionales/pe1:DatoAdicional">
 											<xsl:if test="pe1:Codigo='15'">
-												<xsl:value-of select="pe1:Valor"/>
+												<xsl:value-of select="pe1:Valor"/>&#xA0;
 											</xsl:if>
 										</xsl:for-each>
 										<xsl:for-each select="//ext:UBLExtensions/ext:UBLExtension/ext:ExtensionContent/pe2:DatosAdicionales/pe2:DatoAdicional">
 											<xsl:if test="pe2:Codigo='15'">
-												<xsl:value-of select="pe2:Valor"/>
+												<xsl:value-of select="pe2:Valor"/>&#xA0;
 											</xsl:if>
 										</xsl:for-each>	
 								</font>
