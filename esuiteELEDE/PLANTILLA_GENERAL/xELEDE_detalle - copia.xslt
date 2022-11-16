@@ -446,51 +446,49 @@
 									TOTAL: 
 								</font>
 							</td>
-
+							
 							<xsl:if test="/pe:Invoice!=''">
 								<td width="28%" align="left">
-									<font face="Arial, Helvetica, sans-serif" size="1">
-											<xsl:for-each select="//ext:UBLExtensions/ext:UBLExtension/ext:ExtensionContent/pe:DatosAdicionales/pe:DatoAdicional">
-												<xsl:if test="pe:Codigo='10'">
-													<xsl:value-of select="pe:Valor"/>
-												</xsl:if>
-											</xsl:for-each>
-											<xsl:for-each select="//ext:UBLExtensions/ext:UBLExtension/ext:ExtensionContent/pe1:DatosAdicionales/pe1:DatoAdicional">
-												<xsl:if test="pe1:Codigo='10'">
-													<xsl:value-of select="pe1:Valor"/>
-												</xsl:if>
-											</xsl:for-each>
-											<xsl:for-each select="//ext:UBLExtensions/ext:UBLExtension/ext:ExtensionContent/pe2:DatosAdicionales/pe2:DatoAdicional">
-												<xsl:if test="pe2:Codigo='10'">
-													<xsl:value-of select="pe2:Valor"/>
-												</xsl:if>
-											</xsl:for-each>	
-									</font>
-								</td>
+								<font face="Arial, Helvetica, sans-serif" size="1">
+										<xsl:for-each select="//ext:UBLExtensions/ext:UBLExtension/ext:ExtensionContent/pe:DatosAdicionales/pe:DatoAdicional">
+											<xsl:if test="pe:Codigo='10'">
+												<xsl:value-of select="pe:Valor"/>
+											</xsl:if>
+										</xsl:for-each>
+										<xsl:for-each select="//ext:UBLExtensions/ext:UBLExtension/ext:ExtensionContent/pe1:DatosAdicionales/pe1:DatoAdicional">
+											<xsl:if test="pe1:Codigo='10'">
+												<xsl:value-of select="pe1:Valor"/>
+											</xsl:if>
+										</xsl:for-each>
+										<xsl:for-each select="//ext:UBLExtensions/ext:UBLExtension/ext:ExtensionContent/pe2:DatosAdicionales/pe2:DatoAdicional">
+											<xsl:if test="pe2:Codigo='10'">
+												<xsl:value-of select="pe2:Valor"/>
+											</xsl:if>
+										</xsl:for-each>	
+								</font>
+							</td>
 							</xsl:if>
-
 							<xsl:if test="/pe1:CreditNote!='' or /pe2:DebitNote!=''">
 								<td width="44%" align="left">
-									<font face="Arial, Helvetica, sans-serif" size="1">
-											<xsl:for-each select="//ext:UBLExtensions/ext:UBLExtension/ext:ExtensionContent/pe:DatosAdicionales/pe:DatoAdicional">
-												<xsl:if test="pe:Codigo='10'">
-													<xsl:value-of select="pe:Valor"/>
-												</xsl:if>
-											</xsl:for-each>
-											<xsl:for-each select="//ext:UBLExtensions/ext:UBLExtension/ext:ExtensionContent/pe1:DatosAdicionales/pe1:DatoAdicional">
-												<xsl:if test="pe1:Codigo='10'">
-													<xsl:value-of select="pe1:Valor"/>
-												</xsl:if>
-											</xsl:for-each>
-											<xsl:for-each select="//ext:UBLExtensions/ext:UBLExtension/ext:ExtensionContent/pe2:DatosAdicionales/pe2:DatoAdicional">
-												<xsl:if test="pe2:Codigo='10'">
-													<xsl:value-of select="pe2:Valor"/>
-												</xsl:if>
-											</xsl:for-each>	
+								<font face="Arial, Helvetica, sans-serif" size="1">
+										<xsl:for-each select="//ext:UBLExtensions/ext:UBLExtension/ext:ExtensionContent/pe:DatosAdicionales/pe:DatoAdicional">
+											<xsl:if test="pe:Codigo='10'">
+												<xsl:value-of select="pe:Valor"/>
+											</xsl:if>
+										</xsl:for-each>
+										<xsl:for-each select="//ext:UBLExtensions/ext:UBLExtension/ext:ExtensionContent/pe1:DatosAdicionales/pe1:DatoAdicional">
+											<xsl:if test="pe1:Codigo='10'">
+												<xsl:value-of select="pe1:Valor"/>
+											</xsl:if>
+										</xsl:for-each>
+										<xsl:for-each select="//ext:UBLExtensions/ext:UBLExtension/ext:ExtensionContent/pe2:DatosAdicionales/pe2:DatoAdicional">
+											<xsl:if test="pe2:Codigo='10'">
+												<xsl:value-of select="pe2:Valor"/>
+											</xsl:if>
+										</xsl:for-each>	
 									</font>
 								</td>
 							</xsl:if>
-							
 							<td width="8%" align="center">
 								<font face="Arial, Helvetica, sans-serif" size="1">
 									SUBTOTALES
@@ -534,6 +532,7 @@
 										</xsl:for-each>	
 								</font>
 							</td>
+							
 							<xsl:if test="/pe:Invoice!=''">
 								<td width="6%" align="right">
 									<font face="Arial, Helvetica, sans-serif" size="1">
@@ -559,7 +558,8 @@
 											</xsl:for-each>	
 									</font>
 								</td>
-							</xsl:if>
+							</xsl:if>							
+							
 							<td width="10%" align="right">
 								<font face="Arial, Helvetica, sans-serif" size="1">
 									<xsl:for-each select="//ext:UBLExtensions/ext:UBLExtension/ext:ExtensionContent/pe:DatosAdicionales/pe:DatoAdicional">
@@ -746,6 +746,7 @@
 			<tr>
 				<td>
 					<table border="0" width="100%" cellpadding="0" cellspacing="0">
+
 						<xsl:for-each select="/pe:Invoice/cac:InvoiceLine">
 							<xsl:if test="cbc:ID &gt;'25' and cbc:ID &lt;'51'  ">
 								<tr><!--CODIGO-->
@@ -1048,45 +1049,46 @@
 									TOTAL: 
 								</font>
 							</td>
+							
 							<xsl:if test="/pe:Invoice!=''">
 								<td width="28%" align="left">
-									<font face="Arial, Helvetica, sans-serif" size="1">
-											<xsl:for-each select="//ext:UBLExtensions/ext:UBLExtension/ext:ExtensionContent/pe:DatosAdicionales/pe:DatoAdicional">
-												<xsl:if test="pe:Codigo='10'">
-													<xsl:value-of select="pe:Valor"/>
-												</xsl:if>
-											</xsl:for-each>
-											<xsl:for-each select="//ext:UBLExtensions/ext:UBLExtension/ext:ExtensionContent/pe1:DatosAdicionales/pe1:DatoAdicional">
-												<xsl:if test="pe1:Codigo='10'">
-													<xsl:value-of select="pe1:Valor"/>
-												</xsl:if>
-											</xsl:for-each>
-											<xsl:for-each select="//ext:UBLExtensions/ext:UBLExtension/ext:ExtensionContent/pe2:DatosAdicionales/pe2:DatoAdicional">
-												<xsl:if test="pe2:Codigo='10'">
-													<xsl:value-of select="pe2:Valor"/>
-												</xsl:if>
-											</xsl:for-each>	
-									</font>
-								</td>
+								<font face="Arial, Helvetica, sans-serif" size="1">
+										<xsl:for-each select="//ext:UBLExtensions/ext:UBLExtension/ext:ExtensionContent/pe:DatosAdicionales/pe:DatoAdicional">
+											<xsl:if test="pe:Codigo='10'">
+												<xsl:value-of select="pe:Valor"/>
+											</xsl:if>
+										</xsl:for-each>
+										<xsl:for-each select="//ext:UBLExtensions/ext:UBLExtension/ext:ExtensionContent/pe1:DatosAdicionales/pe1:DatoAdicional">
+											<xsl:if test="pe1:Codigo='10'">
+												<xsl:value-of select="pe1:Valor"/>
+											</xsl:if>
+										</xsl:for-each>
+										<xsl:for-each select="//ext:UBLExtensions/ext:UBLExtension/ext:ExtensionContent/pe2:DatosAdicionales/pe2:DatoAdicional">
+											<xsl:if test="pe2:Codigo='10'">
+												<xsl:value-of select="pe2:Valor"/>
+											</xsl:if>
+										</xsl:for-each>	
+								</font>
+							</td>
 							</xsl:if>
 							<xsl:if test="/pe1:CreditNote!='' or /pe2:DebitNote!=''">
 								<td width="44%" align="left">
-									<font face="Arial, Helvetica, sans-serif" size="1">
-											<xsl:for-each select="//ext:UBLExtensions/ext:UBLExtension/ext:ExtensionContent/pe:DatosAdicionales/pe:DatoAdicional">
-												<xsl:if test="pe:Codigo='10'">
-													<xsl:value-of select="pe:Valor"/>
-												</xsl:if>
-											</xsl:for-each>
-											<xsl:for-each select="//ext:UBLExtensions/ext:UBLExtension/ext:ExtensionContent/pe1:DatosAdicionales/pe1:DatoAdicional">
-												<xsl:if test="pe1:Codigo='10'">
-													<xsl:value-of select="pe1:Valor"/>
-												</xsl:if>
-											</xsl:for-each>
-											<xsl:for-each select="//ext:UBLExtensions/ext:UBLExtension/ext:ExtensionContent/pe2:DatosAdicionales/pe2:DatoAdicional">
-												<xsl:if test="pe2:Codigo='10'">
-													<xsl:value-of select="pe2:Valor"/>
-												</xsl:if>
-											</xsl:for-each>	
+								<font face="Arial, Helvetica, sans-serif" size="1">
+										<xsl:for-each select="//ext:UBLExtensions/ext:UBLExtension/ext:ExtensionContent/pe:DatosAdicionales/pe:DatoAdicional">
+											<xsl:if test="pe:Codigo='10'">
+												<xsl:value-of select="pe:Valor"/>
+											</xsl:if>
+										</xsl:for-each>
+										<xsl:for-each select="//ext:UBLExtensions/ext:UBLExtension/ext:ExtensionContent/pe1:DatosAdicionales/pe1:DatoAdicional">
+											<xsl:if test="pe1:Codigo='10'">
+												<xsl:value-of select="pe1:Valor"/>
+											</xsl:if>
+										</xsl:for-each>
+										<xsl:for-each select="//ext:UBLExtensions/ext:UBLExtension/ext:ExtensionContent/pe2:DatosAdicionales/pe2:DatoAdicional">
+											<xsl:if test="pe2:Codigo='10'">
+												<xsl:value-of select="pe2:Valor"/>
+											</xsl:if>
+										</xsl:for-each>	
 									</font>
 								</td>
 							</xsl:if>
@@ -1133,6 +1135,7 @@
 										</xsl:for-each>	
 								</font>
 							</td>
+							
 							<xsl:if test="/pe:Invoice!=''">
 								<td width="6%" align="right">
 									<font face="Arial, Helvetica, sans-serif" size="1">
@@ -1158,8 +1161,8 @@
 											</xsl:for-each>	
 									</font>
 								</td>
-							</xsl:if>
-
+							</xsl:if>							
+							
 							<td width="10%" align="right">
 								<font face="Arial, Helvetica, sans-serif" size="1">
 									<xsl:for-each select="//ext:UBLExtensions/ext:UBLExtension/ext:ExtensionContent/pe:DatosAdicionales/pe:DatoAdicional">
@@ -1649,45 +1652,46 @@
 									TOTAL: 
 								</font>
 							</td>
+							
 							<xsl:if test="/pe:Invoice!=''">
 								<td width="28%" align="left">
-									<font face="Arial, Helvetica, sans-serif" size="1">
-											<xsl:for-each select="//ext:UBLExtensions/ext:UBLExtension/ext:ExtensionContent/pe:DatosAdicionales/pe:DatoAdicional">
-												<xsl:if test="pe:Codigo='10'">
-													<xsl:value-of select="pe:Valor"/>
-												</xsl:if>
-											</xsl:for-each>
-											<xsl:for-each select="//ext:UBLExtensions/ext:UBLExtension/ext:ExtensionContent/pe1:DatosAdicionales/pe1:DatoAdicional">
-												<xsl:if test="pe1:Codigo='10'">
-													<xsl:value-of select="pe1:Valor"/>
-												</xsl:if>
-											</xsl:for-each>
-											<xsl:for-each select="//ext:UBLExtensions/ext:UBLExtension/ext:ExtensionContent/pe2:DatosAdicionales/pe2:DatoAdicional">
-												<xsl:if test="pe2:Codigo='10'">
-													<xsl:value-of select="pe2:Valor"/>
-												</xsl:if>
-											</xsl:for-each>	
-									</font>
-								</td>
+								<font face="Arial, Helvetica, sans-serif" size="1">
+										<xsl:for-each select="//ext:UBLExtensions/ext:UBLExtension/ext:ExtensionContent/pe:DatosAdicionales/pe:DatoAdicional">
+											<xsl:if test="pe:Codigo='10'">
+												<xsl:value-of select="pe:Valor"/>
+											</xsl:if>
+										</xsl:for-each>
+										<xsl:for-each select="//ext:UBLExtensions/ext:UBLExtension/ext:ExtensionContent/pe1:DatosAdicionales/pe1:DatoAdicional">
+											<xsl:if test="pe1:Codigo='10'">
+												<xsl:value-of select="pe1:Valor"/>
+											</xsl:if>
+										</xsl:for-each>
+										<xsl:for-each select="//ext:UBLExtensions/ext:UBLExtension/ext:ExtensionContent/pe2:DatosAdicionales/pe2:DatoAdicional">
+											<xsl:if test="pe2:Codigo='10'">
+												<xsl:value-of select="pe2:Valor"/>
+											</xsl:if>
+										</xsl:for-each>	
+								</font>
+							</td>
 							</xsl:if>
 							<xsl:if test="/pe1:CreditNote!='' or /pe2:DebitNote!=''">
 								<td width="44%" align="left">
-									<font face="Arial, Helvetica, sans-serif" size="1">
-											<xsl:for-each select="//ext:UBLExtensions/ext:UBLExtension/ext:ExtensionContent/pe:DatosAdicionales/pe:DatoAdicional">
-												<xsl:if test="pe:Codigo='10'">
-													<xsl:value-of select="pe:Valor"/>
-												</xsl:if>
-											</xsl:for-each>
-											<xsl:for-each select="//ext:UBLExtensions/ext:UBLExtension/ext:ExtensionContent/pe1:DatosAdicionales/pe1:DatoAdicional">
-												<xsl:if test="pe1:Codigo='10'">
-													<xsl:value-of select="pe1:Valor"/>
-												</xsl:if>
-											</xsl:for-each>
-											<xsl:for-each select="//ext:UBLExtensions/ext:UBLExtension/ext:ExtensionContent/pe2:DatosAdicionales/pe2:DatoAdicional">
-												<xsl:if test="pe2:Codigo='10'">
-													<xsl:value-of select="pe2:Valor"/>
-												</xsl:if>
-											</xsl:for-each>	
+								<font face="Arial, Helvetica, sans-serif" size="1">
+										<xsl:for-each select="//ext:UBLExtensions/ext:UBLExtension/ext:ExtensionContent/pe:DatosAdicionales/pe:DatoAdicional">
+											<xsl:if test="pe:Codigo='10'">
+												<xsl:value-of select="pe:Valor"/>
+											</xsl:if>
+										</xsl:for-each>
+										<xsl:for-each select="//ext:UBLExtensions/ext:UBLExtension/ext:ExtensionContent/pe1:DatosAdicionales/pe1:DatoAdicional">
+											<xsl:if test="pe1:Codigo='10'">
+												<xsl:value-of select="pe1:Valor"/>
+											</xsl:if>
+										</xsl:for-each>
+										<xsl:for-each select="//ext:UBLExtensions/ext:UBLExtension/ext:ExtensionContent/pe2:DatosAdicionales/pe2:DatoAdicional">
+											<xsl:if test="pe2:Codigo='10'">
+												<xsl:value-of select="pe2:Valor"/>
+											</xsl:if>
+										</xsl:for-each>	
 									</font>
 								</td>
 							</xsl:if>
@@ -1734,6 +1738,7 @@
 										</xsl:for-each>	
 								</font>
 							</td>
+							
 							<xsl:if test="/pe:Invoice!=''">
 								<td width="6%" align="right">
 									<font face="Arial, Helvetica, sans-serif" size="1">
@@ -1759,8 +1764,8 @@
 											</xsl:for-each>	
 									</font>
 								</td>
-							</xsl:if>
-
+							</xsl:if>							
+							
 							<td width="10%" align="right">
 								<font face="Arial, Helvetica, sans-serif" size="1">
 									<xsl:for-each select="//ext:UBLExtensions/ext:UBLExtension/ext:ExtensionContent/pe:DatosAdicionales/pe:DatoAdicional">
@@ -2250,45 +2255,46 @@
 									TOTAL: 
 								</font>
 							</td>
+							
 							<xsl:if test="/pe:Invoice!=''">
 								<td width="28%" align="left">
-									<font face="Arial, Helvetica, sans-serif" size="1">
-											<xsl:for-each select="//ext:UBLExtensions/ext:UBLExtension/ext:ExtensionContent/pe:DatosAdicionales/pe:DatoAdicional">
-												<xsl:if test="pe:Codigo='10'">
-													<xsl:value-of select="pe:Valor"/>
-												</xsl:if>
-											</xsl:for-each>
-											<xsl:for-each select="//ext:UBLExtensions/ext:UBLExtension/ext:ExtensionContent/pe1:DatosAdicionales/pe1:DatoAdicional">
-												<xsl:if test="pe1:Codigo='10'">
-													<xsl:value-of select="pe1:Valor"/>
-												</xsl:if>
-											</xsl:for-each>
-											<xsl:for-each select="//ext:UBLExtensions/ext:UBLExtension/ext:ExtensionContent/pe2:DatosAdicionales/pe2:DatoAdicional">
-												<xsl:if test="pe2:Codigo='10'">
-													<xsl:value-of select="pe2:Valor"/>
-												</xsl:if>
-											</xsl:for-each>	
-									</font>
-								</td>
+								<font face="Arial, Helvetica, sans-serif" size="1">
+										<xsl:for-each select="//ext:UBLExtensions/ext:UBLExtension/ext:ExtensionContent/pe:DatosAdicionales/pe:DatoAdicional">
+											<xsl:if test="pe:Codigo='10'">
+												<xsl:value-of select="pe:Valor"/>
+											</xsl:if>
+										</xsl:for-each>
+										<xsl:for-each select="//ext:UBLExtensions/ext:UBLExtension/ext:ExtensionContent/pe1:DatosAdicionales/pe1:DatoAdicional">
+											<xsl:if test="pe1:Codigo='10'">
+												<xsl:value-of select="pe1:Valor"/>
+											</xsl:if>
+										</xsl:for-each>
+										<xsl:for-each select="//ext:UBLExtensions/ext:UBLExtension/ext:ExtensionContent/pe2:DatosAdicionales/pe2:DatoAdicional">
+											<xsl:if test="pe2:Codigo='10'">
+												<xsl:value-of select="pe2:Valor"/>
+											</xsl:if>
+										</xsl:for-each>	
+								</font>
+							</td>
 							</xsl:if>
 							<xsl:if test="/pe1:CreditNote!='' or /pe2:DebitNote!=''">
 								<td width="44%" align="left">
-									<font face="Arial, Helvetica, sans-serif" size="1">
-											<xsl:for-each select="//ext:UBLExtensions/ext:UBLExtension/ext:ExtensionContent/pe:DatosAdicionales/pe:DatoAdicional">
-												<xsl:if test="pe:Codigo='10'">
-													<xsl:value-of select="pe:Valor"/>
-												</xsl:if>
-											</xsl:for-each>
-											<xsl:for-each select="//ext:UBLExtensions/ext:UBLExtension/ext:ExtensionContent/pe1:DatosAdicionales/pe1:DatoAdicional">
-												<xsl:if test="pe1:Codigo='10'">
-													<xsl:value-of select="pe1:Valor"/>
-												</xsl:if>
-											</xsl:for-each>
-											<xsl:for-each select="//ext:UBLExtensions/ext:UBLExtension/ext:ExtensionContent/pe2:DatosAdicionales/pe2:DatoAdicional">
-												<xsl:if test="pe2:Codigo='10'">
-													<xsl:value-of select="pe2:Valor"/>
-												</xsl:if>
-											</xsl:for-each>	
+								<font face="Arial, Helvetica, sans-serif" size="1">
+										<xsl:for-each select="//ext:UBLExtensions/ext:UBLExtension/ext:ExtensionContent/pe:DatosAdicionales/pe:DatoAdicional">
+											<xsl:if test="pe:Codigo='10'">
+												<xsl:value-of select="pe:Valor"/>
+											</xsl:if>
+										</xsl:for-each>
+										<xsl:for-each select="//ext:UBLExtensions/ext:UBLExtension/ext:ExtensionContent/pe1:DatosAdicionales/pe1:DatoAdicional">
+											<xsl:if test="pe1:Codigo='10'">
+												<xsl:value-of select="pe1:Valor"/>
+											</xsl:if>
+										</xsl:for-each>
+										<xsl:for-each select="//ext:UBLExtensions/ext:UBLExtension/ext:ExtensionContent/pe2:DatosAdicionales/pe2:DatoAdicional">
+											<xsl:if test="pe2:Codigo='10'">
+												<xsl:value-of select="pe2:Valor"/>
+											</xsl:if>
+										</xsl:for-each>	
 									</font>
 								</td>
 							</xsl:if>
@@ -2335,6 +2341,7 @@
 										</xsl:for-each>	
 								</font>
 							</td>
+							
 							<xsl:if test="/pe:Invoice!=''">
 								<td width="6%" align="right">
 									<font face="Arial, Helvetica, sans-serif" size="1">
@@ -2360,7 +2367,8 @@
 											</xsl:for-each>	
 									</font>
 								</td>
-							</xsl:if>
+							</xsl:if>							
+							
 							<td width="10%" align="right">
 								<font face="Arial, Helvetica, sans-serif" size="1">
 									<xsl:for-each select="//ext:UBLExtensions/ext:UBLExtension/ext:ExtensionContent/pe:DatosAdicionales/pe:DatoAdicional">
