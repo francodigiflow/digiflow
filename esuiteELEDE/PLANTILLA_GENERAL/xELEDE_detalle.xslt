@@ -36,7 +36,7 @@
 							</td>
 							<td width="10%" align="right">
 								<font face="Arial, Helvetica, sans-serif" size="1">
-									<strong>Precio Cat</strong><br/>
+									<strong>Precio Cat<br/>Inc.IGV</strong>
 								</font>
 							</td>
 							<td width="6%" align="right">
@@ -52,12 +52,12 @@
 							
 							<td width="10%" align="right">
 								<font face="Arial, Helvetica, sans-serif" size="1">
-									<strong>Precio Uni.</strong>
+									<strong>Precio Uni.<br/>Sin IGV</strong>
 								</font>
 							</td>
 							<td width="10%" align="right">
 								<font face="Arial, Helvetica, sans-serif" size="1">
-									<strong>Precio Total</strong><br/>
+									<strong>Precio Total<br/>Inc.Igv</strong>
 								</font>
 							</td>
 						</tr>
@@ -86,17 +86,17 @@
 							</td>
 							<td width="10%" align="right">
 								<font face="Arial, Helvetica, sans-serif" size="1">
-									<strong>Precio Cat</strong><br/>
+									<strong>Precio Cat<br/>Inc.IGV</strong><br/>
 								</font>
 							</td>
 							<td width="10%" align="right">
 								<font face="Arial, Helvetica, sans-serif" size="1">
-									<strong>Precio Uni.</strong>
+									<strong>Precio Uni.<br/>Sin IGV</strong>
 								</font>
 							</td>
 							<td width="10%" align="right">
 								<font face="Arial, Helvetica, sans-serif" size="1">
-									<strong>Precio Total</strong><br/>
+									<strong>Precio Total<br/>Inc.IGV</strong>
 								</font>
 							</td>
 						</tr>
@@ -125,17 +125,17 @@
 							</td>
 							<td width="10%" align="right">
 								<font face="Arial, Helvetica, sans-serif" size="1">
-									<strong>Precio Cat</strong><br/>
+									<strong>Precio Cat<br/>Inc.IGV</strong>
 								</font>
 							</td>
 							<td width="10%" align="right">
 								<font face="Arial, Helvetica, sans-serif" size="1">
-									<strong>Precio Uni.</strong>
+									<strong>Precio Uni.<br/>Sin IGV</strong>
 								</font>
 							</td>
 							<td width="10%" align="right">
 								<font face="Arial, Helvetica, sans-serif" size="1">
-									<strong>Precio Total</strong><br/>
+									<strong>Precio Total<br/>Inc.IGV</strong>
 								</font>
 							</td>
 						</tr>
@@ -635,7 +635,7 @@
 							</td>
 							<td width="10%" align="right">
 								<font face="Arial, Helvetica, sans-serif" size="1">
-									<strong>Precio Cat</strong><br/>
+									<strong>Precio Cat<br/>Inc.IGV</strong>
 								</font>
 							</td>
 							<td width="6%" align="right">
@@ -651,12 +651,12 @@
 							
 							<td width="10%" align="right">
 								<font face="Arial, Helvetica, sans-serif" size="1">
-									<strong>Precio Uni.</strong>
+									<strong>Precio Uni.<br/>Sin IGV</strong>
 								</font>
 							</td>
 							<td width="10%" align="right">
 								<font face="Arial, Helvetica, sans-serif" size="1">
-									<strong>Precio Total</strong><br/>
+									<strong>Precio Total<br/>Inc.IGV</strong>
 								</font>
 							</td>
 						</tr>
@@ -685,17 +685,17 @@
 							</td>
 							<td width="10%" align="right">
 								<font face="Arial, Helvetica, sans-serif" size="1">
-									<strong>Precio Cat</strong><br/>
+									<strong>Precio Cat<br/>Inc.IGV</strong>
 								</font>
 							</td>
 							<td width="10%" align="right">
 								<font face="Arial, Helvetica, sans-serif" size="1">
-									<strong>Precio Uni.</strong>
+									<strong>Precio Uni.<br/>Sin IGV</strong>
 								</font>
 							</td>
 							<td width="10%" align="right">
 								<font face="Arial, Helvetica, sans-serif" size="1">
-									<strong>Precio Total</strong><br/>
+									<strong>Precio Total<br/>Inc.IGV</strong>
 								</font>
 							</td>
 						</tr>
@@ -724,17 +724,17 @@
 							</td>
 							<td width="10%" align="right">
 								<font face="Arial, Helvetica, sans-serif" size="1">
-									<strong>Precio Cat</strong><br/>
+									<strong>Precio Cat<br/>Inc.IGV</strong>
 								</font>
 							</td>
 							<td width="10%" align="right">
 								<font face="Arial, Helvetica, sans-serif" size="1">
-									<strong>Precio Uni.</strong>
+									<strong>Precio Uni.<br/>Sin IGV</strong>
 								</font>
 							</td>
 							<td width="10%" align="right">
 								<font face="Arial, Helvetica, sans-serif" size="1">
-									<strong>Precio Total</strong><br/>
+									<strong>Precio Total<br/>Inc.IGV</strong>
 								</font>
 							</td>
 						</tr>
@@ -1236,7 +1236,7 @@
 							</td>
 							<td width="10%" align="right">
 								<font face="Arial, Helvetica, sans-serif" size="1">
-									<strong>Precio Cat</strong><br/>
+									<strong>Precio Cat<br/>Inc.IGV</strong>
 								</font>
 							</td>
 							<td width="6%" align="right">
@@ -1252,12 +1252,12 @@
 							
 							<td width="10%" align="right">
 								<font face="Arial, Helvetica, sans-serif" size="1">
-									<strong>Precio Uni.</strong>
+									<strong>Precio Uni.<br/>Sin IGV</strong>
 								</font>
 							</td>
 							<td width="10%" align="right">
 								<font face="Arial, Helvetica, sans-serif" size="1">
-									<strong>Precio Total</strong><br/>
+									<strong>Precio Total<br/>Inc.IGV</strong>
 								</font>
 							</td>
 						</tr>
@@ -1286,17 +1286,17 @@
 							</td>
 							<td width="10%" align="right">
 								<font face="Arial, Helvetica, sans-serif" size="1">
-									<strong>Precio Cat</strong><br/>
+									<strong>Precio Cat<br/>Inc.IGV</strong>
 								</font>
 							</td>
 							<td width="10%" align="right">
 								<font face="Arial, Helvetica, sans-serif" size="1">
-									<strong>Precio Uni.</strong>
+									<strong>Precio Uni.<br/>Sin IGV</strong>
 								</font>
 							</td>
 							<td width="10%" align="right">
 								<font face="Arial, Helvetica, sans-serif" size="1">
-									<strong>Precio Total</strong><br/>
+									<strong>Precio Total<br/>Inc.IGV</strong>
 								</font>
 							</td>
 						</tr>
@@ -1325,17 +1325,17 @@
 							</td>
 							<td width="10%" align="right">
 								<font face="Arial, Helvetica, sans-serif" size="1">
-									<strong>Precio Cat</strong><br/>
+									<strong>Precio Cat<br/>Inc.IGV</strong>
 								</font>
 							</td>
 							<td width="10%" align="right">
 								<font face="Arial, Helvetica, sans-serif" size="1">
-									<strong>Precio Uni.</strong>
+									<strong>Precio Uni.<br/>Sin IGV</strong>
 								</font>
 							</td>
 							<td width="10%" align="right">
 								<font face="Arial, Helvetica, sans-serif" size="1">
-									<strong>Precio Total</strong><br/>
+									<strong>Precio Total<br/>Inc.IGV</strong>
 								</font>
 							</td>
 						</tr>
@@ -1837,7 +1837,7 @@
 							</td>
 							<td width="10%" align="right">
 								<font face="Arial, Helvetica, sans-serif" size="1">
-									<strong>Precio Cat</strong><br/>
+									<strong>Precio Cat<br/>Inc.IGV</strong>
 								</font>
 							</td>
 							<td width="6%" align="right">
@@ -1853,12 +1853,12 @@
 							
 							<td width="10%" align="right">
 								<font face="Arial, Helvetica, sans-serif" size="1">
-									<strong>Precio Uni.</strong>
+									<strong>Precio Uni.<br/>Sin IGV</strong>
 								</font>
 							</td>
 							<td width="10%" align="right">
 								<font face="Arial, Helvetica, sans-serif" size="1">
-									<strong>Precio Total</strong><br/>
+									<strong>Precio Total<br/>Inc.IGV</strong>
 								</font>
 							</td>
 						</tr>
@@ -1887,17 +1887,17 @@
 							</td>
 							<td width="10%" align="right">
 								<font face="Arial, Helvetica, sans-serif" size="1">
-									<strong>Precio Cat</strong><br/>
+									<strong>Precio Cat<br/>Inc.IGV</strong>
 								</font>
 							</td>
 							<td width="10%" align="right">
 								<font face="Arial, Helvetica, sans-serif" size="1">
-									<strong>Precio Uni.</strong>
+									<strong>Precio Uni.<br/>Sin IGV</strong>
 								</font>
 							</td>
 							<td width="10%" align="right">
 								<font face="Arial, Helvetica, sans-serif" size="1">
-									<strong>Precio Total</strong><br/>
+									<strong>Precio Total<br/>Inc.IGV</strong>
 								</font>
 							</td>
 						</tr>
@@ -1926,17 +1926,17 @@
 							</td>
 							<td width="10%" align="right">
 								<font face="Arial, Helvetica, sans-serif" size="1">
-									<strong>Precio Cat</strong><br/>
+									<strong>Precio Cat<br/>Inc.IGV</strong>
 								</font>
 							</td>
 							<td width="10%" align="right">
 								<font face="Arial, Helvetica, sans-serif" size="1">
-									<strong>Precio Uni.</strong>
+									<strong>Precio Uni.<br/>Sin IGV</strong>
 								</font>
 							</td>
 							<td width="10%" align="right">
 								<font face="Arial, Helvetica, sans-serif" size="1">
-									<strong>Precio Total</strong><br/>
+									<strong>Precio Total<br/>Inc.IGV</strong>
 								</font>
 							</td>
 						</tr>
@@ -2590,6 +2590,6 @@
 	</xsl:template>
 </xsl:stylesheet><!-- Stylus Studio meta-information - (c) 2004-2006. Progress Software Corporation. All rights reserved.
 <metaInformation>
-<scenarios ><scenario default="yes" name="Scenario1" userelativepaths="yes" externalpreview="no" url="..\..\M&amp;M Trading\DESARROLLO RI\ri_mm_lvm\20386222771&#x2D;01&#x2D;F001&#x2D;00025673.xml" htmlbaseurl="" outputurl="" processortype="saxon8" useresolver="yes" profilemode="0" profiledepth="" profilelength="" urlprofilexml="" commandline="" additionalpath="" additionalclasspath="" postprocessortype="none" postprocesscommandline="" postprocessadditionalpath="" postprocessgeneratedext="" validateoutput="no" validator="internal" customvalidator="" ><advancedProp name="sInitialMode" value=""/><advancedProp name="bXsltOneIsOkay" value="true"/><advancedProp name="bSchemaAware" value="false"/><advancedProp name="bGenerateByteCode" value="true"/><advancedProp name="bXml11" value="false"/><advancedProp name="iValidation" value="0"/><advancedProp name="bExtensions" value="true"/><advancedProp name="iWhitespace" value="0"/><advancedProp name="sInitialTemplate" value=""/><advancedProp name="bTinyTree" value="true"/><advancedProp name="bUseDTD" value="false"/><advancedProp name="bWarnings" value="true"/><advancedProp name="xsltVersion" value="2.0"/><advancedProp name="iErrorHandling" value="fatal"/></scenario></scenarios><MapperMetaTag><MapperInfo srcSchemaPathIsRelative="yes" srcSchemaInterpretAsXML="no" destSchemaPath="" destSchemaRoot="" destSchemaPathIsRelative="yes" destSchemaInterpretAsXML="no"/><MapperBlockPosition></MapperBlockPosition><TemplateContext></TemplateContext><MapperFilter side="source"></MapperFilter></MapperMetaTag>
+<scenarios ><scenario default="yes" name="Scenario1" userelativepaths="yes" externalpreview="no" url="..\..\M&amp;M Trading\DESARROLLO RI\ri_mm_lvm\20386222771&#x2D;01&#x2D;F001&#x2D;00025673.xml" htmlbaseurl="" outputurl="" processortype="saxon8" useresolver="yes" profilemode="0" profiledepth="" profilelength="" urlprofilexml="" commandline="" additionalpath="" additionalclasspath="" postprocessortype="none" postprocesscommandline="" postprocessadditionalpath="" postprocessgeneratedext="" validateoutput="no" validator="internal" customvalidator="" ><advancedProp name="sInitialMode" value=""/><advancedProp name="bSchemaAware" value="false"/><advancedProp name="bXsltOneIsOkay" value="true"/><advancedProp name="bXml11" value="false"/><advancedProp name="bGenerateByteCode" value="true"/><advancedProp name="iValidation" value="0"/><advancedProp name="bExtensions" value="true"/><advancedProp name="iWhitespace" value="0"/><advancedProp name="sInitialTemplate" value=""/><advancedProp name="bTinyTree" value="true"/><advancedProp name="xsltVersion" value="2.0"/><advancedProp name="bWarnings" value="true"/><advancedProp name="bUseDTD" value="false"/><advancedProp name="iErrorHandling" value="fatal"/></scenario></scenarios><MapperMetaTag><MapperInfo srcSchemaPathIsRelative="yes" srcSchemaInterpretAsXML="no" destSchemaPath="" destSchemaRoot="" destSchemaPathIsRelative="yes" destSchemaInterpretAsXML="no"/><MapperBlockPosition></MapperBlockPosition><TemplateContext></TemplateContext><MapperFilter side="source"></MapperFilter></MapperMetaTag>
 </metaInformation>
 -->

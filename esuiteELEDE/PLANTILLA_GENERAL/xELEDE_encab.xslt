@@ -72,7 +72,7 @@
 												<font color="#000000" size="2" face="Arial, Helvetica, sans-serif">
 												<img src="data:image/*;base64,[logo_1]" width="265px" heigth="135px" />
 												<br/><b>
-												<xsl:value-of select="substring-before(//cac:AccountingSupplierParty/cac:Party/cac:PartyLegalEntity/cac:RegistrationAddress/cac:AddressLine/cbc:Line, '|')"/></b>										
+												<xsl:value-of select="//cac:AccountingSupplierParty/cac:Party/cac:PartyLegalEntity/cac:RegistrationAddress/cac:AddressLine/cbc:Line"/></b>										
 												<br/>E-mail: 
 													<xsl:for-each select="//ext:UBLExtensions/ext:UBLExtension/ext:ExtensionContent/pe:DatosAdicionales/pe:DatoAdicional">
 														<xsl:if test="pe:Codigo='02'">
@@ -109,33 +109,33 @@
 													<!-- <xsl:value-of select="substring-before(/pe:Invoice/cbc:IssueDate, '-')"/> -->
 													<xsl:for-each select="//ext:UBLExtensions/ext:UBLExtension/ext:ExtensionContent/pe:DatosAdicionales/pe:DatoAdicional">
 														<xsl:if test="pe:Codigo='03'">
-															<xsl:value-of select="substring-before(pe:Valor, '|')"/>
+															<xsl:value-of select="pe:Valor"/>
 														</xsl:if>
 													</xsl:for-each>
 													<xsl:for-each select="//ext:UBLExtensions/ext:UBLExtension/ext:ExtensionContent/pe1:DatosAdicionales/pe1:DatoAdicional">
 														<xsl:if test="pe1:Codigo='03'">
-															<xsl:value-of select="substring-before(pe1:Valor, '|')"/>
+															<xsl:value-of select="pe1:Valor"/>
 														</xsl:if>
 													</xsl:for-each>
 													<xsl:for-each select="//ext:UBLExtensions/ext:UBLExtension/ext:ExtensionContent/pe2:DatosAdicionales/pe2:DatoAdicional">
 														<xsl:if test="pe2:Codigo='03'">
-															<xsl:value-of select="substring-before(pe2:Valor, '|')"/>
+															<xsl:value-of select="pe2:Valor"/>
 														</xsl:if>
 													</xsl:for-each>
 												<br/>
 													<xsl:for-each select="//ext:UBLExtensions/ext:UBLExtension/ext:ExtensionContent/pe:DatosAdicionales/pe:DatoAdicional">
 														<xsl:if test="pe:Codigo='04'">
-															<xsl:value-of select="substring-before(pe:Valor, '|')"/>															
+															<xsl:value-of select="pe:Valor"/>															
 														</xsl:if>
 													</xsl:for-each>
 													<xsl:for-each select="//ext:UBLExtensions/ext:UBLExtension/ext:ExtensionContent/pe1:DatosAdicionales/pe1:DatoAdicional">
 														<xsl:if test="pe1:Codigo='04'">
-															<xsl:value-of select="substring-before(pe1:Valor, '|')"/>
+															<xsl:value-of select="pe1:Valor"/>
 														</xsl:if>
 													</xsl:for-each>
 													<xsl:for-each select="//ext:UBLExtensions/ext:UBLExtension/ext:ExtensionContent/pe2:DatosAdicionales/pe2:DatoAdicional">
 														<xsl:if test="pe2:Codigo='04'">
-															<xsl:value-of select="substring-before(pe2:Valor, '|')"/>
+															<xsl:value-of select="pe2:Valor"/>
 														</xsl:if>
 													</xsl:for-each>												
 											</font>
