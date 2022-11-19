@@ -66,7 +66,7 @@ xmlns:qdt="urn:oasis:names:specification:ubl:schema:xsd:QualifiedDatatypes-2">
     		border-top:solid #A5A5A5 1px;background-color: #A5A5A5;
    		 border-top: none;">
 									<b>
-										<font face="Arial, Helvetica, sans-serif" size="1">DESCTO.</font>
+										<font face="Arial, Helvetica, sans-serif" size="1">DSCTO.</font>
 									</b>
 								</th>
 								
@@ -161,7 +161,7 @@ xmlns:qdt="urn:oasis:names:specification:ubl:schema:xsd:QualifiedDatatypes-2">
 											</xsl:choose>
 										</font>
 									</td>
-									<!--DESCTO-->
+									<!--DSCTO-->
 									<td width="6%" align="right" valign="top" style="border:solid 1px #A5A5A5;border-top:none;border-bottom:none;border-left: none;">
 										<font face="Arial, Helvetica, sans-serif" size="1">
 								<xsl:variable name="Descuento">
@@ -283,7 +283,7 @@ xmlns:qdt="urn:oasis:names:specification:ubl:schema:xsd:QualifiedDatatypes-2">
 											<xsl:value-of select="format-number(cac:PricingReference/cac:AlternativeConditionPrice/cbc:PriceAmount,'###,###,##0.00','pen')"/>
 										</font>
 									</td>
-									<!--DESCTO-->
+									<!--DSCTO-->
 									<td width="9%" align="right" valign="top" 
 									style="border:solid 1px #A5A5A5;border-top:none;border-bottom:none;border-left: none;">
 										<font face="Arial, Helvetica, sans-serif" size="1">
@@ -398,7 +398,7 @@ xmlns:qdt="urn:oasis:names:specification:ubl:schema:xsd:QualifiedDatatypes-2">
 											<xsl:value-of select="format-number(cac:PricingReference/cac:AlternativeConditionPrice/cbc:PriceAmount,'###,###,##0.00','pen')"/>
 										</font>
 									</td>
-									<!--DESCTO-->
+									<!--DSCTO-->
 									<td width="9%" align="right" valign="top" 
 									style="border:solid 1px #A5A5A5;border-top:none;border-bottom:none;border-left: none;">
 										<font face="Arial, Helvetica, sans-serif" size="1">

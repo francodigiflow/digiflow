@@ -3,36 +3,34 @@
 
 	<xsl:output method="html" indent="yes" encoding="ISO-8859-1" omit-xml-declaration="yes"/>
 
+	<xsl:template name="RetourneValAd">
+		<xsl:param name="NumAd"/>
+			<xsl:for-each select="//ext:UBLExtensions/ext:UBLExtension/ext:ExtensionContent/pe:DatosAdicionales/pe:DatoAdicional">
+			<xsl:if test="pe:Codigo=$NumAd">
+				<xsl:value-of select="pe:Valor"/>
+			</xsl:if>
+		</xsl:for-each>
+		<xsl:for-each select="//ext:UBLExtensions/ext:UBLExtension/ext:ExtensionContent/pe1:DatosAdicionales/pe1:DatoAdicional">
+			<xsl:if test="pe1:Codigo=$NumAd">
+				<xsl:value-of select="pe1:Valor"/>
+			</xsl:if>
+		</xsl:for-each>
+		<xsl:for-each select="//ext:UBLExtensions/ext:UBLExtension/ext:ExtensionContent/pe2:DatosAdicionales/pe2:DatoAdicional">
+			<xsl:if test="pe2:Codigo=$NumAd">
+				<xsl:value-of select="pe2:Valor"/>
+			</xsl:if>
+		</xsl:for-each>
+	</xsl:template>
+
 	<xsl:template name="tmpDatosReceptor">
 		<table border="0" width="100%" cellpadding="0" cellspacing="0">
 			<tr>
 				<td>
-					<xsl:choose>
-						<xsl:when test="/pe:Invoice">
-							<xsl:call-template name="tmpDatosReceptor_FB"/>
-						</xsl:when>
-						<xsl:otherwise>
-							<xsl:call-template name="tmpDatosReceptor_NCND"/>
-						</xsl:otherwise>
-					</xsl:choose>
+					
+						<xsl:call-template name="tmpDatosReceptor_FB"/>
+					
 				</td>
 			</tr>
-			<!--xsl:choose>
-				<xsl:when test="/pe:Invoice/cbc:InvoiceTypeCode='01'"-->
-					<tr>
-						<td><br/></td>
-					</tr>
-	
-					<tr>
-						<td>
-							<xsl:call-template name="tmpDatosNegocio"/>
-						</td>
-					</tr>
-				<!--/xsl:when-->
-				<!-- <xsl:otherwise>
-				</xsl:otherwise> -->
-			<!--/xsl:choose-->
-			
 		</table>
 	</xsl:template>
 
@@ -56,16 +54,25 @@
 					<td width="56%">
 						<font face="Arial, Helvetica, sans-serif" size="1">
 							:&#xA0;<xsl:value-of select="/pe:Invoice/cac:AccountingCustomerParty/cac:Party/cac:PartyLegalEntity/cbc:RegistrationName"/>
+							<xsl:if test="/pe2:DebitNote">						
+								<xsl:value-of select="/pe2:DebitNote/cac:AccountingCustomerParty/cac:Party/cac:PartyLegalEntity/cbc:RegistrationName"/>
+							</xsl:if>
+							<xsl:if test="/pe1:CreditNote">
+								<xsl:value-of select="/pe1:CreditNote/cac:AccountingCustomerParty/cac:Party/cac:PartyLegalEntity/cbc:RegistrationName"/>
+							</xsl:if>
 						</font>
 					</td>
 					<td width="12%">
 						<font face="Arial, Helvetica, sans-serif" size="1">
-							<strong>Ord. Compra</strong>
+							<strong>Fecha de emisión</strong>
 						</font>
 					</td>
 					<td width="20%" >
 						<font face="Arial, Helvetica, sans-serif" size="1">
-							:&#xA0;<xsl:value-of select="//cac:OrderReference/cbc:ID"/>
+							:&#xA0;
+							<xsl:value-of select="/pe:Invoice/cbc:IssueDate"/>
+							<xsl:value-of select="/pe1:CreditNote/cbc:IssueDate"/>
+							<xsl:value-of select="/pe2:DebitNote/cbc:IssueDate"/>							
 						</font>
 					</td>
 					
@@ -81,21 +88,23 @@
 					<td width="20%" >
 						<font face="Arial, Helvetica, sans-serif" size="1">
 						<xsl:if test="//cbc:UBLVersionID='2.0'">
-							:&#xA0;<xsl:value-of select="//cac:AccountingCustomerParty/cbc:CustomerAssignedAccountID"/>
+							:&#xA0;
+							<xsl:value-of select="//cac:AccountingCustomerParty/cbc:CustomerAssignedAccountID"/>
 						</xsl:if>
 						<xsl:if test="//cbc:UBLVersionID='2.1'">
-						:&#xA0;<xsl:value-of select="//cac:AccountingCustomerParty/cac:Party/cac:PartyIdentification/cbc:ID"/>
+							:&#xA0;<xsl:value-of select="//cac:AccountingCustomerParty/cac:Party/cac:PartyIdentification/cbc:ID"/>
 						</xsl:if>
 						</font>
 					</td>
 					<td width="12%">
 						<font face="Arial, Helvetica, sans-serif" size="1">
-							<strong>Moneda</strong>
+							<strong>Condición de pago</strong>
 						</font>
 					</td>
 					<td width="26%">
 						<font face="Arial, Helvetica, sans-serif" size="1">
-							:&#xA0;<xsl:call-template name="tmpDescripcionMoneda"/>
+							:&#xA0;<xsl:call-template name="RetourneValAd"><xsl:with-param name="NumAd" select="03"/></xsl:call-template>
+
 						</font>
 					</td>
 
@@ -123,33 +132,12 @@
 					</td>
 					<td width="12%">
 						<font face="Arial, Helvetica, sans-serif" size="1">
-							<strong>Vendedor</strong>
+							<strong>Trans</strong>
 						</font>
 					</td>
 					<td width="20%" >
 						<font face="Arial, Helvetica, sans-serif" size="1">
-						:&#xA0;
-								<xsl:for-each select="//ext:UBLExtensions/ext:UBLExtension/ext:ExtensionContent/pe:DatosAdicionales/pe:DatoAdicional">
-												<xsl:if test="pe:Codigo='01'">
-													<xsl:if test="pe:Valor !='-' and pe:Valor !=''">
-														<xsl:value-of select="pe:Valor"/>
-													</xsl:if>
-												</xsl:if>
-											</xsl:for-each>
-											<xsl:for-each select="//ext:UBLExtensions/ext:UBLExtension/ext:ExtensionContent/pe1:DatosAdicionales/pe1:DatoAdicional">
-												<xsl:if test="pe1:Codigo='01'">
-													<xsl:if test="pe1:Valor !='-' and pe1:Valor !=''">
-														<xsl:value-of select="pe1:Valor"/>
-													</xsl:if>
-												</xsl:if>
-											</xsl:for-each>
-											<xsl:for-each select="//ext:UBLExtensions/ext:UBLExtension/ext:ExtensionContent/pe2:DatosAdicionales/pe2:DatoAdicional">
-												<xsl:if test="pe2:Codigo='01'">
-													<xsl:if test="pe2:Valor !='-' and pe2:Valor !=''">
-														<xsl:value-of select="pe2:Valor"/>
-													</xsl:if>
-												</xsl:if>
-											</xsl:for-each>
+							:&#xA0;<xsl:call-template name="RetourneValAd"><xsl:with-param name="NumAd" select="02"/></xsl:call-template>								
 						</font>
 					</td>
 					
@@ -158,542 +146,56 @@
 				<tr>
 					<td width="12%">
 						<font face="Arial, Helvetica, sans-serif" size="1">
-							<strong>Ciudad</strong>
+							<strong>Teléfono</strong>
 						</font>
 					</td>
 					<td width="56%">
 						<font face="Arial, Helvetica, sans-serif" size="1">
-							:&#xA0;
-							<xsl:if test="/pe:Invoice/cac:AccountingCustomerParty/cac:Party/cac:PartyLegalEntity/cac:RegistrationAddress/cbc:CountrySubentity!=''">
-												<xsl:value-of select="/pe:Invoice/cac:AccountingCustomerParty/cac:Party/cac:PartyLegalEntity/cac:RegistrationAddress/cbc:CountrySubentity"/>
-											</xsl:if>
-											<xsl:if test="/pe:Invoice/cac:AccountingCustomerParty/cac:Party/cac:PartyLegalEntity/cac:RegistrationAddress/cbc:CityName!=''">
-												<strong>-</strong>
-												<xsl:value-of select="/pe:Invoice/cac:AccountingCustomerParty/cac:Party/cac:PartyLegalEntity/cac:RegistrationAddress/cbc:CityName"/>
-											</xsl:if>
-											<xsl:if test="/pe:Invoice/cac:AccountingCustomerParty/cac:Party/cac:PartyLegalEntity/cac:RegistrationAddress/cbc:District!=''">
-												<strong>-</strong>
-												<xsl:value-of select="/pe:Invoice/cac:AccountingCustomerParty/cac:Party/cac:PartyLegalEntity/cac:RegistrationAddress/cbc:District"/>
-											</xsl:if>
-
-											<xsl:if test="//pe1:CreditNote/cac:AccountingCustomerParty/cac:Party/cac:PartyLegalEntity/cac:RegistrationAddress/cbc:CityName!=''">
-												<xsl:value-of select="//pe1:CreditNote/cac:AccountingCustomerParty/cac:Party/cac:PartyLegalEntity/cac:RegistrationAddress/cbc:CityName"/>
-											</xsl:if>
-											<xsl:if test="//pe1:CreditNote/cac:AccountingCustomerParty/cac:Party/cac:PartyLegalEntity/cac:RegistrationAddress/cbc:CountrySubentity!=''">
-												<strong>-</strong>
-												<xsl:value-of select="//pe1:CreditNote/cac:AccountingCustomerParty/cac:Party/cac:PartyLegalEntity/cac:RegistrationAddress/cbc:CountrySubentity"/>
-											</xsl:if>
-											<xsl:if test="//pe1:CreditNote/cac:AccountingCustomerParty/cac:Party/cac:PartyLegalEntity/cac:RegistrationAddress/cbc:District!=''">
-												<strong>-</strong>
-												<xsl:value-of select="//pe1:CreditNote/cac:AccountingSupplierParty/cac:Party/cac:PartyLegalEntity/cac:RegistrationAddress/cbc:District"/>
-											</xsl:if>
-
-											<xsl:if test="//pe2:DeditNote/cac:AccountingCustomerParty/cac:Party/cac:PartyLegalEntity/cac:RegistrationAddress/cbc:CityName!=''">
-												<xsl:value-of select="//pe2:DeditNote/cac:AccountingCustomerParty/cac:Party/cac:PartyLegalEntity/cac:RegistrationAddress/cbc:CityName"/>
-											</xsl:if>
-											<xsl:if test="//pe2:DeditNote/cac:AccountingCustomerParty/cac:Party/cac:PartyLegalEntity/cac:RegistrationAddress/cbc:CountrySubentity!=''">
-												<strong>-</strong>
-												<xsl:value-of select="//pe2:DeditNote/cac:AccountingCustomerParty/cac:Party/cac:PartyLegalEntity/cac:RegistrationAddress/cbc:CountrySubentity"/>
-											</xsl:if>
-											<xsl:if test="//pe2:DeditNote/cac:AccountingCustomerParty/cac:Party/cac:PartyLegalEntity/cac:RegistrationAddress/cbc:District!=''">
-												<strong>-</strong>
-												<xsl:value-of select="//pe2:DeditNote/cac:AccountingCustomerParty/cac:Party/cac:PartyLegalEntity/cac:RegistrationAddress/cbc:District"/>
-											</xsl:if>
+							:&#xA0;<xsl:call-template name="RetourneValAd"><xsl:with-param name="NumAd" select="01"/></xsl:call-template>
 						</font>
 					</td>
 					<td width="12%" >
 						<font face="Arial, Helvetica, sans-serif" size="1">
 							<strong>
-							N° Guía de Remisión
+							Moneda
 							</strong>
 						</font>
 					</td>
 					<td width="20%" >
-						<font face="Arial, Helvetica, sans-serif" size="1">
-						:&#xA0;
-							 <xsl:for-each select="//cac:DespatchDocumentReference">
-                                <xsl:value-of select="cbc:ID"/>
-                            </xsl:for-each>
-								<xsl:for-each select="//ext:UBLExtensions/ext:UBLExtension/ext:ExtensionContent/pe:DatosAdicionales/pe:DatoAdicional">
-								<xsl:if test="pe:Codigo = '05'">
-									<xsl:if test="pe:Valor != '-'">
-										<xsl:value-of select="pe:Valor"/>
-									</xsl:if>
-								</xsl:if>
-							</xsl:for-each>
-							<!--</xsl:if>-->
-							<xsl:if test="/pe1:CreditNote">	
-									<xsl:for-each select="//ext:UBLExtensions/ext:UBLExtension/ext:ExtensionContent/pe1:DatosAdicionales/pe1:DatoAdicional">
-									<xsl:if test="pe1:Codigo = '05'">
-										<xsl:if test="pe1:Valor != '-'">
-											<xsl:value-of select="pe1:Valor"/>
-										</xsl:if>
-									</xsl:if>
-								</xsl:for-each>
-								</xsl:if>
-								
-															<xsl:if test="/pe2:DebitNote">	
-									<xsl:for-each select="//ext:UBLExtensions/ext:UBLExtension/ext:ExtensionContent/pe2:DatosAdicionales/pe2:DatoAdicional">
-									<xsl:if test="pe2:Codigo = '05'">
-										<xsl:if test="pe2:Valor != '-'">
-											<xsl:value-of select="pe2:Valor"/>
-										</xsl:if>
-									</xsl:if>
-								</xsl:for-each>
-								</xsl:if>
-						</font>
-					</td>
-				
-				</tr>
-				
-				
-			</tbody>
-		</table>
-	</xsl:template>
-
-	<xsl:template name="tmpDatosReceptor_NCND">
-	<table style="
-	border-collapse: separate;
-    border-spacing: 10;
-    border: 1px solid #A5A5A5;
-    border-radius: 15px;
-    -moz-border-radius: 20px;
-    padding: 2px;
-		" width="100%" cellpadding="2" cellspacing="0">
-			<tbody style="border:solid 1px black">
-				<tr>
-					<td width="12%" >
-						<font face="Arial, Helvetica, sans-serif" size="1">
-							<strong>Cliente</strong>
-						</font>
-					</td>
-					<td width="56%">
-						<font face="Arial, Helvetica, sans-serif" size="1">
-						
-						<xsl:if test="/pe2:DebitNote">						
-						:&#xA0;<xsl:value-of select="/pe2:DebitNote/cac:AccountingCustomerParty/cac:Party/cac:PartyLegalEntity/cbc:RegistrationName"/>
-						</xsl:if>
-						<xsl:if test="/pe1:CreditNote">
-							:&#xA0;<xsl:value-of select="/pe1:CreditNote/cac:AccountingCustomerParty/cac:Party/cac:PartyLegalEntity/cbc:RegistrationName"/>
-						</xsl:if>
-						</font>
-					</td>
-					<td width="12%">
-						<font face="Arial, Helvetica, sans-serif" size="1">
-							<strong>Ord. Compra</strong>
-						</font>
-					</td>
-					<td width="20%" >
-						<font face="Arial, Helvetica, sans-serif" size="1">
-							:&#xA0;<xsl:value-of select="//cac:OrderReference/cbc:ID"/>
-						<xsl:if test="/pe1:CreditNote">
-								<xsl:for-each select="//ext:UBLExtensions/ext:UBLExtension/ext:ExtensionContent/pe1:DatosAdicionales/pe1:DatoAdicional">
-								<xsl:if test="pe1:Codigo = '04'">
-									<xsl:if test="pe1:Valor != '-'">
-										<xsl:value-of select="pe1:Valor"/>
-									</xsl:if>
-								</xsl:if>
-							</xsl:for-each>
-							</xsl:if>
-							<xsl:if test="/pe2:DebitNote">	
-									<xsl:for-each select="//ext:UBLExtensions/ext:UBLExtension/ext:ExtensionContent/pe2:DatosAdicionales/pe2:DatoAdicional">
-									<xsl:if test="pe2:Codigo = '04'">
-										<xsl:if test="pe2:Valor != '-'">
-											<xsl:value-of select="pe2:Valor"/>
-										</xsl:if>
-									</xsl:if>
-								</xsl:for-each>
-								</xsl:if>			  
-						</font>
-					</td>
-					
-				</tr>
-				<tr>
-				<td width="12%">
-						<font face="Arial, Helvetica, sans-serif" size="1">
-							<strong><xsl:call-template name="TipoDeDocumento"/>
-
-							</strong>
-						</font>
-					</td>
-					<td width="20%" >
-						<font face="Arial, Helvetica, sans-serif" size="1">
-						<xsl:if test="//cbc:UBLVersionID='2.0'">
-							:&#xA0;<xsl:value-of select="//cac:AccountingCustomerParty/cbc:CustomerAssignedAccountID"/>
-						</xsl:if>
-						<xsl:if test="//cbc:UBLVersionID='2.1'">
-						:&#xA0;<xsl:value-of select="//cac:AccountingCustomerParty/cac:Party/cac:PartyIdentification/cbc:ID"/>
-						</xsl:if>
-						</font>
-					</td>
-					<td width="12%">
-						<font face="Arial, Helvetica, sans-serif" size="1">
-							<strong>Moneda</strong>
-						</font>
-					</td>
-					<td width="26%">
 						<font face="Arial, Helvetica, sans-serif" size="1">
 							:&#xA0;<xsl:call-template name="tmpDescripcionMoneda"/>
 						</font>
 					</td>
-
-					
-					
-				</tr>
-					<tr>
-					<td width="12%">
-						<font face="Arial, Helvetica, sans-serif" size="1">
-							<strong>Dirección:</strong>
-						</font>
-					</td>
-					<td width="56%">
-						<font face="Arial, Helvetica, sans-serif" size="1">
-							<xsl:if test="//cbc:UBLVersionID='2.0'">
-							:&#xA0;<xsl:value-of select="/pe:Invoice/cac:AccountingCustomerParty/cac:Party/cac:PostalAddress/cbc:StreetName"/>
-							:&#xA0;<xsl:value-of select="/pe1:CreditNote/cac:AccountingCustomerParty/cac:Party/cac:PostalAddress/cbc:StreetName"/>
-							:&#xA0;<xsl:value-of select="/pe2:DebitNote/cac:AccountingCustomerParty/cac:Party/cac:PostalAddress/cbc:StreetName"/>
-						</xsl:if>
-
-						<xsl:if test="//cbc:UBLVersionID='2.1'">
-						:&#xA0;<xsl:value-of select="//cac:AccountingCustomerParty/cac:Party/cac:PartyLegalEntity/cac:RegistrationAddress/cac:AddressLine/cbc:Line"/>
-						</xsl:if>
-						</font>
-					</td>
-					<td width="12%">
-						<font face="Arial, Helvetica, sans-serif" size="1">
-							<strong>Vendedor</strong>
-						</font>
-					</td>
-					<td width="20%" >
-						<font face="Arial, Helvetica, sans-serif" size="1">
-								<xsl:for-each select="//ext:UBLExtensions/ext:UBLExtension/ext:ExtensionContent/pe:DatosAdicionales/pe:DatoAdicional">
-												<xsl:if test="pe:Codigo='01'">
-													<xsl:if test="pe:Valor !='-' and pe:Valor !=''">
-														:&#xA0;<xsl:value-of select="pe:Valor"/>
-													</xsl:if>
-												</xsl:if>
-											</xsl:for-each>
-											<xsl:for-each select="//ext:UBLExtensions/ext:UBLExtension/ext:ExtensionContent/pe1:DatosAdicionales/pe1:DatoAdicional">
-												<xsl:if test="pe1:Codigo='01'">
-													<xsl:if test="pe1:Valor !='-' and pe1:Valor !=''">
-														:&#xA0;<xsl:value-of select="pe1:Valor"/>
-													</xsl:if>
-												</xsl:if>
-											</xsl:for-each>
-											<xsl:for-each select="//ext:UBLExtensions/ext:UBLExtension/ext:ExtensionContent/pe2:DatosAdicionales/pe2:DatoAdicional">
-												<xsl:if test="pe2:Codigo='01'">
-													<xsl:if test="pe2:Valor !='-' and pe2:Valor !=''">
-														:&#xA0;<xsl:value-of select="pe2:Valor"/>
-													</xsl:if>
-												</xsl:if>
-											</xsl:for-each>
-						</font>
-					</td>
-					
+				
 				</tr>
 				
 				<tr>
 					<td width="12%">
 						<font face="Arial, Helvetica, sans-serif" size="1">
-							<strong>Ciudad</strong>
+							<strong>Nro. Tienda</strong>
 						</font>
 					</td>
 					<td width="56%">
 						<font face="Arial, Helvetica, sans-serif" size="1">
-							:&#xA0;
-							<xsl:if test="/pe:Invoice/cac:AccountingCustomerParty/cac:Party/cac:PartyLegalEntity/cac:RegistrationAddress/cbc:CountrySubentity!=''">
-												<xsl:value-of select="/pe:Invoice/cac:AccountingCustomerParty/cac:Party/cac:PartyLegalEntity/cac:RegistrationAddress/cbc:CountrySubentity"/>
-											</xsl:if>
-											<xsl:if test="/pe:Invoice/cac:AccountingCustomerParty/cac:Party/cac:PartyLegalEntity/cac:RegistrationAddress/cbc:CityName!=''">
-												<strong>-</strong>
-												<xsl:value-of select="/pe:Invoice/cac:AccountingCustomerParty/cac:Party/cac:PartyLegalEntity/cac:RegistrationAddress/cbc:CityName"/>
-											</xsl:if>
-											<xsl:if test="/pe:Invoice/cac:AccountingCustomerParty/cac:Party/cac:PartyLegalEntity/cac:RegistrationAddress/cbc:District!=''">
-												<strong>-</strong>
-												<xsl:value-of select="/pe:Invoice/cac:AccountingCustomerParty/cac:Party/cac:PartyLegalEntity/cac:RegistrationAddress/cbc:District"/>
-											</xsl:if>
-
-											<xsl:if test="//pe1:CreditNote/cac:AccountingCustomerParty/cac:Party/cac:PartyLegalEntity/cac:RegistrationAddress/cbc:CityName!=''">
-												<xsl:value-of select="//pe1:CreditNote/cac:AccountingCustomerParty/cac:Party/cac:PartyLegalEntity/cac:RegistrationAddress/cbc:CityName"/>
-											</xsl:if>
-											<xsl:if test="//pe1:CreditNote/cac:AccountingCustomerParty/cac:Party/cac:PartyLegalEntity/cac:RegistrationAddress/cbc:CountrySubentity!=''">
-												<strong>-</strong>
-												<xsl:value-of select="//pe1:CreditNote/cac:AccountingCustomerParty/cac:Party/cac:PartyLegalEntity/cac:RegistrationAddress/cbc:CountrySubentity"/>
-											</xsl:if>
-											<xsl:if test="//pe1:CreditNote/cac:AccountingCustomerParty/cac:Party/cac:PartyLegalEntity/cac:RegistrationAddress/cbc:District!=''">
-												<strong>-</strong>
-												<xsl:value-of select="//pe1:CreditNote/cac:AccountingSupplierParty/cac:Party/cac:PartyLegalEntity/cac:RegistrationAddress/cbc:District"/>
-											</xsl:if>
-
-											<xsl:if test="//pe2:DeditNote/cac:AccountingCustomerParty/cac:Party/cac:PartyLegalEntity/cac:RegistrationAddress/cbc:CityName!=''">
-												<xsl:value-of select="//pe2:DeditNote/cac:AccountingCustomerParty/cac:Party/cac:PartyLegalEntity/cac:RegistrationAddress/cbc:CityName"/>
-											</xsl:if>
-											<xsl:if test="//pe2:DeditNote/cac:AccountingCustomerParty/cac:Party/cac:PartyLegalEntity/cac:RegistrationAddress/cbc:CountrySubentity!=''">
-												<strong>-</strong>
-												<xsl:value-of select="//pe2:DeditNote/cac:AccountingCustomerParty/cac:Party/cac:PartyLegalEntity/cac:RegistrationAddress/cbc:CountrySubentity"/>
-											</xsl:if>
-											<xsl:if test="//pe2:DeditNote/cac:AccountingCustomerParty/cac:Party/cac:PartyLegalEntity/cac:RegistrationAddress/cbc:District!=''">
-												<strong>-</strong>
-												<xsl:value-of select="//pe2:DeditNote/cac:AccountingCustomerParty/cac:Party/cac:PartyLegalEntity/cac:RegistrationAddress/cbc:District"/>
-											</xsl:if>
+							:&#xA0;<xsl:call-template name="RetourneValAd"><xsl:with-param name="NumAd" select="07"/></xsl:call-template>
 						</font>
 					</td>
 					<td width="12%" >
 						<font face="Arial, Helvetica, sans-serif" size="1">
 							<strong>
-							N° Guía de Remisión
+							Nro Caja
 							</strong>
 						</font>
 					</td>
 					<td width="20%" >
 						<font face="Arial, Helvetica, sans-serif" size="1">
-						 <xsl:for-each select="//cac:DespatchDocumentReference">
-                                <xsl:value-of select="cbc:ID"/>
-                            </xsl:for-each>
-								<xsl:for-each select="//ext:UBLExtensions/ext:UBLExtension/ext:ExtensionContent/pe1:DatosAdicionales/pe1:DatoAdicional">
-								<xsl:if test="pe1:Codigo = '05'">
-									<xsl:if test="pe1:Valor != '-'">
-										<xsl:value-of select="pe1:Valor"/>
-									</xsl:if>
-								</xsl:if>
-							</xsl:for-each>
-							<!--</xsl:if>-->
-							<xsl:if test="/pe2:DebitNote">	
-									<xsl:for-each select="//ext:UBLExtensions/ext:UBLExtension/ext:ExtensionContent/pe2:DatosAdicionales/pe2:DatoAdicional">
-									<xsl:if test="pe2:Codigo = '05'">
-										<xsl:if test="pe2:Valor != '-'">
-											<xsl:value-of select="pe2:Valor"/>
-										</xsl:if>
-									</xsl:if>
-								</xsl:for-each>
-								</xsl:if>
+							:&#xA0;<xsl:call-template name="RetourneValAd"><xsl:with-param name="NumAd" select="08"/></xsl:call-template>
 						</font>
 					</td>
 				
 				</tr>
 				
 				
-			</tbody>
-		</table>
-	</xsl:template>
-	<xsl:template name="tmpDatosNegocio">
-		<table style="" width="100%" cellpadding="2" cellspacing="0">
-			<tbody >
-				<tr>
-					<td width="16%" style="
-					border:solid 1px #A5A5A5;border-radius: 5px 0px 0px 5px;" align="center">
-					&#160;&#160;
-						<font face="Arial, Helvetica, sans-serif" size="1">
-							<strong style="">Fecha de Emisión:</strong>
-						</font><br/>
-						<font face="Arial, Helvetica, sans-serif" size="1">
-							<xsl:value-of select="/pe:Invoice/cbc:IssueDate"/>
-							<xsl:value-of select="/pe1:CreditNote/cbc:IssueDate"/>
-							<xsl:value-of select="/pe2:DebitNote/cbc:IssueDate"/>
-						</font>&#160;&#160;
-					</td>
-					<td width="16%" style="border:solid 1px #A5A5A5;" align="center">
-					&#160;&#160;
-						<font face="Arial, Helvetica, sans-serif" size="1">
-							<strong>Fecha de Vencimiento:</strong>
-						</font><br/>
-						<font face="Arial, Helvetica, sans-serif" size="1">
-						<xsl:if test="//cac:PaymentTerms/cbc:ID='FormaPago' and //cac:PaymentTerms/cbc:PaymentMeansID='Credito'">
-								<!--xsl:for-each select="/pe:Invoice/cac:PaymentTerms">
-								<xsl:value-of select="cbc:PaymentDueDate"/>
-								</xsl:for-each-->
-								<xsl:value-of select="(/pe:Invoice/cac:PaymentTerms/cbc:PaymentDueDate)[last()]"/> 
-							</xsl:if>
-				<xsl:if test="//cac:PaymentTerms/cbc:ID='FormaPago' and //cac:PaymentTerms/cbc:PaymentMeansID='Contado'">
-								<xsl:value-of select="/pe:Invoice/cbc:IssueDate"/>
-							<xsl:value-of select="/pe1:CreditNote/cbc:IssueDate"/>
-							<xsl:value-of select="/pe2:DebitNote/cbc:IssueDate"/>
-							</xsl:if>
-							<xsl:value-of select="/pe1:CreditNote/cbc:IssueDate"/>
-							<xsl:value-of select="/pe2:DebitNote/cbc:IssueDate"/>
-						</font>&#160;&#160;
-					</td>
-					<td width="16%" style="border:solid 1px #A5A5A5;" align="center">
-					&#160;&#160;
-						<font face="Arial, Helvetica, sans-serif" size="1">
-							<strong>Condición de Pago</strong>
-						</font><br/>
-						<font face="Arial, Helvetica, sans-serif" size="1">
-						<xsl:for-each select="//ext:UBLExtensions/ext:UBLExtension/ext:ExtensionContent/pe:DatosAdicionales/pe:DatoAdicional">
-												<xsl:if test="pe:Codigo='02'">
-													<xsl:if test="pe:Valor !='-' and pe:Valor !=''">
-														<xsl:value-of select="pe:Valor"/>
-													</xsl:if>
-												</xsl:if>
-											</xsl:for-each>
-											<xsl:for-each select="//ext:UBLExtensions/ext:UBLExtension/ext:ExtensionContent/pe1:DatosAdicionales/pe1:DatoAdicional">
-												<xsl:if test="pe1:Codigo='02'">
-													<xsl:if test="pe1:Valor !='-' and pe1:Valor !=''">
-														<xsl:value-of select="pe1:Valor"/>
-													</xsl:if>
-												</xsl:if>
-											</xsl:for-each>
-											<xsl:for-each select="//ext:UBLExtensions/ext:UBLExtension/ext:ExtensionContent/pe2:DatosAdicionales/pe2:DatoAdicional">
-												<xsl:if test="pe2:Codigo='02'">
-													<xsl:if test="pe2:Valor !='-' and pe2:Valor !=''">
-														<xsl:value-of select="pe2:Valor"/>
-													</xsl:if>
-												</xsl:if>
-											</xsl:for-each>
-											<!--xsl:if test="//cac:PaymentTerms/cbc:ID='FormaPago' and //cac:PaymentTerms/cbc:PaymentMeansID='Credito'">
-								CREDITO
-							</xsl:if-->
-						</font>&#160;&#160;
-					</td>
-					<!--td width="16%" style="border: solid 1px #A5A5A5 !important;" align="center">
-					&#160;&#160;
-						<font face="Arial, Helvetica, sans-serif" size="1">
-							<strong>N° Guía de Remisión</strong>
-						</font><br/>
-						<font face="Arial, Helvetica, sans-serif" size="1">
-                            <xsl:for-each select="//cac:DespatchDocumentReference">
-                                <xsl:value-of select="cbc:ID"/>
-                            </xsl:for-each>
-								<xsl:for-each select="//ext:UBLExtensions/ext:UBLExtension/ext:ExtensionContent/pe1:DatosAdicionales/pe1:DatoAdicional">
-								<xsl:if test="pe1:Codigo = '05'">
-									<xsl:if test="pe1:Valor != '-'">
-										<xsl:value-of select="pe1:Valor"/>
-									</xsl:if>
-								</xsl:if>
-							</xsl:for-each>
-							
-							<xsl:if test="/pe2:DebitNote">	
-									<xsl:for-each select="//ext:UBLExtensions/ext:UBLExtension/ext:ExtensionContent/pe2:DatosAdicionales/pe2:DatoAdicional">
-									<xsl:if test="pe2:Codigo = '05'">
-										<xsl:if test="pe2:Valor != '-'">
-											<xsl:value-of select="pe2:Valor"/>
-										</xsl:if>
-									</xsl:if>
-								</xsl:for-each>
-								</xsl:if>				   
-                        </font>&#160;&#160; 
-					</td-->
-					<!--td width="16%" style="border:solid 1px #A5A5A5;border-radius: 0px 5px 5px 0px;" align="center">
-					&#160;&#160;
-						<font face="Arial, Helvetica, sans-serif" size="1">
-							<strong>Observaciones</strong>
-						</font><br/>
-						<font face="Arial, Helvetica, sans-serif" size="1">
-							<xsl:for-each select="//ext:UBLExtensions/ext:UBLExtension/ext:ExtensionContent/pe:DatosAdicionales/pe:DatoAdicional">
-								<xsl:if test="pe:Codigo='03'">
-
-									<xsl:value-of select="pe:Valor"/>
-								</xsl:if>
-							</xsl:for-each>
-
-							<xsl:for-each select="//ext:UBLExtensions/ext:UBLExtension/ext:ExtensionContent/pe1:DatosAdicionales/pe1:DatoAdicional">
-								<xsl:if test="pe1:Codigo='03'">
-
-									<xsl:value-of select="pe1:Valor"/>
-								</xsl:if>
-							</xsl:for-each>
-
-							<xsl:for-each select="//ext:UBLExtensions/ext:UBLExtension/ext:ExtensionContent/pe2:DatosAdicionales/pe2:DatoAdicional">
-								<xsl:if test="pe2:Codigo='03'">
-
-									<xsl:value-of select="pe2:Valor"/>
-								</xsl:if>
-							</xsl:for-each>
-						</font>&#160;&#160;
-					</td-->
-
-				</tr>
-				<!--tr>
-					<td width="16%" style="border:solid 1px black" align="center">
-						<font face="Arial, Helvetica, sans-serif" size="1">
-							<xsl:value-of select="/pe:Invoice/cbc:IssueDate"/>
-							<xsl:value-of select="/pe1:CreditNote/cbc:IssueDate"/>
-							<xsl:value-of select="/pe2:DebitNote/cbc:IssueDate"/>
-						</font>
-					</td>
-					<td width="16%" style="border:solid 1px black" align="center">
-						<font face="Arial, Helvetica, sans-serif" size="1">
-							<xsl:for-each select="//ext:UBLExtensions/ext:UBLExtension/ext:ExtensionContent/pe:DatosAdicionales/pe:DatoAdicional">
-												<xsl:if test="pe:Codigo='2'">
-													<xsl:if test="pe:Valor !='-' and pe:Valor !=''">
-														<xsl:value-of select="pe:Valor"/>
-													</xsl:if>
-												</xsl:if>
-											</xsl:for-each>
-											<xsl:for-each select="//ext:UBLExtensions/ext:UBLExtension/ext:ExtensionContent/pe1:DatosAdicionales/pe1:DatoAdicional">
-												<xsl:if test="pe1:Codigo='2'">
-													<xsl:if test="pe1:Valor !='-' and pe1:Valor !=''">
-														<xsl:value-of select="pe1:Valor"/>
-													</xsl:if>
-												</xsl:if>
-											</xsl:for-each>
-											<xsl:for-each select="//ext:UBLExtensions/ext:UBLExtension/ext:ExtensionContent/pe2:DatosAdicionales/pe2:DatoAdicional">
-												<xsl:if test="pe2:Codigo='2'">
-													<xsl:if test="pe2:Valor !='-' and pe2:Valor !=''">
-														<xsl:value-of select="pe2:Valor"/>
-													</xsl:if>
-												</xsl:if>
-											</xsl:for-each>
-						</font>
-					</td>
-					<td width="16%" style="border:solid 1px black" align="center">
-						<font face="Arial, Helvetica, sans-serif" size="1">
-						<xsl:for-each select="//ext:UBLExtensions/ext:UBLExtension/ext:ExtensionContent/pe:DatosAdicionales/pe:DatoAdicional">
-												<xsl:if test="pe:Codigo='4'">
-													<xsl:if test="pe:Valor !='-' and pe:Valor !=''">
-														<xsl:value-of select="pe:Valor"/>
-													</xsl:if>
-												</xsl:if>
-											</xsl:for-each>
-											<xsl:for-each select="//ext:UBLExtensions/ext:UBLExtension/ext:ExtensionContent/pe1:DatosAdicionales/pe1:DatoAdicional">
-												<xsl:if test="pe1:Codigo='4'">
-													<xsl:if test="pe1:Valor !='-' and pe1:Valor !=''">
-														<xsl:value-of select="pe1:Valor"/>
-													</xsl:if>
-												</xsl:if>
-											</xsl:for-each>
-											<xsl:for-each select="//ext:UBLExtensions/ext:UBLExtension/ext:ExtensionContent/pe2:DatosAdicionales/pe2:DatoAdicional">
-												<xsl:if test="pe2:Codigo='4'">
-													<xsl:if test="pe2:Valor !='-' and pe2:Valor !=''">
-														<xsl:value-of select="pe2:Valor"/>
-													</xsl:if>
-												</xsl:if>
-											</xsl:for-each>
-						</font>
-					</td>
-					<td width="16%" style="border:solid 1px black" align="center">
-						<font face="Arial, Helvetica, sans-serif" size="1">
-                            <xsl:for-each select="//cac:DespatchDocumentReference">
-                                <xsl:value-of select="cbc:ID"/>
-                            </xsl:for-each>
-                        </font>
-					</td>
-					<td width="16%" style="border:solid 1px black" align="center">
-						<font face="Arial, Helvetica, sans-serif" size="1">
-							<xsl:for-each select="//ext:UBLExtensions/ext:UBLExtension/ext:ExtensionContent/pe:DatosAdicionales/pe:DatoAdicional">
-								<xsl:if test="pe:Codigo='06'">
-
-									<xsl:value-of select="pe:Valor"/>
-								</xsl:if>
-							</xsl:for-each>
-
-							<xsl:for-each select="//ext:UBLExtensions/ext:UBLExtension/ext:ExtensionContent/pe1:DatosAdicionales/pe1:DatoAdicional">
-								<xsl:if test="pe1:Codigo='06'">
-
-									<xsl:value-of select="pe1:Valor"/>
-								</xsl:if>
-							</xsl:for-each>
-
-							<xsl:for-each select="//ext:UBLExtensions/ext:UBLExtension/ext:ExtensionContent/pe2:DatosAdicionales/pe2:DatoAdicional">
-								<xsl:if test="pe2:Codigo='06'">
-
-									<xsl:value-of select="pe2:Valor"/>
-								</xsl:if>
-							</xsl:for-each>
-						</font>
-					</td>
-					
-				</tr-->
 			</tbody>
 		</table>
 	</xsl:template>
