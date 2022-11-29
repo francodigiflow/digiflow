@@ -135,13 +135,13 @@
 	<xsl:template name="tmpDescripcionMoneda">
 		<xsl:choose>
 			<xsl:when test="/pe:Invoice/cbc:DocumentCurrencyCode='PEN'">Soles</xsl:when>
-			<xsl:when test="/pe:Invoice/cbc:DocumentCurrencyCode='USD'">Dólares</xsl:when>
+			<xsl:when test="/pe:Invoice/cbc:DocumentCurrencyCode='USD'">Dólares americanos</xsl:when>
 			<xsl:when test="/pe:Invoice/cbc:DocumentCurrencyCode='EUR'">Euros</xsl:when>
 			<xsl:when test="/pe1:CreditNote/cbc:DocumentCurrencyCode='PEN'">Soles</xsl:when>
-			<xsl:when test="/pe1:CreditNote/cbc:DocumentCurrencyCode='USD'">Dólares</xsl:when>
+			<xsl:when test="/pe1:CreditNote/cbc:DocumentCurrencyCode='USD'">Dólares americanos</xsl:when>
 			<xsl:when test="/pe1:CreditNote/cbc:DocumentCurrencyCode='EUR'">Euros</xsl:when>
 			<xsl:when test="/pe2:DebitNote/cbc:DocumentCurrencyCode='PEN'">Soles</xsl:when>
-			<xsl:when test="/pe2:DebitNote/cbc:DocumentCurrencyCode='USD'">Dólares</xsl:when>
+			<xsl:when test="/pe2:DebitNote/cbc:DocumentCurrencyCode='USD'">Dólares americanos</xsl:when>
 			<xsl:when test="/pe2:DebitNote/cbc:DocumentCurrencyCode='EUR'">Euros</xsl:when>
 			<xsl:otherwise>Otra moneda</xsl:otherwise>
 		</xsl:choose>
@@ -181,7 +181,7 @@
 					<xsl:call-template name="DatosFiscales"/>
 					</td>
 					
-					<td vAlign="top" width="30%"  border="0">
+					<td vAlign="top" width="30%" border="0" height="100px">
 					<xsl:call-template name="DatosTimbre"/>
 					</td>
 				</tr>
@@ -413,11 +413,11 @@
 	</xsl:template>
 
 	<xsl:template name="DatosTimbre">
-		<table border="0" width="100%" cellspacing="0" cellPadding="2"  rules="cols">
+		<table border="0" width="100%" height="100%" cellspacing="0" cellPadding="2"  rules="cols">
 						<tbody>
 				<tr>
-					<td valign="top" width="100%">
-						<table border="0" width="100%" cellSpacing="0" cellPadding="2" rules="none"
+					<td valign="top" width="100%" height="100%">
+						<table border="0" width="100%"  height="100%" cellSpacing="0" cellPadding="2" rules="none"
 						style="border-collapse:separate;border-spacing: 1;border:solid #2F528F 2px;border-radius:10px;
 						-moz-border-radius:10px;-webkit-border-radius: 5px;">
 							<tbody>
@@ -756,12 +756,12 @@
 												</td>
 												<td width="10%" align="center" style="border:solid 1px #A5A5A5;" >
 													<font face="Arial, Helvetica, sans-serif" size="1">
-														<xsl:call-template name="tmpDescripcionMoneda"/>
+														<xsl:value-of select="cbc:PaymentDueDate"/>
 													</font>
 												</td>
 												<td width="10%" align="center" style="border:solid 1px #A5A5A5;" >
 													<font face="Arial, Helvetica, sans-serif" size="1">
-														<xsl:value-of select="cbc:PaymentDueDate"/>
+														<xsl:call-template name="tmpDescripcionMoneda"/>
 													</font>
 												</td>
 												<td width="12%" align="center" style="border:solid 1px #A5A5A5;" >
