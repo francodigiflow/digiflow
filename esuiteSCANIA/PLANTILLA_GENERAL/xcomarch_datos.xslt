@@ -174,15 +174,16 @@
 	</xsl:template>
 
 	<xsl:template name="DatosCliente">
-		<table cellSpacing="0" cellPadding="0" width="100%" border="0">
+		<table cellSpacing="0" cellPadding="0" width="100%"
+		>
 			<tbody>
 				<tr>
-					<td vAlign="top" width="70%"  border="0" >
-					<xsl:call-template name="DatosFiscales"/>
+					<td vAlign="top" width="70%"  border="0">
+						<xsl:call-template name="DatosFiscales"/>
 					</td>
 					
 					<td vAlign="top" width="30%" border="0" height="100px">
-					<xsl:call-template name="DatosTimbre"/>
+						<xsl:call-template name="DatosTimbre"/>
 					</td>
 				</tr>
 			</tbody>
@@ -194,7 +195,7 @@
 			<tbody>
 				<tr>
 					<td vAlign="top" width="50%">
-					<xsl:call-template name="DatosEmisor"/>
+						<xsl:call-template name="DatosEmisor"/>
 					</td>
 					
 					<td vAlign="top" width="50%">
@@ -206,14 +207,16 @@
 	</xsl:template>
 
 	<xsl:template name="DatosFiscales">
-		<table border="0" width="100%" cellspacing="0" cellPadding="2"  rules="cols" 
+		<table border="0" width="100%" cellspacing="0" cellPadding="2"  rules="none" 
 		>
 			<tbody>
 				<tr>
 					<td valign="top" width="100%">
 						<table border="0" width="100%" cellSpacing="0" cellPadding="2" rules="none"
 						style="border-collapse:separate;border-spacing: 1;border:solid #2F528F 2px;border-radius:10px;
-						-moz-border-radius:10px;-webkit-border-radius: 5px;">
+						-moz-border-radius:10px;-webkit-border-radius: 5px;"
+						>
+							<!---->
 							<tbody>
 								<tr>
 									<td width="100%" colspan="4">
@@ -413,13 +416,15 @@
 	</xsl:template>
 
 	<xsl:template name="DatosTimbre">
-		<table border="0" width="100%" height="100%" cellspacing="0" cellPadding="2"  rules="cols">
+		<table border="0" width="100%" height="100%" cellspacing="0" cellPadding="2"  rules="none">
 						<tbody>
 				<tr>
 					<td valign="top" width="100%" height="100%">
 						<table border="0" width="100%"  height="100%" cellSpacing="0" cellPadding="2" rules="none"
 						style="border-collapse:separate;border-spacing: 1;border:solid #2F528F 2px;border-radius:10px;
-						-moz-border-radius:10px;-webkit-border-radius: 5px;">
+						-moz-border-radius:10px;-webkit-border-radius: 5px;"
+						>
+						<!---->
 							<tbody>
 								<tr>
 									<td width="100%"  colspan="2" >
@@ -542,12 +547,11 @@
 	</xsl:template>
 
 	<xsl:template name="DatosEmisor">
-	<br/>
-		<table border="0" width="100%" cellspacing="0" cellPadding="2"  rules="cols">
-			<tbody>
-				<tr>
-					<td valign="top" width="100%">
-						<table border="0" width="100%" cellSpacing="0" cellPadding="2" rules="none"
+		<table border="0" width="100%" height="100px" cellspacing="0" cellPadding="2" rules="none">
+			<tbody   height="100%">
+				<tr   height="100%">
+					<td valign="top" width="100%"  height="100%">
+						<table border="0" width="100%"   height="100%" cellSpacing="0" cellPadding="2" rules="none"
 						style="border-collapse:separate;border-spacing: 1;border:solid #2F528F 2px;border-radius:10px;
 						-moz-border-radius:10px;-webkit-border-radius: 5px;">
 						<tbody>
@@ -605,12 +609,11 @@
 	</xsl:template>
 
 	<xsl:template name="DatosReceptor">
-		<br/>
-			<table border="0" width="100%" cellspacing="0" cellPadding="2"  rules="cols">
+			<table border="0" width="100%" height="100px" cellspacing="0" cellPadding="2"  rules="none">
 			<tbody>
 				<tr>
-					<td valign="top" width="100%">
-						<table border="0" width="100%" cellSpacing="0" cellPadding="2" rules="none"
+					<td valign="top" width="100%" height="100%">
+						<table border="0" width="100%" height="100%" cellSpacing="0" cellPadding="2" rules="none"
 						style="border-collapse:separate;border-spacing: 1;border:solid #2F528F 2px;border-radius:10px;
 						-moz-border-radius:10px;-webkit-border-radius: 5px;"
 						>
