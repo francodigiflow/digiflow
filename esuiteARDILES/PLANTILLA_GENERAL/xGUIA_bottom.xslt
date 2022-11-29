@@ -8,10 +8,16 @@ xmlns:ext="urn:oasis:names:specification:ubl:schema:xsd:CommonExtensionComponent
 xmlns:sac="urn:sunat:names:specification:ubl:peru:schema:xsd:SunatAggregateComponents-1">
 
 	<xsl:template name="bottom_normal">
-		<table border="1" bordercolor="#000000" cellpadding="0" cellspacing="0" width="100%">
+		<table border="0" bordercolor="#000000" cellpadding="0" cellspacing="0" width="100%">
 			<tbody>
-				<tr>
-					falta
+				<tr >
+					<td width="100%" align="center"> 
+						<font face="Arial, Helvetica, sans-serif" size="1">
+							Representación Impresa - Guía de Remisión Remitente Electrónico
+							<br/> 
+							Consultar su comprobante en factura.ecomprobantes.pe/ardiles
+						</font>
+					</td> 
 				</tr>
 			</tbody>
 		</table>
@@ -58,7 +64,10 @@ xmlns:sac="urn:sunat:names:specification:ubl:peru:schema:xsd:SunatAggregateCompo
 							</font>
 							<br/>
 							<font color="#000000" size="1" face="Arial, Helvetica, sans-serif">
-							<!--<strong>Una empresa de CÃ¡mara de Comercio de Lima</strong>-->
+							Representación Impresa - Guía de Remisión Electrónico
+							<br/> 
+							Consultar su comprobante en 
+							
 							</font>
 							</td>
 						</tr>

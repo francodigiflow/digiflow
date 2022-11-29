@@ -85,22 +85,27 @@
 						<xsl:if test="$v_Contador = 1 and cbc:ID &gt; 0 and cbc:ID &lt;= 11">					
 							<tr>
 							   
-								<td width="10%" align="center" class="td_detalle">
+								<td width="10%" align="center" valign="top" class="td_detalle">
 									<font face="Arial, Helvetica, sans-serif" size="1">
 									<xsl:value-of select="cac:Item/cac:SellersItemIdentification/cbc:ID"/>
 									</font>
 								</td>
-								<td width="40%" align="left" class="td_detalle">
+								<td width="40%" align="left" valign="top" class="td_detalle">
 									<font face="Arial, Helvetica, sans-serif" size="1">
-										<xsl:value-of select="cac:Item/cbc:Name"/>
+										<xsl:if test="//cbc:CustomizationID='1.0'">
+											<xsl:value-of select="cac:Item/cbc:Name"/>
+										</xsl:if>
+										<xsl:if test="//cbc:CustomizationID='2.0'">
+											<xsl:value-of select="cac:Item/cbc:Description"/>
+										</xsl:if>
 									</font>
 								</td>
-								<td width="8%" align="center" class="td_detalle">
+								<td width="8%" align="center" valign="top" class="td_detalle">
 									<font face="Arial, Helvetica, sans-serif" size="1">
 										<xsl:value-of select="cbc:DeliveredQuantity"/>
 									</font>
 								</td>
-								<td width="6%" align="center" class="td_detalle">
+								<td width="6%" align="center" valign="top" class="td_detalle">
 									<font face="Arial, Helvetica, sans-serif" size="1">
 										<xsl:value-of select="cbc:DeliveredQuantity/@unitCode"/>
 									</font>
@@ -115,7 +120,73 @@
 										</xsl:variable>
 
 										<xsl:if test="$ValorAdicional1 != '' and $ValorAdicional1 !='-' ">
-										<xsl:value-of select="format-number($ValorAdicional1,'###,###,##0.000','pen')"/>
+											<xsl:variable name="linea1">
+												<xsl:value-of select="substring-before($ValorAdicional1,'|')"/>
+											</xsl:variable>
+											<xsl:variable name="resto1">
+												<xsl:value-of select="substring-after($ValorAdicional1,'|')"/>
+											</xsl:variable>
+											<xsl:variable name="linea2">
+												<xsl:value-of select="substring-before($resto1,'|')"/>
+											</xsl:variable>
+											<xsl:variable name="resto2">
+												<xsl:value-of select="substring-after($resto1,'|')"/>
+											</xsl:variable>
+											<xsl:variable name="linea3">
+												<xsl:value-of select="substring-before($resto2,'|')"/>
+											</xsl:variable>
+											<xsl:variable name="resto3">
+												<xsl:value-of select="substring-after($resto2,'|')"/>
+											</xsl:variable>
+											<xsl:variable name="linea4">
+												<xsl:value-of select="substring-before($resto3,'|')"/>
+											</xsl:variable>
+											<xsl:variable name="resto4">
+												<xsl:value-of select="substring-after($resto3,'|')"/>
+											</xsl:variable>
+											<xsl:variable name="linea5">
+												<xsl:value-of select="substring-before($resto4,'|')"/>
+											</xsl:variable>
+											<xsl:variable name="resto5">
+												<xsl:value-of select="substring-after($resto4,'|')"/>
+											</xsl:variable>
+											<xsl:variable name="linea6">
+												<xsl:value-of select="substring-before($resto5,'|')"/>
+											</xsl:variable>
+											<xsl:variable name="resto6">
+												<xsl:value-of select="substring-after($resto5,'|')"/>
+											</xsl:variable>
+											<xsl:variable name="linea7">
+												<xsl:value-of select="substring-before($resto6,'|')"/>
+											</xsl:variable>
+											<xsl:variable name="resto7">
+												<xsl:value-of select="substring-after($resto6,'|')"/>
+											</xsl:variable>
+											<xsl:variable name="linea8">
+												<xsl:value-of select="substring-before($resto7,'|')"/>
+											</xsl:variable>
+											<xsl:variable name="resto8">
+												<xsl:value-of select="substring-after($resto7,'|')"/>
+											</xsl:variable>
+											<xsl:variable name="linea9">
+												<xsl:value-of select="substring-before($resto8,'|')"/>
+											</xsl:variable>
+											<xsl:variable name="resto9">
+												<xsl:value-of select="substring-after($resto8,'|')"/>
+											</xsl:variable>
+											<xsl:variable name="linea10">
+												<xsl:value-of select="substring-before($resto9,'|')"/>
+											</xsl:variable>
+											<xsl:if test="$linea1 != '' and $linea1 !='-' "><xsl:value-of select="$linea1"/></xsl:if>
+											<xsl:if test="$linea2 != '' and $linea2 !='-' "><br/><xsl:value-of select="$linea2"/></xsl:if>
+											<xsl:if test="$linea3 != '' and $linea3 !='-' "><br/><xsl:value-of select="$linea3"/></xsl:if>
+											<xsl:if test="$linea4 != '' and $linea4 !='-' "><br/><xsl:value-of select="$linea4"/></xsl:if>
+											<xsl:if test="$linea5 != '' and $linea5 !='-' "><br/><xsl:value-of select="$linea5"/></xsl:if>
+											<xsl:if test="$linea6 != '' and $linea6 !='-' "><br/><xsl:value-of select="$linea6"/></xsl:if>
+											<xsl:if test="$linea7 != '' and $linea7 !='-' "><br/><xsl:value-of select="$linea7"/></xsl:if>
+											<xsl:if test="$linea8 != '' and $linea8 !='-' "><br/><xsl:value-of select="$linea8"/></xsl:if>
+											<xsl:if test="$linea9 != '' and $linea9 !='-' "><br/><xsl:value-of select="$linea9"/></xsl:if>
+											<xsl:if test="$linea10 != '' and $linea10 !='-' "><br/><xsl:value-of select="$linea10"/></xsl:if>
 										</xsl:if>
 									</font>
 								</td>
@@ -854,7 +925,6 @@
 			</xsl:call-template>
 		</xsl:if>
 	</xsl:template>
-
 
 </xsl:stylesheet><!-- Stylus Studio meta-information - (c) 2004-2006. Progress Software Corporation. All rights reserved.
 <metaInformation>

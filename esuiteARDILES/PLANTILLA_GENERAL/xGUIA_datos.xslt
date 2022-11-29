@@ -10,12 +10,12 @@ xmlns:sac="urn:sunat:names:specification:ubl:peru:schema:xsd:SunatAggregateCompo
 
 	<xsl:variable name="Tramo2_PARTIDA">
 		<xsl:call-template name="RetourneValAd">
-			<xsl:with-param name="NumAd" select="16"/>	
+			<xsl:with-param name="NumAd" select="10"/>	
 		</xsl:call-template>			
 	</xsl:variable>
 	<xsl:variable name="Tramo2_LLEGADA">
 		<xsl:call-template name="RetourneValAd">
-			<xsl:with-param name="NumAd" select="17"/>	
+			<xsl:with-param name="NumAd" select="11"/>	
 		</xsl:call-template>			
 	</xsl:variable>
 
@@ -40,11 +40,7 @@ xmlns:sac="urn:sunat:names:specification:ubl:peru:schema:xsd:SunatAggregateCompo
 									<td width="50%" align="left">
 										<font face="Arial, Helvetica, sans-serif" size="2">
 											<!-- <xsl:value-of select="//cac:Shipment/cac:OriginAddress/cbc:StreetName"/> -->
-											<xsl:for-each select="//ext:UBLExtensions/ext:UBLExtension/ext:ExtensionContent/pe:DatosAdicionales/pe:DatoAdicional">
-											<xsl:if test="pe:Codigo='14'">
-											<xsl:value-of select="pe:Valor"/>
-											</xsl:if>
-										    </xsl:for-each>
+											<xsl:value-of select="//cac:Delivery/cac:Despatch/cac:DespatchAddress/cac:AddressLine/cbc:Line"/>
 											<xsl:if test="$Tramo2_PARTIDA!=''">
 												<BR/><xsl:value-of select="$Tramo2_PARTIDA"/>
 											</xsl:if>
@@ -53,11 +49,7 @@ xmlns:sac="urn:sunat:names:specification:ubl:peru:schema:xsd:SunatAggregateCompo
 									<td width="50%" align="left">
 										<font face="Arial, Helvetica, sans-serif" size="2">
 										<!-- <xsl:value-of select="//cac:Shipment/cac:Delivery/cac:DeliveryAddress/cbc:StreetName"/> -->
-										<xsl:for-each select="//ext:UBLExtensions/ext:UBLExtension/ext:ExtensionContent/pe:DatosAdicionales/pe:DatoAdicional">
-											<xsl:if test="pe:Codigo='15'">
-											<xsl:value-of select="pe:Valor"/>
-											</xsl:if>
-										</xsl:for-each>
+											<xsl:value-of select="//cac:Delivery/cac:DeliveryAddress/cac:AddressLine/cbc:Line"/>
 											<xsl:if test="$Tramo2_LLEGADA!=''">
 												<BR/><xsl:value-of select="$Tramo2_LLEGADA"/>
 											</xsl:if>
@@ -116,7 +108,13 @@ xmlns:sac="urn:sunat:names:specification:ubl:peru:schema:xsd:SunatAggregateCompo
 									</td>
 									<td width="50%" align="left">
 										<font face="Arial, Helvetica, sans-serif" size="2">:
-										<xsl:value-of select="//cac:DeliveryCustomerParty/cbc:CustomerAssignedAccountID"/></font>
+											<xsl:if test="//cbc:CustomizationID='1.0'">
+												<xsl:value-of select="//cac:DeliveryCustomerParty/cbc:CustomerAssignedAccountID"/>
+											</xsl:if>
+											<xsl:if test="//cbc:CustomizationID='2.0'">
+												<xsl:value-of select="//cac:DeliveryCustomerParty/cac:Party/cac:PartyIdentification/cbc:ID"/>
+											</xsl:if>
+										</font>
 									</td>
 									<td width="15%" align="left">
 										<font face="Arial, Helvetica, sans-serif" size="2"><strong>TELEFONO</strong></font>
@@ -142,7 +140,8 @@ xmlns:sac="urn:sunat:names:specification:ubl:peru:schema:xsd:SunatAggregateCompo
 											<xsl:if test="pe:Codigo='06'">
 											<xsl:value-of select="pe:Valor"/>
 											</xsl:if>
-										    </xsl:for-each></font>
+										    </xsl:for-each>
+										</font>
 									</td>
 									<td width="15%" align="left">
 										<font face="Arial, Helvetica, sans-serif" size="2"><strong>N° PEDIDO</strong></font>
@@ -169,32 +168,14 @@ xmlns:sac="urn:sunat:names:specification:ubl:peru:schema:xsd:SunatAggregateCompo
 									</td>
 									<td width="15%" align="left">
 										<font face="Arial, Helvetica, sans-serif" size="2">
-										<xsl:variable name="Doc_ref">
-											<xsl:for-each select="//ext:UBLExtensions/ext:UBLExtension/ext:ExtensionContent/pe:DatosAdicionales/pe:DatoAdicional">
-											<xsl:if test="pe:Codigo='08'">
-											<xsl:value-of select="pe:Valor"/>
-											</xsl:if>
-										    </xsl:for-each>
-										</xsl:variable>
-										<strong>
-										<xsl:choose>
-												<xsl:when test="$Doc_ref='01'">FACTURA</xsl:when>
-												<xsl:when test="$Doc_ref='03'">BOLETA DE VENTA</xsl:when>
-												<xsl:when test="$Doc_ref='07'">NOTA DE CREDITO</xsl:when>
-												<xsl:when test="$Doc_ref='08'">NOTA DE DEBITO</xsl:when>
-												<!-- <xsl:when test="$Doc_ref='09'">GUÍA DE REMISIÓN</xsl:when> -->
-												<xsl:otherwise>-</xsl:otherwise>
-										</xsl:choose>
-										</strong>
+											<strong>ZONA</strong>											
 										</font>
 									</td>
 									<td width="20%" align="left">
 										<font face="Arial, Helvetica, sans-serif" size="2">:
- 										<xsl:for-each select="//ext:UBLExtensions/ext:UBLExtension/ext:ExtensionContent/pe:DatosAdicionales/pe:DatoAdicional">
-											<xsl:if test="pe:Codigo='09'">
-											<xsl:value-of select="pe:Valor"/>
-											</xsl:if>
-										 </xsl:for-each>
+ 											<xsl:call-template name="RetourneValAd">
+												<xsl:with-param name="NumAd" select="08"/>	
+											</xsl:call-template>
 										</font>
 									</td>
 									
@@ -231,7 +212,13 @@ xmlns:sac="urn:sunat:names:specification:ubl:peru:schema:xsd:SunatAggregateCompo
 							</td>
 							<td align="left" width="50%">:
 								<font face="Arial, Helvetica, sans-serif" size="2">
-								<xsl:value-of select="//cac:Shipment/cac:ShipmentStage/cac:CarrierParty/cac:PartyName/cbc:Name"/>
+									<xsl:if test="//cbc:CustomizationID='1.0'">
+										<xsl:value-of select="//cac:Shipment/cac:ShipmentStage/cac:CarrierParty/cac:PartyName/cbc:Name"/>
+									</xsl:if>
+									<xsl:if test="//cbc:CustomizationID='2.0'">
+										<xsl:value-of select="//cac:ShipmentStage/cac:CarrierParty/cac:PartyLegalEntity/cbc:RegistrationName"/>
+									</xsl:if>
+								
 								</font>
 								
 							</td>
@@ -241,7 +228,13 @@ xmlns:sac="urn:sunat:names:specification:ubl:peru:schema:xsd:SunatAggregateCompo
 							</td>
 							<td valign="top" align="left" width="25%">:
 								<font face="Arial, Helvetica, sans-serif" size="2">
-								<xsl:value-of select="//cac:Shipment/cac:ShipmentStage/cac:CarrierParty/cac:PartyIdentification/cbc:ID"/>
+									<xsl:if test="//cbc:CustomizationID='1.0'">
+										<xsl:value-of select="//cac:Shipment/cac:ShipmentStage/cac:CarrierParty/cac:PartyIdentification/cbc:ID"/>
+									</xsl:if>
+									<xsl:if test="//cbc:CustomizationID='2.0'">
+										<xsl:value-of select="//cac:ShipmentStage/cac:CarrierParty/cac:PartyIdentification/cbc:ID"/>
+									</xsl:if>
+								
 								</font>
 							</td>
 						</tr>
@@ -253,7 +246,12 @@ xmlns:sac="urn:sunat:names:specification:ubl:peru:schema:xsd:SunatAggregateCompo
 							</td>
 							<td align="left" width="50%">:
 								<font face="Arial, Helvetica, sans-serif" size="2">
-								<xsl:value-of select="//cac:DespatchSupplierParty/cac:Party/cac:PartyLegalEntity/cbc:RegistrationName"/>
+									<xsl:if test="//cbc:CustomizationID='1.0'">
+										<xsl:value-of select="//cac:DespatchSupplierParty/cac:Party/cac:PartyLegalEntity/cbc:RegistrationName"/>
+									</xsl:if>
+									<xsl:if test="//cbc:CustomizationID='2.0'">
+										<xsl:value-of select="//cac:ShipmentStage/cac:CarrierParty/cac:PartyLegalEntity/cbc:RegistrationName"/>
+									</xsl:if>
 								</font>
 							</td>
 							<td width="15%"  >
@@ -263,7 +261,12 @@ xmlns:sac="urn:sunat:names:specification:ubl:peru:schema:xsd:SunatAggregateCompo
 							</td>
 							<td valign="top" align="left" width="25%">:
 								<font face="Arial, Helvetica, sans-serif" size="2">
-									<xsl:value-of select="format-number(//cac:DespatchSupplierParty/cbc:CustomerAssignedAccountID, '###########', 'pen')"/>
+									<xsl:if test="//cbc:CustomizationID='1.0'">
+										<xsl:value-of select="format-number(//cac:DespatchSupplierParty/cbc:CustomerAssignedAccountID, '###########', 'pen')"/>
+									</xsl:if>
+									<xsl:if test="//cbc:CustomizationID='2.0'">
+										<xsl:value-of select="//cac:ShipmentStage/cac:CarrierParty/cac:PartyIdentification/cbc:ID"/>
+									</xsl:if>									
 								</font>
 							</td>
 						</tr>
@@ -275,11 +278,7 @@ xmlns:sac="urn:sunat:names:specification:ubl:peru:schema:xsd:SunatAggregateCompo
 							</td>
 							<td valign="top" align="left" width="50%">:
 								<font face="Arial, Helvetica, sans-serif" size="2">
-								<xsl:for-each select="//ext:UBLExtensions/ext:UBLExtension/ext:ExtensionContent/pe:DatosAdicionales/pe:DatoAdicional">
-									<xsl:if test="pe:Codigo='10'">
-										<xsl:value-of select="pe:Valor"/>
-									</xsl:if>
-								</xsl:for-each>
+									<xsl:value-of select="//cac:ShipmentStage/cac:DriverPerson/cbc:FirstName"/>&#160;<xsl:value-of select="//cac:ShipmentStage/cac:DriverPerson/cbc:FamilyName"/>
 								</font>
 							</td>
 							<td width="15%">
@@ -302,7 +301,12 @@ xmlns:sac="urn:sunat:names:specification:ubl:peru:schema:xsd:SunatAggregateCompo
 							</td>
 							<td valign="top" align="left" width="50%">:
 								<font face="Arial, Helvetica, sans-serif" size="2">
-									<xsl:value-of select="//cac:Shipment/cac:ShipmentStage/cac:TransportMeans/cac:RoadTransport/cbc:LicensePlateID"/>
+									<xsl:if test="//cbc:CustomizationID='1.0'">
+										<xsl:value-of select="//cac:Shipment/cac:ShipmentStage/cac:TransportMeans/cac:RoadTransport/cbc:LicensePlateID"/>
+									</xsl:if>
+									<xsl:if test="//cbc:CustomizationID='2.0'">
+										<xsl:value-of select="//cac:Shipment/cac:TransportHandlingUnit/cac:TransportEquipment/cbc:ID"/>
+									</xsl:if>									
 								</font>
 							</td>
 							<td width="15%">
@@ -314,7 +318,7 @@ xmlns:sac="urn:sunat:names:specification:ubl:peru:schema:xsd:SunatAggregateCompo
 							<td align="left" width="25%">:
 								<font face="Arial, Helvetica, sans-serif" size="2">
 								<xsl:for-each select="//ext:UBLExtensions/ext:UBLExtension/ext:ExtensionContent/pe:DatosAdicionales/pe:DatoAdicional">
-									<xsl:if test="pe:Codigo='11'">
+									<xsl:if test="pe:Codigo='09'">
 										<xsl:value-of select="pe:Valor"/>
 									</xsl:if>
 								</xsl:for-each>
@@ -331,11 +335,7 @@ xmlns:sac="urn:sunat:names:specification:ubl:peru:schema:xsd:SunatAggregateCompo
 							</td>
 							<td valign="top" align="left" width="50%">:
 								<font face="Arial, Helvetica, sans-serif" size="2">
-									<xsl:for-each select="//ext:UBLExtensions/ext:UBLExtension/ext:ExtensionContent/pe:DatosAdicionales/pe:DatoAdicional">
-									<xsl:if test="pe:Codigo='12'">
-										<xsl:value-of select="pe:Valor"/>
-									</xsl:if>
-								</xsl:for-each>
+									<xsl:value-of select="//cac:ShipmentStage/cac:DriverPerson/cac:IdentityDocumentReference/cbc:ID"/>
 								</font>
 							</td>
 							<td width="15%">
@@ -347,11 +347,7 @@ xmlns:sac="urn:sunat:names:specification:ubl:peru:schema:xsd:SunatAggregateCompo
 							</td>
 							<td align="left" width="25%">:
 								<font face="Arial, Helvetica, sans-serif" size="2">
-								<xsl:for-each select="//ext:UBLExtensions/ext:UBLExtension/ext:ExtensionContent/pe:DatosAdicionales/pe:DatoAdicional">
-									<xsl:if test="pe:Codigo='13'">
-										<xsl:value-of select="pe:Valor"/>
-									</xsl:if>
-								</xsl:for-each>
+									<xsl:value-of select="//cac:CarrierParty/cac:PartyLegalEntity/cbc:CompanyID"/>
 								</font>
 							</td>
 						</tr>
@@ -396,7 +392,13 @@ xmlns:sac="urn:sunat:names:specification:ubl:peru:schema:xsd:SunatAggregateCompo
 									</td>
 									<td width="45%" align="left">
 										<font face="Arial, Helvetica, sans-serif" size="2">:
-											<xsl:value-of select="//cac:Shipment/cbc:HandlingCode"/> - <xsl:value-of select="//cac:Shipment/cbc:Information"/>
+											<xsl:value-of select="//cac:Shipment/cbc:HandlingCode"/> - 
+											<xsl:if test="//cbc:CustomizationID='1.0'">
+												<xsl:value-of select="//cac:Shipment/cbc:Information"/>
+											</xsl:if>
+											<xsl:if test="//cbc:CustomizationID='2.0'">
+												<xsl:value-of select="//cac:Shipment/cbc:HandlingInstructions"/>
+											</xsl:if>		
 										</font>
 									</td>
 									<td width="18%" align="left">
@@ -443,15 +445,11 @@ xmlns:sac="urn:sunat:names:specification:ubl:peru:schema:xsd:SunatAggregateCompo
 										</font>
 									</td>
 									<td width="18%" align="left">
-										<font face="Arial, Helvetica, sans-serif" size="2"><strong>TOTAL UND.</strong></font>
+										<font face="Arial, Helvetica, sans-serif" size="2"><strong></strong></font>
 									</td>
 									<td width="22%" align="left">
-										<font face="Arial, Helvetica, sans-serif" size="2">:
-											<xsl:for-each select="//ext:UBLExtensions/ext:UBLExtension/ext:ExtensionContent/pe:DatosAdicionales/pe:DatoAdicional">
-											<xsl:if test="pe:Codigo='18'">
-											<xsl:value-of select="pe:Valor"/>
-											</xsl:if>
-											</xsl:for-each>
+										<font face="Arial, Helvetica, sans-serif" size="2">
+											
 										</font>
 									</td>
 							    </tr>
@@ -802,6 +800,7 @@ xmlns:sac="urn:sunat:names:specification:ubl:peru:schema:xsd:SunatAggregateCompo
 			</tr>
 		</table>
 	</xsl:template>
+
 </xsl:stylesheet><!-- Stylus Studio meta-information - (c) 2004-2006. Progress Software Corporation. All rights reserved.
 <metaInformation>
 <scenarios ><scenario default="yes" name="Scenario1" userelativepaths="yes" externalpreview="no" url="..\ARDILES" htmlbaseurl="" outputurl="" processortype="internal" useresolver="yes" profilemode="0" profiledepth="" profilelength="" urlprofilexml="" commandline="" additionalpath="" additionalclasspath="" postprocessortype="none" postprocesscommandline="" postprocessadditionalpath="" postprocessgeneratedext="" validateoutput="no" validator="internal" customvalidator=""/></scenarios><MapperMetaTag><MapperInfo srcSchemaPathIsRelative="yes" srcSchemaInterpretAsXML="no" destSchemaPath="" destSchemaRoot="" destSchemaPathIsRelative="yes" destSchemaInterpretAsXML="no"/><MapperBlockPosition></MapperBlockPosition><TemplateContext></TemplateContext><MapperFilter side="source"></MapperFilter></MapperMetaTag>

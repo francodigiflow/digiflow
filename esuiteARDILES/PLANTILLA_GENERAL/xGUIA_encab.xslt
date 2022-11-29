@@ -79,8 +79,8 @@ xmlns:sac="urn:sunat:names:specification:ubl:peru:schema:xsd:SunatAggregateCompo
 	</xsl:template>
 	
 	
-	<xsl:template name="EncabezadoRecuadro">
-		<!--borderColor="#000000"-->
+	<!--<xsl:template name="EncabezadoRecuadro">
+		borderColor="#000000"
 		<table cellSpacing="0" width="100%" border="1" cellpadding="14" borderColor="#000000"  style="font-family :Arial,Helvetica,sans-serif;font-size:18px;color:#000000">
 			<tr>
 				<td width="100%" align="center">
@@ -93,13 +93,32 @@ xmlns:sac="urn:sunat:names:specification:ubl:peru:schema:xsd:SunatAggregateCompo
 				</td>
 			</tr>
 		</table>
+	</xsl:template>-->
+
+	<xsl:template name="EncabezadoRecuadro">
+		<!--borderColor="#000000"-->
+		<table cellSpacing="0" width="100%" border="1" cellpadding="10" borderColor="#000000"  style="font-family :Arial,Helvetica,sans-serif;font-size:15px;color:#000000">
+			<tr>
+				<td width="60%" align="center">
+						<strong>
+							R.U.C. N°&#160;&#160;
+							<xsl:value-of select="format-number(//cac:SignatoryParty/cac:PartyIdentification/cbc:ID, '###########', 'pen')"/>
+							<br/><br/><xsl:call-template name="tipodocu"/>
+							<br/><br/><xsl:call-template name="NFolio"/>
+						</strong>
+				</td>
+				<td><font color="#000000" size="3" face="Arial, Helvetica, sans-serif">
+				<img width="150px" height="150px" align="center" src="data:image/*;base64,[ted_1]" />
+				</font></td>
+			</tr>
+		</table>
 	</xsl:template>
 
 <xsl:template name="tipodocu">
 	
 		<xsl:if test="//cbc:DespatchAdviceTypeCode='09'">
-			<font color="#000000" size="4" face="Arial, Helvetica, sans-serif">
-			GUÍA DE REMISIÓN ELECTRÓNICA
+			<font color="#000000" size="3" face="Arial, Helvetica, sans-serif">
+			GUÍA DE REMISIÓN ELECTRÓNICA REMITENTE
 			</font>
 		</xsl:if>
 		
