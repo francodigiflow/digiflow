@@ -104,7 +104,12 @@
 								</td>
 								<td width="40%" align="left" class="td_detalle">
 									<!--<font face="Arial, Helvetica, sans-serif" size="1">-->
-										<xsl:value-of select="cac:Item/cbc:Name"/>
+										<xsl:if test="//cbc:CustomizationID='1.0'">
+											<xsl:value-of select="cac:Item/cbc:Name"/>
+										</xsl:if>
+										<xsl:if test="//cbc:CustomizationID='2.0'">
+											<xsl:value-of select="cac:Item/cbc:Description"/>
+										</xsl:if>
 								
 								</td>
 								<td width="8%" align="center" class="td_detalle">
@@ -187,7 +192,12 @@
 								</td>
 								<td width="40%" align="left" class="td_detalle">
 									<!--<font face="Arial, Helvetica, sans-serif" size="1">-->
-										<xsl:value-of select="cac:Item/cbc:Name"/>
+										<xsl:if test="//cbc:CustomizationID='1.0'">
+											<xsl:value-of select="cac:Item/cbc:Name"/>
+										</xsl:if>
+										<xsl:if test="//cbc:CustomizationID='2.0'">
+											<xsl:value-of select="cac:Item/cbc:Description"/>
+										</xsl:if>
 								
 								</td>
 								<td width="8%" align="center" class="td_detalle">
@@ -269,7 +279,12 @@
 								</td>
 								<td width="40%" align="left" class="td_detalle">
 									<!--<font face="Arial, Helvetica, sans-serif" size="1">-->
-										<xsl:value-of select="cac:Item/cbc:Name"/>
+										<xsl:if test="//cbc:CustomizationID='1.0'">
+											<xsl:value-of select="cac:Item/cbc:Name"/>
+										</xsl:if>
+										<xsl:if test="//cbc:CustomizationID='2.0'">
+											<xsl:value-of select="cac:Item/cbc:Description"/>
+										</xsl:if>
 								
 								</td>
 								<td width="8%" align="center" class="td_detalle">
@@ -475,7 +490,12 @@
 									</td>
 									<td width="54%" align="left" class="td_detalle">
 										<!--<font face="Arial, Helvetica, sans-serif" size="1">-->
+											<xsl:if test="//cbc:CustomizationID='1.0'">
 											<xsl:value-of select="cac:Item/cbc:Name"/>
+										</xsl:if>
+										<xsl:if test="//cbc:CustomizationID='2.0'">
+											<xsl:value-of select="cac:Item/cbc:Description"/>
+										</xsl:if>
 										<!--</font>-->
 									</td>
 									<td width="7%" align="center" class="td_detalle">
@@ -609,7 +629,12 @@
 								</td>
 								<td width="54%" align="left" class="td_detalle">
 									<!--<font face="Arial, Helvetica, sans-serif" size="1">-->
-										<xsl:value-of select="cac:Item/cbc:Name"/>
+										<xsl:if test="//cbc:CustomizationID='1.0'">
+											<xsl:value-of select="cac:Item/cbc:Name"/>
+										</xsl:if>
+										<xsl:if test="//cbc:CustomizationID='2.0'">
+											<xsl:value-of select="cac:Item/cbc:Description"/>
+										</xsl:if>
 									<!--</font>-->
 								</td>
 								<td width="7%" align="center" class="td_detalle">

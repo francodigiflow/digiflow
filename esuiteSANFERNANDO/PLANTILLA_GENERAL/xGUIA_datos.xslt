@@ -28,12 +28,23 @@ xmlns:sac="urn:sunat:names:specification:ubl:peru:schema:xsd:SunatAggregateCompo
 								<tr>
 									<td width="50%" align="left">
 										<font face="Arial, Helvetica, sans-serif" size="2">
-											<xsl:value-of select="//cac:Shipment/cac:OriginAddress/cbc:StreetName"/>
+											<xsl:if test="//cbc:CustomizationID='1.0'">
+												<xsl:value-of select="//cac:Shipment/cac:OriginAddress/cbc:StreetName"/>
+											</xsl:if>
+											<xsl:if test="//cbc:CustomizationID='2.0'">
+												<xsl:value-of select="//cac:Delivery/cac:Despatch/cac:DespatchAddress/cac:AddressLine/cbc:Line"/>
+											</xsl:if>
 										</font>
 									</td>
 									<td width="50%" align="left">
 										<font face="Arial, Helvetica, sans-serif" size="2">
-										<xsl:value-of select="//cac:Shipment/cac:Delivery/cac:DeliveryAddress/cbc:StreetName"/></font>
+											<xsl:if test="//cbc:CustomizationID='1.0'">
+												<xsl:value-of select="//cac:Shipment/cac:Delivery/cac:DeliveryAddress/cbc:StreetName"/>
+											</xsl:if>
+											<xsl:if test="//cbc:CustomizationID='2.0'">
+												<xsl:value-of select="//cac:Delivery/cac:DeliveryAddress/cac:AddressLine/cbc:Line"/>
+											</xsl:if>
+										</font>
 									</td>
 								</tr>
 							</tbody>
@@ -103,7 +114,13 @@ xmlns:sac="urn:sunat:names:specification:ubl:peru:schema:xsd:SunatAggregateCompo
 									</td>
 									<td width="30%" align="left">
 										<font face="Arial, Helvetica, sans-serif" size="2">:
-										<xsl:value-of select="//cac:DeliveryCustomerParty/cbc:CustomerAssignedAccountID"/></font>
+											<xsl:if test="//cbc:CustomizationID='1.0'">
+												<xsl:value-of select="//cac:DeliveryCustomerParty/cbc:CustomerAssignedAccountID"/>
+											</xsl:if>
+											<xsl:if test="//cbc:CustomizationID='2.0'">
+												<xsl:value-of select="//cac:DeliveryCustomerParty/cac:Party/cac:PartyIdentification/cbc:ID"/>
+											</xsl:if>
+										</font>
 									</td>
 									<td width="10%" align="left">
 										<font face="Arial, Helvetica, sans-serif" size="2"><strong>Entrega</strong></font>
@@ -393,7 +410,12 @@ xmlns:sac="urn:sunat:names:specification:ubl:peru:schema:xsd:SunatAggregateCompo
 									</td>
 									<td width="50%" align="left">
 										<font face="Arial, Helvetica, sans-serif" size="2">:
-										<xsl:value-of select="//cac:Shipment/cac:ShipmentStage/cac:CarrierParty/cac:PartyName/cbc:Name"/>
+											<xsl:if test="//cbc:CustomizationID='1.0'">
+												<xsl:value-of select="//cac:Shipment/cac:ShipmentStage/cac:CarrierParty/cac:PartyName/cbc:Name"/>
+											</xsl:if>
+											<xsl:if test="//cbc:CustomizationID='2.0'">
+												<xsl:value-of select="//cac:ShipmentStage/cac:CarrierParty/cac:PartyLegalEntity/cbc:RegistrationName"/>
+											</xsl:if>
 										</font>
 									</td>
 								</tr>
@@ -551,7 +573,13 @@ xmlns:sac="urn:sunat:names:specification:ubl:peru:schema:xsd:SunatAggregateCompo
 									</td>
 									<td width="80%" align="left">
 										<font face="Arial, Helvetica, sans-serif" size="2">:
-										<xsl:value-of select="//cac:Shipment/cbc:HandlingCode"/>&#xA0;<xsl:value-of select="//cac:Shipment/cbc:Information"/>
+										<xsl:value-of select="//cac:Shipment/cbc:HandlingCode"/>&#xA0;
+											<xsl:if test="//cbc:CustomizationID='1.0'">
+												<xsl:value-of select="//cac:Shipment/cbc:Information"/>
+											</xsl:if>
+											<xsl:if test="//cbc:CustomizationID='2.0'">
+												<xsl:value-of select="//cac:Shipment/cbc:HandlingInstructions"/>
+											</xsl:if>
 										</font>
 									</td>
 									</tr>

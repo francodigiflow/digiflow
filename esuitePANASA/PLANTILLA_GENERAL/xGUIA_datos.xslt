@@ -40,8 +40,13 @@
 										</font>
 									</td>
 									<td colspan="4" align="left">
-										<font face="Arial, Helvetica, sans-serif" size="1">
-											<xsl:value-of select="//cac:DeliveryCustomerParty/cbc:CustomerAssignedAccountID"/>
+										<font face="Arial, Helvetica, sans-serif" size="1">											
+											<xsl:if test="//cbc:CustomizationID='1.0'">
+													<xsl:value-of select="format-number(//cac:DespatchSupplierParty/cbc:CustomerAssignedAccountID, '###########', 'pen')"/>
+											</xsl:if>
+											<xsl:if test="//cbc:CustomizationID='2.0'">
+												<xsl:value-of select="format-number(//cac:SignatoryParty/cac:PartyIdentification/cbc:ID, '###########', 'pen')"/>
+											</xsl:if>
 										</font>
 									</td>
 								</tr>
@@ -258,7 +263,12 @@
 									</td>
 									<td width="20%" align="left">
 										<font face="Arial, Helvetica, sans-serif" size="1">
-											<xsl:value-of select="//cac:Shipment/cac:ShipmentStage/cac:TransportMeans/cac:RoadTransport/cbc:LicensePlateID"/>
+											<xsl:if test="//cbc:CustomizationID='1.0'">
+												<xsl:value-of select="//cac:Shipment/cac:ShipmentStage/cac:TransportMeans/cac:RoadTransport/cbc:LicensePlateID"/>
+											</xsl:if>
+											<xsl:if test="//cbc:CustomizationID='2.0'">
+												<xsl:value-of select="//cac:Shipment/cac:TransportHandlingUnit/cac:TransportEquipment/cbc:ID"/>
+											</xsl:if>
 										</font>
 									</td>
 									<td width="20%" align="left">
@@ -337,7 +347,12 @@
 									</td>
 									<td colspan="4" align="left">
 										<font face="Arial, Helvetica, sans-serif" size="1">
-											<xsl:value-of select="//cac:Shipment/cac:OriginAddress/cbc:StreetName"/>
+											<xsl:if test="//cbc:CustomizationID='1.0'">
+												<xsl:value-of select="//cac:Shipment/cac:OriginAddress/cbc:StreetName"/>
+											</xsl:if>
+											<xsl:if test="//cbc:CustomizationID='2.0'">
+												<xsl:value-of select="//cac:Delivery/cac:Despatch/cac:DespatchAddress/cac:AddressLine/cbc:Line"/>
+											</xsl:if>
 										</font>
 									</td>
 								</tr>
@@ -354,7 +369,12 @@
 									</td>
 									<td colspan="4" align="left">
 										<font face="Arial, Helvetica, sans-serif" size="1">
-											<xsl:value-of select="//cac:Shipment/cac:Delivery/cac:DeliveryAddress/cbc:StreetName"/>
+											<xsl:if test="//cbc:CustomizationID='1.0'">
+												<xsl:value-of select="//cac:Shipment/cac:Delivery/cac:DeliveryAddress/cbc:StreetName"/>
+											</xsl:if>
+											<xsl:if test="//cbc:CustomizationID='2.0'">
+												<xsl:value-of select="//cac:Delivery/cac:DeliveryAddress/cac:AddressLine/cbc:Line"/>
+											</xsl:if>
 										</font>
 									</td>
 								</tr>
@@ -465,7 +485,12 @@
 									</td>
 									<td width="84%" align="left">
 										<font face="Arial, Helvetica, sans-serif" size="1">
-											<xsl:value-of select="//cac:Shipment/cac:ShipmentStage/cac:CarrierParty/cac:PartyName/cbc:Name"/>
+											<xsl:if test="//cbc:CustomizationID='1.0'">
+												<xsl:value-of select="//cac:Shipment/cac:ShipmentStage/cac:CarrierParty/cac:PartyName/cbc:Name"/>
+											</xsl:if>
+											<xsl:if test="//cbc:CustomizationID='2.0'">
+												<xsl:value-of select="//cac:ShipmentStage/cac:CarrierParty/cac:PartyLegalEntity/cbc:RegistrationName"/>
+											</xsl:if>
 										</font>
 									</td>
 								</tr>
@@ -610,7 +635,12 @@
 									</td>
 									<td colspan="4" align="left">
 										<font face="Arial, Helvetica, sans-serif" size="1">
-											<xsl:value-of select="//cac:Shipment/cbc:Information"/>
+											<xsl:if test="//cbc:CustomizationID='1.0'">
+												<xsl:value-of select="//cac:Shipment/cbc:Information"/>
+											</xsl:if>
+											<xsl:if test="//cbc:CustomizationID='2.0'">
+												<xsl:value-of select="//cac:Shipment/cbc:HandlingInstructions"/>
+											</xsl:if>
 										</font>
 									</td>
 								</tr>
@@ -676,7 +706,8 @@
 										</font>
 									</td>
 									<td colspan="4" align="left">
-										<font face="Arial, Helvetica, sans-serif" size="1">
+										<font face="Arial, Helvetica, sans-serif" size="1">											
+
 											<xsl:call-template name="TraeValorVariable">
 												<xsl:with-param name="varNumVA" select="15"/>
 											</xsl:call-template>
