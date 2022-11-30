@@ -116,7 +116,13 @@ xmlns:sac="urn:sunat:names:specification:ubl:peru:schema:xsd:SunatAggregateCompo
 							</font>
 							&#160;<br/>	<br/>		
 							<font size="2"><strong>							
-							&#160;R.U.C. N° <xsl:value-of select="format-number(//cac:DespatchSupplierParty/cbc:CustomerAssignedAccountID, '###########', 'pen')"/>
+							&#160;R.U.C. N° 
+							<xsl:if test="//cbc:CustomizationID='1.0'">
+									<xsl:value-of select="format-number(//cac:DespatchSupplierParty/cbc:CustomerAssignedAccountID, '###########', 'pen')"/>
+							</xsl:if>
+							<xsl:if test="//cbc:CustomizationID='2.0'">
+								<xsl:value-of select="format-number(//cac:SignatoryParty/cac:PartyIdentification/cbc:ID, '###########', 'pen')"/>
+							</xsl:if>
 							</strong>
 							<xsl:for-each select="//ext:UBLExtensions/ext:UBLExtension/ext:ExtensionContent/pe:DatosAdicionales/pe:DatoAdicional">
 								<xsl:if test="pe:Codigo='32'">
@@ -141,8 +147,8 @@ xmlns:sac="urn:sunat:names:specification:ubl:peru:schema:xsd:SunatAggregateCompo
 	</xsl:template>
 	
 	
-	<xsl:template name="EncabezadoRecuadro">
-		<!--borderColor="#000000"-->
+	<!--<xsl:template name="EncabezadoRecuadro">
+		borderColor="#000000"
 		<table cellSpacing="0" width="100%" border="1" cellpadding="14" borderColor="#000000"  style="font-family :Arial,Helvetica,sans-serif;font-size:18px;color:#000000">
 			<tr>
 				<td width="100%" align="center">
@@ -157,7 +163,32 @@ xmlns:sac="urn:sunat:names:specification:ubl:peru:schema:xsd:SunatAggregateCompo
 				</td>
 			</tr>
 		</table>
+	</xsl:template>-->
+
+	<xsl:template name="EncabezadoRecuadro">
+		<!--borderColor="#000000"-->
+		<table cellSpacing="0" width="100%" border="1" cellpadding="10" borderColor="#000000"  style="font-family :Arial,Helvetica,sans-serif;font-size:15px;color:#000000">
+			<tr>
+				<td width="60%" align="center">
+						<strong>
+							R.U.C. N&#xFFFD;&#160;&#160;
+							<xsl:if test="//cbc:CustomizationID='1.0'">
+									<xsl:value-of select="format-number(//cac:DespatchSupplierParty/cbc:CustomerAssignedAccountID, '###########', 'pen')"/>
+							</xsl:if>
+							<xsl:if test="//cbc:CustomizationID='2.0'">
+								<xsl:value-of select="format-number(//cac:SignatoryParty/cac:PartyIdentification/cbc:ID, '###########', 'pen')"/>
+							</xsl:if>
+							<br/><br/><xsl:call-template name="tipodocu"/>
+							<br/><br/><xsl:call-template name="NFolio"/>
+						</strong>
+				</td>
+				<td><font color="#000000" size="3" face="Arial, Helvetica, sans-serif">
+				<img width="150px" height="150px" align="center" src="data:image/*;base64,[ted_1]" />
+				</font></td>
+			</tr>
+		</table>
 	</xsl:template>
+
 
 <xsl:template name="tipodocu">
 	
