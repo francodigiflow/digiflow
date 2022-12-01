@@ -12,7 +12,12 @@
 						<xsl:call-template name="EncabezadoPeru"/>
 					</td>
 					<td vAlign="top" width="40%">
-						<xsl:call-template name="EncabezadoRecuadro"/>
+						<xsl:if test="//cbc:CustomizationID='1.0'">
+							<xsl:call-template name="EncabezadoRecuadro"/>
+						</xsl:if>
+						<xsl:if test="//cbc:CustomizationID='2.0'">
+							<xsl:call-template name="EncabezadoRecuadro20"/>
+						</xsl:if>
 					</td>
 				</tr>
 			</tbody>
@@ -201,8 +206,7 @@
 	</xsl:template>
 
 
-	<!--<xsl:template name="EncabezadoRecuadro">
-		borderColor="#000000"
+	<xsl:template name="EncabezadoRecuadro">
 		<table cellSpacing="0" width="100%" border="1" cellpadding="14" borderColor="#000000"  style="font-family :Arial,Helvetica,sans-serif;font-size:18px;color:#000000">
 			<tr>
 				<td width="100%" align="center">
@@ -217,14 +221,14 @@
 				</td>
 			</tr>
 		</table>
-	</xsl:template>-->
+	</xsl:template>
 
-	<xsl:template name="EncabezadoRecuadro">
+	<xsl:template name="EncabezadoRecuadro20">
 		<!--borderColor="#000000"-->
 		<table cellSpacing="0" width="100%" border="1" cellpadding="10" borderColor="#000000" style="font-family :Arial,Helvetica,sans-serif;font-size:15px;color:#000000">
 			<tr>
 				<td width="60%" align="center">
-					<strong>R.U.C. N&#xFFFD;&#xA0;&#xA0;
+					<strong>R.U.C. N°&#xA0;&#xA0;
 						<xsl:if test="//cbc:CustomizationID='1.0'">
 							<xsl:value-of select="format-number(//cac:DespatchSupplierParty/cbc:CustomerAssignedAccountID, '###########', 'pen')"/>
 						</xsl:if>
@@ -241,7 +245,8 @@
 				</td>
 				<td>
 					<font color="#000000" size="3" face="Arial, Helvetica, sans-serif">
-						<img width="150px" height="150px" align="center" src="data:image/*;base64,[ted_1]"/>
+						<!--<img width="150px" height="150px" align="center" src="data:image/*;base64,[ted_1]"/>-->
+						<img src="timbre.jpg" width="79" height="50"/>
 					</font>
 				</td>
 			</tr>
