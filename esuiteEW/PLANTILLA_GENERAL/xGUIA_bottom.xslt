@@ -37,8 +37,8 @@ xmlns:sac="urn:sunat:names:specification:ubl:peru:schema:xsd:SunatAggregateCompo
 					</td>
 				</tr>
 				<tr>
-					<td width="100%">
-						<xsl:call-template name="imp_timbre"/>
+					<td width="100%" height="100%"> 
+						
 					</td>
 				</tr>
 				
@@ -46,37 +46,11 @@ xmlns:sac="urn:sunat:names:specification:ubl:peru:schema:xsd:SunatAggregateCompo
 		</table>
 	</xsl:template>
 
-	<xsl:template name="imp_timbre">
-		<table border="0" bordercolor="#000000" cellpadding="2" cellspacing="0" width="100%">
-			<tr>
-				<td width="40%" align="center">
-					<table border="0" bordercolor="#000000" cellpadding="0" cellspacing="0" width="100%">
-						<tr>
-							<td align="center">
-							<font face="Arial" size="1.5">
-							<strong></strong> <img src="timbre.jpg" width="79" height="50"/>
-							</font>
-							<br/>
-							<font color="#000000" size="1" face="Arial, Helvetica, sans-serif">
-							<!--<strong>Una empresa de Cámara de Comercio de Lima</strong>-->
-							</font>
-							</td>
-						</tr>
-					</table>
-				</td>
-			</tr>
-		</table>
-	</xsl:template>
-
-	
-
-	<xsl:template name="timbre">
-		
-		
-	<xsl:value-of select="pe:Invoice/ext:UBLExtensions/ext:UBLExtension/ext:ExtensionContent/pe:DatosAdicionales/pe:Documento/pe:Nombre"/>
+	<xsl:template name="timbre">		
+		<xsl:value-of select="pe:Invoice/ext:UBLExtensions/ext:UBLExtension/ext:ExtensionContent/pe:DatosAdicionales/pe:Documento/pe:Nombre"/>
 		<xsl:value-of select="'.jpg'"/>
 	</xsl:template>
-	
+
 	<xsl:template name="nombreTed">
 		<xsl:param name="text"/>
 		<xsl:param name="largo" select="0"/>
@@ -94,6 +68,7 @@ xmlns:sac="urn:sunat:names:specification:ubl:peru:schema:xsd:SunatAggregateCompo
 			</xsl:otherwise>
 		</xsl:choose>
 	</xsl:template>
+
 </xsl:stylesheet><!-- Stylus Studio meta-information - (c) 2004-2006. Progress Software Corporation. All rights reserved.
 <metaInformation>
 <scenarios/><MapperMetaTag><MapperInfo srcSchemaPathIsRelative="yes" srcSchemaInterpretAsXML="no" destSchemaPath="" destSchemaRoot="" destSchemaPathIsRelative="yes" destSchemaInterpretAsXML="no"/><MapperBlockPosition></MapperBlockPosition><TemplateContext></TemplateContext><MapperFilter side="source"></MapperFilter></MapperMetaTag>

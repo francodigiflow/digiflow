@@ -246,7 +246,16 @@
 				<td>
 					<font color="#000000" size="3" face="Arial, Helvetica, sans-serif">
 						<!--<img width="150px" height="150px" align="center" src="data:image/*;base64,[ted_1]"/>-->
-						<img src="timbre.jpg" width="79" height="50"/>
+						<!--<img width="150px" height="150px" align="center" src="timbre.jpg"/>-->
+
+									<img width="150px" height="150px" align="center" >
+										<xsl:attribute name="src">
+											<xsl:call-template name="timbre"/>
+										</xsl:attribute>
+									</img>
+									<!--<xsl:call-template name="imp_timbre"/>-->
+		
+						
 					</font>
 				</td>
 			</tr>

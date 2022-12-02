@@ -48,7 +48,6 @@ xmlns:sac="urn:sunat:names:specification:ubl:peru:schema:xsd:SunatAggregateCompo
 						<br/>
 							<xsl:if test="//cbc:CustomizationID='1.0'">
 	             					<xsl:if test="//cac:DespatchSupplierParty/cbc:CustomerAssignedAccountID='20100154308'">
-										
 										<!--<img src="logo_sf.jpg" width="190px" height="90px" />-->
 										<img src="data:image/*;base64,[logo_1]"  width="190px" height="90px" />
 									</xsl:if>
@@ -59,12 +58,12 @@ xmlns:sac="urn:sunat:names:specification:ubl:peru:schema:xsd:SunatAggregateCompo
 							</xsl:if>
 							<xsl:if test="//cbc:CustomizationID='2.0'">
 									<xsl:if test="//cac:SignatoryParty/cac:PartyIdentification/cbc:ID='20100154308'">
-										<!--<img src="logo_sf.jpg" width="190px" height="90px" />-->
-										<img src="data:image/*;base64,[logo_1]"  width="190px" height="90px" />
+										<img src="logo_sf.jpg" width="190px" height="90px" />
+										<!--<img src="data:image/*;base64,[logo_1]"  width="190px" height="90px" />-->
 									</xsl:if>
 									<xsl:if test="//cac:SignatoryParty/cac:PartyIdentification/cbc:ID='20608989197'">
-										<!--<img src="logo_sf.jpg" width="190px" height="90px" />-->
-										<img src="data:image/*;base64,[logo_2]" width="418" height="117" />
+										<img src="logo_sf.jpg" width="190px" height="90px" />
+										<!--<img src="data:image/*;base64,[logo_2]" width="418" height="117" />-->
 									</xsl:if>
 							</xsl:if>
 
