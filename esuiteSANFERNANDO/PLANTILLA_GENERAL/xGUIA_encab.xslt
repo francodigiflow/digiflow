@@ -58,12 +58,12 @@ xmlns:sac="urn:sunat:names:specification:ubl:peru:schema:xsd:SunatAggregateCompo
 							</xsl:if>
 							<xsl:if test="//cbc:CustomizationID='2.0'">
 									<xsl:if test="//cac:SignatoryParty/cac:PartyIdentification/cbc:ID='20100154308'">
-										<img src="logo_sf.jpg" width="190px" height="90px" />
-										<!--<img src="data:image/*;base64,[logo_1]"  width="190px" height="90px" />-->
+										<!--<img src="logo_sf.jpg" width="190px" height="90px" />-->
+										<img src="data:image/*;base64,[logo_1]"  width="190px" height="90px" />
 									</xsl:if>
 									<xsl:if test="//cac:SignatoryParty/cac:PartyIdentification/cbc:ID='20608989197'">
-										<img src="logo_sf.jpg" width="190px" height="90px" />
-										<!--<img src="data:image/*;base64,[logo_2]" width="418" height="117" />-->
+										<!--<img src="logo_sf.jpg" width="190px" height="90px" />-->
+										<img src="data:image/*;base64,[logo_2]" width="418" height="117" />
 									</xsl:if>
 							</xsl:if>
 
@@ -165,11 +165,9 @@ xmlns:sac="urn:sunat:names:specification:ubl:peru:schema:xsd:SunatAggregateCompo
 
 <xsl:template name="tipodocu">
 	
-		<xsl:if test="//cbc:DespatchAdviceTypeCode='09'">
-			<font color="#000000" size="4" face="Arial, Helvetica, sans-serif">
-			GUÕA DE REMISI”N ELECTR”NICA
-			</font>
-		</xsl:if>
+		<font color="#000000" size="4" face="Arial, Helvetica, sans-serif">
+		GUÕA DE REMISI”N ELECTR”NICA REMITENTE
+		</font>
 		
 	<!--<font color="#000000" size="4" face="Arial, Helvetica, sans-serif">
 		GU√çA DE REMISI√ìN ELECTR√ìNICA
