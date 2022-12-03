@@ -17,10 +17,14 @@ xmlns:sac="urn:sunat:names:specification:ubl:peru:schema:xsd:SunatAggregateCompo
 					</td>
 					<td vAlign="top" width="40%">
 						<xsl:if test="//cbc:CustomizationID='1.0'">
-							<xsl:call-template name="EncabezadoRecuadro"/>
+							<xsl:call-template name="EncabezadoRecuadro"/>								
 						</xsl:if>
 						<xsl:if test="//cbc:CustomizationID='2.0'">
-							<xsl:call-template name="EncabezadoRecuadro20"/>
+							<!--CLOUD-->
+							<!--<xsl:call-template name="EncabezadoRecuadro20"/>	-->
+
+							<!--SUCURSAL-->
+							<xsl:call-template name="EncabezadoRecuadro"/>	
 						</xsl:if>
 					</td>
 				</tr>
@@ -48,22 +52,42 @@ xmlns:sac="urn:sunat:names:specification:ubl:peru:schema:xsd:SunatAggregateCompo
 						<br/>
 							<xsl:if test="//cbc:CustomizationID='1.0'">
 	             					<xsl:if test="//cac:DespatchSupplierParty/cbc:CustomerAssignedAccountID='20100154308'">
-										<!--<img src="logo_sf.jpg" width="190px" height="90px" />-->
-										<img src="data:image/*;base64,[logo_1]"  width="190px" height="90px" />
+										
+										<!--CLOUD-->
+										<!--<img src="data:image/*;base64,[logo_1]"  width="190px" height="90px" />-->
+										
+										<!--SUCURSAL-->
+										<img src="logo_sf.jpg" width="190px" height="90px" />
+
 									</xsl:if>
 									<xsl:if test="//cac:DespatchSupplierParty/cbc:CustomerAssignedAccountID='20608989197'">
-										<!--<img src="logo_sf.jpg" width="190px" height="90px" />-->
-										<img src="data:image/*;base64,[logo_2]" width="418" height="117" />
+										
+										<!--CLOUD-->
+										<!--<img src="data:image/*;base64,[logo_2]" width="418" height="117" />-->
+										
+										<!--SUCURSAL-->
+										<img src="logo_sf.jpg" width="190px" height="90px" />
+
 									</xsl:if>
 							</xsl:if>
 							<xsl:if test="//cbc:CustomizationID='2.0'">
 									<xsl:if test="//cac:SignatoryParty/cac:PartyIdentification/cbc:ID='20100154308'">
-										<!--<img src="logo_sf.jpg" width="190px" height="90px" />-->
-										<img src="data:image/*;base64,[logo_1]"  width="190px" height="90px" />
+
+										<!--CLOUD-->
+										<!--<img src="data:image/*;base64,[logo_1]"  width="190px" height="90px" />-->
+										
+										<!--SUCURSAL-->
+										<img src="logo_sf.jpg" width="190px" height="90px" />
+
 									</xsl:if>
 									<xsl:if test="//cac:SignatoryParty/cac:PartyIdentification/cbc:ID='20608989197'">
-										<!--<img src="logo_sf.jpg" width="190px" height="90px" />-->
-										<img src="data:image/*;base64,[logo_2]" width="418" height="117" />
+
+										<!--CLOUD-->
+										<!--<img src="data:image/*;base64,[logo_2]" width="418" height="117" />-->
+										
+										<!--SUCURSAL-->
+										<img src="logo_sf.jpg" width="190px" height="90px" />
+										
 									</xsl:if>
 							</xsl:if>
 
@@ -156,8 +180,16 @@ xmlns:sac="urn:sunat:names:specification:ubl:peru:schema:xsd:SunatAggregateCompo
 				</td>
 				<td><font color="#000000" size="3" face="Arial, Helvetica, sans-serif">
 				
-						<!--<img width="150px" height="150px" align="center" src="timbre.jpg" />-->
-				<img width="150px" height="150px" align="center" src="data:image/*;base64,[ted_1]" />
+						<!--CLOUD-->
+						<!--<img width="150px" height="150px" align="center" src="data:image/*;base64,[ted_1]" />-->
+						
+						<!--SUCURSAL-->
+						<img width="150px" height="150px">
+						    <xsl:attribute name="src">
+						        <xsl:call-template name="timbre"/>
+						    </xsl:attribute>
+						</img>
+
 				</font></td>
 			</tr>
 		</table>
@@ -185,6 +217,7 @@ xmlns:sac="urn:sunat:names:specification:ubl:peru:schema:xsd:SunatAggregateCompo
 		<body/>
 	</html>
 </xsl:template>
+
 </xsl:stylesheet><!-- Stylus Studio meta-information - (c) 2004-2006. Progress Software Corporation. All rights reserved.
 <metaInformation>
 <scenarios/><MapperMetaTag><MapperInfo srcSchemaPathIsRelative="yes" srcSchemaInterpretAsXML="no" destSchemaPath="" destSchemaRoot="" destSchemaPathIsRelative="yes" destSchemaInterpretAsXML="no"/><MapperBlockPosition></MapperBlockPosition><TemplateContext></TemplateContext><MapperFilter side="source"></MapperFilter></MapperMetaTag>
