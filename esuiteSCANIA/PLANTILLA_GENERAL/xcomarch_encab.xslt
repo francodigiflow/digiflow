@@ -10,11 +10,11 @@
 	<xsl:template name="Encabezado">
 		<table cellSpacing="0" cellPadding="0" width="100%" border="0">
 			<tbody>
-			<tr width="100%">
-			<td vAlign="top" width="100%">
+				<tr width="100%">
+					<td vAlign="top" width="100%">
 						<xsl:call-template name="EncabezadoImagenes"/>
 					</td>
-			</tr>
+				</tr>
 			</tbody>
 		</table>
 	</xsl:template>
@@ -22,43 +22,33 @@
 
 	<xsl:template name="EncabezadoImagenes">
 		<p>
-			<table cellSpacing="2" cellPadding="0" width="100%" border="0" borderColor="#000000">
+			<table cellSpacing="0" cellPadding="0" width="100%" border="0" borderColor="#000000">
 				<tbody>
 					<tr>
-						<td width="100%" >
-							<table cellSpacing="0" cellPadding="0" width="100%" border="0">
-						<tbody>
-						<tr>
-						<td>
-							<table cellSpacing="0" cellPadding="0" width="100%" border="0">
-								<tr>
-									<td align="left">
+						<td align="left">
+<!--							<table cellSpacing="0" cellPadding="0" width="100%" border="0">
+								<tr>-->
+									<!--<td align="left">-->
 										<!--<img src="C:\Users\FrancoCabanillasGóme\Documents\Representaciones\representaciones\SCANIA\logo1_scania.jpg" width="200" height="80"/>-->
-										<img src="data:image/*;base64,[logo_1]" width="200" height="80"/>
-									</td>
-								</tr>
-							</table>
+										<img src="data:image/*;base64,[logo_1]" width="230" height="70"/>
+									<!--</td>-->
+<!--								</tr>
+							</table>-->
+						</td>
+						<td align="right" width="80%">
+							<!--<table cellSpacing="0" cellPadding="0" width="70%" border="0">
+							</table>-->
 						</td>
 						<td align="right">
-							<table cellSpacing="0" cellPadding="0" width="75%" border="0">
-							</table>
-						</td>
-						<td>
-								<table cellSpacing="0" cellPadding="0" width="100%" border="0">
+								<!--<table cellSpacing="0" cellPadding="0" width="100%" border="0">
 								<tr>
-									<td align="right">
+									<td align="right">-->
 										<!--<img src="C:\Users\FrancoCabanillasGóme\Documents\Representaciones\representaciones\SCANIA\logo2.jpg" width="80" height="80"/>-->
 										<img src="data:image/*;base64,[logo_2]" width="80" height="80" />
-									</td>
+							<!--		</td>
 								</tr>
-							</table>
+							</table>-->
 						</td>
-					</tr>
-						</tbody>
-							</table>
-						</td>
-					</tr>
-					<tr>
 					</tr>
 				</tbody>
 			</table>
