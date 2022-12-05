@@ -9,7 +9,7 @@
                 xmlns:sac="urn:sunat:names:specification:ubl:peru:schema:xsd:SunatAggregateComponents-1" 
 				xmlns:udt="urn:un:unece:uncefact:data:specification:UnqualifiedDataTypesSchemaModule:2" 
 				xmlns:ccts="urn:un:unece:uncefact:documentation:2"
-                exclude-result-prefixes="cac cbc ccts ext pe qdt sac udt xsi sac">
+                exclude-result-prefixes="cac cbc ccts ds ext pe qdt sac udt xsi sac">
 
 
 	<xsl:output method="html" indent="yes" encoding="ISO-8859-1" omit-xml-declaration="yes"/>
@@ -125,24 +125,20 @@
 									</font>
 								</td>
 							</tr>
-						
 						</xsl:for-each>
-						<tr>
-						<td align="center" valign="top" width="15%">
-						<font face="Arial, Helvetica, sans-serif" size="1">
+
 						<xsl:call-template name="lineaBl">
 							<xsl:with-param name="cont" select="$numColBl"/>
-								
-									
-										
+							<table>
+								<tr>
+									<td align="center" valign="top" width="15%">
+										<font face="Arial, Helvetica, sans-serif" size="1">
 											<xsl:call-template name="total"/>
-										
-									
-								
+										</font>
+									</td>
+								</tr>
+							</table>
 						</xsl:call-template>
-						</font>
-						</td>
-						</tr>
 					</table>
 				</td>
 			</tr>
@@ -267,12 +263,7 @@
 								</td>
 								<td width="41%" align="left">
 									<font face="Arial, Helvetica, sans-serif" size="1">
-										<xsl:if test="//cbc:CustomizationID='1.0'">
-											<xsl:value-of select="cac:Item/cbc:Name"/>
-										</xsl:if>
-										<xsl:if test="//cbc:CustomizationID='2.0'">
-											<xsl:value-of select="cac:Item/cbc:Description"/>
-										</xsl:if>
+										<xsl:value-of select="cac:Item/cbc:Name"/>
 									</font>
 								</td>
 								<td width="12%" align="center">
