@@ -22,12 +22,7 @@ exclude-result-prefixes="cac cbc ccts ds ext pe qdt sac udt xsi">
 					<xsl:call-template name="EncabezadoPeru"/>
 				</td>
 				<td vAlign="top" width="40%">
-					<xsl:if test="//cbc:CustomizationID='1.0'">
-						<xsl:call-template name="EncabezadoRecuadro"/>
-					</xsl:if>
-					<xsl:if test="//cbc:CustomizationID='2.0'">
-						<xsl:call-template name="EncabezadoRecuadro20"/>
-					</xsl:if>
+					<xsl:call-template name="EncabezadoRecuadro"/>
 				</td>
 			</tr>
 		</tbody>
@@ -49,7 +44,7 @@ exclude-result-prefixes="cac cbc ccts ds ext pe qdt sac udt xsi">
 				<tr>
 					<td width="100%" align="left">
 						
-						<img src="logo_panasa_secundario.jpg"/>
+						<img src="#logo_panasa_secundario.jpg"/>
 						
 					
 					</td>
@@ -123,30 +118,6 @@ exclude-result-prefixes="cac cbc ccts ds ext pe qdt sac udt xsi">
 					</table>
 				
 </xsl:template>
-
-	<xsl:template name="EncabezadoRecuadro20">
-		<!--borderColor="#000000"-->
-		<table cellSpacing="0" width="100%" border="1" cellpadding="10" borderColor="#000000"  style="font-family :Arial,Helvetica,sans-serif;font-size:15px;color:#000000">
-			<tr>
-				<td width="60%" align="center">
-						<strong>
-							R.U.C. N &#160;&#160;
-							<xsl:if test="//cbc:CustomizationID='1.0'">
-									<xsl:value-of select="format-number(//cac:DespatchSupplierParty/cbc:CustomerAssignedAccountID, '###########', 'pen')"/>
-							</xsl:if>
-							<xsl:if test="//cbc:CustomizationID='2.0'">
-								<xsl:value-of select="format-number(//cac:SignatoryParty/cac:PartyIdentification/cbc:ID, '###########', 'pen')"/>
-							</xsl:if>
-							<br/><br/>GUÍA DE REMISIÓN ELECTRÓNICA REMITENTE
-							<br/><br/><xsl:call-template name="NFolio"/>
-						</strong>
-				</td>
-				<td><font color="#000000" size="3" face="Arial, Helvetica, sans-serif">
-				<img width="150px" height="150px" align="center" src="data:image/*;base64,[ted_1]" />
-				</font></td>
-			</tr>
-		</table>
-	</xsl:template>
 
 <xsl:template name="tipodocu">
 	
