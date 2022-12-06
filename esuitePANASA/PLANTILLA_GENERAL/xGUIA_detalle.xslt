@@ -9,7 +9,7 @@
                 xmlns:sac="urn:sunat:names:specification:ubl:peru:schema:xsd:SunatAggregateComponents-1" 
 				xmlns:udt="urn:un:unece:uncefact:data:specification:UnqualifiedDataTypesSchemaModule:2" 
 				xmlns:ccts="urn:un:unece:uncefact:documentation:2"
-                exclude-result-prefixes="cac cbc ccts ds ext pe qdt sac udt xsi sac">
+                exclude-result-prefixes="cac cbc ccts ext pe qdt sac udt xsi sac">
 
 
 	<xsl:output method="html" indent="yes" encoding="ISO-8859-1" omit-xml-declaration="yes"/>
@@ -129,7 +129,7 @@
 
 						<xsl:call-template name="lineaBl">
 							<xsl:with-param name="cont" select="$numColBl"/>
-							<table>
+							<!--<table>
 								<tr>
 									<td align="center" valign="top" width="15%">
 										<font face="Arial, Helvetica, sans-serif" size="1">
@@ -137,7 +137,7 @@
 										</font>
 									</td>
 								</tr>
-							</table>
+							</table>-->
 						</xsl:call-template>
 					</table>
 				</td>
@@ -310,7 +310,7 @@
 
 						<xsl:call-template name="lineaB2">
 							<xsl:with-param name="cont" select="$numColBl"/>
-							<table>
+							<!--<table>
 								<tr>
 									<td align="center" valign="top" width="15%">
 										<font face="Arial, Helvetica, sans-serif" size="1">
@@ -318,7 +318,7 @@
 										</font>
 									</td>
 								</tr>
-							</table>
+							</table>-->
 						</xsl:call-template>
 					</table>
 				</td>
@@ -477,7 +477,7 @@
 		</xsl:choose>
 	</xsl:template>
 	<xsl:template name="TipoDeMoneda_Total">
-		<xsl:choose>
+<!--		<xsl:choose>
 			<xsl:when test="//sac:SUNATRetentionDocumentReference/cbc:TotalInvoiceAmount/@currencyID='PEN'">S/</xsl:when>
 			<xsl:when test="//sac:SUNATRetentionDocumentReference/cbc:TotalInvoiceAmount/@currencyID='USD'">USD</xsl:when>
 			<xsl:when test="/pe:Invoice/cbc:DocumentCurrencyCode='USD'">USD</xsl:when>
@@ -486,7 +486,7 @@
 			<xsl:when test="/pe2:DebitNote/cbc:DocumentCurrencyCode='PEN'">S/</xsl:when>
 			<xsl:when test="/pe2:DebitNote/cbc:DocumentCurrencyCode='USD'">USD</xsl:when>
 			<xsl:otherwise>OTRA MONEDA</xsl:otherwise>
-		</xsl:choose>
+		</xsl:choose>-->
 	</xsl:template>
 </xsl:stylesheet><!-- Stylus Studio meta-information - (c) 2004-2006. Progress Software Corporation. All rights reserved.
 <metaInformation>
