@@ -293,7 +293,7 @@
 								<tr>
 									<td colspan="6" align="left">
 										<font face="Arial, Helvetica, sans-serif" size="1">
-											<strong>N° CERT. DE INSCRIP. : </strong>
+											<strong>CERT.HAB VEHICULAR : </strong>
 											<xsl:call-template name="TraeValorVariable">
 												<xsl:with-param name="varNumVA" select="19"/>
 											</xsl:call-template> 
@@ -515,53 +515,55 @@
 						</table>
 					</td>
 				</tr>
-			
-				<tr>
-					<td vAlign="top" align="left" >
-						<table border="0" width="100%" cellpadding="0" cellspacing="0">
-							<tbody>
-								<tr>
-									<td width="15%" align="left">
-										<font face="Arial, Helvetica, sans-serif" size="1">
-											<strong>NOMBRE O RAZ. SOCIAL</strong>
-										</font>
-									</td>
-									<td width="1%" align="left">
-										<font face="Arial, Helvetica, sans-serif" size="1">
-											<strong>:</strong>
-										</font>
-									</td>
-									<td width="84%" align="left">
-										<font face="Arial, Helvetica, sans-serif" size="1">
-											<xsl:call-template name="TraeValorVariable">
-												<xsl:with-param name="varNumVA" select="12"/>
-											</xsl:call-template>
-										</font>
-									</td>
-								</tr>
-								<tr>
-									<td width="15%" align="left">
-										<font face="Arial, Helvetica, sans-serif" size="1">
-											<strong>R.U.C. </strong>
-										</font>
-									</td>
-									<td width="1%" align="left">
-										<font face="Arial, Helvetica, sans-serif" size="1">
-											<strong>:</strong>
-										</font>
-									</td>
-									<td width="84%" align="left">
-										<font face="Arial, Helvetica, sans-serif" size="1">
-											<xsl:call-template name="TraeValorVariable">
-												<xsl:with-param name="varNumVA" select="13"/>
-											</xsl:call-template>
-										</font>
-									</td>
-								</tr>
-							</tbody>
-						</table>
-					</td>
-				</tr>
+				<xsl:if test="//cbc:CustomizationID='1.0'">
+					<tr>
+						<td vAlign="top" align="left" >
+							<table border="0" width="100%" cellpadding="0" cellspacing="0">
+								<tbody>
+									<tr>
+										<td width="15%" align="left">
+											<font face="Arial, Helvetica, sans-serif" size="1">
+												<strong>NOMBRE O RAZ. SOCIAL</strong>
+											</font>
+										</td>
+										<td width="1%" align="left">
+											<font face="Arial, Helvetica, sans-serif" size="1">
+												<strong>:</strong>
+											</font>
+										</td>
+										<td width="84%" align="left">
+											<font face="Arial, Helvetica, sans-serif" size="1">
+												<xsl:call-template name="TraeValorVariable">
+													<xsl:with-param name="varNumVA" select="12"/>
+												</xsl:call-template>
+											</font>
+										</td>
+									</tr>
+									<tr>
+										<td width="15%" align="left">
+											<font face="Arial, Helvetica, sans-serif" size="1">
+												<strong>R.U.C. </strong>
+											</font>
+										</td>
+										<td width="1%" align="left">
+											<font face="Arial, Helvetica, sans-serif" size="1">
+												<strong>:</strong>
+											</font>
+										</td>
+										<td width="84%" align="left">
+											<font face="Arial, Helvetica, sans-serif" size="1">
+												<xsl:call-template name="TraeValorVariable">
+													<xsl:with-param name="varNumVA" select="13"/>
+												</xsl:call-template>
+											</font>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</td>
+					</tr>
+				</xsl:if>			
+
 			</tbody>
 		</table>
 	</xsl:template>
@@ -671,7 +673,15 @@
 									</td>
 									<td width="33%" align="left">
 										<font face="Arial, Helvetica, sans-serif" size="1">
-											<xsl:value-of select="//cac:Shipment/cac:TransportHandlingUnit/cac:TransportEquipment/cbc:ID"/>
+											<xsl:if test="//cbc:CustomizationID='1.0'">
+												<xsl:value-of select="//cac:Shipment/cac:TransportHandlingUnit/cac:TransportEquipment/cbc:ID"/>
+											</xsl:if>
+											<xsl:if test="//cbc:CustomizationID='2.0'">
+												<xsl:if test="//cac:Shipment/cbc:HandlingCode = '09'">
+													
+													<xsl:value-of select="//cac:Shipment/cac:TransportHandlingUnit/cac:Package/cbc:ID"/>
+												</xsl:if>
+											</xsl:if>
 										</font>
 									</td>
 
@@ -687,10 +697,16 @@
 									</td>
 									<td colspan="35%" align="left">
 										<font face="Arial, Helvetica, sans-serif" size="1">
-											<xsl:if test="//cac:AdditionalDocumentReference/cbc:DocumentTypeCode = '01'">
-												<xsl:value-of select="//cac:AdditionalDocumentReference/cbc:ID"/>
+											<xsl:if test="//cbc:CustomizationID='1.0'">
+												<xsl:if test="//cac:AdditionalDocumentReference/cbc:DocumentTypeCode = '01'">
+													<xsl:value-of select="//cac:AdditionalDocumentReference/cbc:ID"/>
+												</xsl:if>												
 											</xsl:if>
-										
+											<xsl:if test="//cbc:CustomizationID='2.0'">
+												<xsl:if test="//cac:Shipment/cbc:HandlingCode = '09'">
+													<xsl:value-of select="//cac:AdditionalDocumentReference/cbc:ID"/>
+												</xsl:if>
+											</xsl:if>
 										</font>
 									</td>
 								</tr>
@@ -707,10 +723,17 @@
 									</td>
 									<td colspan="4" align="left">
 										<font face="Arial, Helvetica, sans-serif" size="1">											
-
-											<xsl:call-template name="TraeValorVariable">
-												<xsl:with-param name="varNumVA" select="15"/>
-											</xsl:call-template>
+											<xsl:if test="//cbc:CustomizationID='1.0'">
+												<xsl:call-template name="TraeValorVariable">
+													<xsl:with-param name="varNumVA" select="15"/>
+												</xsl:call-template>
+											</xsl:if>
+											<xsl:if test="//cbc:CustomizationID='2.0'">
+												<xsl:if test="//cac:Shipment/cbc:HandlingCode = '09'">
+													<xsl:value-of select="//cac:Shipment/cac:TransportHandlingUnit/cac:Package/cbc:TraceID"/>
+												</xsl:if>
+											</xsl:if>
+											
 										</font>
 									</td>
 								</tr>

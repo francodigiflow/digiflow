@@ -68,25 +68,17 @@ exclude-result-prefixes="cac cbc ccts ds ext pe qdt sac udt xsi">
 							</xsl:call-template> 
 							&#160;&#160;&#160;
 							<strong>Ventas : </strong>
-							<xsl:call-template name="TraeValorVariable">
+								<xsl:call-template name="TraeValorVariable">
 									<xsl:with-param name="varNumVA" select="3"/>
 								 </xsl:call-template> 
-							<br/><strong>Fax : </strong>
-								<xsl:call-template name="TraeValorVariable">
-									<xsl:with-param name="varNumVA" select="4"/>
-								</xsl:call-template>
 							 <br/><strong>Email : </strong>
 								<xsl:call-template name="TraeValorVariable">
 									<xsl:with-param name="varNumVA" select="5"/>
 								</xsl:call-template> 
                             <br/><strong>Web : </strong>
-							<xsl:call-template name="TraeValorVariable">
-									<xsl:with-param name="varNumVA" select="6"/>
-								</xsl:call-template> 
-                           <!-- <br/><strong>Almacen Oquendo: </strong>
 								<xsl:call-template name="TraeValorVariable">
 									<xsl:with-param name="varNumVA" select="6"/>
-								</xsl:call-template> -->
+								</xsl:call-template> 
                             <br/>
 						</font>
 					</td>
