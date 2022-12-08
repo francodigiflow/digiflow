@@ -216,7 +216,11 @@ xmlns:sac="urn:sunat:names:specification:ubl:peru:schema:xsd:SunatAggregateCompo
 									</td>
 									<td width="20%" align="left">
 										<font face="Arial, Helvetica, sans-serif" size="2">:
-											<xsl:value-of select="//cac:Shipment/cac:ShipmentStage/cac:DriverPerson/cbc:ID"/>
+											<xsl:for-each select="//ext:UBLExtensions/ext:UBLExtension/ext:ExtensionContent/pe:DatosAdicionales/pe:DatoAdicional">
+												<xsl:if test="pe:Codigo='08'">
+													<xsl:value-of select="pe:Valor"/>
+												</xsl:if>
+										    </xsl:for-each>
 										</font>
 									</td>
 								</tr>
@@ -227,9 +231,9 @@ xmlns:sac="urn:sunat:names:specification:ubl:peru:schema:xsd:SunatAggregateCompo
 									<td width="40%" align="left">
 										<font face="Arial, Helvetica, sans-serif" size="2">:
 											<xsl:for-each select="//ext:UBLExtensions/ext:UBLExtension/ext:ExtensionContent/pe:DatosAdicionales/pe:DatoAdicional">
-											<xsl:if test="pe:Codigo='37'">
-											<xsl:value-of select="pe:Valor"/>
-											</xsl:if>
+												<xsl:if test="pe:Codigo='37'">
+													<xsl:value-of select="pe:Valor"/>
+												</xsl:if>
 										    </xsl:for-each>
 										</font>
 									</td>
@@ -258,7 +262,11 @@ xmlns:sac="urn:sunat:names:specification:ubl:peru:schema:xsd:SunatAggregateCompo
 												<xsl:value-of select="//cac:TransportMeans/cac:RoadTransport/cbc:LicensePlateID"/>
 											</xsl:if>
 											<xsl:if test="//cbc:CustomizationID='2.0'">
-												<xsl:value-of select="//cac:Shipment/cac:TransportHandlingUnit/cac:TransportEquipment/cbc:ID"/>
+												<xsl:for-each select="//ext:UBLExtensions/ext:UBLExtension/ext:ExtensionContent/pe:DatosAdicionales/pe:DatoAdicional">
+												<xsl:if test="pe:Codigo='07'">
+													<xsl:value-of select="pe:Valor"/>
+												</xsl:if>
+										    </xsl:for-each>
 											</xsl:if>
 											
 

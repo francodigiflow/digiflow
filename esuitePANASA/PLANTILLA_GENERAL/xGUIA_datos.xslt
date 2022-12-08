@@ -723,17 +723,9 @@
 									</td>
 									<td colspan="4" align="left">
 										<font face="Arial, Helvetica, sans-serif" size="1">											
-											<xsl:if test="//cbc:CustomizationID='1.0'">
-												<xsl:call-template name="TraeValorVariable">
-													<xsl:with-param name="varNumVA" select="15"/>
-												</xsl:call-template>
-											</xsl:if>
-											<xsl:if test="//cbc:CustomizationID='2.0'">
-												<xsl:if test="//cac:Shipment/cbc:HandlingCode = '09'">
-													<xsl:value-of select="//cac:Shipment/cac:TransportHandlingUnit/cac:Package/cbc:TraceID"/>
-												</xsl:if>
-											</xsl:if>
-											
+											<xsl:call-template name="TraeValorVariable">
+												<xsl:with-param name="varNumVA" select="15"/>
+											</xsl:call-template>
 										</font>
 									</td>
 								</tr>
