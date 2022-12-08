@@ -4,6 +4,24 @@
 	<xsl:output method="html" indent="yes" encoding="ISO-8859-1" omit-xml-declaration="yes"/>
 
 	
+	<xsl:variable name="Tramo2_LLEGADA">
+		<xsl:call-template name="TraeValorVariable">
+			<xsl:with-param name="varNumVA" select="11"/>
+		</xsl:call-template>		
+	</xsl:variable>	
+
+	<xsl:variable name="Tramo2_PARTIDA">
+		<xsl:call-template name="TraeValorVariable">
+			<xsl:with-param name="varNumVA" select="10"/>
+		</xsl:call-template>		
+	</xsl:variable>	
+
+	<xsl:variable name="Tramo2_CONDUCTOR">
+		<xsl:call-template name="TraeValorVariable">
+			<xsl:with-param name="varNumVA" select="12"/>
+		</xsl:call-template>		
+	</xsl:variable>	
+
 	<xsl:template name="DESTINARIO">
 		<table border="1" width="100%" cellpadding="0" cellspacing="0">
 			<tbody>
@@ -294,9 +312,15 @@
 									<td colspan="6" align="left">
 										<font face="Arial, Helvetica, sans-serif" size="1">
 											<strong>CERT.HAB VEHICULAR : </strong>
-											<xsl:call-template name="TraeValorVariable">
-												<xsl:with-param name="varNumVA" select="19"/>
-											</xsl:call-template> 
+											<xsl:if test="//cbc:CustomizationID='1.0'">
+												<xsl:call-template name="TraeValorVariable">
+													<xsl:with-param name="varNumVA" select="19"/>
+												</xsl:call-template> 
+											</xsl:if>
+											<xsl:if test="//cbc:CustomizationID='2.0'">
+												<xsl:value-of select="//cac:Shipment/cac:TransportHandlingUnit/cac:TransportEquipment/cac:ApplicableTransportMeans/cbc:RegistrationNationalityID"/>
+											</xsl:if>
+											
 										</font>
 									</td>
 									<!--<td width="1%" align="left">
@@ -351,7 +375,7 @@
 												<xsl:value-of select="//cac:Shipment/cac:OriginAddress/cbc:StreetName"/>
 											</xsl:if>
 											<xsl:if test="//cbc:CustomizationID='2.0'">
-												<xsl:value-of select="//cac:Delivery/cac:Despatch/cac:DespatchAddress/cac:AddressLine/cbc:Line"/>
+												<xsl:value-of select="//cac:Delivery/cac:Despatch/cac:DespatchAddress/cac:AddressLine/cbc:Line"/>												
 											</xsl:if>
 										</font>
 									</td>
@@ -373,7 +397,7 @@
 												<xsl:value-of select="//cac:Shipment/cac:Delivery/cac:DeliveryAddress/cbc:StreetName"/>
 											</xsl:if>
 											<xsl:if test="//cbc:CustomizationID='2.0'">
-												<xsl:value-of select="//cac:Delivery/cac:DeliveryAddress/cac:AddressLine/cbc:Line"/>
+												<xsl:value-of select="//cac:Delivery/cac:DeliveryAddress/cac:AddressLine/cbc:Line"/>												
 											</xsl:if>
 										</font>
 									</td>
@@ -383,7 +407,8 @@
 					</td>
 					
 				</tr>
-			
+
+			<xsl:if test="//cbc:CustomizationID='1.0'">
 				<tr>
 					<td vAlign="top" align="left" >
 						<table border="0" width="100%" cellpadding="0" cellspacing="0">
@@ -422,7 +447,7 @@
 										<font face="Arial, Helvetica, sans-serif" size="1">
 											<xsl:call-template name="TraeValorVariable">
 												<xsl:with-param name="varNumVA" select="11"/>
-											</xsl:call-template>
+											</xsl:call-template>											
 										</font>
 									</td>
 								</tr>
@@ -430,6 +455,55 @@
 						</table>
 					</td>
 				</tr>
+			</xsl:if>
+			<xsl:if test="//cbc:CustomizationID='2.0'">
+				<xsl:if test="$Tramo2_PARTIDA!=''">
+					<tr>
+					<td vAlign="top" align="left" >
+						<table border="0" width="100%" cellpadding="0" cellspacing="0">
+							<tbody>
+								<tr>
+									<td width="15%" align="left">
+										<font face="Arial, Helvetica, sans-serif" size="1">
+											<strong>P. PARTIDA 2</strong>
+										</font>
+									</td>
+									<td width="1%" align="left">
+										<font face="Arial, Helvetica, sans-serif" size="1">
+											<strong>:</strong>
+										</font>
+									</td>
+									<td colspan="4" align="left">
+										<font face="Arial, Helvetica, sans-serif" size="1">
+											<xsl:value-of select="$Tramo2_PARTIDA"/>
+										</font>
+									</td>
+								</tr>
+								<tr>
+									<td width="15%" align="left">
+										<font face="Arial, Helvetica, sans-serif" size="1">
+											<strong>P. LLEGADA 2</strong>
+										</font>
+									</td>
+									<td width="1%" align="left">
+										<font face="Arial, Helvetica, sans-serif" size="1">
+											<strong>:</strong>
+										</font>
+									</td>
+									<td colspan="4" align="left">
+										<font face="Arial, Helvetica, sans-serif" size="1">
+											<xsl:value-of select="$Tramo2_LLEGADA"/>
+										</font>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</td>
+				</tr>
+				</xsl:if>
+			</xsl:if>				
+
+				
 			</tbody>
 		</table>
 	</xsl:template>
@@ -515,7 +589,57 @@
 						</table>
 					</td>
 				</tr>
-				<xsl:if test="//cbc:CustomizationID='1.0'">
+
+			<xsl:if test="//cbc:CustomizationID='1.0'">
+				<tr>
+						<td vAlign="top" align="left" >
+							<table border="0" width="100%" cellpadding="0" cellspacing="0">
+								<tbody>
+									<tr>
+										<td width="15%" align="left">
+											<font face="Arial, Helvetica, sans-serif" size="1">
+												<strong>NOMBRE O RAZ. SOCIAL</strong>
+											</font>
+										</td>
+										<td width="1%" align="left">
+											<font face="Arial, Helvetica, sans-serif" size="1">
+												<strong>:</strong>
+											</font>
+										</td>
+										<td width="84%" align="left">
+											<font face="Arial, Helvetica, sans-serif" size="1">
+												<xsl:call-template name="TraeValorVariable">
+													<xsl:with-param name="varNumVA" select="12"/>
+												</xsl:call-template>
+											</font>
+										</td>
+									</tr>
+									<tr>
+										<td width="15%" align="left">
+											<font face="Arial, Helvetica, sans-serif" size="1">
+												<strong>R.U.C. </strong>
+											</font>
+										</td>
+										<td width="1%" align="left">
+											<font face="Arial, Helvetica, sans-serif" size="1">
+												<strong>:</strong>
+											</font>
+										</td>
+										<td width="84%" align="left">
+											<font face="Arial, Helvetica, sans-serif" size="1">
+												<xsl:call-template name="TraeValorVariable">
+													<xsl:with-param name="varNumVA" select="13"/>
+												</xsl:call-template>
+											</font>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</td>
+					</tr>		
+			</xsl:if>
+			<xsl:if test="//cbc:CustomizationID='2.0'">
+				<xsl:if test="$Tramo2_CONDUCTOR!=''">
 					<tr>
 						<td vAlign="top" align="left" >
 							<table border="0" width="100%" cellpadding="0" cellspacing="0">
@@ -561,8 +685,12 @@
 								</tbody>
 							</table>
 						</td>
-					</tr>
-				</xsl:if>			
+					</tr>		
+				</xsl:if>
+			</xsl:if>
+				
+				
+					
 
 			</tbody>
 		</table>
