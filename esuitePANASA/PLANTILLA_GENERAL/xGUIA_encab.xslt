@@ -137,10 +137,10 @@ exclude-result-prefixes="cac cbc ccts ds ext pe qdt sac udt xsi">
 					<font color="#000000" size="3" face="Arial, Helvetica, sans-serif">
 						<!--<img width="150px" height="150px" align="center" src="data:image/*;base64,[ted_1]" />-->
 						<img width="150px" height="150px">
-		                    <xsl:attribute name="src">
-		                        <xsl:call-template name="timbre"/>
-		                    </xsl:attribute>
-		                </img>
+                            <xsl:attribute name="src">
+                                <xsl:call-template name="timbre"/>
+                            </xsl:attribute>
+                        </img>
 					</font>
 				</td>
 			</tr>
@@ -166,28 +166,7 @@ exclude-result-prefixes="cac cbc ccts ds ext pe qdt sac udt xsi">
 	<xsl:value-of select="format-number(substring-after(//cbc:ID,'-'),'00000000')"/>
 </xsl:template>
 
-	<xsl:template name="timbre">        
-        <xsl:value-of select="//ext:UBLExtensions/ext:UBLExtension/ext:ExtensionContent/pe:DatosAdicionales/pe:Documento/pe:Nombre"/>    
-        <xsl:value-of select="'.jpg'"/>
-    </xsl:template>
-
-	<xsl:template name="nombreTed">
-        <xsl:param name="text"/>
-        <xsl:param name="largo" select="0"/>
-        <xsl:variable name="largo_actual" select="string-length($text)"/>
-        <xsl:choose>
-            <xsl:when test="$largo_actual &gt;= $largo">
-                <xsl:value-of select="$text"/>
-            </xsl:when>
-            <xsl:otherwise>
-                <xsl:variable name="prefix" select="concat('0', $text)"/>
-                <xsl:call-template name="nombreTed">
-                    <xsl:with-param name="text" select="$prefix"/>
-                    <xsl:with-param name="largo" select="$largo"/>
-                </xsl:call-template>
-            </xsl:otherwise>
-        </xsl:choose>
-    </xsl:template>
+	
 
 <xsl:template match="/">
 	<html><head></head>

@@ -248,7 +248,7 @@
 						
 						<img width="150px" height="150px" align="center" >
                             <xsl:attribute name="src" >
-                                <xsl:call-template name="timbre" bgcolor="blue"/>
+                                <xsl:call-template name="timbre"/>
                             </xsl:attribute>
                         </img>
 						
