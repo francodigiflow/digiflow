@@ -55,7 +55,12 @@
     </xsl:template>
 
 
-	<xsl:template name="timbre">        
+	<xsl:template name="timbre">  
+		<xsl:value-of select="'.jpg'"/>-->
+		<xsl:value-of select=" substring(//cac:Signature/cac:DigitalSignatureAttachment/cac:ExternalReference/cbc:URI,1,12)"/>
+		<xsl:value-of select="'09'"/>
+		<xsl:value-of select=" substring(//cac:Signature/cac:DigitalSignatureAttachment/cac:ExternalReference/cbc:URI,12,20)"/>
+		<xsl:value-of select="'.jpg'"/>      
         <xsl:value-of select="//ext:UBLExtensions/ext:UBLExtension/ext:ExtensionContent/pe:DatosAdicionales/pe:Documento/pe:Nombre"/>
         <xsl:value-of select="'.jpg'"/>
     </xsl:template>
@@ -78,4 +83,8 @@
         </xsl:choose>
     </xsl:template>
 
-</xsl:stylesheet>
+</xsl:stylesheet><!-- Stylus Studio meta-information - (c) 2004-2006. Progress Software Corporation. All rights reserved.
+<metaInformation>
+<scenarios/><MapperMetaTag><MapperInfo srcSchemaPathIsRelative="yes" srcSchemaInterpretAsXML="no" destSchemaPath="" destSchemaRoot="" destSchemaPathIsRelative="yes" destSchemaInterpretAsXML="no"/><MapperBlockPosition></MapperBlockPosition><TemplateContext></TemplateContext><MapperFilter side="source"></MapperFilter></MapperMetaTag>
+</metaInformation>
+-->
