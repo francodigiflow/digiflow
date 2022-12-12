@@ -60,10 +60,10 @@
 									<td colspan="4" align="left">
 										<font face="Arial, Helvetica, sans-serif" size="1">											
 											<xsl:if test="//cbc:CustomizationID='1.0'">
-													<xsl:value-of select="format-number(//cac:DespatchSupplierParty/cbc:CustomerAssignedAccountID, '###########', 'pen')"/>
+												<xsl:value-of select="//cac:DeliveryCustomerParty/cbc:CustomerAssignedAccountID"/>
 											</xsl:if>
 											<xsl:if test="//cbc:CustomizationID='2.0'">
-												<xsl:value-of select="format-number(//cac:SignatoryParty/cac:PartyIdentification/cbc:ID, '###########', 'pen')"/>
+												<xsl:value-of select="//cac:DeliveryCustomerParty/cac:Party/cac:PartyIdentification/cbc:ID"/>
 											</xsl:if>
 										</font>
 									</td>
