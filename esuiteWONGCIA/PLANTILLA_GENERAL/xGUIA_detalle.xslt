@@ -165,21 +165,6 @@
 						 </xsl:if>
 
 						 </xsl:if>
-					<!--<xsl:call-template name="lineaBl">
-							<xsl:with-param name="cont" select="$numColBl"/>-->
-							<!--<table>
-								<tr>
-									<td align="center" valign="top" width="15%">
-										<font face="Arial, Helvetica, sans-serif" size="1">
-											<xsl:call-template name="total"/>
-										</font>
-									</td>
-								</tr>
-							</table>-->
-						<!--</xsl:call-template>-->
-
-					
-									<!--<xsl:if test="($numitems) &lt;'14'">-->
 					<xsl:if test="$v_Contador = $v_CantidadTotalPagina">
 					  <tr>
 						<tr>
