@@ -290,9 +290,12 @@ xmlns:sac="urn:sunat:names:specification:ubl:peru:schema:xsd:SunatAggregateCompo
 												<xsl:value-of select="//cac:Shipment/cac:ShipmentStage/cac:CarrierParty/cac:PartyName/cbc:Name"/>
 											</xsl:if>
 											<xsl:if test="//cbc:CustomizationID='2.0'">
-												<xsl:value-of select="//cac:ShipmentStage/cac:CarrierParty/cac:PartyLegalEntity/cbc:RegistrationName"/>
-											</xsl:if>
-											
+												<xsl:for-each select="//ext:UBLExtensions/ext:UBLExtension/ext:ExtensionContent/pe:DatosAdicionales/pe:DatoAdicional">
+													<xsl:if test="pe:Codigo='43'">
+														<xsl:value-of select="pe:Valor"/>
+													</xsl:if>
+											    </xsl:for-each>
+											</xsl:if>											
 										</font>
 									</td>
 								</tr>
@@ -320,7 +323,11 @@ xmlns:sac="urn:sunat:names:specification:ubl:peru:schema:xsd:SunatAggregateCompo
 												<xsl:value-of select="//cac:Shipment/cac:ShipmentStage/cac:CarrierParty/cac:PartyIdentification/cbc:ID"/>
 											</xsl:if>
 											<xsl:if test="//cbc:CustomizationID='2.0'">
-												<xsl:value-of select="//cac:ShipmentStage/cac:CarrierParty/cac:PartyIdentification/cbc:ID"/>
+												<xsl:for-each select="//ext:UBLExtensions/ext:UBLExtension/ext:ExtensionContent/pe:DatosAdicionales/pe:DatoAdicional">
+													<xsl:if test="pe:Codigo='44'">
+														<xsl:value-of select="pe:Valor"/>
+													</xsl:if>
+											    </xsl:for-each>												
 											</xsl:if>
 										</font>
 									</td>
