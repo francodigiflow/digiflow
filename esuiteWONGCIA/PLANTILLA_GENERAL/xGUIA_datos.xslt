@@ -121,13 +121,15 @@ xmlns:sac="urn:sunat:names:specification:ubl:peru:schema:xsd:SunatAggregateCompo
 							<tbody>
 								<tr>
 									<td width="100%" align="left"  colspan="4">
-										<font face="Arial, Helvetica, sans-serif" size="2"><strong>DESTINATARIO</strong></font>
+										<font face="Arial, Helvetica, sans-serif" size="2">
+											&#160;<strong>DESTINATARIO</strong>
+										</font>
 									</td>
 								</tr>
 								<tr>
 									<td width="10%" align="left">
 										<font face="Arial, Helvetica, sans-serif" size="2">
-											Razon Social
+											&#160;Razon Social
 										</font>										
 									</td>
 									<td width="40%" align="left">
@@ -137,7 +139,7 @@ xmlns:sac="urn:sunat:names:specification:ubl:peru:schema:xsd:SunatAggregateCompo
 									</td>
 									<td width="10%" align="left">
 										<font face="Arial, Helvetica, sans-serif" size="2">
-											RUC
+											&#160;RUC
 										</font>										
 									</td>
 									<td width="40%" align="left">
@@ -156,13 +158,15 @@ xmlns:sac="urn:sunat:names:specification:ubl:peru:schema:xsd:SunatAggregateCompo
 							<tbody>
 								<tr>
 									<td width="100%" align="left" colspan="8">
-										<font face="Arial, Helvetica, sans-serif" size="2"><strong>TRANSPORTISTA</strong></font>
+										<font face="Arial, Helvetica, sans-serif" size="2">
+											&#160;<strong>TRANSPORTISTA</strong>
+										</font>
 									</td>
 								</tr>
 								<tr>
 									<td width="10%" align="left">
 										<font face="Arial, Helvetica, sans-serif" size="2">
-											R.Social
+											&#160;R.Social
 										</font>										
 									</td>
 									<td width="36%" align="left">
@@ -173,7 +177,7 @@ xmlns:sac="urn:sunat:names:specification:ubl:peru:schema:xsd:SunatAggregateCompo
 									<td width="2%"></td>
 									<td width="10%" align="left">
 										<font face="Arial, Helvetica, sans-serif" size="2">
-											Placa
+											&#160;Placa
 										</font>										
 									</td>
 									<td width="16%" align="left">
@@ -184,7 +188,7 @@ xmlns:sac="urn:sunat:names:specification:ubl:peru:schema:xsd:SunatAggregateCompo
 									<td width="2%"></td>
 									<td width="10%" align="left">
 										<font face="Arial, Helvetica, sans-serif" size="2">
-											Peso bruto
+											&#160;Peso bruto
 										</font>										
 									</td>
 									<td width="16%" align="left">
@@ -196,7 +200,7 @@ xmlns:sac="urn:sunat:names:specification:ubl:peru:schema:xsd:SunatAggregateCompo
 								<tr>
 									<td width="10%" align="left">
 										<font face="Arial, Helvetica, sans-serif" size="2">
-											RUC
+											&#160;RUC
 										</font>										
 									</td>
 									<td width="36%" align="left">
@@ -207,7 +211,7 @@ xmlns:sac="urn:sunat:names:specification:ubl:peru:schema:xsd:SunatAggregateCompo
 									<td width="2%"></td>
 									<td width="10%" align="left">
 										<font face="Arial, Helvetica, sans-serif" size="2">
-											C.Inscripc.
+											&#160;C.Inscripc.
 										</font>										
 									</td>
 									<td width="16%" align="left">
@@ -218,7 +222,7 @@ xmlns:sac="urn:sunat:names:specification:ubl:peru:schema:xsd:SunatAggregateCompo
 									<td width="2%"></td>
 									<td width="10%" align="left">
 										<font face="Arial, Helvetica, sans-serif" size="2">
-											Nro bultos
+											&#160;Nro bultos
 										</font>										
 									</td>
 									<td width="16%" align="left">
@@ -230,7 +234,7 @@ xmlns:sac="urn:sunat:names:specification:ubl:peru:schema:xsd:SunatAggregateCompo
 								<tr>
 									<td width="10%" align="left">
 										<font face="Arial, Helvetica, sans-serif" size="2">
-											Conductor
+											&#160;Conductor
 										</font>										
 									</td>
 									<td width="36%" align="left">
@@ -241,7 +245,7 @@ xmlns:sac="urn:sunat:names:specification:ubl:peru:schema:xsd:SunatAggregateCompo
 									<td width="2%"></td>
 									<td width="10%" align="left">
 										<font face="Arial, Helvetica, sans-serif" size="2">
-											Marca
+											&#160;Marca
 										</font>										
 									</td>
 									<td width="16%" align="left">
@@ -256,7 +260,7 @@ xmlns:sac="urn:sunat:names:specification:ubl:peru:schema:xsd:SunatAggregateCompo
 									<td width="2%"></td>
 									<td width="10%" align="left">
 										<font face="Arial, Helvetica, sans-serif" size="2">
-											Lic.Conduc.
+											&#160;Lic.Conduc.
 										</font>										
 									</td>
 									<td width="16%" align="left">
@@ -268,7 +272,7 @@ xmlns:sac="urn:sunat:names:specification:ubl:peru:schema:xsd:SunatAggregateCompo
 								<tr>
 									<td width="10%" align="left">
 										<font face="Arial, Helvetica, sans-serif" size="2">
-											Modalidad
+											&#160;Modalidad
 										</font>										
 									</td>
 									<td width="36%" align="left">
@@ -318,11 +322,10 @@ xmlns:sac="urn:sunat:names:specification:ubl:peru:schema:xsd:SunatAggregateCompo
 		<table rules="none" border="1" width="100%" bordercolor="#000000" cellpadding="1" cellspacing="1">
 			<tbody>
 				<tr>
-					<td width="20%" align="left">
-						<font face="Arial, Helvetica, sans-serif" size="2"><strong>Observaciones:&#160;</strong></font>
-					</td>
-					<td width="90%" align="left" colspan="4">
+					<td width="20%" align="left" colspan="5">
 						<font face="Arial, Helvetica, sans-serif" size="2">
+							&#160;
+							<strong>Observaciones:&#160;</strong>
 							<xsl:for-each select="//ext:UBLExtensions/ext:UBLExtension/ext:ExtensionContent/pe:DatosAdicionales/pe:DatoAdicional">
 								<xsl:if test="pe:Codigo='07'">
 									<xsl:value-of select="pe:Valor"/>
@@ -333,7 +336,7 @@ xmlns:sac="urn:sunat:names:specification:ubl:peru:schema:xsd:SunatAggregateCompo
 				</tr>
 				<tr>
 					<td width="20%" align="left">
-						<font face="Arial, Helvetica, sans-serif" size="2">SUNAT_Envio_IndicadorTrasladoVehiculoM1L</font>										
+						<font face="Arial, Helvetica, sans-serif" size="2">&#160;SUNAT_Envio_IndicadorTrasladoVehiculoM1L</font>										
 					</td>
 					<td width="30%" align="left">
 						<font face="Arial, Helvetica, sans-serif" size="2">
