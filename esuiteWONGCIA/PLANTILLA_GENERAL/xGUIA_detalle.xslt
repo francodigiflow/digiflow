@@ -92,7 +92,7 @@
 						</xsl:if>
 										
 						
-						<xsl:if test="$v_Contador=2 and cbc:ID &gt; 51 and cbc:ID &lt;= 100">
+						<xsl:if test="$v_Contador=2 and cbc:ID &gt; 50 and cbc:ID &lt;= 100">
 							<tr>
 								<td width="5%" align="center" valign="top" class="td_detalle">
 									<font face="Arial, Helvetica, sans-serif" size="1">
@@ -119,7 +119,7 @@
 							</tr>
 						</xsl:if>
 						
-						<xsl:if test="$v_Contador=3 and cbc:ID &gt; 101 and cbc:ID &lt;= 150">
+						<xsl:if test="$v_Contador=3 and cbc:ID &gt; 100 and cbc:ID &lt;= 150">
 							<tr>
 								<td width="5%" align="center" valign="top" class="td_detalle">
 									<font face="Arial, Helvetica, sans-serif" size="1">
@@ -145,22 +145,23 @@
 								</td>								
 							</tr>
 						</xsl:if>
+
 						</xsl:for-each>
 
 						<xsl:if test="$v_Contador = $v_CantidadTotalPagina">
 						<xsl:if test="$v_Contador = 1">
 						 <xsl:call-template name="lineaBl"> 
-							 <xsl:with-param name="cont" select="50 - $numitems"/>							 
+							 <xsl:with-param name="cont" select="47 - $numitems"/>							 
 						 </xsl:call-template>
 						 </xsl:if>
 						 <xsl:if test="$v_Contador = 2">
 						 <xsl:call-template name="lineaBl"> 
-							 <xsl:with-param name="cont" select="100 - $numitems"/>							 
+							 <xsl:with-param name="cont" select="97 - $numitems"/>							 
 						 </xsl:call-template>
 						 </xsl:if>
 						 <xsl:if test="$v_Contador = 3">
 						 <xsl:call-template name="lineaBl"> 
-							 <xsl:with-param name="cont" select="150 - $numitems"/>							 
+							 <xsl:with-param name="cont" select="147 - $numitems"/>							 
 						 </xsl:call-template>
 						 </xsl:if>
 
@@ -198,281 +199,6 @@
 	<!--</xsl:if>-->
 		
 	</xsl:template>
-
-	<xsl:template name="DetallesEncabezado2">
-	<xsl:if test="($numitems) &gt;'11'">
-		<table border="0" width="100%" cellpadding="0" cellspacing="2">
-			<tr bgcolor="#DCDCDC">
-				<td>
-					<table rules="cols" border="1" width="100%" bordercolor="#000000" cellpadding="4" cellspacing="0">
-						<tr>
-							<td width="10%" align="center">
-								<font face="Arial, Helvetica, sans-serif" size="1">
-									<strong>CÓDIGO</strong>
-								</font>
-							</td>
-							<td width="64%" align="center">
-								<font face="Arial, Helvetica, sans-serif" size="1">
-									<strong>DESCRIPCIÓN </strong>
-								</font>
-							</td>
-							<td width="12%" align="center">
-								<font face="Arial, Helvetica, sans-serif" size="1">
-									<strong>CANTIDAD</strong>
-								</font>
-							</td>
-							<td width="6%" align="center">
-								<font face="Arial, Helvetica, sans-serif" size="1">
-									<strong>UND</strong>
-								</font>
-							</td>
-							<td width="8%" align="center">
-								<font face="Arial, Helvetica, sans-serif" size="1">
-									<strong>PESO</strong>
-								</font>
-							</td>
-						</tr>
-					</table>
-				</td>
-			</tr>
-			<tr>
-				<td>
-					<table rules="cols" border="1" width="100%" bordercolor="#000000" cellpadding="2" cellspacing="0">
-						<!-- <xsl:if test="($numitems) &lt;'65'"> -->
-							<xsl:for-each select="//cac:DespatchLine">
-							<xsl:if test="cbc:ID &gt;'11' and cbc:ID &lt;'39' ">	
-								<tr>
-									<td width="10%" align="center" class="td_detalle">
-									<!--<font face="Arial, Helvetica, sans-serif" size="1">-->
-									<xsl:value-of select="cac:Item/cac:SellersItemIdentification/cbc:ID"/>
-									<!--</font>-->
-									</td>
-									<td width="64%" align="left" class="td_detalle">
-										<!--<font face="Arial, Helvetica, sans-serif" size="1">-->
-											<xsl:value-of select="cac:Item/cbc:Name"/>
-										<!--</font>-->
-									</td>
-									<td width="12%" align="center" class="td_detalle">
-										<!--<font face="Arial, Helvetica, sans-serif">-->
-											<xsl:value-of select="cbc:DeliveredQuantity"/><!-- - <xsl:value-of select="cbc:ID"/>-->
-										<!--</font>-->
-									</td>
-									<td width="6%" align="center" class="td_detalle">
-										<!--<font face="Arial, Helvetica, sans-serif" size="1">-->
-											<xsl:value-of select="cbc:DeliveredQuantity/@unitCode"/>
-											<!--<xsl:value-of select="$v_ItemPorPagina"/>-->
-										<!--</font>-->
-									</td>
-									<td width="8%" align="center" class="td_detalle">
-										<!--<font face="Arial, Helvetica, sans-serif" size="1">-->
-											<xsl:variable name="ValorAdicional1">
-												<xsl:call-template name="RetourneValAdItem">
-													<xsl:with-param name="NumLinea" select="cbc:ID"/>
-													<xsl:with-param name="NumAd" select="1"/>
-												</xsl:call-template>
-											</xsl:variable>
-
-											<xsl:if test="$ValorAdicional1 != '' and $ValorAdicional1 !='-' ">
-											<xsl:value-of select="format-number($ValorAdicional1,'###,###,##0.000','pen')"/>
-											</xsl:if>
-										<!--</font> -->
-									</td>
-								</tr>
-							</xsl:if>						
-							</xsl:for-each>
-
- 						 <xsl:call-template name="lineaBl"> 
-							 <xsl:with-param name="cont" select="40 - ($numitems)"/>							 
-						 </xsl:call-template>
-							<!--<xsl:call-template name="lineaBl">
-							<xsl:with-param name="cont" select="$numColB2"/>-->
-							<!--<table>
-								<tr>
-									<td align="center" valign="top" width="15%">
-										<font face="Arial, Helvetica, sans-serif" size="1">
-											<xsl:call-template name="total"/>
-										</font>
-									</td>
-								</tr>
-							</table>-->
-						<!--</xsl:call-template>-->
-						
-						
-						
-						<xsl:if test="($numitems) &lt;'39'">
-							<tr>
-								<td width="10%" align="center"  style="border:solid 1px black;border-top:none;border-bottom:none">
-								<!--<font face="Arial, Helvetica, sans-serif" size="1">-->
-									&#xA0;
-								<!--</font>-->
-								</td>
-								<td width="64%" align="center"  style="border:solid 1px black;border-top:none;border-bottom:none">
-									<!--<font face="Arial, Helvetica, sans-serif" size="1">-->
-										&#xA0;<br/>	 <xsl:call-template name="Det_Glosa"/>
-									<!--</font>-->
-								</td>
-								<td width="12%" align="center"  style="border:solid 1px black;border-top:none;border-bottom:none">
-									<!--<font face="Arial, Helvetica, sans-serif" size="1">-->
-										&#xA0;
-									<!--</font>-->
-								</td>
-								<td width="6%" align="center"   style="border:solid 1px black;border-top:none;border-bottom:none">
-									<!--<font face="Arial, Helvetica, sans-serif" size="1">-->
-										&#xA0;
-									<!--</font>-->
-								</td>
-								<td width="8%" align="center"  style="border:solid 1px black;border-top:none;border-bottom:none">
-									<!--<font face="Arial, Helvetica, sans-serif" size="1">-->
-										&#xA0;
-									<!--</font>-->
-								</td>
-							</tr> 
-						</xsl:if>
-
-					</table>
-				</td>
-			</tr>
-		</table>
-	</xsl:if>
-	</xsl:template>
-
-	<xsl:template name="DetallesEncabezado3">
-	<xsl:if test="($numitems) &gt;'38'">
-		<table border="0" width="100%" cellpadding="0" cellspacing="2">
-			<tr bgcolor="#DCDCDC">
-				<td>
-					<table rules="cols" border="1" width="100%" bordercolor="#000000" cellpadding="4" cellspacing="0">
-						<tr>
-							<td width="10%" align="center">
-								<font face="Arial, Helvetica, sans-serif" size="1">
-									<strong>CÓDIGO</strong>
-								</font>
-							</td>
-							<td width="64%" align="center">
-								<font face="Arial, Helvetica, sans-serif" size="1">
-									<strong>DESCRIPCIÓN </strong>
-								</font>
-							</td>
-							<td width="12%" align="center">
-								<font face="Arial, Helvetica, sans-serif" size="1">
-									<strong>CANTIDAD</strong>
-								</font>
-							</td>
-							<td width="6%" align="center">
-								<font face="Arial, Helvetica, sans-serif" size="1">
-									<strong>UND</strong>
-								</font>
-							</td>
-							<td width="8%" align="center">
-								<font face="Arial, Helvetica, sans-serif" size="1">
-									<strong>PESO</strong>
-								</font>
-							</td>
-						</tr>
-					</table>
-				</td>
-			</tr>
-			<tr>
-				<td>
-					<table rules="cols" border="1" width="100%" bordercolor="#000000" cellpadding="2" cellspacing="0">
-					
-					
-					<xsl:for-each select="//cac:DespatchLine">
-					<xsl:if test="cbc:ID &gt;'38' and cbc:ID &lt;'100' ">	
-							<tr>
-							    <td width="10%" align="center" class="td_detalle">
-									<!--<font face="Arial, Helvetica, sans-serif" size="1">-->
-									<xsl:value-of select="cac:Item/cac:SellersItemIdentification/cbc:ID"/>
-									<!--</font>-->
-								</td>
-								<td width="64%" align="left" class="td_detalle">
-									<!--<font face="Arial, Helvetica, sans-serif" size="1">-->
-										<xsl:value-of select="cac:Item/cbc:Name"/>
-									<!--</font>-->
-								</td>
-								<td width="12%" align="center" class="td_detalle">
-									<!--<font face="Arial, Helvetica, sans-serif">-->
-										<xsl:value-of select="cbc:DeliveredQuantity"/><!-- - <xsl:value-of select="cbc:ID"/>-->
-									<!--</font>-->
-								</td>
-								<td width="6%" align="center" class="td_detalle">
-									<!--<font face="Arial, Helvetica, sans-serif" size="1">-->
-										<xsl:value-of select="cbc:DeliveredQuantity/@unitCode"/>
-										<!--<xsl:value-of select="$v_ItemPorPagina"/>-->
-									<!--</font>-->
-								</td>
-								<td width="8%" align="center" class="td_detalle">
-									<!--<font face="Arial, Helvetica, sans-serif" size="1">-->
-										<xsl:variable name="ValorAdicional1">
-											<xsl:call-template name="RetourneValAdItem">
-												<xsl:with-param name="NumLinea" select="cbc:ID"/>
-												<xsl:with-param name="NumAd" select="1"/>
-											</xsl:call-template>
-										</xsl:variable>
-
-										<xsl:if test="$ValorAdicional1 != '' and $ValorAdicional1 !='-' ">
-										<xsl:value-of select="format-number($ValorAdicional1,'###,###,##0.000','pen')"/>
-										</xsl:if>
-									<!--</font> -->
-								</td>
-							</tr>
-					</xsl:if>
-					</xsl:for-each>
-				
-						 <xsl:call-template name="lineaBl"> 
-							 <xsl:with-param name="cont" select="157 - ($numitems)"/>							 
-						 </xsl:call-template> 
-						<tr>
-							<td width="10%" align="center" class="td_detalle">
-								<!--<font face="Arial, Helvetica, sans-serif" size="1">-->
-									&#xA0;
-								<!--</font>-->
-							</td>
-							<td width="64%" align="center" class="td_detalle">
-								<!--<font face="Arial, Helvetica, sans-serif" size="1">-->
-									&#xA0;
-								<!--</font>-->
-							</td>
-							<td width="12%" align="center" class="td_detalle">
-								<!--<font face="Arial, Helvetica, sans-serif" size="1">-->
-									&#xA0;
-								<!--</font>-->
-							</td>
-							<td width="6%" align="center" class="td_detalle">
-								<!--<font face="Arial, Helvetica, sans-serif" size="1">-->
-									&#xA0;
-								<!--</font>-->
-							</td>
-							<td width="8%" align="center" class="td_detalle">
-								<!--<font face="Arial, Helvetica, sans-serif" size="1">-->
-									&#xA0;
-								<!--</font>-->
-							</td>
-							
-						</tr>
-						
-							<tr>
-							
-							
-								<td colspan="7" valign="top" width="50%" height="90%">
-									<div>
-										<p>		
-											<br/>	 <xsl:call-template name="Det_Glosa"/>
-										</p>
-									</div>
-								</td>
-							</tr> 
-					</table>
-				</td>
-			</tr>
-		</table>
-	</xsl:if>
-	</xsl:template>
-
-
-
-
-
 
 	<xsl:template name="unidad_medida">
 		<xsl:choose>

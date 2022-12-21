@@ -24,15 +24,15 @@
 	</xsl:variable>
 
 	<xsl:variable name="numColBl">
-		<xsl:value-of select="40-count(//cac:DespatchLine)"/>
+		<xsl:value-of select="50-count(//cac:DespatchLine)"/>
 	</xsl:variable>
 
 	<xsl:variable name="numColB2">
 
-		<xsl:value-of select="40-count(//cac:DespatchLine)"/>
+		<xsl:value-of select="50-count(//cac:DespatchLine)"/>
 	</xsl:variable>
 	<xsl:variable name="numColB3">
-		<xsl:value-of select="40-count(//cac:DespatchLine)"/>
+		<xsl:value-of select="50-count(//cac:DespatchLine)"/>
 	</xsl:variable>
 
 	<xsl:variable name="v_StatusMultiPagina">
@@ -46,15 +46,15 @@
 	<xsl:include href="xGUIA_total.xslt"/>
 
 	<xsl:variable name="v_ItemPorPagina1">
-		<xsl:value-of select="11"/>
+		<xsl:value-of select="50"/>
 	</xsl:variable>
 	<xsl:variable name="v_ItemPorPagina">
-		<xsl:value-of select="30"/>
+		<xsl:value-of select="100"/>
 	</xsl:variable>
 
 
 	<xsl:variable name="varPagRestoSeccionesFinales">
-		<xsl:value-of select="20 div $v_ItemPorPagina"/>
+		<xsl:value-of select="50 div $v_ItemPorPagina"/>
 	</xsl:variable>
 
 	<xsl:variable name="v_CantidadRestoPagina">
@@ -62,25 +62,25 @@
 	</xsl:variable>
 
 	<xsl:variable name="v_CantidadTotalPagina">
-		<xsl:if test="$QItem &gt; 0 and $QItem &lt;= 11">
+		<xsl:if test="$QItem &gt; 0 and $QItem &lt;= 50">
 			<xsl:value-of select="1"/>
 		</xsl:if>
-		<xsl:if test="$QItem &gt; 11 and $QItem &lt;= 38">
+		<xsl:if test="$QItem &gt; 50 and $QItem &lt;= 100">
 			<xsl:value-of select="2"/>
 		</xsl:if>
-		<xsl:if test="$QItem &gt; 38 and $QItem &lt;= 80">
+		<xsl:if test="$QItem &gt; 100 and $QItem &lt;= 150">
 			<xsl:value-of select="3"/>
 		</xsl:if>
 	</xsl:variable>
 
 	<xsl:variable name="Pag">
-		<xsl:if test="$QItem &gt; 0 and $QItem &lt;= 11">
+		<xsl:if test="$QItem &gt; 0 and $QItem &lt;= 50">
 			<xsl:value-of select="1"/>
 		</xsl:if>
-		<xsl:if test="$QItem &gt; 11 and $QItem &lt;= 38">
+		<xsl:if test="$QItem &gt; 50 and $QItem &lt;= 100">
 			<xsl:value-of select="2"/>
 		</xsl:if>
-		<xsl:if test="$QItem &gt; 38 and $QItem &lt;= 80">
+		<xsl:if test="$QItem &gt; 100 and $QItem &lt;= 150">
 			<xsl:value-of select="3"/>
 		</xsl:if>
 	</xsl:variable>
@@ -191,13 +191,7 @@
 							</td>
 						</tr>
 					</thead>
-					<!-- <tfoot> -->
-					<!-- <tr> -->
-					<!-- <td> -->
-					<!-- <xsl:call-template name="CuadroConformidad"/> -->
-					<!-- </td> -->
-					<!-- </tr> -->
-					<!-- </tfoot> -->
+
 					<tbody>
 						<div class="content">
 							<tr>
@@ -231,19 +225,11 @@
 							<!-- DETALLE -->
 							<tr>
 								<td>
-									<!--<xsl:if test="$ContadorItem = 1">-->
 									<xsl:call-template name="DetalleMultipagina">
 										<xsl:with-param name="v_ItemPorPagina" select="$v_ItemPorPagina"/>
 										<xsl:with-param name="v_Contador" select="$ContadorItem"/>
 										<!-- nRO DE PAG -->
 									</xsl:call-template>
-									<!--</xsl:if>-->
-									<!--<xsl:if test="$ContadorItem &gt; 1">
-								<xsl:call-template name="DetalleMultipagina">
-									<xsl:with-param name="v_ItemPorPagina" select="$v_ItemPorPagina"/>
-									<xsl:with-param name="v_Contador" select="$ContadorItem"/>  nRO DE PAG 								
-								</xsl:call-template>
-								</xsl:if>-->
 								</td>
 							</tr>
 							
@@ -263,9 +249,6 @@
 					  <div class="push"></div>
 					  <div class="footer" -->
 							<xsl:if test="$ContadorItem = $v_CantidadTotalPagina">
-								<!-- xsl:if test="$ContadorItem = ceiling($v_CantidadTotalPagina)" -->
-								<!-- xsl:if test="($ContadorItem + $varPagRestoSeccionesFinales) = ceiling($v_CantidadTotalPagina)" -->
-								<!-- TOTALES -->
 								<tr>
 									<td>
 										<hr style="border-collapse: separate; border-color: white; border: 0px solid white;"/>
@@ -278,10 +261,6 @@
 				</table>
 			</div>
 
-
-
-			<!--<xsl:if test="$v_ItemTotal &gt; $v_ItemPorPagina">-->
-			<!-- xsl:if test="($v_ItemTotal - ($v_ItemPorPagina*( number($ContadorItem) - 1))) &gt; $v_ItemPorPagina" -->
 			<xsl:if test="$cont &gt; 1">
 				<div class="saltar-pagina"/>
 			</xsl:if>
@@ -290,7 +269,7 @@
 				<xsl:with-param name="cont" select="$cont - 1"/>
 				<xsl:with-param name="ContadorItem" select="$ContadorItem+1"/>
 			</xsl:call-template>
-			<!--</xsl:if>-->
+
 		</xsl:if>
 	</xsl:template>
 
@@ -300,13 +279,13 @@
 
 	<xsl:variable name="totalpag">
 
-		<xsl:if test="($numitems) &lt;'12'">
+		<xsl:if test="($numitems) &lt;'50'">
 			<xsl:value-of select="1"/>
 		</xsl:if>
-		<xsl:if test="($numitems) &gt;'11'  and ($numitems) &lt;'39' ">
+		<xsl:if test="($numitems) &gt;'51'  and ($numitems) &lt;'99' ">
 			<xsl:value-of select="2"/>
 		</xsl:if>
-		<xsl:if test="($numitems) &gt;'38' ">
+		<xsl:if test="($numitems) &gt;'101' ">
 			<xsl:value-of select="3"/>
 		</xsl:if>
 	</xsl:variable>
