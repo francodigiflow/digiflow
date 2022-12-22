@@ -37,9 +37,10 @@
 	</xsl:template>
 	
 	<xsl:template name="tmpTotal">
-			<table border="0" width="50%" cellpadding="1" cellspacing="0" align="left">
-				</table>
-		<table border="0" width="50%" cellpadding="1" cellspacing="0" align="right">
+		<table border="0" width="75%" cellpadding="1" cellspacing="0" align="left">
+		
+		</table>
+		<table border="0" width="25%" cellpadding="1" cellspacing="0" align="right">
 
 			<xsl:variable name="TotalDescuento">
 				<xsl:value-of select="0"/>
@@ -51,13 +52,13 @@
 			</xsl:variable>
 		
 		<tr>
-				<td width="80%" align="left"
+				<td width="70%" align="left"
 				style="border: 1px solid #fff !important;
 				border-radius: 5px 5px 5px 5px !important;
 				-moz-border-radius: 5px 5px 5px 5px !important;
 				-webkit-border-radius: 5px 5px 5px 5px !important;">
-					<font face="Arial, Helvetica, sans-serif" size="2">
-						<strong>Operación gravada</strong>
+					<font face="Arial, Helvetica, sans-serif" size="1">
+						Operación gravada
 					</font>
 				</td>
 
@@ -65,16 +66,16 @@
 				border-radius: 5px 5px 5px 5px !important;
 				-moz-border-radius: 5px 5px 5px 5px !important;
 				-webkit-border-radius: 5px 5px 5px 5px !important;">
-					<font face="Arial, Helvetica, sans-serif" size="2">
+					<font face="Arial, Helvetica, sans-serif" size="1">
 						<xsl:call-template name="SimboloMoneda"/>
 					</font>
 				</td>
 
-				<td width="15%" align="right" style="border: 1px solid #fff !important;
+				<td width="25%" align="right" style="border: 1px solid #fff !important;
 				border-radius: 5px 5px 5px 5px !important;
 				-moz-border-radius: 5px 5px 5px 5px !important;
 				-webkit-border-radius: 5px 5px 5px 5px !important;">
-					<font face="Arial, Helvetica, sans-serif" size="2">
+					<font face="Arial, Helvetica, sans-serif" size="1">
 						<xsl:value-of select="format-number($OPGravada,'###,###,##0.00','pen')"/>&#xA0;
 					</font>
 				</td>
@@ -85,30 +86,30 @@
 		<xsl:for-each select="/pe:Invoice/cac:TaxTotal">
 			<xsl:for-each select="/pe:Invoice/cac:TaxTotal">
 				<tr>
-				<td width="80%" align="left"
+				<td width="70%" align="left"
 				style="border: 1px solid #fff !important;
 				border-radius: 5px 5px 5px 5px !important;
 				-moz-border-radius: 5px 5px 5px 5px !important;
 				-webkit-border-radius: 5px 5px 5px 5px !important;">
-						<font face="Arial, Helvetica, sans-serif" size="2">
-							<strong>IGV (18%)</strong>
+						<font face="Arial, Helvetica, sans-serif" size="1">
+							IGV (18%)
 						</font>
 					</td>
 					<td width="5%" align="right" style="border: 1px solid #fff !important;
 				border-radius: 5px 5px 5px 5px !important;
 				-moz-border-radius: 5px 5px 5px 5px !important;
 				-webkit-border-radius: 5px 5px 5px 5px !important;">
-					<font face="Arial, Helvetica, sans-serif" size="2">
+					<font face="Arial, Helvetica, sans-serif" size="1">
 						<xsl:call-template name="SimboloMoneda"/>
 					</font>
 				</td>
-					<td width="15%" align="right"
+					<td width="25%" align="right"
 						style="border: 1px solid #fff !important;
 						border-radius: 5px 5px 5px 5px !important;
 						-moz-border-radius: 5px 5px 5px 5px !important;
 						-webkit-border-radius: 5px 5px 5px 5px !important;"
 							>
-						<font face="Arial, Helvetica, sans-serif" size="2">
+						<font face="Arial, Helvetica, sans-serif" size="1">
 							<xsl:if test="//cbc:UBLVersionID='2.0'">
 								<xsl:if test="/pe:Invoice/cbc:InvoiceTypeCode='01'">
 									<xsl:for-each select="/pe:Invoice/cac:TaxTotal">
@@ -141,30 +142,30 @@
 	<xsl:if test="/pe1:CreditNote or /pe2:DebitNote">
 		<xsl:for-each select="/pe1:CreditNote/cac:TaxTotal">
 				<tr>
-				<td width="80%" align="left"
+				<td width="70%" align="left"
 				style="border: 1px solid #fff !important;
 				border-radius: 5px 5px 5px 5px !important;
 				-moz-border-radius: 5px 5px 5px 5px !important;
 				-webkit-border-radius: 5px 5px 5px 5px !important;">
-						<font face="Arial, Helvetica, sans-serif" size="2">
-							<strong>IGV (18%)</strong>
+						<font face="Arial, Helvetica, sans-serif" size="1">
+							IGV (18%)
 						</font>
 					</td>
 					<td width="5%" align="right" style="border: 1px solid #fff !important;
 				border-radius: 5px 5px 5px 5px !important;
 				-moz-border-radius: 5px 5px 5px 5px !important;
 				-webkit-border-radius: 5px 5px 5px 5px !important;">
-					<font face="Arial, Helvetica, sans-serif" size="2">
+					<font face="Arial, Helvetica, sans-serif" size="1">
 						<xsl:call-template name="SimboloMoneda"/>
 					</font>
 				</td>
-					<td width="15%" align="right"
+					<td width="25%" align="right"
 						style="border: 1px solid #fff !important;
 						border-radius: 5px 5px 5px 5px !important;
 						-moz-border-radius: 5px 5px 5px 5px !important;
 						-webkit-border-radius: 5px 5px 5px 5px !important;"
 							>
-						<font face="Arial, Helvetica, sans-serif" size="2">
+						<font face="Arial, Helvetica, sans-serif" size="1">
 							<xsl:if test="//cbc:UBLVersionID='2.0'">
 								<xsl:if test="/pe:Invoice/cbc:InvoiceTypeCode='01'">
 									<xsl:for-each select="/pe:Invoice/cac:TaxTotal">
@@ -193,30 +194,30 @@
 		</xsl:for-each>	
 		<xsl:for-each select="/pe2:DeditNote/cac:TaxTotal">
 				<tr>
-				<td width="80%" align="left"
+				<td width="70%" align="left"
 				style="border: 1px solid #fff !important;
 				border-radius: 5px 5px 5px 5px !important;
 				-moz-border-radius: 5px 5px 5px 5px !important;
 				-webkit-border-radius: 5px 5px 5px 5px !important;">
-						<font face="Arial, Helvetica, sans-serif" size="2">
-							<strong>IGV (18%)</strong>
+						<font face="Arial, Helvetica, sans-serif" size="1">
+							IGV (18%)
 						</font>
 					</td>
 					<td width="5%" align="right" style="border: 1px solid #fff !important;
 				border-radius: 5px 5px 5px 5px !important;
 				-moz-border-radius: 5px 5px 5px 5px !important;
 				-webkit-border-radius: 5px 5px 5px 5px !important;">
-					<font face="Arial, Helvetica, sans-serif" size="2">
+					<font face="Arial, Helvetica, sans-serif" size="1">
 						<xsl:call-template name="SimboloMoneda"/>
 					</font>
 				</td>
-					<td width="15%" align="right"
+					<td width="25%" align="right"
 						style="border: 1px solid #fff !important;
 						border-radius: 5px 5px 5px 5px !important;
 						-moz-border-radius: 5px 5px 5px 5px !important;
 						-webkit-border-radius: 5px 5px 5px 5px !important;"
 							>
-						<font face="Arial, Helvetica, sans-serif" size="2">
+						<font face="Arial, Helvetica, sans-serif" size="1">
 							<xsl:if test="//cbc:UBLVersionID='2.0'">
 								<xsl:if test="/pe:Invoice/cbc:InvoiceTypeCode='01'">
 									<xsl:for-each select="/pe:Invoice/cac:TaxTotal">
@@ -247,140 +248,140 @@
 
 
 			<tr>
-				<td width="80%" align="left"
+				<td width="70%" align="left"
 				style="border: 1px solid #fff !important;
 				border-radius: 5px 5px 5px 5px !important;
 				-moz-border-radius: 5px 5px 5px 5px !important;
 				-webkit-border-radius: 5px 5px 5px 5px !important;">
-					<font face="Arial, Helvetica, sans-serif" size="2">
-						<strong>Operación Inafecta</strong>
+					<font face="Arial, Helvetica, sans-serif" size="1">
+						Operación Inafecta
 					</font>
 				</td>
 				<td width="5%" align="right" style="border: 1px solid #fff !important;
 				border-radius: 5px 5px 5px 5px !important;
 				-moz-border-radius: 5px 5px 5px 5px !important;
 				-webkit-border-radius: 5px 5px 5px 5px !important;">
-					<font face="Arial, Helvetica, sans-serif" size="2">
+					<font face="Arial, Helvetica, sans-serif" size="1">
 						<xsl:call-template name="SimboloMoneda"/>
 					</font>
 				</td>
-				<td width="15%" align="right" style="border: 1px solid #fff !important;
+				<td width="25%" align="right" style="border: 1px solid #fff !important;
 				border-radius: 5px 5px 5px 5px !important;
 				-moz-border-radius: 5px 5px 5px 5px !important;
 				-webkit-border-radius: 5px 5px 5px 5px !important;">
-					<font face="Arial, Helvetica, sans-serif" size="2">
+					<font face="Arial, Helvetica, sans-serif" size="1">
 						<xsl:value-of select="format-number($OPInafecta,'###,###,##0.00','pen')"/>&#xA0;
 					</font>
 				</td>
 			</tr>
 			<tr>
-				<td width="80%" align="left"
+				<td width="70%" align="left"
 				style="border: 1px solid #fff !important;
 				border-radius: 5px 5px 5px 5px !important;
 				-moz-border-radius: 5px 5px 5px 5px !important;
 				-webkit-border-radius: 5px 5px 5px 5px !important;">
-					<font face="Arial, Helvetica, sans-serif" size="2">
-						<strong>Operación Exonerada</strong>
+					<font face="Arial, Helvetica, sans-serif" size="1">
+						Operación Exonerada
 					</font>
 				</td>
 				<td width="5%" align="right" style="border: 1px solid #fff !important;
 				border-radius: 5px 5px 5px 5px !important;
 				-moz-border-radius: 5px 5px 5px 5px !important;
 				-webkit-border-radius: 5px 5px 5px 5px !important;">
-					<font face="Arial, Helvetica, sans-serif" size="2">
+					<font face="Arial, Helvetica, sans-serif" size="1">
 						<xsl:call-template name="SimboloMoneda"/>
 					</font>
 				</td>
-				<td width="15%" align="right" style="border: 1px solid #fff !important;
+				<td width="25%" align="right" style="border: 1px solid #fff !important;
 				border-radius: 5px 5px 5px 5px !important;
 				-moz-border-radius: 5px 5px 5px 5px !important;
 				-webkit-border-radius: 5px 5px 5px 5px !important;">
-					<font face="Arial, Helvetica, sans-serif" size="2">
+					<font face="Arial, Helvetica, sans-serif" size="1">
 						<xsl:value-of select="format-number($OPExonerada,'###,###,##0.00','pen')"/>&#xA0;
 					</font>
 				</td>
 			</tr>		
 			<tr>
-				<td width="80%" align="left"
+				<td width="70%" align="left"
 				style="border: 1px solid #fff !important;
 				border-radius: 5px 5px 5px 5px !important;
 				-moz-border-radius: 5px 5px 5px 5px !important;
 				-webkit-border-radius: 5px 5px 5px 5px !important;">
-					<font face="Arial, Helvetica, sans-serif" size="2">
-						<strong>Operación Exportación</strong>
+					<font face="Arial, Helvetica, sans-serif" size="1">
+						Operación Exportación
 					</font>
 				</td>
 				<td width="5%" align="right" style="border: 1px solid #fff !important;
 				border-radius: 5px 5px 5px 5px !important;
 				-moz-border-radius: 5px 5px 5px 5px !important;
 				-webkit-border-radius: 5px 5px 5px 5px !important;">
-					<font face="Arial, Helvetica, sans-serif" size="2">
+					<font face="Arial, Helvetica, sans-serif" size="1">
 						<xsl:call-template name="SimboloMoneda"/>
 					</font>
 				</td>
-				<td width="15%" align="right" style="border: 1px solid #fff !important;
+				<td width="25%" align="right" style="border: 1px solid #fff !important;
 				border-radius: 5px 5px 5px 5px !important;
 				-moz-border-radius: 5px 5px 5px 5px !important;
 				-webkit-border-radius: 5px 5px 5px 5px !important;">
-					<font face="Arial, Helvetica, sans-serif" size="2">
+					<font face="Arial, Helvetica, sans-serif" size="1">
 						<xsl:value-of select="format-number($OPExportacion,'###,###,##0.00','pen')"/>&#xA0; 
 					</font>
 				</td>
 			</tr>
 			<tr>
-				<td width="80%" align="left" 
+				<td width="70%" align="left" 
 					style="border: 1px solid #fff !important;
 					border-radius: 5px 5px 5px 5px !important;
 					-moz-border-radius: 5px 5px 5px 5px !important;
 					-webkit-border-radius: 5px 5px 5px 5px !important;">
-					<font face="Arial, Helvetica, sans-serif" size="2">
-						<strong>Op. Título Gratuito</strong>
+					<font face="Arial, Helvetica, sans-serif" size="1">
+						Op. Título Gratuito
 					</font>
 				</td>
 				<td width="5%" align="right" style="border: 1px solid #fff !important;
 				border-radius: 5px 5px 5px 5px !important;
 				-moz-border-radius: 5px 5px 5px 5px !important;
 				-webkit-border-radius: 5px 5px 5px 5px !important;">
-					<font face="Arial, Helvetica, sans-serif" size="2">
+					<font face="Arial, Helvetica, sans-serif" size="1">
 						<xsl:call-template name="SimboloMoneda"/>
 					</font>
 				</td>
-				<td width="15%" align="right"
+				<td width="25%" align="right"
 				style="border: 1px solid #fff !important;
 				border-radius: 5px 5px 5px 5px !important;
 				-moz-border-radius: 5px 5px 5px 5px !important;
 				-webkit-border-radius: 5px 5px 5px 5px !important;">
-					<font face="Arial, Helvetica, sans-serif" size="2">
+					<font face="Arial, Helvetica, sans-serif" size="1">
 						<xsl:value-of select="format-number($OPGratuita, '###,###,##0.00', 'pen')"/>&#xA0;
 					</font>
 				</td>
 			</tr>
 			<tr>
-				<td width="80%" align="left"
+				<td width="70%" align="left"
 					style="border: 1px solid #fff !important;
 					border-radius: 5px 5px 5px 5px !important;
 					-moz-border-radius: 5px 5px 5px 5px !important;
 					-webkit-border-radius: 5px 5px 5px 5px !important;"
 					>
-					<font face="Arial, Helvetica, sans-serif" size="2">
-						<strong>Importe Total </strong>
+					<font face="Arial, Helvetica, sans-serif" size="1">
+						Importe Total
 					</font>
 				</td>
 				<td width="5%" align="right" style="border: 1px solid #fff !important;
 				border-radius: 5px 5px 5px 5px !important;
 				-moz-border-radius: 5px 5px 5px 5px !important;
 				-webkit-border-radius: 5px 5px 5px 5px !important;">
-					<font face="Arial, Helvetica, sans-serif" size="2">
+					<font face="Arial, Helvetica, sans-serif" size="1">
 						<xsl:call-template name="SimboloMoneda"/>
 					</font>
 				</td>
-				<td width="15%" align="right"
+				<td width="25%" align="right"
 				style="border: 1px solid #fff !important;
 				border-radius: 5px 5px 5px 5px !important;
 				-moz-border-radius: 5px 5px 5px 5px !important;
 				-webkit-border-radius: 5px 5px 5px 5px !important;"
 				>
-					<font face="Arial, Helvetica, sans-serif" size="2">
+					<font face="Arial, Helvetica, sans-serif" size="1">
 						<xsl:value-of select="format-number($Total,'###,###,##0.00','pen')"/>&#xA0;
 					</font>
 				</td>
@@ -617,6 +618,6 @@
 
 </xsl:stylesheet><!-- Stylus Studio meta-information - (c) 2004-2006. Progress Software Corporation. All rights reserved.
 <metaInformation>
-<scenarios ><scenario default="yes" name="Scenario1" userelativepaths="yes" externalpreview="no" url="20101363008&#x2D;01&#x2D;F999&#x2D;00000001.xml" htmlbaseurl="" outputurl="" processortype="saxon8" useresolver="yes" profilemode="0" profiledepth="" profilelength="" urlprofilexml="" commandline="" additionalpath="" additionalclasspath="" postprocessortype="none" postprocesscommandline="" postprocessadditionalpath="" postprocessgeneratedext="" validateoutput="no" validator="internal" customvalidator="" ><advancedProp name="sInitialMode" value=""/><advancedProp name="bSchemaAware" value="true"/><advancedProp name="bXsltOneIsOkay" value="true"/><advancedProp name="bXml11" value="false"/><advancedProp name="bGenerateByteCode" value="true"/><advancedProp name="iValidation" value="0"/><advancedProp name="bExtensions" value="true"/><advancedProp name="iWhitespace" value="0"/><advancedProp name="sInitialTemplate" value=""/><advancedProp name="bTinyTree" value="true"/><advancedProp name="xsltVersion" value="2.0"/><advancedProp name="bWarnings" value="true"/><advancedProp name="bUseDTD" value="false"/><advancedProp name="iErrorHandling" value="fatal"/></scenario></scenarios><MapperMetaTag><MapperInfo srcSchemaPathIsRelative="yes" srcSchemaInterpretAsXML="no" destSchemaPath="" destSchemaRoot="" destSchemaPathIsRelative="yes" destSchemaInterpretAsXML="no"/><MapperBlockPosition></MapperBlockPosition><TemplateContext></TemplateContext><MapperFilter side="source"></MapperFilter></MapperMetaTag>
+<scenarios ><scenario default="yes" name="Scenario1" userelativepaths="yes" externalpreview="no" url="20101363008&#x2D;01&#x2D;F999&#x2D;00000001.xml" htmlbaseurl="" outputurl="" processortype="saxon8" useresolver="yes" profilemode="0" profiledepth="" profilelength="" urlprofilexml="" commandline="" additionalpath="" additionalclasspath="" postprocessortype="none" postprocesscommandline="" postprocessadditionalpath="" postprocessgeneratedext="" validateoutput="no" validator="internal" customvalidator="" ><advancedProp name="sInitialMode" value=""/><advancedProp name="bXsltOneIsOkay" value="true"/><advancedProp name="bSchemaAware" value="true"/><advancedProp name="bGenerateByteCode" value="true"/><advancedProp name="bXml11" value="false"/><advancedProp name="iValidation" value="0"/><advancedProp name="bExtensions" value="true"/><advancedProp name="iWhitespace" value="0"/><advancedProp name="sInitialTemplate" value=""/><advancedProp name="bTinyTree" value="true"/><advancedProp name="bUseDTD" value="false"/><advancedProp name="bWarnings" value="true"/><advancedProp name="xsltVersion" value="2.0"/><advancedProp name="iErrorHandling" value="fatal"/></scenario></scenarios><MapperMetaTag><MapperInfo srcSchemaPathIsRelative="yes" srcSchemaInterpretAsXML="no" destSchemaPath="" destSchemaRoot="" destSchemaPathIsRelative="yes" destSchemaInterpretAsXML="no"/><MapperBlockPosition></MapperBlockPosition><TemplateContext></TemplateContext><MapperFilter side="source"></MapperFilter></MapperMetaTag>
 </metaInformation>
 -->

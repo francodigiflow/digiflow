@@ -21,10 +21,10 @@ xmlns:sac="urn:sunat:names:specification:ubl:peru:schema:xsd:SunatAggregateCompo
 						</xsl:if>
 						<xsl:if test="//cbc:CustomizationID='2.0'">
 							<!--CLOUD-->
-							<!--<xsl:call-template name="EncabezadoRecuadro20"/>	-->
+							<xsl:call-template name="EncabezadoRecuadro20"/>	
 
 							<!--SUCURSAL-->
-							<xsl:call-template name="EncabezadoRecuadro"/>	
+							<!--<xsl:call-template name="EncabezadoRecuadro"/>	-->
 						</xsl:if>
 					</td>
 				</tr>

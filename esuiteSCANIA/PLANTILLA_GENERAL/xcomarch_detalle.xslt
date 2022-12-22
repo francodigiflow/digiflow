@@ -54,7 +54,7 @@ xmlns:qdt="urn:oasis:names:specification:ubl:schema:xsd:QualifiedDatatypes-2">
 									</b>
 								</th>
 								
-								<th width="9%" align="center" 
+								<th width="9%" align="right" 
 									style="border-bottom: 1px solid #2F528F;">
 									<b>
 										<font face="Arial, Helvetica, sans-serif" size="1" color="blue">V.Unitario</font>
@@ -67,7 +67,7 @@ xmlns:qdt="urn:oasis:names:specification:ubl:schema:xsd:QualifiedDatatypes-2">
 									</b>
 								</th>
 								
-								<th width="9%" align="center" 
+								<th width="9%" align="right" 
 								style="border-bottom: 1px solid #2F528F;">
 									<b>
 										<font face="Arial, Helvetica, sans-serif" size="1" color="blue">Valor venta</font>
@@ -79,6 +79,8 @@ xmlns:qdt="urn:oasis:names:specification:ubl:schema:xsd:QualifiedDatatypes-2">
 						</thead>
 						
 						<tbody>
+							
+							<!--<xsl:for-each select="format-number(/pe:Invoice/cac:InvoiceLine,'00','pen')">-->
 							<xsl:for-each select="/pe:Invoice/cac:InvoiceLine">
 								<tr>
 									<td width="5%" align="center" valign="top" style="border:solid 1px #fff;border-top:none;border-bottom:none;border-left: none;">
@@ -107,7 +109,7 @@ xmlns:qdt="urn:oasis:names:specification:ubl:schema:xsd:QualifiedDatatypes-2">
 											<xsl:value-of select="format-number(cbc:InvoicedQuantity,'###,###,##0.00','pen')"/>
 										</font>
 									</td>
-									<td width="9%" align="center" valign="top" style="border:solid 1px #fff;border-top:none;border-bottom:none;border-left: none;">
+									<td width="9%" align="right" valign="top" style="border:solid 1px #fff;border-top:none;border-bottom:none;border-left: none;">
 										<font face="Arial, Helvetica, sans-serif" size="1">
 										
 											<xsl:variable name="CTSValor1">
@@ -167,9 +169,9 @@ xmlns:qdt="urn:oasis:names:specification:ubl:schema:xsd:QualifiedDatatypes-2">
 											</xsl:choose>
 										</font>
 									</td>
-									<td width="9%" align="center" valign="top" style="border:solid 1px #fff;border-top:none;border-bottom:none;border-left: none;">
+									<td width="9%" align="right" valign="top" style="border:solid 1px #fff;border-top:none;border-bottom:none;border-left: none;">
 										<font face="Arial, Helvetica, sans-serif" size="1">
-											<xsl:value-of select="format-number(cbc:LineExtensionAmount, '###,###,##0.00', 'pen')"/>
+											<xsl:value-of select="format-number(cbc:LineExtensionAmount, '###,###,##0.00', 'pen')"/>&#xA0;&#xA0;
 											
 										</font>
 									</td>
@@ -280,27 +282,8 @@ xmlns:qdt="urn:oasis:names:specification:ubl:schema:xsd:QualifiedDatatypes-2">
 									<td width="9%" align="center" valign="top" style="border:solid 1px #fff;border-top:none;border-bottom:none;border-left: none;">
 										<font face="Arial, Helvetica, sans-serif" size="1">
 											<xsl:value-of select="format-number(cbc:LineExtensionAmount, '###,###,##0.00', 'pen')"/>
-											
 										</font>
 									</td>
-									<!--<td width="9%" align="center" valign="top" style="border:solid 1px #fff;border-top:none;border-bottom:none;border-left: none;">
-										<font face="Arial, Helvetica, sans-serif" size="1">
-											
-
-										<xsl:variable name="ValorAdicional2">
-                                            <xsl:call-template name="RetourneValAdItem">
-                                                <xsl:with-param name="NumLinea" select="cbc:ID"/>
-                                                <xsl:with-param name="NumAd" select="2"/>
-                                            </xsl:call-template>
-                                        </xsl:variable>
- 
-                                        <xsl:if test="$ValorAdicional2 != '' and $ValorAdicional2 !='-' ">
-                                        <xsl:value-of select="$ValorAdicional2"/>
-                                        </xsl:if>
-											
-											
-										</font>
-									</td>-->
 								</tr>
 							</xsl:for-each>
 
@@ -461,7 +444,7 @@ xmlns:qdt="urn:oasis:names:specification:ubl:schema:xsd:QualifiedDatatypes-2">
 								</td>
 							</tr>	
 							<tr>
-								<td width="40%" align="right" valign="top" style="border:solid 1px #fff;border-top:none;border-bottom:none;border-left: none;" colspan="9">
+								<td width="100%" align="right" valign="top" style="border:solid 1px #fff;border-top:none;border-bottom:none;border-left: none;" colspan="9">
 									<xsl:call-template name="tmpTotal"/>
 								</td>
 							</tr>	
@@ -482,42 +465,6 @@ xmlns:qdt="urn:oasis:names:specification:ubl:schema:xsd:QualifiedDatatypes-2">
 					</table>
 			
 	</xsl:template>
-
-	<!--xsl:template name="lineaBl">
-		<xsl:param name="cont"/>
-		<xsl:if test="$cont>0">
-			<tr>
-				<td width="13%" align="center" valign="top" style="border:solid 1px #fff;border-top:none;border-bottom:none;border-left: none;">
-					<font face="Arial, Helvetica, sans-serif" size="1"> </font>
-				</td>
-				<td width="41%" align="center" valign="top" style="border:solid 1px #fff;border-top:none;border-bottom:none;border-left: none;">
-					<font face="Arial, Helvetica, sans-serif" size="1"> </font>
-				</td>
-				
-				<td width="4%" align="center" style="border:solid 1px #fff;border-top:none;border-bottom:none;border-left: none;">
-					<font face="Arial, Helvetica, sans-serif" size="1"> </font>
-				</td>
-			<td width="6%" align="center" style="border:solid 1px #fff;border-top:none;border-bottom:none;border-left: none;">
-					<font face="Arial, Helvetica, sans-serif" size="1"> </font>
-				</td>
-				<td width="9%" align="center" style="border:solid 1px #fff;border-top:none;border-bottom:none;border-left: none;">
-					<font face="Arial, Helvetica, sans-serif" size="1"> </font>
-				</td>
-				<td width="9%" align="center" style="border:solid 1px #fff;border-top:none;border-bottom:none;border-left: none;">
-					<font face="Arial, Helvetica, sans-serif" size="1"> </font>
-				</td>
-				<td width="9%" align="center" style="border:solid 1px #fff;border-top:none;border-bottom:none;border-left: none;">
-					<font face="Arial, Helvetica, sans-serif" size="1"> </font>
-				</td>
-				<td width="6%" align="center" style="border:solid 1px #fff;border-top:none;border-bottom:none;border-left: none;border-right: none;">
-					<font face="Arial, Helvetica, sans-serif" size="1"> </font>
-				</td>
-			</tr>
-			<xsl:call-template name="lineaBl">
-				<xsl:with-param name="cont" select="$cont - 1"/>
-			</xsl:call-template>
-		</xsl:if>
-	</xsl:template-->
 
 	<xsl:template name="unidad_medida">
 		<xsl:choose>
