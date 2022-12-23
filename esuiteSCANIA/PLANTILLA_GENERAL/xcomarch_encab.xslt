@@ -30,7 +30,7 @@
 								<tr>-->
 									<!--<td align="left">-->
 										<!--<img src="C:\Users\FrancoCabanillasGóme\Documents\Representaciones\representaciones\SCANIA\logo1_scania.jpg" width="200" height="80"/>-->
-										<img src="data:image/*;base64,[logo_1]" width="230px" height="70px"/>
+										<img src="data:image/*;base64,[logo_1]" height="70"/>
 									<!--</td>-->
 <!--								</tr>
 							</table>-->
