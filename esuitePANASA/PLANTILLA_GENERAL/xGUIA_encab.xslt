@@ -48,9 +48,21 @@ exclude-result-prefixes="cac cbc ccts ds ext pe qdt sac udt xsi">
 				
 				<tr>
 					<td width="100%" align="left">
-						
-						<img src="logo_panasa_secundario.jpg"/>
-						
+
+						<xsl:if test="//cbc:CustomizationID='1.0'">
+							<img src="logo_panasa_secundario.jpg"/>							
+						</xsl:if>
+						<xsl:if test="//cbc:CustomizationID='2.0'">
+							<xsl:if test="//cac:SignatoryParty/cac:PartyIdentification/cbc:ID='20330791501'">
+								<img src="Logo_Quimpac.jpg"/>
+							</xsl:if>
+							<xsl:if test="//cac:SignatoryParty/cac:PartyIdentification/cbc:ID='20100047641'">
+								<img src="logo_panasa_secundario.jpg"/>
+							</xsl:if>
+							<xsl:if test="//cac:SignatoryParty/cac:PartyIdentification/cbc:ID='20536733419'">
+								<img src="logo_emusa.jpg"/>
+							</xsl:if>
+						</xsl:if>
 					
 					</td>
 					

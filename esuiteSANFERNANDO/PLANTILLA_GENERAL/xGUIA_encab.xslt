@@ -89,6 +89,15 @@ xmlns:sac="urn:sunat:names:specification:ubl:peru:schema:xsd:SunatAggregateCompo
 										<img src="logo_sf.jpg" width="190px" height="90px" />
 										
 									</xsl:if>
+									<xsl:if test="//cac:SignatoryParty/cac:PartyIdentification/cbc:ID='20600948131'">
+
+										<!--CLOUD-->
+										<!--<img src="data:image/*;base64,[logo_2]" width="418" height="117" />-->
+										
+										<!--SUCURSAL-->
+										<img src="logo_sf.jpg" width="190px" height="90px" />
+										
+									</xsl:if>
 							</xsl:if>
 
 						<br/>

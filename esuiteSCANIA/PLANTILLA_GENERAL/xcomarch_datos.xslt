@@ -759,7 +759,12 @@
 												</td>
 												<td width="10%" align="center" style="border:solid 1px #A5A5A5;" >
 													<font face="Arial, Helvetica, sans-serif" size="1">
-														<xsl:value-of select="cbc:PaymentDueDate"/>
+														<!--<xsl:value-of select="cbc:PaymentDueDate"/>-->
+														<xsl:if test="cbc:PaymentDueDate != '-' or cbc:PaymentDueDate != '_'">
+															<xsl:call-template name="fecha_ddmmaa_formato">
+													            <xsl:with-param name="FechaFormateada" select="cbc:PaymentDueDate"/>
+													        </xsl:call-template>
+														</xsl:if>
 													</font>
 												</td>
 												<td width="10%" align="center" style="border:solid 1px #A5A5A5;" >
@@ -842,7 +847,7 @@
 								</td>
 								<td width="20%" align="center">
 									<font face="Arial, Helvetica, sans-serif" size="1">
-										<strong>Número de cuenta:</strong>&#xA0;000000447765
+										<strong>N° de cuenta:</strong>&#xA0;000000447765
 									</font>
 								</td>							
 								<td width="20%" align="center">
@@ -852,7 +857,7 @@
 								</td>
 								<td width="20%" align="center">
 									<font face="Arial, Helvetica, sans-serif" size="1">
-										<strong>Código de detracción:</strong>&#xA0;<xsl:value-of select="format-number(//cac:PaymentTerms/cbc:PaymentMeansID,'000','pen')"/>
+										<strong>Código Detracción:</strong>&#xA0;<xsl:value-of select="format-number(//cac:PaymentTerms/cbc:PaymentMeansID,'000','pen')"/>
 									</font>
 								</td>
 							</tr>						
@@ -1169,6 +1174,26 @@
 <xsl:template match="cbc:InvoicedQuantity">
 	
 </xsl:template>
+
+<xsl:template name="fecha_ddmmaa_formato">
+	<xsl:param name="FechaFormateada"/>
+	<xsl:variable name="aa">
+		<xsl:value-of select="substring-before($FechaFormateada,'-')"/>
+	</xsl:variable>
+	<xsl:variable name="mmdd">
+		<xsl:value-of select="substring-after($FechaFormateada,'-')"/>
+	</xsl:variable>
+	<!--prefijo Fecha Emision Mes -->
+	<xsl:variable name="mm">
+		<xsl:value-of select="substring-before($mmdd,'-')"/>
+	</xsl:variable>
+	<xsl:variable name="dd">
+		<xsl:value-of select="substring-after($mmdd,'-')"/>
+	</xsl:variable>
+	<!-- MES -Nombre -->
+	<xsl:value-of select="concat($dd,'/', $mm, '/' , $aa)"/>
+</xsl:template>
+
 </xsl:stylesheet><!-- Stylus Studio meta-information - (c) 2004-2006. Progress Software Corporation. All rights reserved.
 <metaInformation>
 <scenarios ><scenario default="yes" name="Scenario1" userelativepaths="yes" externalpreview="no" url="..\XML\20101363008&#x2D;01&#x2D;F999&#x2D;00000001.xml" htmlbaseurl="" outputurl="" processortype="internal" useresolver="yes" profilemode="0" profiledepth="" profilelength="" urlprofilexml="" commandline="" additionalpath="" additionalclasspath="" postprocessortype="none" postprocesscommandline="" postprocessadditionalpath="" postprocessgeneratedext="" validateoutput="no" validator="internal" customvalidator=""/></scenarios><MapperMetaTag><MapperInfo srcSchemaPathIsRelative="yes" srcSchemaInterpretAsXML="no" destSchemaPath="" destSchemaRoot="" destSchemaPathIsRelative="yes" destSchemaInterpretAsXML="no"/><MapperBlockPosition></MapperBlockPosition><TemplateContext></TemplateContext><MapperFilter side="source"></MapperFilter></MapperMetaTag>
