@@ -27,50 +27,26 @@ xmlns:sac="urn:sunat:names:specification:ubl:peru:schema:xsd:SunatAggregateCompo
 	<xsl:template name="EncabezadoPeru">
 		<table cellSpacing="0" border="0"  style="font-family :Arial,Helvetica,sans-serif;font-size:15px;color:#000000" width="100%">
 			<tr>
-					<td valign="top" width="14%" align="left">
-							<img width="100px" src="logo_wongcia.jpg" />
-					</td>				
-					<td valign="top" width="1%" align="left">
-						
-					</td>
-					<td valign="top" align="center" width="85%" style="font-family :Arial,Helvetica,sans-serif;font-size:9px;color:#000000">	
-							<br/><br/>
-							<font size="6" >
-							<strong><xsl:value-of select="//cac:DespatchSupplierParty/cac:Party/cac:PartyLegalEntity/cbc:RegistrationName"/>	</strong>
-							</font>
-							&#160;<br/>
-							<font size="1">
-							<xsl:for-each select="//ext:UBLExtensions/ext:UBLExtension/ext:ExtensionContent/pe:DatosAdicionales/pe:DatoAdicional">
-								<xsl:if test="pe:Codigo='01'">
-									<xsl:value-of select="pe:Valor"/>
-								</xsl:if>
-						    </xsl:for-each>
-							<br/>
-							<xsl:for-each select="//ext:UBLExtensions/ext:UBLExtension/ext:ExtensionContent/pe:DatosAdicionales/pe:DatoAdicional">
-								<xsl:if test="pe:Codigo='02'">
-									<xsl:value-of select="pe:Valor"/>
-								</xsl:if>
-						    </xsl:for-each>	
-							<br/>
-							<xsl:for-each select="//ext:UBLExtensions/ext:UBLExtension/ext:ExtensionContent/pe:DatosAdicionales/pe:DatoAdicional">
-								<xsl:if test="pe:Codigo='03'">
-									<xsl:value-of select="pe:Valor"/>
-								</xsl:if>
-						    </xsl:for-each>	
-							<br/>
-							<xsl:for-each select="//ext:UBLExtensions/ext:UBLExtension/ext:ExtensionContent/pe:DatosAdicionales/pe:DatoAdicional">
-								<xsl:if test="pe:Codigo='04'">
-									<xsl:value-of select="pe:Valor"/>
-								</xsl:if>
-						    </xsl:for-each>	
-							<br/>
-							<xsl:for-each select="//ext:UBLExtensions/ext:UBLExtension/ext:ExtensionContent/pe:DatosAdicionales/pe:DatoAdicional">
-								<xsl:if test="pe:Codigo='05'">
-									<xsl:value-of select="pe:Valor"/>
-								</xsl:if>
-						    </xsl:for-each>
-							</font>
-					</td>
+				<td valign="top" width="14%" align="left">
+					<img width="80px" src="logo_novopan.jpg" />
+				</td>				
+				<td valign="top" width="1%" align="left">
+				</td>
+				<td valign="top" align="center" width="85%" style="font-family :Arial,Helvetica,sans-serif;font-size:9px;color:#000000">	
+				</td>
+			</tr>
+			<tr>
+				<td valign="top" align="center" width="100%" style="font-family :Arial,Helvetica,sans-serif;font-size:9px;color:#000000">	
+						<font size="1" >
+						<strong><xsl:value-of select="//cac:DespatchSupplierParty/cac:Party/cac:PartyLegalEntity/cbc:RegistrationName"/>	</strong>
+						</font>
+						<br/>
+						<font size="1">
+							&#160;Av. Eucaliptos Int. D2b Lote. 3 Urb Santa Genoveva (Alt. Km.40 Antigua Panamericana Sur) - Lurin - Lima - Lima<br/>
+							&#160;E-Mail: atencionalcliente@novopan.com.pe<br/>
+							&#160;Telefonos: 660-0000
+						</font>
+				</td>
 			</tr>
 
 		</table>

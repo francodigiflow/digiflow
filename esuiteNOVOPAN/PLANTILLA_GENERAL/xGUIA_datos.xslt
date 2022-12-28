@@ -55,24 +55,36 @@ xmlns:sac="urn:sunat:names:specification:ubl:peru:schema:xsd:SunatAggregateCompo
 		<table border="0" width="100%" cellpadding="0" cellspacing="0" bordercolor="#000001">
 			<tbody>
 				<tr>
-					<td vAlign="top" width="40%">
+					<td vAlign="top" width="19%">
 						<table rules="none" border="1" width="100%" bordercolor="#000000" cellpadding="1" cellspacing="1">
 							<tbody>
 								<tr>
-									<td width="50%" align="center">
+									<td width="100%" align="center">
 										<font face="Arial, Helvetica, sans-serif" size="2"><strong>Fecha de emisión</strong></font>
-									</td>
-									<td width="50%" align="center">
-										<font face="Arial, Helvetica, sans-serif" size="2"><strong>Fecha de inicio de traslado</strong></font>
 									</td>
 								</tr>
 								<tr>
-									<td width="50%" align="center">
+									<td width="100%" align="center">
 										<font face="Arial, Helvetica, sans-serif" size="2">
 											<xsl:value-of select="//cbc:IssueDate"/>
 										</font>										
 									</td>
-									<td width="50%" align="center">
+								</tr>
+							</tbody>
+						</table>
+					</td>
+					<td vAlign="top" width="1%">
+					</td>
+					<td vAlign="top" width="19%">
+						<table rules="none" border="1" width="100%" bordercolor="#000000" cellpadding="1" cellspacing="1">
+							<tbody>
+								<tr>
+									<td width="100%" align="center">
+										<font face="Arial, Helvetica, sans-serif" size="2"><strong>Fecha de inicio de traslado</strong></font>
+									</td>
+								</tr>
+								<tr>
+									<td width="100%" align="center">
 										<font face="Arial, Helvetica, sans-serif" size="2">
 											<xsl:value-of select="//cac:ShipmentStage/cac:TransitPeriod/cbc:StartDate"/>
 										</font>										
@@ -148,10 +160,55 @@ xmlns:sac="urn:sunat:names:specification:ubl:peru:schema:xsd:SunatAggregateCompo
 										</font>										
 									</td>
 								</tr>
+								<tr>
+									<td width="10%" align="left">
+										<font face="Arial, Helvetica, sans-serif" size="2">
+											&#160;Dir. Fiscal
+										</font>										
+									</td>
+									<td width="90%" align="left" colspan="7">
+										<font face="Arial, Helvetica, sans-serif" size="2">
+											<xsl:call-template name="RetourneValAd">
+												<xsl:with-param name="NumAd" select="01"/>	
+											</xsl:call-template>
+										</font>										
+									</td>									
+								</tr>
+								<tr>
+									<td width="10%" align="left">
+										<font face="Arial, Helvetica, sans-serif" size="2">
+											&#160;Pedido
+										</font>										
+									</td>
+									<td width="40%" align="left">
+										<font face="Arial, Helvetica, sans-serif" size="2">
+											
+										</font>										
+									</td>
+									<td width="10%" align="left">
+										<font face="Arial, Helvetica, sans-serif" size="2">
+											&#160;O.Compra
+										</font>										
+									</td>
+									<td width="40%" align="left">
+										<font face="Arial, Helvetica, sans-serif" size="2">
+											<xsl:call-template name="RetourneValAd">
+												<xsl:with-param name="NumAd" select="02"/>	
+											</xsl:call-template>
+										</font>										
+									</td>
+								</tr>
 							</tbody>
 						</table>
 					</td>
-				</tr>
+				</tr>				
+			</tbody>
+		</table>
+	</xsl:template>
+
+	<xsl:template name="DatosReceptorT">
+		<table border="0" width="100%" cellpadding="0" cellspacing="0" bordercolor="#000001">
+			<tbody>
 				<tr>				
 					<td vAlign="top" width="100%">
 						<table rules="none" border="1" width="100%" bordercolor="#000000" cellpadding="1" cellspacing="1">
@@ -250,11 +307,9 @@ xmlns:sac="urn:sunat:names:specification:ubl:peru:schema:xsd:SunatAggregateCompo
 									</td>
 									<td width="16%" align="left">
 										<font face="Arial, Helvetica, sans-serif" size="2">
-											<xsl:for-each select="//ext:UBLExtensions/ext:UBLExtension/ext:ExtensionContent/pe:DatosAdicionales/pe:DatoAdicional">
-												<xsl:if test="pe:Codigo='06'">
-													<xsl:value-of select="pe:Valor"/>
-												</xsl:if>
-										    </xsl:for-each>
+											<xsl:call-template name="RetourneValAd">
+												<xsl:with-param name="NumAd" select="03"/>	
+											</xsl:call-template>
 										</font>										
 									</td>
 									<td width="2%"></td>
