@@ -70,17 +70,17 @@ xmlns:sac="urn:sunat:names:specification:ubl:peru:schema:xsd:SunatAggregateCompo
 
 	
 
-	<!--<xsl:template name="timbre">        
+	<xsl:template name="timbre">        
         <xsl:value-of select="//ext:UBLExtensions/ext:UBLExtension/ext:ExtensionContent/pe:DatosAdicionales/pe:Documento/pe:Nombre"/>
         <xsl:value-of select="'.jpg'"/>
-    </xsl:template>-->
+    </xsl:template>
 
-	<xsl:template name="timbre">  
+	<!--<xsl:template name="timbre">  
 		<xsl:value-of select=" substring(//cac:Signature/cac:DigitalSignatureAttachment/cac:ExternalReference/cbc:URI,1,12)"/>
 		<xsl:value-of select="'09'"/>
 		<xsl:value-of select=" substring(//cac:Signature/cac:DigitalSignatureAttachment/cac:ExternalReference/cbc:URI,12,20)"/>
 		<xsl:value-of select="'.jpg'"/>
-    </xsl:template>
+    </xsl:template>-->
 	
 	<xsl:template name="nombreTed">
         <xsl:param name="text"/>
