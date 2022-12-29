@@ -243,10 +243,11 @@
 								<tr>
 									<td width="100%"  colspan="5">
 										<font face="Arial, Helvetica, sans-serif" size="1">
-											<xsl:value-of select="//cac:AccountingSupplierParty/cac:Party/cac:PartyLegalEntity/cac:RegistrationAddress/cac:AddressLine/cbc:Line"/>-
+											<!--<xsl:value-of select="//cac:AccountingSupplierParty/cac:Party/cac:PartyLegalEntity/cac:RegistrationAddress/cac:AddressLine/cbc:Line"/>-
 											<xsl:value-of select="//cac:AccountingSupplierParty/cac:Party/cac:PartyLegalEntity/cac:RegistrationAddress/cbc:CityName"/>-
 											<xsl:value-of select="//cac:AccountingSupplierParty/cac:Party/cac:PartyLegalEntity/cac:RegistrationAddress/cbc:CountrySubentity"/>-
-											<xsl:value-of select="//cac:AccountingSupplierParty/cac:Party/cac:PartyLegalEntity/cac:RegistrationAddress/cbc:District"/>
+											<xsl:value-of select="//cac:AccountingSupplierParty/cac:Party/cac:PartyLegalEntity/cac:RegistrationAddress/cbc:District"/>-->
+											<xsl:call-template name="RetourneValAd"><xsl:with-param name="NumAd" select="19"/></xsl:call-template>
 										</font>
 									</td>
 									
@@ -366,7 +367,7 @@
 									</td>
 									<td length="15%" valign="top" align="left">
 										<font face="Arial, Helvetica, sans-serif" size="1">:&#xA0;
-											<xsl:call-template name="RetourneValAd"><xsl:with-param name="NumAd" select="09"/></xsl:call-template>											
+											<xsl:call-template name="RetourneValAd"><xsl:with-param name="NumAd" select="09"/></xsl:call-template>
 										</font>
 									</td>
 									<td length="8%" valign="top" align="left">
