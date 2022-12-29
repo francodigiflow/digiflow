@@ -22,6 +22,7 @@
 			</tr>
 		</table>
 	</xsl:template>
+
 	<xsl:template name="DatosReceptor_FB">
 		<table border="0" width="100%" cellpadding="2" cellspacing="0">
 			<tbody>
@@ -982,6 +983,9 @@
 			</tbody>
 		</table>
 	</xsl:template>
+
+
+
 	<xsl:template name="tmpDescripcionMoneda">
 		<xsl:choose>
 			<xsl:when test="/pe:Invoice/cbc:DocumentCurrencyCode='PEN'">SOLES</xsl:when>

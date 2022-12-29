@@ -45,8 +45,11 @@
 												</font>
 											</td>
 											<td width="50%">
+												<xsl:if test="/pe:Invoice/cbc:InvoiceTypeCode = '01'">
+
 												 <!--<img src="noretencion.png" width="364" height="110"/> -->
-												<img src="data:image/*;base64,[logo_2]" width="264" height="70" />
+													<img src="data:image/*;base64,[logo_2]" width="264" height="70" />
+												</xsl:if>
 											</td>
 										</tr>
 								</tbody>
