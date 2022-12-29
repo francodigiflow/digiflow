@@ -27,13 +27,9 @@ xmlns:sac="urn:sunat:names:specification:ubl:peru:schema:xsd:SunatAggregateCompo
 	<xsl:template name="EncabezadoPeru">
 		<table cellSpacing="0" border="0"  style="font-family :Arial,Helvetica,sans-serif;font-size:15px;color:#000000" width="100%">
 			<tr>
-				<td valign="top" width="14%" align="left">
-					<img width="80px" src="logo_novopan.jpg" />
+				<td valign="top" width="50%" align="left">
+					<img src="Logo_Novopan.png" WIDTH="300" HEIGHT="89"/>
 				</td>				
-				<td valign="top" width="1%" align="left">
-				</td>
-				<td valign="top" align="center" width="85%" style="font-family :Arial,Helvetica,sans-serif;font-size:9px;color:#000000">	
-				</td>
 			</tr>
 			<tr>
 				<td valign="top" align="center" width="100%" style="font-family :Arial,Helvetica,sans-serif;font-size:9px;color:#000000">	

@@ -15,7 +15,7 @@ xmlns:sac="urn:sunat:names:specification:ubl:peru:schema:xsd:SunatAggregateCompo
 						<font face="Arial, Helvetica, sans-serif" size="1">
 							Representación Impresa - Guía de Remisión Remitente Electrónico
 							<br/> 
-							Podrá ser consultada en: www.ecomprobantes.pe/WONGCIA
+							Podrá ser consultado en: www.novopan.com.pe
 						</font>
 					</td> 
 				</tr>
