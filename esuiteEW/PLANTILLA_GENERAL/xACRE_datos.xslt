@@ -43,7 +43,7 @@
 									</td>
 									<td width="60%">
 										<font face="Arial, Helvetica, sans-serif" size="1">
-											<strong>:</strong>
+											<strong>:</strong>&#xA0;
 											<xsl:value-of select="/pe:Invoice/cac:AccountingCustomerParty/cac:Party/cac:PartyLegalEntity/cbc:RegistrationName"/>
 											<xsl:value-of select="/pe1:CreditNote/cac:AccountingCustomerParty/cac:Party/cac:PartyLegalEntity/cbc:RegistrationName"/>
 											<xsl:value-of select="/pe2:DebitNote/cac:AccountingCustomerParty/cac:Party/cac:PartyLegalEntity/cbc:RegistrationName"/>
@@ -58,7 +58,7 @@
 									</td>
 									<td width="15%" align="left">
 										<font face="Arial, Helvetica, sans-serif" size="1">
-											<strong>:</strong>
+											<strong>:</strong>&#xA0;
 											<xsl:value-of select="/pe:Invoice/cbc:IssueDate"/>
 											<xsl:value-of select="/pe1:CreditNote/cbc:IssueDate"/>
 											<xsl:value-of select="/pe2:DebitNote/cbc:IssueDate"/>
@@ -178,7 +178,7 @@
 
 									<td width="15%" align="left">
 										<font face="Arial, Helvetica, sans-serif" size="1">
-											<strong>:</strong>
+											<strong>:</strong>&#xA0;
 											<xsl:if test="//cac:AccountingCustomerParty/cbc:AdditionalAccountID='0'">-</xsl:if>
 											<xsl:if test="//cac:AccountingCustomerParty/cac:Party/cac:PartyIdentification/cbc:ID/@schemeID='0'">-</xsl:if>
 											<xsl:if test="//cac:AccountingCustomerParty/cbc:AdditionalAccountID!='0'">
@@ -198,7 +198,7 @@
 									</td>
 									<td width="15%" align="left">
 										<font face="Arial, Helvetica, sans-serif" size="1">
-											<strong>:</strong>
+											<strong>:</strong>&#xA0;
 
 											<xsl:for-each select="//ext:UBLExtensions/ext:UBLExtension/ext:ExtensionContent/pe:DatosAdicionales/pe:DatoAdicional">
 												<xsl:if test="pe:Codigo='01'">
@@ -252,7 +252,7 @@
 									</td>
 									<td width="60%">
 										<font face="Arial, Helvetica, sans-serif" size="1">
-											<strong>:</strong>
+											<strong>:</strong>&#xA0;
 											<xsl:value-of select="/pe:Invoice/cac:AccountingCustomerParty/cac:Party/cac:PostalAddress/cbc:StreetName"/>
 											<xsl:value-of select="/pe1:CreditNote/cac:AccountingCustomerParty/cac:Party/cac:PostalAddress/cbc:StreetName"/>
 											<xsl:value-of select="/pe2:DebitNote/cac:AccountingCustomerParty/cac:Party/cac:PostalAddress/cbc:StreetName"/>
@@ -278,7 +278,7 @@
 									</td>
 									<td width="15%" align="left">
 										<font face="Arial, Helvetica, sans-serif" size="1">
-											<strong>:</strong>
+											<strong>:</strong>&#xA0;
 											<xsl:for-each select="//ext:UBLExtensions/ext:UBLExtension/ext:ExtensionContent/pe:DatosAdicionales/pe:DatoAdicional">
 												<xsl:if test="pe:Codigo='02'">
 													<xsl:value-of select="pe:Valor"/>
@@ -305,7 +305,7 @@
 									</td>
 									<td width="60%">
 										<font face="Arial, Helvetica, sans-serif" size="1">
-											<strong>:</strong>
+											<strong>:</strong>&#xA0;
 											<xsl:choose>
 												<xsl:when test="/pe:Invoice/cbc:DocumentCurrencyCode='PEN'">SOLES</xsl:when>
 												<xsl:when test="/pe:Invoice/cbc:DocumentCurrencyCode='USD'">DOLARES AMERICANOS</xsl:when>
@@ -328,7 +328,7 @@
 									</td>
 									<td width="15%" align="left">
 										<font face="Arial, Helvetica, sans-serif" size="1">
-											<strong>:</strong>
+											<strong>:</strong>&#xA0;
 											<xsl:value-of select="/pe:Invoice/cac:OrderReference/cbc:ID"/>
 											<xsl:value-of select="/pe1:CreditNote/cac:OrderReference/cbc:ID"/>
 											<xsl:value-of select="/pe2:DebitNote/cac:OrderReference/cbc:ID"/>
@@ -346,7 +346,7 @@
 									</td>
 									<td width="60%">
 										<font face="Arial, Helvetica, sans-serif" size="1">
-											<strong>:</strong>
+											<strong>:</strong>&#xA0;
 											<xsl:value-of select="//cac:DespatchDocumentReference/cbc:ID"/>
 										</font>
 									</td>
@@ -819,6 +819,6 @@
 	-->
 </xsl:stylesheet><!-- Stylus Studio meta-information - (c) 2004-2006. Progress Software Corporation. All rights reserved.
 <metaInformation>
-<scenarios ><scenario default="yes" name="Scenario1" userelativepaths="yes" externalpreview="no" url="..\esuite\out\xml\20254053822&#x2D;01&#x2D;F002&#x2D;00345515.xml" htmlbaseurl="" outputurl="" processortype="internal" useresolver="no" profilemode="0" profiledepth="" profilelength="" urlprofilexml="" commandline="" additionalpath="" additionalclasspath="" postprocessortype="none" postprocesscommandline="" postprocessadditionalpath="" postprocessgeneratedext="" validateoutput="no" validator="internal" customvalidator="" ><advancedProp name="sInitialMode" value=""/><advancedProp name="bXsltOneIsOkay" value="true"/><advancedProp name="bSchemaAware" value="false"/><advancedProp name="bXml11" value="false"/><advancedProp name="iValidation" value="0"/><advancedProp name="bExtensions" value="true"/><advancedProp name="iWhitespace" value="0"/><advancedProp name="sInitialTemplate" value=""/><advancedProp name="bTinyTree" value="true"/><advancedProp name="bWarnings" value="true"/><advancedProp name="bUseDTD" value="false"/><advancedProp name="iErrorHandling" value="fatal"/></scenario></scenarios><MapperMetaTag><MapperInfo srcSchemaPathIsRelative="yes" srcSchemaInterpretAsXML="no" destSchemaPath="" destSchemaRoot="" destSchemaPathIsRelative="yes" destSchemaInterpretAsXML="no"/><MapperBlockPosition></MapperBlockPosition><TemplateContext></TemplateContext><MapperFilter side="source"></MapperFilter></MapperMetaTag>
+<scenarios ><scenario default="yes" name="Scenario1" userelativepaths="yes" externalpreview="no" url="..\esuite\out\xml\20254053822&#x2D;01&#x2D;F002&#x2D;00345515.xml" htmlbaseurl="" outputurl="" processortype="internal" useresolver="no" profilemode="0" profiledepth="" profilelength="" urlprofilexml="" commandline="" additionalpath="" additionalclasspath="" postprocessortype="none" postprocesscommandline="" postprocessadditionalpath="" postprocessgeneratedext="" validateoutput="no" validator="internal" customvalidator="" ><advancedProp name="sInitialMode" value=""/><advancedProp name="bSchemaAware" value="false"/><advancedProp name="bXsltOneIsOkay" value="true"/><advancedProp name="bXml11" value="false"/><advancedProp name="iValidation" value="0"/><advancedProp name="bExtensions" value="true"/><advancedProp name="iWhitespace" value="0"/><advancedProp name="sInitialTemplate" value=""/><advancedProp name="bTinyTree" value="true"/><advancedProp name="bUseDTD" value="false"/><advancedProp name="bWarnings" value="true"/><advancedProp name="iErrorHandling" value="fatal"/></scenario></scenarios><MapperMetaTag><MapperInfo srcSchemaPathIsRelative="yes" srcSchemaInterpretAsXML="no" destSchemaPath="" destSchemaRoot="" destSchemaPathIsRelative="yes" destSchemaInterpretAsXML="no"/><MapperBlockPosition></MapperBlockPosition><TemplateContext></TemplateContext><MapperFilter side="source"></MapperFilter></MapperMetaTag>
 </metaInformation>
 -->

@@ -40,11 +40,6 @@
 									</td>
 								</tr>
 								<tr>
-								<td>
-								
-								</td>
-								</tr>
-								<tr>
 									<td width="52%" align="left">
 										<font face="Arial, Helvetica, sans-serif" size="1">
 											<xsl:for-each select="//ext:UBLExtensions/ext:UBLExtension/ext:ExtensionContent/pe:DatosAdicionales/pe:DatoAdicional">
@@ -100,10 +95,8 @@
 									</td>
 								</tr>
 								<tr>
-
 									<td width="52%" align="left">
 										<font face="Arial, Helvetica, sans-serif" size="1">
-
 											<xsl:variable name="ADIC8">
 												<xsl:for-each select="//ext:UBLExtensions/ext:UBLExtension/ext:ExtensionContent/pe:DatosAdicionales/pe:DatoAdicional">
 													<xsl:if test="pe:Codigo='08'">
@@ -145,30 +138,15 @@
 												</xsl:for-each>
 												<xsl:for-each select="//ext:UBLExtensions/ext:UBLExtension/ext:ExtensionContent/pe2:DatosAdicionales/pe2:DatoAdicional">
 													<xsl:if test="pe2:Codigo='10'">
-														<b>
-															<xsl:value-of select="pe2:Valor"/>
-														</b>
+														<b><xsl:value-of select="pe2:Valor"/></b>
 													</xsl:if>
 												</xsl:for-each>
 											</xsl:variable>
-
-											<!-- <xsl:choose>
-												<xsl:when test="//cbc:Note[@languageLocaleID='1002']">TRANSFERENCIA GRATUITA
-													<br/>
-												</xsl:when> 
-																			
-												<xsl:otherwise>
-													<xsl:value-of select=""/>
-												</xsl:otherwise>
-											</xsl:choose> -->
-
 											<xsl:choose>
 												<xsl:when test="$ADIC8!=''">
 													<xsl:value-of select="$ADIC8"/>
 												</xsl:when>
-
-												<xsl:otherwise>
-													<!-- <xsl:value-of select="$ADIC10"/> -->
+												<xsl:otherwise>													
 												</xsl:otherwise>
 											</xsl:choose>
 										</font>

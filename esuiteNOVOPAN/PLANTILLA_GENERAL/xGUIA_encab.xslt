@@ -61,7 +61,12 @@ xmlns:sac="urn:sunat:names:specification:ubl:peru:schema:xsd:SunatAggregateCompo
 				</td>
 				<td width="40%" align="center">
 					<font color="#000000" size="3" face="Arial, Helvetica, sans-serif">
-					<img width="100px" height="100px" align="center" src="data:image/*;base64,[ted_1]" />
+					<!--<img width="100px" height="100px" align="center" src="data:image/*;base64,[ted_1]" />-->
+						<img width="150px" height="150px">
+                            <xsl:attribute name="src">
+                                <xsl:call-template name="timbre"/>
+                            </xsl:attribute>
+                        </img>
 					</font>
 				</td>
 			</tr>
@@ -85,6 +90,6 @@ xmlns:sac="urn:sunat:names:specification:ubl:peru:schema:xsd:SunatAggregateCompo
 </xsl:template>
 </xsl:stylesheet><!-- Stylus Studio meta-information - (c) 2004-2006. Progress Software Corporation. All rights reserved.
 <metaInformation>
-<scenarios/><MapperMetaTag><MapperInfo srcSchemaPathIsRelative="yes" srcSchemaInterpretAsXML="no" destSchemaPath="" destSchemaRoot="" destSchemaPathIsRelative="yes" destSchemaInterpretAsXML="no"/><MapperBlockPosition></MapperBlockPosition><TemplateContext></TemplateContext><MapperFilter side="source"></MapperFilter></MapperMetaTag>
+<scenarios ><scenario default="yes" name="Scenario1" userelativepaths="yes" externalpreview="no" url="" htmlbaseurl="" outputurl="" processortype="internal" useresolver="yes" profilemode="0" profiledepth="" profilelength="" urlprofilexml="" commandline="" additionalpath="" additionalclasspath="" postprocessortype="none" postprocesscommandline="" postprocessadditionalpath="" postprocessgeneratedext="" validateoutput="no" validator="internal" customvalidator=""/></scenarios><MapperMetaTag><MapperInfo srcSchemaPathIsRelative="yes" srcSchemaInterpretAsXML="no" destSchemaPath="" destSchemaRoot="" destSchemaPathIsRelative="yes" destSchemaInterpretAsXML="no"/><MapperBlockPosition></MapperBlockPosition><TemplateContext></TemplateContext><MapperFilter side="source"></MapperFilter></MapperMetaTag>
 </metaInformation>
 -->

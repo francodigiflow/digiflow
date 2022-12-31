@@ -1001,26 +1001,31 @@
 								</font>
 							</td>
 
-							<td width="40%" align="center">
+							<td width="36%" align="center">
 								<font face="Arial, Helvetica, sans-serif" size="1">
 									<strong>Descripción</strong>
 								</font>
 							</td>
 
-							<td width="10%" align="center">
+							<td width="6%" align="center">
 								<font face="Arial, Helvetica, sans-serif" size="1">
 									<strong>Pv. Unit
 										<br/>(Con IGV)</strong>
 								</font>
 							</td>
-							<td width="10%" align="center">
+							<td width="6%" align="center">
 								<font face="Arial, Helvetica, sans-serif" size="1">
 									<strong>Importe</strong>
 								</font>
-							</td>							
-							<td width="10%" align="center">
+							</td>
+							<td width="6%" align="center">
 								<font face="Arial, Helvetica, sans-serif" size="1">
-									<strong>Total</strong>
+									<strong>MRA</strong>
+								</font>
+							</td>
+							<td width="6%" align="center">
+								<font face="Arial, Helvetica, sans-serif" size="1">
+									<strong>Acc Minorit</strong>
 								</font>
 							</td>
 						</tr>
@@ -1030,7 +1035,7 @@
 
 			<tr>
 				<td>
-					<table rules="cols" border="1" width="100%" bordercolor="#000000" cellpadding="4" cellspacing="0">
+					<table rules="cols" border="1" width="100%" bordercolor="#000000" cellpadding="0" cellspacing="0">
 						<xsl:for-each select="/pe:Invoice/cac:InvoiceLine">
 							<xsl:if test="cbc:ID &gt;'0' and cbc:ID &lt;'24'  ">
 								<tr>
@@ -1051,25 +1056,50 @@
 											<xsl:call-template name="unidad_medida"/>
 										</font>
 									</td>
-									<td width="40%" align="left" vAlign="top">
+									<td width="36%" align="left" vAlign="top">
 										<font face="Arial, Helvetica, sans-serif" size="1">&#xA0;
 											<xsl:value-of select="cac:Item/cbc:Description"/>
 										</font>
 									</td>
 
-									<td width="10%" align="right" vAlign="top">
+									<td width="6%" align="right" vAlign="top">
 										<font face="Arial, Helvetica, sans-serif" size="1">
 
 											<xsl:value-of select="format-number(cac:PricingReference/cac:AlternativeConditionPrice/cbc:PriceAmount,'###,###,###0.00','pen')"/>&#xA0;</font>
 									</td>
-									<td width="10%" align="right" vAlign="top">
-										<font face="Arial, Helvetica, sans-serif" size="1">
-											<xsl:value-of select="format-number(cbc:LineExtensionAmount,'###,###,##0.00','pen')"/>&#xA0;											
-										</font>
-									</td>
-									<td width="10%" align="right" vAlign="top">
+									<td width="6%" align="right" vAlign="top">
 										<font face="Arial, Helvetica, sans-serif" size="1">
 											<xsl:value-of select="format-number(cbc:LineExtensionAmount,'###,###,##0.00','pen')"/>&#xA0;
+											<!--<xsl:value-of select="format-number(cac:Price/cbc:PriceAmount/cbc:PriceAmount,'###,###,###.00','pen')"/>--></font>
+									</td>
+									<td width="6%" align="right" vAlign="top">
+										<font face="Arial, Helvetica, sans-serif" size="1">
+											<xsl:variable name="ValorAdicional3">
+												<xsl:call-template name="RetourneValAdItem">
+													<xsl:with-param name="NumAd" select="3"/>
+													<xsl:with-param name="NumLinea" select="cbc:ID"/>
+												</xsl:call-template>
+											</xsl:variable>
+											<xsl:if test="$ValorAdicional3">
+												<font face="Arial, Helvetica, sans-serif" size="1">
+													<xsl:value-of select="$ValorAdicional3"/>
+												</font>
+											</xsl:if>
+										</font>
+									</td>
+									<td width="6%" align="right" vAlign="top">
+										<font face="Arial, Helvetica, sans-serif" size="1">
+											<xsl:variable name="ValorAdicional4">
+												<xsl:call-template name="RetourneValAdItem">
+													<xsl:with-param name="NumAd" select="4"/>
+													<xsl:with-param name="NumLinea" select="cbc:ID"/>
+												</xsl:call-template>
+											</xsl:variable>
+											<xsl:if test="$ValorAdicional4">
+												<font face="Arial, Helvetica, sans-serif" size="1">
+													<xsl:value-of select="$ValorAdicional4"/>
+												</font>
+											</xsl:if>
 										</font>
 									</td>
 								</tr>
@@ -1090,33 +1120,23 @@
 								<font face="Arial, Helvetica, sans-serif" size="1">
 								</font>
 							</td>
-							<td width="40%" align="left" vAlign="top">
-								<font face="Arial, Helvetica, sans-serif" size="1">
-									<xsl:variable name="ValorAdicional11">
-										<xsl:call-template name="RetourneValAdItem">
-											<xsl:with-param name="NumAd" select="11"/>
-											<xsl:with-param name="NumLinea" select="cbc:ID"/>
-										</xsl:call-template>
-									</xsl:variable>
-									<xsl:if test="$ValorAdicional11">
-										<font face="Arial, Helvetica, sans-serif" size="1">
-											<xsl:value-of select="$ValorAdicional11"/>
-										</font>
-									</xsl:if>
-									&#xA0;
+							<td width="36%" align="left" vAlign="top">
+								<font face="Arial, Helvetica, sans-serif" size="1">&#xA0;
+									<br/>&#xA0;
+										 &#xA0;Comisión Greenox
 									<br/>&#xA0;
 										 &#xA0;Costo Transferencia
-									<br/>
+									<br/>&#xA0;
+										 &#xA0;Costo Proyecto REDD
 									<br/>&#xA0;
 										 &#xA0;SubTotal</font>
 							</td>
-							<td width="10%" align="right" vAlign="top">
-								<font face="Arial, Helvetica, sans-serif" size="1">									
+							<td width="6%" align="right" vAlign="top">
+								<font face="Arial, Helvetica, sans-serif" size="1">
 								</font>
 							</td>
-							<td width="10%" align="right" vAlign="top">
+							<td width="6%" align="right" vAlign="top">
 								<font face="Arial, Helvetica, sans-serif" size="1">
-									<br/>
 									<br/>
 									<xsl:variable name="ValorAdicional15">
 										<xsl:call-template name="RetourneValAdItem">
@@ -1130,10 +1150,17 @@
 										</font>
 									</xsl:if>
 									<br/>
-									<xsl:if test="//cac:LegalMonetaryTotal/cbc:AllowanceTotalAmount != ''">
-										(<xsl:value-of select="format-number(//cac:LegalMonetaryTotal/cbc:AllowanceTotalAmount, '###,###,##0.00', 'pen')"/>)
+									<xsl:variable name="ValorAdicional18">
+										<xsl:call-template name="RetourneValAdItem">
+											<xsl:with-param name="NumAd" select="18"/>
+											<xsl:with-param name="NumLinea" select="cbc:ID"/>
+										</xsl:call-template>
+									</xsl:variable>
+									<xsl:if test="$ValorAdicional18">
+										<font face="Arial, Helvetica, sans-serif" size="1">
+											<xsl:value-of select="$ValorAdicional18"/>
+										</font>
 									</xsl:if>
-
 									<br/>
 									<xsl:variable name="ValorAdicional111">
 										<xsl:call-template name="RetourneValAdItem">
@@ -1147,53 +1174,120 @@
 										</font>
 									</xsl:if>
 									<br/>
-									<xsl:if test="//cac:LegalMonetaryTotal/cbc:PayableAmount != ''">
-										<xsl:value-of select="format-number(//cac:LegalMonetaryTotal/cbc:PayableAmount, '###,###,##0.00', 'pen')"/>
+									<xsl:variable name="ValorAdicional114">
+										<xsl:call-template name="RetourneValAdItem">
+											<xsl:with-param name="NumAd" select="114"/>
+											<xsl:with-param name="NumLinea" select="cbc:ID"/>
+										</xsl:call-template>
+									</xsl:variable>
+									<xsl:if test="$ValorAdicional114">
+										<font face="Arial, Helvetica, sans-serif" size="1">
+											<xsl:value-of select="$ValorAdicional114"/>&#xA0;</font>
 									</xsl:if>
-
-									
-
 								</font>
 							</td>
-							<td width="10%" align="right" vAlign="top">
+							<td width="6%" align="right" vAlign="top">
 								<font face="Arial, Helvetica, sans-serif" size="1">
 									<br/>
-									<br/>
-									<xsl:variable name="ValorAdicional15">
+									<xsl:variable name="ValorAdicional16">
 										<xsl:call-template name="RetourneValAdItem">
-											<xsl:with-param name="NumAd" select="15"/>
+											<xsl:with-param name="NumAd" select="16"/>
 											<xsl:with-param name="NumLinea" select="cbc:ID"/>
 										</xsl:call-template>
 									</xsl:variable>
-									<xsl:if test="$ValorAdicional15">
+									<xsl:if test="$ValorAdicional16">
 										<font face="Arial, Helvetica, sans-serif" size="1">
-											<xsl:value-of select="$ValorAdicional15"/>
+											<xsl:value-of select="$ValorAdicional16"/>
 										</font>
 									</xsl:if>
 									<br/>
-									<xsl:if test="//cac:LegalMonetaryTotal/cbc:AllowanceTotalAmount != ''">
-										(<xsl:value-of select="format-number(//cac:LegalMonetaryTotal/cbc:AllowanceTotalAmount, '###,###,##0.00', 'pen')"/>)
-									</xsl:if>
-
-									<br/>
-									<xsl:variable name="ValorAdicional111">
+									<xsl:variable name="ValorAdicional19">
 										<xsl:call-template name="RetourneValAdItem">
-											<xsl:with-param name="NumAd" select="111"/>
+											<xsl:with-param name="NumAd" select="19"/>
 											<xsl:with-param name="NumLinea" select="cbc:ID"/>
 										</xsl:call-template>
 									</xsl:variable>
-									<xsl:if test="$ValorAdicional111">
+									<xsl:if test="$ValorAdicional19">
 										<font face="Arial, Helvetica, sans-serif" size="1">
-											<xsl:value-of select="$ValorAdicional111"/>
+											<xsl:value-of select="$ValorAdicional19"/>
 										</font>
 									</xsl:if>
 									<br/>
-									<xsl:if test="//cac:LegalMonetaryTotal/cbc:PayableAmount != ''">
-										<xsl:value-of select="format-number(//cac:LegalMonetaryTotal/cbc:PayableAmount, '###,###,##0.00', 'pen')"/>
+									<xsl:variable name="ValorAdicional112">
+										<xsl:call-template name="RetourneValAdItem">
+											<xsl:with-param name="NumAd" select="112"/>
+											<xsl:with-param name="NumLinea" select="cbc:ID"/>
+										</xsl:call-template>
+									</xsl:variable>
+									<xsl:if test="$ValorAdicional112">
+										<font face="Arial, Helvetica, sans-serif" size="1">
+											<xsl:value-of select="$ValorAdicional112"/>
+										</font>
+									</xsl:if>
+									<br/>
+									<xsl:variable name="ValorAdicional115">
+										<xsl:call-template name="RetourneValAdItem">
+											<xsl:with-param name="NumAd" select="115"/>
+											<xsl:with-param name="NumLinea" select="cbc:ID"/>
+										</xsl:call-template>
+									</xsl:variable>
+									<xsl:if test="$ValorAdicional115">
+										<font face="Arial, Helvetica, sans-serif" size="1">
+											<xsl:value-of select="$ValorAdicional115"/>&#xA0;</font>
 									</xsl:if>
 								</font>
 							</td>
-							
+							<td width="6%" align="right" vAlign="top">
+								<font face="Arial, Helvetica, sans-serif" size="1">
+									<br/>
+									<xsl:variable name="ValorAdicional17">
+										<xsl:call-template name="RetourneValAdItem">
+											<xsl:with-param name="NumAd" select="17"/>
+											<xsl:with-param name="NumLinea" select="cbc:ID"/>
+										</xsl:call-template>
+									</xsl:variable>
+									<xsl:if test="$ValorAdicional17">
+										<font face="Arial, Helvetica, sans-serif" size="1">
+											<xsl:value-of select="$ValorAdicional17"/>
+										</font>
+									</xsl:if>
+									<br/>
+									<xsl:variable name="ValorAdicional110">
+										<xsl:call-template name="RetourneValAdItem">
+											<xsl:with-param name="NumAd" select="110"/>
+											<xsl:with-param name="NumLinea" select="cbc:ID"/>
+										</xsl:call-template>
+									</xsl:variable>
+									<xsl:if test="$ValorAdicional110">
+										<font face="Arial, Helvetica, sans-serif" size="1">
+											<xsl:value-of select="$ValorAdicional110"/>
+										</font>
+									</xsl:if>
+									<br/>
+									<xsl:variable name="ValorAdicional113">
+										<xsl:call-template name="RetourneValAdItem">
+											<xsl:with-param name="NumAd" select="113"/>
+											<xsl:with-param name="NumLinea" select="cbc:ID"/>
+										</xsl:call-template>
+									</xsl:variable>
+									<xsl:if test="$ValorAdicional113">
+										<font face="Arial, Helvetica, sans-serif" size="1">
+											<xsl:value-of select="$ValorAdicional113"/>
+										</font>
+									</xsl:if>
+									<br/>
+									<xsl:variable name="ValorAdicional116">
+										<xsl:call-template name="RetourneValAdItem">
+											<xsl:with-param name="NumAd" select="116"/>
+											<xsl:with-param name="NumLinea" select="cbc:ID"/>
+										</xsl:call-template>
+									</xsl:variable>
+									<xsl:if test="$ValorAdicional116">
+										<font face="Arial, Helvetica, sans-serif" size="1">
+											<xsl:value-of select="$ValorAdicional116"/>&#xA0;</font>
+									</xsl:if>
+								</font>
+							</td>
 						</tr>
 						<xsl:call-template name="lineaB5">
 							<xsl:with-param name="cont" select="$numColB5"/>
@@ -3639,16 +3733,19 @@
 				<td width="10%" align="center">
 					<font face="Arial, Helvetica, sans-serif" size="1">&#xA0;</font>
 				</td>
-				<td width="40%" align="center">
+				<td width="36%" align="center">
 					<font face="Arial, Helvetica, sans-serif" size="1">&#xA0;</font>
 				</td>
-				<td width="10%" align="center">
+				<td width="6%" align="center">
 					<font face="Arial, Helvetica, sans-serif" size="1">&#xA0;</font>
 				</td>
-				<td width="10%" align="center">
+				<td width="6%" align="center">
 					<font face="Arial, Helvetica, sans-serif" size="1">&#xA0;</font>
 				</td>
-				<td width="10%" align="center">
+				<td width="6%" align="center">
+					<font face="Arial, Helvetica, sans-serif" size="1">&#xA0;</font>
+				</td>
+				<td width="6%" align="center">
 					<font face="Arial, Helvetica, sans-serif" size="1">&#xA0;</font>
 				</td>
 			</tr>
@@ -3799,8 +3896,8 @@
 			</xsl:if>
 		</xsl:for-each>
 	</xsl:template>
-</xsl:stylesheet><!-- Stylus Studio meta-information - (c) 2004-2006. Progress Software Corporation. All rights reserved.
+</xsl:stylesheet><!-- Stylus Studio meta-information - (c) 2004-2007. Progress Software Corporation. All rights reserved.
 <metaInformation>
-<scenarios ><scenario default="yes" name="Scenario1" userelativepaths="yes" externalpreview="no" url="..\xml\20254053822&#x2D;08&#x2D;FF11&#x2D;11000010.xml.orig.xml" htmlbaseurl="" outputurl="" processortype="internal" useresolver="no" profilemode="0" profiledepth="" profilelength="" urlprofilexml="" commandline="" additionalpath="" additionalclasspath="" postprocessortype="none" postprocesscommandline="" postprocessadditionalpath="" postprocessgeneratedext="" validateoutput="no" validator="internal" customvalidator="" ><advancedProp name="sInitialMode" value=""/><advancedProp name="bSchemaAware" value="false"/><advancedProp name="bXsltOneIsOkay" value="true"/><advancedProp name="bXml11" value="false"/><advancedProp name="iValidation" value="0"/><advancedProp name="bExtensions" value="true"/><advancedProp name="iWhitespace" value="0"/><advancedProp name="sInitialTemplate" value=""/><advancedProp name="bTinyTree" value="true"/><advancedProp name="bUseDTD" value="false"/><advancedProp name="bWarnings" value="true"/><advancedProp name="iErrorHandling" value="fatal"/></scenario></scenarios><MapperMetaTag><MapperInfo srcSchemaPathIsRelative="yes" srcSchemaInterpretAsXML="no" destSchemaPath="" destSchemaRoot="" destSchemaPathIsRelative="yes" destSchemaInterpretAsXML="no"/><MapperBlockPosition></MapperBlockPosition><TemplateContext></TemplateContext><MapperFilter side="source"></MapperFilter></MapperMetaTag>
+<scenarios ><scenario default="yes" name="Scenario1" userelativepaths="yes" externalpreview="no" url="..\xml\20254053822-08-FF11-11000010.xml.orig.xml" htmlbaseurl="" outputurl="" processortype="internal" useresolver="no" profilemode="0" profiledepth="" profilelength="" urlprofilexml="" commandline="" additionalpath="" additionalclasspath="" postprocessortype="none" postprocesscommandline="" postprocessadditionalpath="" postprocessgeneratedext="" validateoutput="no" validator="internal" customvalidator="" ><advancedProp name="sInitialMode" value=""/><advancedProp name="bXsltOneIsOkay" value="true"/><advancedProp name="bSchemaAware" value="false"/><advancedProp name="bXml11" value="false"/><advancedProp name="iValidation" value="0"/><advancedProp name="bExtensions" value="true"/><advancedProp name="iWhitespace" value="0"/><advancedProp name="sInitialTemplate" value=""/><advancedProp name="bTinyTree" value="true"/><advancedProp name="bWarnings" value="true"/><advancedProp name="bUseDTD" value="false"/><advancedProp name="iErrorHandling" value="fatal"/></scenario></scenarios><MapperMetaTag><MapperInfo srcSchemaPathIsRelative="yes" srcSchemaInterpretAsXML="no" destSchemaPath="" destSchemaRoot="" destSchemaPathIsRelative="yes" destSchemaInterpretAsXML="no"/><MapperBlockPosition></MapperBlockPosition><TemplateContext></TemplateContext><MapperFilter side="source"></MapperFilter></MapperMetaTag>
 </metaInformation>
 -->

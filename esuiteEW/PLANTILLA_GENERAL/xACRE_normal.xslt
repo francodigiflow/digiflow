@@ -121,9 +121,7 @@
 							<tr>
 								<td>
 									<table cellSpacing="0" cellPadding="0" width="100%" align="center" border="0" heigth="100%">
-										<tbody>
-
-											<!--<xsl:if test="/pe:Invoice/cbc:InvoiceTypeCode='01' or /pe:Invoice/cbc:InvoiceTypeCode='03' ">-->
+										<tbody>											
 											<tr heigth="100%">
 												<td vAlign="top" width="71%" align="left">
 													<xsl:call-template name="Referencia"/>
@@ -132,13 +130,6 @@
 													<xsl:call-template name="Total"/>
 												</td>
 											</tr>
-											<!--</xsl:if>-->
-											<!-- Agrega Glosa Monto en Letras -->
-											<!--<tr>
-												<td colspan="2">
-											         <xsl:call-template name="DatosReferencia"/>
-										        </td>
-											</tr>	-->
 										</tbody>
 									</table>
 								</td>
@@ -425,6 +416,6 @@
 	</xsl:template>
 </xsl:stylesheet><!-- Stylus Studio meta-information - (c) 2004-2006. Progress Software Corporation. All rights reserved.
 <metaInformation>
-<scenarios ><scenario default="yes" name="Scenario1" userelativepaths="yes" externalpreview="yes" url="..\XML\20527030421&#x2D;01&#x2D;F104&#x2D;00000038.xml" htmlbaseurl="" outputurl="" processortype="internal" useresolver="no" profilemode="0" profiledepth="" profilelength="" urlprofilexml="" commandline="" additionalpath="" additionalclasspath="" postprocessortype="none" postprocesscommandline="" postprocessadditionalpath="" postprocessgeneratedext="" validateoutput="yes" validator="internal" customvalidator="" ><advancedProp name="sInitialMode" value=""/><advancedProp name="bSchemaAware" value="false"/><advancedProp name="bXsltOneIsOkay" value="true"/><advancedProp name="bXml11" value="false"/><advancedProp name="iValidation" value="0"/><advancedProp name="bExtensions" value="true"/><advancedProp name="iWhitespace" value="0"/><advancedProp name="sInitialTemplate" value=""/><advancedProp name="bTinyTree" value="true"/><advancedProp name="bUseDTD" value="false"/><advancedProp name="bWarnings" value="true"/><advancedProp name="iErrorHandling" value="fatal"/></scenario></scenarios><MapperMetaTag><MapperInfo srcSchemaPathIsRelative="yes" srcSchemaInterpretAsXML="no" destSchemaPath="" destSchemaRoot="" destSchemaPathIsRelative="yes" destSchemaInterpretAsXML="no" ><SourceSchema srcSchemaPath="20100025591_2013052601FF1210002022.xml" srcSchemaRoot="Invoice" AssociatedInstance="" loaderFunction="document" loaderFunctionUsesURI="no"/></MapperInfo><MapperBlockPosition><template match="/"><block path="html/body/table/tbody/tr/td/xsl:call&#x2D;template" x="361" y="69"/><block path="html/body/table/tbody/tr[1]/td/xsl:call&#x2D;template" x="401" y="69"/><block path="html/body/table/tbody/tr[3]/td/xsl:call&#x2D;template" x="203" y="96"/><block path="html/body/table/tbody/tr[4]/td/table/tbody/tr/td/xsl:call&#x2D;template" x="123" y="96"/><block path="html/body/table/tbody/tr[4]/td/table/tbody/tr/td[1]/xsl:call&#x2D;template" x="83" y="96"/><block path="html/body/table/tbody/tr[4]/td/table/tbody/tr[1]/td/xsl:call&#x2D;template" x="43" y="96"/><block path="html/body/table/tbody/tr[6]/td/xsl:call&#x2D;template" x="163" y="96"/></template></MapperBlockPosition><TemplateContext></TemplateContext><MapperFilter side="source"></MapperFilter></MapperMetaTag>
+<scenarios ><scenario default="yes" name="Scenario1" userelativepaths="yes" externalpreview="yes" url="..\XML\20527030421&#x2D;01&#x2D;F104&#x2D;00000038.xml" htmlbaseurl="" outputurl="" processortype="internal" useresolver="no" profilemode="0" profiledepth="" profilelength="" urlprofilexml="" commandline="" additionalpath="" additionalclasspath="" postprocessortype="none" postprocesscommandline="" postprocessadditionalpath="" postprocessgeneratedext="" validateoutput="yes" validator="internal" customvalidator="" ><advancedProp name="sInitialMode" value=""/><advancedProp name="bXsltOneIsOkay" value="true"/><advancedProp name="bSchemaAware" value="false"/><advancedProp name="bXml11" value="false"/><advancedProp name="iValidation" value="0"/><advancedProp name="bExtensions" value="true"/><advancedProp name="iWhitespace" value="0"/><advancedProp name="sInitialTemplate" value=""/><advancedProp name="bTinyTree" value="true"/><advancedProp name="bWarnings" value="true"/><advancedProp name="bUseDTD" value="false"/><advancedProp name="iErrorHandling" value="fatal"/></scenario></scenarios><MapperMetaTag><MapperInfo srcSchemaPathIsRelative="yes" srcSchemaInterpretAsXML="no" destSchemaPath="" destSchemaRoot="" destSchemaPathIsRelative="yes" destSchemaInterpretAsXML="no" ><SourceSchema srcSchemaPath="20100025591_2013052601FF1210002022.xml" srcSchemaRoot="Invoice" AssociatedInstance="" loaderFunction="document" loaderFunctionUsesURI="no"/></MapperInfo><MapperBlockPosition><template match="/"><block path="html/body/table/tbody/tr/td/xsl:call&#x2D;template" x="361" y="69"/><block path="html/body/table/tbody/tr[1]/td/xsl:call&#x2D;template" x="401" y="69"/><block path="html/body/table/tbody/tr[3]/td/xsl:call&#x2D;template" x="203" y="96"/><block path="html/body/table/tbody/tr[4]/td/table/tbody/tr/td/xsl:call&#x2D;template" x="123" y="96"/><block path="html/body/table/tbody/tr[4]/td/table/tbody/tr/td[1]/xsl:call&#x2D;template" x="83" y="96"/><block path="html/body/table/tbody/tr[4]/td/table/tbody/tr[1]/td/xsl:call&#x2D;template" x="43" y="96"/><block path="html/body/table/tbody/tr[6]/td/xsl:call&#x2D;template" x="163" y="96"/></template></MapperBlockPosition><TemplateContext></TemplateContext><MapperFilter side="source"></MapperFilter></MapperMetaTag>
 </metaInformation>
 -->
