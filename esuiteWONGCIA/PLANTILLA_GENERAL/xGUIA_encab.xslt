@@ -28,8 +28,8 @@ xmlns:sac="urn:sunat:names:specification:ubl:peru:schema:xsd:SunatAggregateCompo
 		<table cellSpacing="0" border="0"  style="font-family :Arial,Helvetica,sans-serif;font-size:15px;color:#000000" width="100%">
 			<tr>
 					<td valign="top" width="14%" align="left">
-							<!--<img width="100px" src="data:image/*;base64,[logo_1]" />-->
-							<img width="100px" src="logo_wongcia.jpg" />
+							<img width="100px" src="data:image/*;base64,[logo_2]" />
+							<!--<img width="120px" src="logo_wongcia_guia.jpg" />-->
 					</td>				
 					<td valign="top" width="1%" align="left">
 						
@@ -90,12 +90,12 @@ xmlns:sac="urn:sunat:names:specification:ubl:peru:schema:xsd:SunatAggregateCompo
 				</td>
 				<td width="40%" align="center">
 					<font color="#000000" size="3" face="Arial, Helvetica, sans-serif">
-						<!--<img width="100px" height="100px" align="center" src="data:image/*;base64,[ted_1]" />-->
-						<img width="150px" height="150px">
+						<img width="100px" height="100px" align="center" src="data:image/*;base64,[ted_1]" />
+						<!--<img width="150px" height="150px">
 						    <xsl:attribute name="src">
 						        <xsl:call-template name="timbre"/>
 						    </xsl:attribute>
-						</img>
+						</img>-->
 					</font>
 				</td>
 			</tr>

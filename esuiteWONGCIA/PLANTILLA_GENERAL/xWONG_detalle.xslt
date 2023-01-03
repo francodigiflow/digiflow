@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="iso-8859-1"?>
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
 	xmlns:ds="http://www.w3.org/2000/09/xmldsig#"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -29,7 +29,7 @@
 						<tr>
 							<td width="5%" align="center">
 								<font face="Arial, Helvetica, sans-serif" size="1">
-									<strong>NÂ°</strong>
+									<strong>N°</strong>
 								</font>
 							</td>
 							<td width="10%" align="center">
@@ -310,18 +310,20 @@
 							</tr>
 						</xsl:if>
 						</xsl:for-each>
-						<xsl:call-template name="lineaBl">
-							<xsl:with-param name="cont" select="$numColBl"/>
-							<table>
-								<tr>
-									<td align="center" valign="top" width="15%">
-										<font face="Arial, Helvetica, sans-serif" size="1">
-											<xsl:call-template name="total"/>
-										</font>
-									</td>
-								</tr>
-							</table>
-						</xsl:call-template>
+						<!-- <xsl:call-template name="lineaBl"> -->
+							<!-- <xsl:with-param name="cont" select="$numColBl"/> -->
+							<!-- <table> -->
+								<!-- <tr> -->
+									<!-- <td align="center" valign="top" width="15%"> -->
+										<!-- <font face="Arial, Helvetica, sans-serif" size="1"> -->
+											<!-- <xsl:call-template name="total"/> -->
+											<!-- </font> -->
+									<!-- </td> -->
+								<!-- </tr> -->
+							<!-- </table> -->
+						<!-- </xsl:call-template> -->
+											 <xsl:call-template name="lineaBl"><xsl:with-param name="cont" select="$numColBl"/></xsl:call-template>
+										
 					</table>
 				</td>
 			</tr>
@@ -396,7 +398,7 @@
 						<Strong>UNID.</Strong>
 					</td>
 					<td align="center" width="38%">
-						<Strong>DESCRIPCIÃ“N</Strong>
+						<Strong>DESCRIPCIÓN</Strong>
 					</td>
 					<td align="center" width="8%">
 						<Strong>VALOR UNITARIO</Strong>
@@ -445,7 +447,7 @@
 								<xsl:value-of select="cac:Item/cac:SellersItemIdentification/cbc:InvoicedQuantity/@unitCode"/>
 								<xsl:call-template name="unidad_medida" />
 						</td>
-						DESCRIPCIÃ“N
+						DESCRIPCIÓN
 						<td width="38%">
 								<xsl:value-of select="cac:Item/cbc:Description"/>
 								<xsl:variable name="Bolivariano">

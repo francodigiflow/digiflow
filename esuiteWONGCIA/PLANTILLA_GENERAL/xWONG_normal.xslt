@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="iso-8859-1"?>
 <xsl:stylesheet version="1.0" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pe="urn:oasis:names:specification:ubl:schema:xsd:Invoice-2"
                 xmlns:pe1="urn:oasis:names:specification:ubl:schema:xsd:CreditNote-2" xmlns:pe2="urn:oasis:names:specification:ubl:schema:xsd:DebitNote-2" xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2"
                 xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2" xmlns:ext="urn:oasis:names:specification:ubl:schema:xsd:CommonExtensionComponents-2"
@@ -79,7 +79,7 @@
 		        margin-left: 20px; 
 		        }</style>
 
-				<title>Comprobante Electr贸nico</title>
+				<title>Comprobante Electr髇ico</title>
 			</head>
 			<xsl:variable name="totalitems">
 				<!--<xsl:value-of select="count(/pe:Invoice/cac:InvoiceLine/cbc:ID)"/>-->
@@ -95,13 +95,13 @@
 			</xsl:variable>
 
 			<xsl:variable name="totalpag">
-				<xsl:if test="$totalitems &lt; '35'">
+				<xsl:if test="$totalitems &lt; '49'">
 					<xsl:value-of select="1"/>
 				</xsl:if>
-				<xsl:if test="$totalitems &gt;'35' and $totalitems &lt;'48'">
+			<!--	<xsl:if test="$totalitems &gt;'36' and $totalitems &lt;'49'">
 					<xsl:value-of select="2"/>
-				</xsl:if>
-				<xsl:if test="$totalitems &gt;'47'">
+				</xsl:if>-->
+				<xsl:if test="$totalitems &gt;'48'">
 					<xsl:value-of select="ceiling($totalitems div 48)"/>
 				</xsl:if>
 			</xsl:variable>
@@ -206,24 +206,24 @@
 										</table>
 									</td>
 								</tr>
-								<tr>
+							<!--	<tr>
 									<td>&#xA0;</td>
-								</tr>
+								</tr>-->
 							</xsl:if>
 						</tbody>
 					</table>
 					<div align="right">
-						<font color="#000000" size="2" face="Arial, Helvetica, sans-serif">P谩g 1/<xsl:value-of select="$totalpag"/>&#xA0;&#xA0;</font>
+						<font color="#000000" size="2" face="Arial, Helvetica, sans-serif">P醙 1/<xsl:value-of select="$totalpag"/>&#xA0;&#xA0;</font>
 					</div>
 				</h1>
 
-				<!--Condici贸n para que aparezca la 2da pagina-->
+				<!--Condici髇 para que aparezca la 2da pagina-->
 				<xsl:if test="$totalpag &gt;'1'">
-					<!--Funci贸n para realizar el salto de l铆nea-->
+					<!--Funci髇 para realizar el salto de l韓ea-->
 					<div class="saltar-pagina">
 						<!--<xsl:value-of select="$i"/>-->
 					</div>
-					<!--Construcci贸n de la 2da Pagina-->
+					<!--Construcci髇 de la 2da Pagina-->
 					<h2>
 						<table cellSpacing="1" width="100%" border="0" rules="none">
 							<tbody>
@@ -324,18 +324,18 @@
 							</tbody>
 						</table>
 						<div align="right">
-							<font color="#000000" size="2" face="Arial, Helvetica, sans-serif">P谩g 2/<xsl:value-of select="$totalpag"/>&#xA0;&#xA0;</font>
+							<font color="#000000" size="2" face="Arial, Helvetica, sans-serif">P醙 2/<xsl:value-of select="$totalpag"/>&#xA0;&#xA0;</font>
 						</div>
 					</h2>
 				</xsl:if>
 
 				<!-- Tercera 3ra Pagina -->
 				<xsl:if test="$totalpag &gt;'2'">
-					<!--Funci贸n para realizar el salto de l铆nea-->
+					<!--Funci髇 para realizar el salto de l韓ea-->
 					<div class="saltar-pagina">
 						<!--<xsl:value-of select="$i"/>-->
 					</div>
-					<!--Construcci贸n de la 2da Pagina-->
+					<!--Construcci髇 de la 2da Pagina-->
 					<h3>
 						<table cellSpacing="1" width="100%" border="0" rules="none">
 							<tbody>
@@ -436,18 +436,18 @@
 							</tbody>
 						</table>
 						<div align="right">
-							<font color="#000000" size="2" face="Arial, Helvetica, sans-serif">P谩g 3/<xsl:value-of select="$totalpag"/>&#xA0;&#xA0;</font>
+							<font color="#000000" size="2" face="Arial, Helvetica, sans-serif">P醙 3/<xsl:value-of select="$totalpag"/>&#xA0;&#xA0;</font>
 						</div>
 					</h3>
 				</xsl:if>
 
 				<!-- Cuarta 4ta pagina -->
 				<xsl:if test="$totalpag &gt;'3'">
-					<!--Funci贸n para realizar el salto de l铆nea-->
+					<!--Funci髇 para realizar el salto de l韓ea-->
 					<div class="saltar-pagina">
 						<!--<xsl:value-of select="$i"/>-->
 					</div>
-					<!--Construcci贸n de la 2da Pagina-->
+					<!--Construcci髇 de la 2da Pagina-->
 					<h4>
 						<table cellSpacing="1" width="100%" border="0" rules="none">
 							<tbody>
@@ -548,18 +548,18 @@
 							</tbody>
 						</table>
 						<div align="right">
-							<font color="#000000" size="2" face="Arial, Helvetica, sans-serif">P谩g 4/<xsl:value-of select="$totalpag"/>&#xA0;&#xA0;</font>
+							<font color="#000000" size="2" face="Arial, Helvetica, sans-serif">P醙 4/<xsl:value-of select="$totalpag"/>&#xA0;&#xA0;</font>
 						</div>
 					</h4>
 				</xsl:if>
 
 				<!-- quinta 5ta pagina -->
 				<xsl:if test="$totalpag &gt;'4'">
-					<!--Funci贸n para realizar el salto de l铆nea-->
+					<!--Funci髇 para realizar el salto de l韓ea-->
 					<div class="saltar-pagina">
 						<!--<xsl:value-of select="$i"/>-->
 					</div>
-					<!--Construcci贸n de la 2da Pagina-->
+					<!--Construcci髇 de la 2da Pagina-->
 					<h5>
 						<table cellSpacing="1" width="100%" border="0" rules="none">
 							<tbody>
@@ -660,7 +660,7 @@
 							</tbody>
 						</table>
 						<div align="right">
-							<font color="#000000" size="2" face="Arial, Helvetica, sans-serif">P谩g 5/<xsl:value-of select="$totalpag"/>&#xA0;&#xA0;</font>
+							<font color="#000000" size="2" face="Arial, Helvetica, sans-serif">P醙 5/<xsl:value-of select="$totalpag"/>&#xA0;&#xA0;</font>
 						</div>
 					</h5>
 				</xsl:if>
@@ -668,11 +668,11 @@
 				<!-- Sexta Pagina -->
 				<!-- quinta 5ta pagina -->
 				<xsl:if test="$totalpag &gt;'5'">
-					<!--Funci贸n para realizar el salto de l铆nea-->
+					<!--Funci髇 para realizar el salto de l韓ea-->
 					<div class="saltar-pagina">
 						<!--<xsl:value-of select="$i"/>-->
 					</div>
-					<!--Construcci贸n de la 2da Pagina-->
+					<!--Construcci髇 de la 2da Pagina-->
 					<h6>
 						<table cellSpacing="1" width="100%" border="0" rules="none">
 							<tbody>
@@ -773,7 +773,7 @@
 							</tbody>
 						</table>
 						<div align="right">
-							<font color="#000000" size="2" face="Arial, Helvetica, sans-serif">P谩g 6/<xsl:value-of select="$totalpag"/>&#xA0;&#xA0;</font>
+							<font color="#000000" size="2" face="Arial, Helvetica, sans-serif">P醙 6/<xsl:value-of select="$totalpag"/>&#xA0;&#xA0;</font>
 						</div>
 					</h6>
 				</xsl:if>
@@ -782,6 +782,6 @@
 	</xsl:template>
 </xsl:stylesheet><!-- Stylus Studio meta-information - (c) 2004-2006. Progress Software Corporation. All rights reserved.
 <metaInformation>
-<scenarios ><scenario default="no" name="FACTURA_EXP" userelativepaths="yes" externalpreview="yes" url="..\..\GELAFRUT\XML\XML\20102256558&#x2D;01&#x2D;FE01&#x2D;00103881.xml" htmlbaseurl="" outputurl="" processortype="internal" useresolver="yes" profilemode="0" profiledepth="" profilelength="" urlprofilexml="" commandline="" additionalpath="" additionalclasspath="" postprocessortype="none" postprocesscommandline="" postprocessadditionalpath="" postprocessgeneratedext="" validateoutput="no" validator="internal" customvalidator=""/><scenario default="no" name="FACTURA_NORAML" userelativepaths="yes" externalpreview="yes" url="..\20267196746_2018041201F0X900000003.xml" htmlbaseurl="" outputurl="" processortype="internal" useresolver="yes" profilemode="0" profiledepth="" profilelength="" urlprofilexml="" commandline="" additionalpath="" additionalclasspath="" postprocessortype="none" postprocesscommandline="" postprocessadditionalpath="" postprocessgeneratedext="" validateoutput="no" validator="internal" customvalidator=""/><scenario default="no" name="nc" userelativepaths="yes" externalpreview="yes" url="..\20267196746_2018041207F00100000002.xml" htmlbaseurl="" outputurl="" processortype="internal" useresolver="yes" profilemode="0" profiledepth="" profilelength="" urlprofilexml="" commandline="" additionalpath="" additionalclasspath="" postprocessortype="none" postprocesscommandline="" postprocessadditionalpath="" postprocessgeneratedext="" validateoutput="no" validator="internal" customvalidator=""/><scenario default="no" name="GRATUITA" userelativepaths="yes" externalpreview="yes" url="..\..\..\esuite\out\html\20507179411&#x2D;01&#x2D;F0Z4&#x2D;00100820.xml" htmlbaseurl="" outputurl="" processortype="internal" useresolver="yes" profilemode="0" profiledepth="" profilelength="" urlprofilexml="" commandline="" additionalpath="" additionalclasspath="" postprocessortype="none" postprocesscommandline="" postprocessadditionalpath="" postprocessgeneratedext="" validateoutput="no" validator="internal" customvalidator=""/><scenario default="no" name="bOLGRATUITA" userelativepaths="yes" externalpreview="yes" url="..\..\..\esuite\out\html\20507179411&#x2D;03&#x2D;B0Z4&#x2D;00100820.xml" htmlbaseurl="" outputurl="" processortype="internal" useresolver="yes" profilemode="0" profiledepth="" profilelength="" urlprofilexml="" commandline="" additionalpath="" additionalclasspath="" postprocessortype="none" postprocesscommandline="" postprocessadditionalpath="" postprocessgeneratedext="" validateoutput="no" validator="internal" customvalidator=""/><scenario default="no" name="JOMATUR" userelativepaths="yes" externalpreview="yes" url="..\..\DRESDEN\20101266819&#x2D;01&#x2D;F0X8&#x2D;00000021.xml" htmlbaseurl="" outputurl="" processortype="internal" useresolver="yes" profilemode="0" profiledepth="" profilelength="" urlprofilexml="" commandline="" additionalpath="" additionalclasspath="" postprocessortype="none" postprocesscommandline="" postprocessadditionalpath="" postprocessgeneratedext="" validateoutput="no" validator="internal" customvalidator=""/><scenario default="no" name="wong&#x2D;fox1" userelativepaths="yes" externalpreview="yes" url="20267196746&#x2D;01&#x2D;F0X1&#x2D;00000001.xml" htmlbaseurl="" outputurl="" processortype="internal" useresolver="yes" profilemode="0" profiledepth="" profilelength="" urlprofilexml="" commandline="" additionalpath="" additionalclasspath="" postprocessortype="none" postprocesscommandline="" postprocessadditionalpath="" postprocessgeneratedext="" validateoutput="no" validator="internal" customvalidator=""/><scenario default="no" name="Anticipo" userelativepaths="yes" externalpreview="yes" url="..\ANTICIPO\20267196746_2018050201F00300000003.xml" htmlbaseurl="" outputurl="" processortype="internal" useresolver="yes" profilemode="0" profiledepth="" profilelength="" urlprofilexml="" commandline="" additionalpath="" additionalclasspath="" postprocessortype="none" postprocesscommandline="" postprocessadditionalpath="" postprocessgeneratedext="" validateoutput="no" validator="internal" customvalidator=""/><scenario default="no" name="anticipo2" userelativepaths="yes" externalpreview="yes" url="..\ANTICIPO\20267196746_2018050201F0X300000003.xml" htmlbaseurl="" outputurl="" processortype="internal" useresolver="yes" profilemode="0" profiledepth="" profilelength="" urlprofilexml="" commandline="" additionalpath="" additionalclasspath="" postprocessortype="none" postprocesscommandline="" postprocessadditionalpath="" postprocessgeneratedext="" validateoutput="no" validator="internal" customvalidator=""/><scenario default="no" name="multi" userelativepaths="yes" externalpreview="yes" url="..\MULTI&#x2D;20267196746&#x2D;01&#x2D;F017&#x2D;00000001.xml" htmlbaseurl="" outputurl="" processortype="internal" useresolver="yes" profilemode="0" profiledepth="" profilelength="" urlprofilexml="" commandline="" additionalpath="" additionalclasspath="" postprocessortype="none" postprocesscommandline="" postprocessadditionalpath="" postprocessgeneratedext="" validateoutput="no" validator="internal" customvalidator=""/><scenario default="no" name="multi2" userelativepaths="yes" externalpreview="yes" url="..\MULTI&#x2D;20267196746&#x2D;01&#x2D;F017&#x2D;00000001&#x2D;MOD.xml" htmlbaseurl="" outputurl="" processortype="internal" useresolver="yes" profilemode="0" profiledepth="" profilelength="" urlprofilexml="" commandline="" additionalpath="" additionalclasspath="" postprocessortype="none" postprocesscommandline="" postprocessadditionalpath="" postprocessgeneratedext="" validateoutput="no" validator="internal" customvalidator=""/><scenario default="yes" name="multi3" userelativepaths="yes" externalpreview="yes" url="..\..\esuiteNETMODA\XML\20553255881&#x2D;01&#x2D;F201&#x2D;00014214.xml" htmlbaseurl="" outputurl="" processortype="internal" useresolver="yes" profilemode="0" profiledepth="" profilelength="" urlprofilexml="" commandline="" additionalpath="" additionalclasspath="" postprocessortype="none" postprocesscommandline="" postprocessadditionalpath="" postprocessgeneratedext="" validateoutput="no" validator="internal" customvalidator=""/></scenarios><MapperMetaTag><MapperInfo srcSchemaPathIsRelative="yes" srcSchemaInterpretAsXML="no" destSchemaPath="" destSchemaRoot="" destSchemaPathIsRelative="yes" destSchemaInterpretAsXML="no" ><SourceSchema srcSchemaPath="..\xml\20262996329&#x2D;07&#x2D;FF11&#x2D;00000055.xml" srcSchemaRoot="CreditNote" AssociatedInstance="" loaderFunction="document" loaderFunctionUsesURI="no"/></MapperInfo><MapperBlockPosition><template match="/"><block path="html/body/table/tbody/tr/td/xsl:call&#x2D;template" x="361" y="69"/><block path="html/body/table/tbody/tr[1]/td/xsl:call&#x2D;template" x="401" y="69"/><block path="html/body/table/tbody/tr[2]/td/xsl:call&#x2D;template" x="166" y="60"/><block path="html/body/table/tbody/tr[3]/td/table/tbody/tr/td/table/tr/td/xsl:call&#x2D;template" x="66" y="65"/><block path="html/body/table/tbody/tr[3]/td/table/tbody/tr[1]/td/xsl:call&#x2D;template" x="106" y="65"/><block path="html/body/table/tbody/tr[4]/td/xsl:call&#x2D;template" x="186" y="65"/><block path="html/body/table/tbody/tr[5]/td/xsl:call&#x2D;template" x="126" y="60"/></template></MapperBlockPosition><TemplateContext></TemplateContext><MapperFilter side="source"></MapperFilter></MapperMetaTag>
+<scenarios ><scenario default="no" name="FACTURA_EXP" userelativepaths="yes" externalpreview="yes" url="..\..\GELAFRUT\XML\XML\20102256558&#x2D;01&#x2D;FE01&#x2D;00103881.xml" htmlbaseurl="" outputurl="" processortype="saxon8" useresolver="yes" profilemode="0" profiledepth="" profilelength="" urlprofilexml="" commandline="" additionalpath="" additionalclasspath="" postprocessortype="none" postprocesscommandline="" postprocessadditionalpath="" postprocessgeneratedext="" validateoutput="no" validator="internal" customvalidator="" ><advancedProp name="sInitialMode" value=""/><advancedProp name="bXsltOneIsOkay" value="true"/><advancedProp name="bSchemaAware" value="true"/><advancedProp name="bGenerateByteCode" value="true"/><advancedProp name="bXml11" value="false"/><advancedProp name="iValidation" value="0"/><advancedProp name="bExtensions" value="true"/><advancedProp name="iWhitespace" value="0"/><advancedProp name="sInitialTemplate" value=""/><advancedProp name="bTinyTree" value="true"/><advancedProp name="bUseDTD" value="false"/><advancedProp name="bWarnings" value="true"/><advancedProp name="xsltVersion" value="2.0"/><advancedProp name="iErrorHandling" value="fatal"/></scenario><scenario default="no" name="FACTURA_NORAML" userelativepaths="yes" externalpreview="yes" url="..\20267196746_2018041201F0X900000003.xml" htmlbaseurl="" outputurl="" processortype="saxon8" useresolver="yes" profilemode="0" profiledepth="" profilelength="" urlprofilexml="" commandline="" additionalpath="" additionalclasspath="" postprocessortype="none" postprocesscommandline="" postprocessadditionalpath="" postprocessgeneratedext="" validateoutput="no" validator="internal" customvalidator="" ><advancedProp name="sInitialMode" value=""/><advancedProp name="bXsltOneIsOkay" value="true"/><advancedProp name="bSchemaAware" value="true"/><advancedProp name="bGenerateByteCode" value="true"/><advancedProp name="bXml11" value="false"/><advancedProp name="iValidation" value="0"/><advancedProp name="bExtensions" value="true"/><advancedProp name="iWhitespace" value="0"/><advancedProp name="sInitialTemplate" value=""/><advancedProp name="bTinyTree" value="true"/><advancedProp name="bUseDTD" value="false"/><advancedProp name="bWarnings" value="true"/><advancedProp name="xsltVersion" value="2.0"/><advancedProp name="iErrorHandling" value="fatal"/></scenario><scenario default="no" name="nc" userelativepaths="yes" externalpreview="yes" url="..\20267196746_2018041207F00100000002.xml" htmlbaseurl="" outputurl="" processortype="saxon8" useresolver="yes" profilemode="0" profiledepth="" profilelength="" urlprofilexml="" commandline="" additionalpath="" additionalclasspath="" postprocessortype="none" postprocesscommandline="" postprocessadditionalpath="" postprocessgeneratedext="" validateoutput="no" validator="internal" customvalidator="" ><advancedProp name="sInitialMode" value=""/><advancedProp name="bXsltOneIsOkay" value="true"/><advancedProp name="bSchemaAware" value="true"/><advancedProp name="bGenerateByteCode" value="true"/><advancedProp name="bXml11" value="false"/><advancedProp name="iValidation" value="0"/><advancedProp name="bExtensions" value="true"/><advancedProp name="iWhitespace" value="0"/><advancedProp name="sInitialTemplate" value=""/><advancedProp name="bTinyTree" value="true"/><advancedProp name="bUseDTD" value="false"/><advancedProp name="bWarnings" value="true"/><advancedProp name="xsltVersion" value="2.0"/><advancedProp name="iErrorHandling" value="fatal"/></scenario><scenario default="no" name="GRATUITA" userelativepaths="yes" externalpreview="yes" url="..\..\esuite\out\html\20507179411&#x2D;01&#x2D;F0Z4&#x2D;00100820.xml" htmlbaseurl="" outputurl="" processortype="saxon8" useresolver="yes" profilemode="0" profiledepth="" profilelength="" urlprofilexml="" commandline="" additionalpath="" additionalclasspath="" postprocessortype="none" postprocesscommandline="" postprocessadditionalpath="" postprocessgeneratedext="" validateoutput="no" validator="internal" customvalidator="" ><advancedProp name="sInitialMode" value=""/><advancedProp name="bXsltOneIsOkay" value="true"/><advancedProp name="bSchemaAware" value="true"/><advancedProp name="bGenerateByteCode" value="true"/><advancedProp name="bXml11" value="false"/><advancedProp name="iValidation" value="0"/><advancedProp name="bExtensions" value="true"/><advancedProp name="iWhitespace" value="0"/><advancedProp name="sInitialTemplate" value=""/><advancedProp name="bTinyTree" value="true"/><advancedProp name="bUseDTD" value="false"/><advancedProp name="bWarnings" value="true"/><advancedProp name="xsltVersion" value="2.0"/><advancedProp name="iErrorHandling" value="fatal"/></scenario><scenario default="no" name="bOLGRATUITA" userelativepaths="yes" externalpreview="yes" url="..\..\esuite\out\html\20507179411&#x2D;03&#x2D;B0Z4&#x2D;00100820.xml" htmlbaseurl="" outputurl="" processortype="saxon8" useresolver="yes" profilemode="0" profiledepth="" profilelength="" urlprofilexml="" commandline="" additionalpath="" additionalclasspath="" postprocessortype="none" postprocesscommandline="" postprocessadditionalpath="" postprocessgeneratedext="" validateoutput="no" validator="internal" customvalidator="" ><advancedProp name="sInitialMode" value=""/><advancedProp name="bXsltOneIsOkay" value="true"/><advancedProp name="bSchemaAware" value="true"/><advancedProp name="bGenerateByteCode" value="true"/><advancedProp name="bXml11" value="false"/><advancedProp name="iValidation" value="0"/><advancedProp name="bExtensions" value="true"/><advancedProp name="iWhitespace" value="0"/><advancedProp name="sInitialTemplate" value=""/><advancedProp name="bTinyTree" value="true"/><advancedProp name="bUseDTD" value="false"/><advancedProp name="bWarnings" value="true"/><advancedProp name="xsltVersion" value="2.0"/><advancedProp name="iErrorHandling" value="fatal"/></scenario><scenario default="no" name="JOMATUR" userelativepaths="yes" externalpreview="yes" url="..\..\DRESDEN\20101266819&#x2D;01&#x2D;F0X8&#x2D;00000021.xml" htmlbaseurl="" outputurl="" processortype="saxon8" useresolver="yes" profilemode="0" profiledepth="" profilelength="" urlprofilexml="" commandline="" additionalpath="" additionalclasspath="" postprocessortype="none" postprocesscommandline="" postprocessadditionalpath="" postprocessgeneratedext="" validateoutput="no" validator="internal" customvalidator="" ><advancedProp name="sInitialMode" value=""/><advancedProp name="bXsltOneIsOkay" value="true"/><advancedProp name="bSchemaAware" value="true"/><advancedProp name="bGenerateByteCode" value="true"/><advancedProp name="bXml11" value="false"/><advancedProp name="iValidation" value="0"/><advancedProp name="bExtensions" value="true"/><advancedProp name="iWhitespace" value="0"/><advancedProp name="sInitialTemplate" value=""/><advancedProp name="bTinyTree" value="true"/><advancedProp name="bUseDTD" value="false"/><advancedProp name="bWarnings" value="true"/><advancedProp name="xsltVersion" value="2.0"/><advancedProp name="iErrorHandling" value="fatal"/></scenario><scenario default="no" name="wong&#x2D;fox1" userelativepaths="yes" externalpreview="yes" url="20267196746&#x2D;01&#x2D;F0X1&#x2D;00000001.xml" htmlbaseurl="" outputurl="" processortype="saxon8" useresolver="yes" profilemode="0" profiledepth="" profilelength="" urlprofilexml="" commandline="" additionalpath="" additionalclasspath="" postprocessortype="none" postprocesscommandline="" postprocessadditionalpath="" postprocessgeneratedext="" validateoutput="no" validator="internal" customvalidator="" ><advancedProp name="sInitialMode" value=""/><advancedProp name="bXsltOneIsOkay" value="true"/><advancedProp name="bSchemaAware" value="true"/><advancedProp name="bGenerateByteCode" value="true"/><advancedProp name="bXml11" value="false"/><advancedProp name="iValidation" value="0"/><advancedProp name="bExtensions" value="true"/><advancedProp name="iWhitespace" value="0"/><advancedProp name="sInitialTemplate" value=""/><advancedProp name="bTinyTree" value="true"/><advancedProp name="bUseDTD" value="false"/><advancedProp name="bWarnings" value="true"/><advancedProp name="xsltVersion" value="2.0"/><advancedProp name="iErrorHandling" value="fatal"/></scenario><scenario default="no" name="Anticipo" userelativepaths="yes" externalpreview="yes" url="..\ANTICIPO\20267196746_2018050201F00300000003.xml" htmlbaseurl="" outputurl="" processortype="saxon8" useresolver="yes" profilemode="0" profiledepth="" profilelength="" urlprofilexml="" commandline="" additionalpath="" additionalclasspath="" postprocessortype="none" postprocesscommandline="" postprocessadditionalpath="" postprocessgeneratedext="" validateoutput="no" validator="internal" customvalidator="" ><advancedProp name="sInitialMode" value=""/><advancedProp name="bXsltOneIsOkay" value="true"/><advancedProp name="bSchemaAware" value="true"/><advancedProp name="bGenerateByteCode" value="true"/><advancedProp name="bXml11" value="false"/><advancedProp name="iValidation" value="0"/><advancedProp name="bExtensions" value="true"/><advancedProp name="iWhitespace" value="0"/><advancedProp name="sInitialTemplate" value=""/><advancedProp name="bTinyTree" value="true"/><advancedProp name="bUseDTD" value="false"/><advancedProp name="bWarnings" value="true"/><advancedProp name="xsltVersion" value="2.0"/><advancedProp name="iErrorHandling" value="fatal"/></scenario><scenario default="no" name="anticipo2" userelativepaths="yes" externalpreview="yes" url="..\ANTICIPO\20267196746_2018050201F0X300000003.xml" htmlbaseurl="" outputurl="" processortype="saxon8" useresolver="yes" profilemode="0" profiledepth="" profilelength="" urlprofilexml="" commandline="" additionalpath="" additionalclasspath="" postprocessortype="none" postprocesscommandline="" postprocessadditionalpath="" postprocessgeneratedext="" validateoutput="no" validator="internal" customvalidator="" ><advancedProp name="sInitialMode" value=""/><advancedProp name="bXsltOneIsOkay" value="true"/><advancedProp name="bSchemaAware" value="true"/><advancedProp name="bGenerateByteCode" value="true"/><advancedProp name="bXml11" value="false"/><advancedProp name="iValidation" value="0"/><advancedProp name="bExtensions" value="true"/><advancedProp name="iWhitespace" value="0"/><advancedProp name="sInitialTemplate" value=""/><advancedProp name="bTinyTree" value="true"/><advancedProp name="bUseDTD" value="false"/><advancedProp name="bWarnings" value="true"/><advancedProp name="xsltVersion" value="2.0"/><advancedProp name="iErrorHandling" value="fatal"/></scenario><scenario default="no" name="multi" userelativepaths="yes" externalpreview="yes" url="..\MULTI&#x2D;20267196746&#x2D;01&#x2D;F017&#x2D;00000001.xml" htmlbaseurl="" outputurl="" processortype="saxon8" useresolver="yes" profilemode="0" profiledepth="" profilelength="" urlprofilexml="" commandline="" additionalpath="" additionalclasspath="" postprocessortype="none" postprocesscommandline="" postprocessadditionalpath="" postprocessgeneratedext="" validateoutput="no" validator="internal" customvalidator="" ><advancedProp name="sInitialMode" value=""/><advancedProp name="bXsltOneIsOkay" value="true"/><advancedProp name="bSchemaAware" value="true"/><advancedProp name="bGenerateByteCode" value="true"/><advancedProp name="bXml11" value="false"/><advancedProp name="iValidation" value="0"/><advancedProp name="bExtensions" value="true"/><advancedProp name="iWhitespace" value="0"/><advancedProp name="sInitialTemplate" value=""/><advancedProp name="bTinyTree" value="true"/><advancedProp name="bUseDTD" value="false"/><advancedProp name="bWarnings" value="true"/><advancedProp name="xsltVersion" value="2.0"/><advancedProp name="iErrorHandling" value="fatal"/></scenario><scenario default="no" name="multi2" userelativepaths="yes" externalpreview="yes" url="..\MULTI&#x2D;20267196746&#x2D;01&#x2D;F017&#x2D;00000001&#x2D;MOD.xml" htmlbaseurl="" outputurl="" processortype="saxon8" useresolver="yes" profilemode="0" profiledepth="" profilelength="" urlprofilexml="" commandline="" additionalpath="" additionalclasspath="" postprocessortype="none" postprocesscommandline="" postprocessadditionalpath="" postprocessgeneratedext="" validateoutput="no" validator="internal" customvalidator="" ><advancedProp name="sInitialMode" value=""/><advancedProp name="bXsltOneIsOkay" value="true"/><advancedProp name="bSchemaAware" value="true"/><advancedProp name="bGenerateByteCode" value="true"/><advancedProp name="bXml11" value="false"/><advancedProp name="iValidation" value="0"/><advancedProp name="bExtensions" value="true"/><advancedProp name="iWhitespace" value="0"/><advancedProp name="sInitialTemplate" value=""/><advancedProp name="bTinyTree" value="true"/><advancedProp name="bUseDTD" value="false"/><advancedProp name="bWarnings" value="true"/><advancedProp name="xsltVersion" value="2.0"/><advancedProp name="iErrorHandling" value="fatal"/></scenario><scenario default="yes" name="multi3" userelativepaths="yes" externalpreview="yes" url="..\..\esuiteSCANIA\XML\20101363008&#x2D;01&#x2D;F011&#x2D;00025939.XML" htmlbaseurl="" outputurl="" processortype="saxon8" useresolver="yes" profilemode="0" profiledepth="" profilelength="" urlprofilexml="" commandline="" additionalpath="" additionalclasspath="" postprocessortype="none" postprocesscommandline="" postprocessadditionalpath="" postprocessgeneratedext="" validateoutput="no" validator="internal" customvalidator="" ><advancedProp name="sInitialMode" value=""/><advancedProp name="bXsltOneIsOkay" value="true"/><advancedProp name="bSchemaAware" value="true"/><advancedProp name="bGenerateByteCode" value="true"/><advancedProp name="bXml11" value="false"/><advancedProp name="iValidation" value="0"/><advancedProp name="bExtensions" value="true"/><advancedProp name="iWhitespace" value="0"/><advancedProp name="sInitialTemplate" value=""/><advancedProp name="bTinyTree" value="true"/><advancedProp name="bUseDTD" value="false"/><advancedProp name="bWarnings" value="true"/><advancedProp name="xsltVersion" value="2.0"/><advancedProp name="iErrorHandling" value="fatal"/></scenario></scenarios><MapperMetaTag><MapperInfo srcSchemaPathIsRelative="yes" srcSchemaInterpretAsXML="no" destSchemaPath="" destSchemaRoot="" destSchemaPathIsRelative="yes" destSchemaInterpretAsXML="no" ><SourceSchema srcSchemaPath="..\xml\20262996329&#x2D;07&#x2D;FF11&#x2D;00000055.xml" srcSchemaRoot="CreditNote" AssociatedInstance="" loaderFunction="document" loaderFunctionUsesURI="no"/></MapperInfo><MapperBlockPosition><template match="/"><block path="html/body/table/tbody/tr/td/xsl:call&#x2D;template" x="361" y="69"/><block path="html/body/table/tbody/tr[1]/td/xsl:call&#x2D;template" x="401" y="69"/><block path="html/body/table/tbody/tr[2]/td/xsl:call&#x2D;template" x="166" y="60"/><block path="html/body/table/tbody/tr[3]/td/table/tbody/tr/td/table/tr/td/xsl:call&#x2D;template" x="66" y="65"/><block path="html/body/table/tbody/tr[3]/td/table/tbody/tr[1]/td/xsl:call&#x2D;template" x="106" y="65"/><block path="html/body/table/tbody/tr[4]/td/xsl:call&#x2D;template" x="186" y="65"/><block path="html/body/table/tbody/tr[5]/td/xsl:call&#x2D;template" x="126" y="60"/></template></MapperBlockPosition><TemplateContext></TemplateContext><MapperFilter side="source"></MapperFilter></MapperMetaTag>
 </metaInformation>
 -->

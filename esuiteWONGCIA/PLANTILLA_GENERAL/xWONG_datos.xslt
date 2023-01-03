@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="iso-8859-1"?>
 <xsl:stylesheet version="1.0" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:pe="urn:oasis:names:specification:ubl:schema:xsd:Invoice-2"
                 xmlns:pe1="urn:oasis:names:specification:ubl:schema:xsd:CreditNote-2" xmlns:pe2="urn:oasis:names:specification:ubl:schema:xsd:DebitNote-2" xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2"
                 xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2" xmlns:ext="urn:oasis:names:specification:ubl:schema:xsd:CommonExtensionComponents-2">
@@ -14,7 +14,7 @@
 								<font face="Arial, Helvetica, sans-serif" size="1">
 									<strong>
 										<xsl:choose>
-											<xsl:when test="/pe:Invoice/cbc:InvoiceTypeCode = '01'">RAZÃ“N SOCIAL</xsl:when>
+											<xsl:when test="/pe:Invoice/cbc:InvoiceTypeCode = '01'">RAZÓN SOCIAL</xsl:when>
 											<xsl:otherwise>CLIENTE</xsl:otherwise>
 										</xsl:choose>
 									</strong>
@@ -28,7 +28,7 @@
 							</td>
 							<td width="11%">
 								<font face="Arial, Helvetica, sans-serif" size="1">
-									<Strong>FEC. EMISIÃ“N</Strong>
+									<Strong>FEC. EMISIÓN</Strong>
 								</font>
 							</td>
 							<td width="19%">
@@ -104,7 +104,7 @@
 						<tr>
 							<td width="14%">
 								<font face="Arial, Helvetica, sans-serif" size="1">
-									<Strong>DIRECCIÃ“N</Strong>
+									<Strong>DIRECCIÓN</Strong>
 								</font>
 							</td>
 							<td colspan="3">
@@ -131,7 +131,7 @@
 
 							<td width="11%">
 								<font face="Arial, Helvetica, sans-serif" size="1">
-									<Strong>GUIA NÂ°</Strong>
+									<Strong>GUIA N°</Strong>
 								</font>
 							</td>
 							<td width="19%">
@@ -142,23 +142,39 @@
 							</td>
 						</tr>
 						<tr>
-
+							<xsl:if test="//cac:PaymentTerms/cbc:PaymentMeansID='Contado'">
 							<td width="14%">
 								<font face="Arial, Helvetica, sans-serif" size="1">
-									<strong>CONDICIÃ“N DE PAGO</strong>
+									<strong>CONDICIÓN DE PAGO</strong>
 								</font>
 							</td>
 							<td colspan="3">
 								<font face="Arial, Helvetica, sans-serif" size="1">
-									<Strong>:&#xA0;</Strong>
-									<xsl:call-template name="RetourneValAd">
+									<Strong>:&#xA0;</Strong>CONTADO
+									<!--<xsl:call-template name="RetourneValAd">
 										<xsl:with-param name="NumAd" select="02" />
-									</xsl:call-template>	
+									</xsl:call-template>	-->
 								</font>
 							</td>
+							</xsl:if>
+							<xsl:if test="//cac:PaymentTerms/cbc:PaymentMeansID='Credito'">
+							<td width="14%">
+								<font face="Arial, Helvetica, sans-serif" size="1">
+									<strong>CONDICIÓN DE PAGO</strong>
+								</font>
+							</td>
+							<td colspan="3">
+								<font face="Arial, Helvetica, sans-serif" size="1">
+									<Strong>:&#xA0;</Strong>CREDITO
+									<!--<xsl:call-template name="RetourneValAd">
+										<xsl:with-param name="NumAd" select="02" />
+									</xsl:call-template>	-->
+								</font>
+							</td>
+							</xsl:if>
 							<td width="11%">
 								<font face="Arial, Helvetica, sans-serif" size="1">
-									<Strong>NÂ° O.C.</Strong>
+									<Strong>N° O.C.</Strong>
 								</font>
 							</td>
 							<td width="19%">
@@ -525,19 +541,26 @@
 	<xsl:template name="RetournerMoneda">
 		<xsl:choose>
 			<xsl:when test="/pe:Invoice/cbc:DocumentCurrencyCode = 'PEN'">SOLES</xsl:when>
-			<xsl:when test="/pe:Invoice/cbc:DocumentCurrencyCode = 'USD'">DÃ“LARES AMERICANOS</xsl:when>
+			<xsl:when test="/pe:Invoice/cbc:DocumentCurrencyCode = 'USD'">DÓLARES AMERICANOS</xsl:when>
 			<xsl:when test="/pe:Invoice/cbc:DocumentCurrencyCode = 'EUR'">EUROS</xsl:when>
 			<xsl:when test="/pe1:CreditNote/cbc:DocumentCurrencyCode = 'PEN'">SOLES</xsl:when>
-			<xsl:when test="/pe1:CreditNote/cbc:DocumentCurrencyCode = 'USD'">DÃ“LARES AMERICANOS</xsl:when>
+			<xsl:when test="/pe1:CreditNote/cbc:DocumentCurrencyCode = 'USD'">DÓLARES AMERICANOS</xsl:when>
 			<xsl:when test="/pe1:CreditNote/cbc:DocumentCurrencyCode = 'EUR'">EUROS</xsl:when>
 			<xsl:when test="/pe2:DebitNote/cbc:DocumentCurrencyCode = 'PEN'">SOLES</xsl:when>
-			<xsl:when test="/pe2:DebitNote/cbc:DocumentCurrencyCode = 'USD'">DÃ“LARES AMERICANOS</xsl:when>
+			<xsl:when test="/pe2:DebitNote/cbc:DocumentCurrencyCode = 'USD'">DÓLARES AMERICANOS</xsl:when>
 			<xsl:when test="/pe2:DebitNote/cbc:DocumentCurrencyCode = 'EUR'">EUROS</xsl:when>
 			<xsl:otherwise>OTRA MONEDA</xsl:otherwise>
 		</xsl:choose>
 	</xsl:template>
-</xsl:stylesheet><!-- Stylus Studio meta-information - (c) 2004-2006. Progress Software Corporation. All rights reserved.
+</xsl:stylesheet><!-- Stylus Studio meta-information - (c) 2004-2009. Progress Software Corporation. All rights reserved.
+
 <metaInformation>
-<scenarios/><MapperMetaTag><MapperInfo srcSchemaPathIsRelative="yes" srcSchemaInterpretAsXML="no" destSchemaPath="" destSchemaRoot="" destSchemaPathIsRelative="yes" destSchemaInterpretAsXML="no"/><MapperBlockPosition></MapperBlockPosition><TemplateContext></TemplateContext><MapperFilter side="source"></MapperFilter></MapperMetaTag>
+	<scenarios/>
+	<MapperMetaTag>
+		<MapperInfo srcSchemaPathIsRelative="yes" srcSchemaInterpretAsXML="no" destSchemaPath="" destSchemaRoot="" destSchemaPathIsRelative="yes" destSchemaInterpretAsXML="no"/>
+		<MapperBlockPosition></MapperBlockPosition>
+		<TemplateContext></TemplateContext>
+		<MapperFilter side="source"></MapperFilter>
+	</MapperMetaTag>
 </metaInformation>
 -->

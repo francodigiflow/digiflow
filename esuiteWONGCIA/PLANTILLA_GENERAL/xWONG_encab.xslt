@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="iso-8859-1"?>
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
 	xmlns:pe="urn:oasis:names:specification:ubl:schema:xsd:Invoice-2"
 	xmlns:pe1="urn:oasis:names:specification:ubl:schema:xsd:CreditNote-2"
@@ -39,7 +39,9 @@
 							<tbody>
 								<tr>
 									<td align="left">
-										<img width="360px" src="logo_wongcia.jpg" />
+										<!-- <img width="360px" src="logo_wongcia.jpg" /> -->
+										
+										<img src="data:image/*;base64,[logo_1]" width="360" />
 									</td>
 								</tr>
 								<tr>
@@ -51,7 +53,6 @@
 										<br/>DOM. FISCAL: AV. MEXICO NRO. 774, LIMA - LIMA - LA VICTORIA										
 										<br/>TELF.: 266-0903 / 262-1360
 										<br/>CORREO: VENTAS@WONG-CIA.COM																
-										<!--<a href="http://www.simonizauto.com">www.simonizauto.com</a>	-->								
 										<br/>
 										<br/>
 										<xsl:call-template name="RetourneValAd">
@@ -66,8 +67,7 @@
 								</tr>
 							</tbody>
 						</table>
-				</td>
-				<!-- <td valign="middle" width="100%" align="center"> -->				
+				</td>			
 			</tr>
 		</table>
 	</xsl:template>
@@ -79,7 +79,7 @@
 				<td width="100%" align="center">
 						<br/>
 						<strong>
-							R.U.C.NÂ°
+							R.U.C.N°
 							<xsl:if test="//cbc:UBLVersionID='2.0'">
 							<xsl:value-of select="format-number(//cac:AccountingSupplierParty/cbc:CustomerAssignedAccountID, '###########', 'pen')"/>
 							<br/><br/><xsl:call-template name="tipodocu"/>
@@ -100,10 +100,10 @@
 	<xsl:template name="tipodocu">
 		<xsl:if test="//cbc:UBLVersionID='2.0'">
 			<xsl:choose>
-				<xsl:when test="/pe:Invoice/cbc:InvoiceTypeCode = '01'">FACTURA ELECTRÃ“NICA</xsl:when>
-				<xsl:when test="/pe:Invoice/cbc:InvoiceTypeCode = '03'">BOLETA DE VENTA ELECTRÃ“NICA</xsl:when>
-				<xsl:when test="/pe1:CreditNote">NOTA DE CRÃ‰DITO ELECTRÃ“NICA</xsl:when>
-				<xsl:when test="/pe2:DebitNote">NOTA DE DÃ‰BITO ELECTRÃ“NICA</xsl:when>
+				<xsl:when test="/pe:Invoice/cbc:InvoiceTypeCode = '01'">FACTURA ELECTRÓNICA</xsl:when>
+				<xsl:when test="/pe:Invoice/cbc:InvoiceTypeCode = '03'">BOLETA DE VENTA ELECTRÓNICA</xsl:when>
+				<xsl:when test="/pe1:CreditNote">NOTA DE CRÉDITO ELECTRÓNICA</xsl:when>
+				<xsl:when test="/pe2:DebitNote">NOTA DE DÉBITO ELECTRÓNICA</xsl:when>
 				<xsl:otherwise></xsl:otherwise>
 			</xsl:choose>
 		</xsl:if>
@@ -111,17 +111,17 @@
 		<xsl:if test="//cbc:UBLVersionID='2.1'">
 		<xsl:choose>
 			<xsl:when test="/pe:Invoice/cbc:InvoiceTypeCode='01'">
-				<font color="#000000" size="4" face="Arial, Helvetica, sans-serif">FACTURA ELECTRÃ“NICA</font>
+				<font color="#000000" size="4" face="Arial, Helvetica, sans-serif">FACTURA ELECTRÓNICA</font>
 			</xsl:when>
 			<xsl:when test="/pe:Invoice/cbc:InvoiceTypeCode='03'">
-				<font color="#000000" size="4" face="Arial, Helvetica, sans-serif">BOLETA DE VENTA ELECTRÃ“NICA</font>
+				<font color="#000000" size="4" face="Arial, Helvetica, sans-serif">BOLETA DE VENTA ELECTRÓNICA</font>
 			</xsl:when>
 			<xsl:otherwise>
 				<xsl:if test="/pe1:CreditNote">
-					<font color="#000000" size="4" face="Arial, Helvetica, sans-serif">NOTA DE CRÃ‰DITO ELECTRÃ“NICA</font>
+					<font color="#000000" size="4" face="Arial, Helvetica, sans-serif">NOTA DE CRÉDITO ELECTRÓNICA</font>
 				</xsl:if>
 				<xsl:if test="/pe2:DebitNote">
-					<font color="#000000" size="4" face="Arial, Helvetica, sans-serif">NOTA DE DÃ‰BITO ELECTRÃ“NICA</font>
+					<font color="#000000" size="4" face="Arial, Helvetica, sans-serif">NOTA DE DÉBITO ELECTRÓNICA</font>
 				</xsl:if>
 			</xsl:otherwise>
 		</xsl:choose>
@@ -129,7 +129,7 @@
 	</xsl:template>
 
 	<xsl:template name="NFolio">
-		NÂº
+		N°
 		<xsl:if test="/pe:Invoice">
 		<xsl:value-of select="substring-before(/pe:Invoice/cbc:ID,'-')"/>-
 		<xsl:value-of select="format-number(substring-after(/pe:Invoice/cbc:ID,'-'),'00000000')"/>

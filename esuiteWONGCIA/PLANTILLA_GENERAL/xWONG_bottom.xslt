@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="iso-8859-1"?>
 
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
 	xmlns:ds="http://www.w3.org/2000/09/xmldsig#"
@@ -34,7 +34,7 @@
 							</td>
 							<!--<td width="20%" align="center">
 								<font face="Arial, Helvetica, sans-serif" size="1">
-									<strong>Fecha EmisiÃ³n</strong>
+									<strong>Fecha Emisión</strong>
 								</font>
 							</td>-->
 						</tr>
@@ -144,7 +144,7 @@
 							</td>
 							<!--<td width="20%" align="center">
 								<font face="Arial, Helvetica, sans-serif" size="1">
-									<strong>Fecha EmisiÃ³n</strong>
+									<strong>Fecha Emisión</strong>
 								</font>
 							</td>-->
 						</tr>
@@ -240,17 +240,17 @@
 						<tr>
 							<td width="100%">
 							<font face="Arial, Helvetica, sans-serif" size="1">
-							1. Favor emitir cheque no negociable a la orden de ACCEAUTO S.A.C. o depositar en las cuentas corrientes del banco de crÃ©dito 
-							<xsl:call-template name="RetourneValAd"><xsl:with-param name="NumAd" select="09" /></xsl:call-template>	en soles Ã³
-							<xsl:call-template name="RetourneValAd"><xsl:with-param name="NumAd" select="10" /></xsl:call-template>	 en dÃ³lares.<br/>
-							2. No aceptamos pagos en efectivo y su pago sÃ³lo serÃ¡ considerando si se canjea por recibo de pago emitido por ACCEAUTO S.A.C. por un funcionario autorizado.<br/>
-							3. La mercaderÃ­a viaja por cuenta y riesgo del cliente.<br/>
-							4. No aceptamos devoluciones pasadas 24 horas de recibida la mercaderÃ­a.<br/>
-							5. Se hace constar que la firma de una persona distinta al comprador implica que dicha persona estÃ¡ autorizada por el comprador para firmar, reconocer la deuda y obligar.<br/>
-							6. La cancelaciÃ³n y/o abono en soles se harÃ¡ al tipo de cambio venta del dÃ­a de pago, segÃºn tabla publicada en SUNAT.<br/>
-							AceptaciÃ³n del cliente: Declaro que al recibir la mercaderÃ­a, ya sea a travÃ©s de esta factura, o por medio de guÃ­a de remisiÃ³n 
-							o acta de recepciÃ³n, a mi entera satisfacciÃ³n, me sujeto a las condiciones y plazos consignados en la forma de pago, aceptando pagar el caso de mora el mÃ¡ximo interÃ©s convencional y por 
-							mora establecida por la ley. Renuncio domicilio y me someto a los Jueces competentes en la ciudad de Lima - PerÃº y al juicio ejecutivo o verbal sumario. Sin protesto.<br/>
+							1. Favor emitir cheque no negociable a la orden de ACCEAUTO S.A.C. o depositar en las cuentas corrientes del banco de crédito 
+							<xsl:call-template name="RetourneValAd"><xsl:with-param name="NumAd" select="09" /></xsl:call-template>	en soles ó
+							<xsl:call-template name="RetourneValAd"><xsl:with-param name="NumAd" select="10" /></xsl:call-template>	 en dólares.<br/>
+							2. No aceptamos pagos en efectivo y su pago sólo será considerando si se canjea por recibo de pago emitido por ACCEAUTO S.A.C. por un funcionario autorizado.<br/>
+							3. La mercadería viaja por cuenta y riesgo del cliente.<br/>
+							4. No aceptamos devoluciones pasadas 24 horas de recibida la mercadería.<br/>
+							5. Se hace constar que la firma de una persona distinta al comprador implica que dicha persona está autorizada por el comprador para firmar, reconocer la deuda y obligar.<br/>
+							6. La cancelación y/o abono en soles se hará al tipo de cambio venta del día de pago, según tabla publicada en SUNAT.<br/>
+							Aceptación del cliente: Declaro que al recibir la mercadería, ya sea a través de esta factura, o por medio de guía de remisión 
+							o acta de recepción, a mi entera satisfacción, me sujeto a las condiciones y plazos consignados en la forma de pago, aceptando pagar el caso de mora el máximo interés convencional y por 
+							mora establecida por la ley. Renuncio domicilio y me someto a los Jueces competentes en la ciudad de Lima - Perú y al juicio ejecutivo o verbal sumario. Sin protesto.<br/>
 							</font>
 							</td>
 						</tr></tbody>
@@ -312,7 +312,7 @@
 							</td>-->
 							<td width="20%" align="center" bgcolor="silver">
 								<font face="Arial, Helvetica, sans-serif" size="2">
-									NÃºmero Documento
+									Número Documento
 								</font>
 							</td>
 							<td width="15%" align="center" bgcolor="silver">
@@ -350,7 +350,7 @@
 							<tr width="50%">
 								<td width="20%" align="center" bgcolor="silver">
 									<font face="Arial, Helvetica, sans-serif" size="2">
-										NÃºmero Documento
+										Número Documento
 									</font>
 								</td>
 								<td width="15%" align="center" bgcolor="silver">
