@@ -27,29 +27,28 @@
 							<tbody>
 
 								<tr>
-								<td align="left" width="100%">
-								<!--img src="D:\huancho\digiflow\CELSA__\documentacion\logoCelsa.png" width="180" height="80"/-->
-									 <img src="data:image/*;base64,[logo_1]" height="80" width="180" />
-								</td>
-								<td width="2%">
-								</td>
+									<td align="left" width="100%">
+										<!--img src="D:\huancho\digiflow\CELSA__\documentacion\logoCelsa.png" width="180" height="80"/-->
+										<img src="data:image/*;base64,[logo_1]" height="80" width="180" />
+									</td>
+									<td width="2%">
+									</td>
 								</tr>
 								<tr>
-								<td align="left" width="43%">
-								<font color="#000000" size="1" face="Arial, Helvetica, sans-serif">
-								<br/>
-								<xsl:value-of select="//cac:AccountingSupplierParty/cac:Party/cac:PartyLegalEntity/cbc:RegistrationName"/>
-								<br/>
-								<b>Calle el parque 149, 2do piso, Av. Javier Prado Este 4200 - Surco 4340603</b>
-								</font>
-								<font color="#000000" size="0.5" face="Arial, Helvetica, sans-serif">
-								<!--<br/>Teléfono: 326 1373 / Fax: 326-1374
-								<br/>Email: ventas@celsa.com.pe-->
-								<!--<br/>FAX: 336-8193-->
-								<br/>
-								</font>
-								</td>
-									</tr>
+									<td align="left" width="43%">
+										<font color="#000000" size="1" face="Arial, Helvetica, sans-serif">
+											<br/>
+											<xsl:value-of select="//cac:AccountingSupplierParty/cac:Party/cac:PartyLegalEntity/cbc:RegistrationName"/>
+											<br/>
+											<b>Calle el parque 149, 2do piso, Av. Javier Prado Este 4200 - Surco 4340603</b>
+										</font>
+										<font color="#000000" size="0.5" face="Arial, Helvetica, sans-serif">
+											<br/>
+											<br/>
+											Establecimiento: <xsl:call-template name="RetourneValAd"><xsl:with-param name="NumAd" select="13"/></xsl:call-template>
+										</font>
+									</td>
+								</tr>
 							</tbody>
 						</table>
 					</td>
@@ -150,6 +149,6 @@
 	</xsl:template>
 </xsl:stylesheet><!-- Stylus Studio meta-information - (c) 2004-2006. Progress Software Corporation. All rights reserved.
 <metaInformation>
-<scenarios ><scenario default="yes" name="Scenario1" userelativepaths="yes" externalpreview="no" url="20254053822&#x2D;01&#x2D;FF11&#x2D;10331676.xml" htmlbaseurl="" outputurl="" processortype="internal" useresolver="no" profilemode="0" profiledepth="" profilelength="" urlprofilexml="" commandline="" additionalpath="" additionalclasspath="" postprocessortype="none" postprocesscommandline="" postprocessadditionalpath="" postprocessgeneratedext="" validateoutput="no" validator="internal" customvalidator="" ><advancedProp name="sInitialMode" value=""/><advancedProp name="bSchemaAware" value="false"/><advancedProp name="bXsltOneIsOkay" value="true"/><advancedProp name="bXml11" value="false"/><advancedProp name="iValidation" value="0"/><advancedProp name="bExtensions" value="true"/><advancedProp name="iWhitespace" value="0"/><advancedProp name="sInitialTemplate" value=""/><advancedProp name="bTinyTree" value="true"/><advancedProp name="bUseDTD" value="false"/><advancedProp name="bWarnings" value="true"/><advancedProp name="iErrorHandling" value="fatal"/></scenario></scenarios><MapperMetaTag><MapperInfo srcSchemaPathIsRelative="yes" srcSchemaInterpretAsXML="no" destSchemaPath="" destSchemaRoot="" destSchemaPathIsRelative="yes" destSchemaInterpretAsXML="no"/><MapperBlockPosition></MapperBlockPosition><TemplateContext></TemplateContext><MapperFilter side="source"></MapperFilter></MapperMetaTag>
+<scenarios ><scenario default="yes" name="Scenario1" userelativepaths="yes" externalpreview="no" url="20254053822&#x2D;01&#x2D;FF11&#x2D;10331676.xml" htmlbaseurl="" outputurl="" processortype="internal" useresolver="no" profilemode="0" profiledepth="" profilelength="" urlprofilexml="" commandline="" additionalpath="" additionalclasspath="" postprocessortype="none" postprocesscommandline="" postprocessadditionalpath="" postprocessgeneratedext="" validateoutput="no" validator="internal" customvalidator="" ><advancedProp name="sInitialMode" value=""/><advancedProp name="bXsltOneIsOkay" value="true"/><advancedProp name="bSchemaAware" value="false"/><advancedProp name="bXml11" value="false"/><advancedProp name="iValidation" value="0"/><advancedProp name="bExtensions" value="true"/><advancedProp name="iWhitespace" value="0"/><advancedProp name="sInitialTemplate" value=""/><advancedProp name="bTinyTree" value="true"/><advancedProp name="bWarnings" value="true"/><advancedProp name="bUseDTD" value="false"/><advancedProp name="iErrorHandling" value="fatal"/></scenario></scenarios><MapperMetaTag><MapperInfo srcSchemaPathIsRelative="yes" srcSchemaInterpretAsXML="no" destSchemaPath="" destSchemaRoot="" destSchemaPathIsRelative="yes" destSchemaInterpretAsXML="no"/><MapperBlockPosition></MapperBlockPosition><TemplateContext></TemplateContext><MapperFilter side="source"></MapperFilter></MapperMetaTag>
 </metaInformation>
 -->

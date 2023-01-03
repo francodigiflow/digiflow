@@ -46,25 +46,24 @@
 							<xsl:call-template name="imp_timbre"/>
 						</font>
 					</td>
-					<td valign="top" width="70%" align="center">
+					<td valign="top" width="70%" align="left">
 						<font face="Arial, Helvetica, sans-serif" size="1">
-						<!--<br/>Operador de servicios Electronicos<br/>
-						Segun la Resolución N° 034-005-0010266
-						<br/>
-						<br/>
-						<br/>-->
-						<br/>
-						<!--<br/>-->
-						Representacion impresa de la factura Electrónica. consulte en https://facturacion.ecomprobantes.pe/NETMODA
-							<!--<br/>
-							Autorizado mediante la Resolución de intendencia N° 034-005-0004177/SUNAT-->
+							<br/>
+							Representacion impresa de la factura Electrónica. consulte en https://facturacion.ecomprobantes.pe/NETMODA
+							<br/>
+							<br/>
+							<xsl:call-template name="RetourneValAd"><xsl:with-param name="NumAd" select="10"/></xsl:call-template>
+							<br/>
+							<xsl:call-template name="RetourneValAd"><xsl:with-param name="NumAd" select="11"/></xsl:call-template>
+							<br/>
+							<xsl:call-template name="RetourneValAd"><xsl:with-param name="NumAd" select="12"/></xsl:call-template>
 						</font>
 					</td>
 					<td valign="top" width="10%" align="right">
 						<font face="Arial, Helvetica, sans-serif" size="1">
 							<td width="50%" valign="top">
-							
-										</td>
+								
+							</td>
 						</font>
 					</td>
 				</tr>
