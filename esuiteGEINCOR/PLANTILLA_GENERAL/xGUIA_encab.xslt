@@ -49,15 +49,6 @@ xmlns:sac="urn:sunat:names:specification:ubl:peru:schema:xsd:SunatAggregateCompo
 						</table>
 				</td>
 				<td valign="middle" width="10%" align="right">
-					<font face="Times New Roman, sans-serif" size="5">
-                       
-                    </font>
-					<font face="Calibri, sans-serif" size="2">                       	
-							<!-- <xsl:value-of select="//cac:AccountingSupplierParty/cac:Party/cac:PartyLegalEntity/cac:RegistrationAddress/cac:AddressLine/cbc:Line"/> -->
-							<!-- <br/><xsl:call-template name="RetourneValAd"><xsl:with-param name="NumAd" select="02"/></xsl:call-template> -->
-							<!-- <br/><xsl:call-template name="RetourneValAd"><xsl:with-param name="NumAd" select="03"/></xsl:call-template> -->
-							<!-- <br/> -->
-					</font>
 				</td>
 			</tr>
 		</table>
@@ -90,7 +81,7 @@ xmlns:sac="urn:sunat:names:specification:ubl:peru:schema:xsd:SunatAggregateCompo
 	
 		<xsl:if test="//cbc:DespatchAdviceTypeCode='09'">
 			<font color="#000000" size="4" face="Arial, Helvetica, sans-serif">
-			GUÍA DE REMISIÓN ELECTRÓNICA
+			GUÍA DE REMISIÓN ELECTRÓNICA REMITENTE
 			</font>
 		</xsl:if>
 </xsl:template>

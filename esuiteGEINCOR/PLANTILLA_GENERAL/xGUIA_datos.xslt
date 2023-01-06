@@ -29,7 +29,7 @@ xmlns:sac="urn:sunat:names:specification:ubl:peru:schema:xsd:SunatAggregateCompo
 								<strong>Razón Social: </strong>
 							</td>
 							<td valign="top" align="left" width="45%"  >
-								<xsl:value-of select="//cac:DeliveryCustomerParty/cac:Party/cac:PartyLegalEntity/cbc:RegistrationName"/>
+								
 							</td>
 						</tr>						
 				</table>
@@ -45,7 +45,7 @@ xmlns:sac="urn:sunat:names:specification:ubl:peru:schema:xsd:SunatAggregateCompo
 								<strong>Direccion del punto de partida: </strong>
 							</td>
 							<td valign="top" align="left" width="40%"  >
-								<xsl:value-of select="//cac:Shipment/cac:OriginAddress/cbc:StreetName"/>
+								
 							</td>
 							<td width="20%"  >
 								<strong>Fecha de Emision: </strong>
@@ -59,7 +59,7 @@ xmlns:sac="urn:sunat:names:specification:ubl:peru:schema:xsd:SunatAggregateCompo
 								<strong>Direccion del punto de llegada: </strong>
 							</td>
 							<td valign="top" align="left" width="40%"  >
-								<xsl:value-of select="//cac:Shipment/cac:Delivery/cac:DeliveryAddress/cbc:StreetName"/> 
+								
 							</td>
 							<td width="20%"  >
 								<strong>Fecha Inicio Traslado: </strong>
@@ -123,11 +123,7 @@ xmlns:sac="urn:sunat:names:specification:ubl:peru:schema:xsd:SunatAggregateCompo
 								<strong>Nombre Conductor: </strong>
 							</td>
 							<td valign="top" align="left" width="30%"  >
-								<xsl:for-each select="//ext:UBLExtensions/ext:UBLExtension/ext:ExtensionContent/pe:DatosAdicionales/pe:DatoAdicional">
-									<xsl:if test="pe:Codigo='02'">
-										<xsl:value-of select="pe:Valor"/>
-									</xsl:if>
-								</xsl:for-each>
+								
 							</td>
 						</tr>
 						<tr>
@@ -156,7 +152,304 @@ xmlns:sac="urn:sunat:names:specification:ubl:peru:schema:xsd:SunatAggregateCompo
 			</tr>
 		</table>
 	</xsl:template>
-		
+	
+	<xsl:template name="Datos_Arriba">
+		<table border="0" width="100%" cellpadding="0" cellspacing="0" bordercolor="#000001">
+			<tbody>
+				<tr>
+					<td vAlign="top" width="50%">
+						<table rules="none" border="1" width="100%" bordercolor="#000000" cellpadding="1" cellspacing="1">
+							<tbody>
+								<tr>
+									<td width="1%" align="left">&#xA0;</td>
+									<td width="99%" align="left" colspan="2">
+										<font face="Arial, Helvetica, sans-serif" size="2">
+											<strong>Punto de partida&#xA0;:</strong>
+											&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;
+											<xsl:if test="//cbc:CustomizationID='1.0'">
+												<xsl:value-of select="//cac:Shipment/cac:OriginAddress/cbc:StreetName"/>
+											</xsl:if>
+											<xsl:if test="//cbc:CustomizationID='2.0'">
+												<xsl:value-of select="//cac:Delivery/cac:Despatch/cac:DespatchAddress/cac:AddressLine/cbc:Line"/>
+											</xsl:if>
+										</font>
+									</td>									
+								</tr>								
+								<tr>
+									<td width="1%" align="left">&#xA0;</td>
+									<td width="32%" align="left">
+										<font face="Arial, Helvetica, sans-serif" size="2">
+											<strong>Fecha emisión&#xA0;:</strong>
+										</font>										
+									</td>
+									<td width="67%" align="left">
+										<font face="Arial, Helvetica, sans-serif" size="2">
+											&#xA0;<xsl:value-of select="//cbc:IssueDate"/>
+										</font>
+									</td>
+								</tr>
+								<tr>
+									<td width="1%" align="left">&#xA0;</td>
+									<td width="32%" align="left">
+										<font face="Arial, Helvetica, sans-serif" size="2">
+											<strong>Fecha Inicio Traslado&#xA0;:</strong>											
+										</font>										
+									</td>
+									<td width="67%" align="left">
+										<font face="Arial, Helvetica, sans-serif" size="2">
+											&#xA0;<xsl:value-of select="//cac:ShipmentStage/cac:TransitPeriod/cbc:StartDate"/>
+										</font>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</td>
+					<td vAlign="top" width="1%" height="100%">
+					</td>
+					<td vAlign="top" width="49%" height="100%">
+						<table rules="none" border="1" width="100%" height="100%" bordercolor="#000000" cellpadding="1" cellspacing="1">
+							<tbody height="100%">
+								<tr  height="100%">
+									<td width="1%" align="left">&#xA0;</td>
+									<td width="99%" align="left" colspan="2">
+										<font face="Arial, Helvetica, sans-serif" size="2">
+											<strong>Punto de llegada&#xA0;:</strong>
+											&#xA0;
+											<xsl:if test="//cbc:CustomizationID='1.0'">
+												<xsl:value-of select="//cac:Shipment/cac:Delivery/cac:DeliveryAddress/cbc:StreetName"/>
+											</xsl:if>
+											<xsl:if test="//cbc:CustomizationID='2.0'">
+												<xsl:value-of select="//cac:Delivery/cac:DeliveryAddress/cac:AddressLine/cbc:Line"/>
+											</xsl:if>
+										</font>
+									</td>									
+								</tr>								
+								<tr  height="100%">
+									<td width="1%" align="left">&#xA0;</td>
+									<td width="25%" align="left">
+										<font face="Arial, Helvetica, sans-serif" size="2">
+											<strong>Destinatario&#xA0;:</strong>
+										</font>										
+									</td>
+									<td width="74%" align="left">
+										<font face="Arial, Helvetica, sans-serif" size="2">
+											&#xA0;
+											<xsl:value-of select="//cac:DeliveryCustomerParty/cac:Party/cac:PartyLegalEntity/cbc:RegistrationName"/>
+										</font>
+									</td>
+								</tr>
+								<tr  height="100%">
+									<td width="1%" align="left">&#xA0;</td>
+									<td width="25%" align="left">
+										<font face="Arial, Helvetica, sans-serif" size="2">
+											<strong>RUC&#xA0;:</strong>											
+										</font>										
+									</td>
+									<td width="74%" align="left">
+										<font face="Arial, Helvetica, sans-serif" size="2">
+											&#xA0;
+											<xsl:if test="//cbc:CustomizationID='1.0'">
+												<xsl:value-of select="//cac:DeliveryCustomerParty/cbc:CustomerAssignedAccountID"/>
+											</xsl:if>
+											<xsl:if test="//cbc:CustomizationID='2.0'">
+												<xsl:value-of select="//cac:DeliveryCustomerParty/cac:Party/cac:PartyIdentification/cbc:ID"/>
+											</xsl:if>
+										</font>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</xsl:template>	
+
+	<xsl:template name="Datos_Transporte">
+		<table border="0" width="100%" cellpadding="0" cellspacing="0" bordercolor="#000001">
+			<tbody>
+				<tr>
+					<td vAlign="top" width="50%">
+						<table rules="none" border="1" width="100%" bordercolor="#000000" cellpadding="1" cellspacing="1">
+							<tbody>
+								<tr>
+									<td width="100%" align="center" colspan="3">
+										<font face="Arial, Helvetica, sans-serif" size="2">
+											<strong>UNIDAD DE TRANSPORTE Y CONDUCTOR</strong>
+										</font>
+									</td>									
+								</tr>							
+								<tr>
+									<td width="1%" align="left">&#xA0;</td>
+									<td width="32%" align="left">
+										<font face="Arial, Helvetica, sans-serif" size="2">
+											<strong>Marca y N° Placa&#xA0;:</strong>
+										</font>										
+									</td>
+									<td width="67%" align="left">
+										<font face="Arial, Helvetica, sans-serif" size="2">
+											&#xA0;
+											<xsl:for-each select="//ext:UBLExtensions/ext:UBLExtension/ext:ExtensionContent/pe:DatosAdicionales/pe:DatoAdicional">
+												<xsl:if test="pe:Codigo='01'">
+													<xsl:value-of select="pe:Valor"/>
+												</xsl:if>
+											</xsl:for-each> 
+											- 
+											<xsl:if test="//cbc:CustomizationID='1.0'">
+												<xsl:value-of select="//cac:TransportMeans/cac:RoadTransport/cbc:LicensePlateID"/>
+											</xsl:if>
+											<xsl:if test="//cbc:CustomizationID='2.0'">
+												<xsl:value-of select="//cac:Shipment/cac:TransportHandlingUnit/cac:TransportEquipment/cbc:ID"/>
+											</xsl:if>
+										</font>										
+									</td>
+								</tr>
+								<tr>
+									<td width="1%" align="left">&#xA0;</td>
+									<td width="32%" align="left">
+										<font face="Arial, Helvetica, sans-serif" size="2">
+											<strong>Constancia Inscripc.
+											&#xA0;:</strong>											
+										</font>										
+									</td>
+									<td width="67%" align="left">
+										<font face="Arial, Helvetica, sans-serif" size="2">
+											&#xA0;
+											<xsl:value-of select="//cac:CarrierParty/cac:PartyLegalEntity/cbc:CompanyID"/>
+										</font>
+									</td>
+								</tr>
+								
+								<tr>
+									<td width="1%" align="left">&#xA0;</td>
+									<td width="32%" align="left">
+										<font face="Arial, Helvetica, sans-serif" size="2">
+											<strong>Licencia Conducir
+											&#xA0;:</strong>											
+										</font>										
+									</td>
+									<td width="67%" align="left">
+										<font face="Arial, Helvetica, sans-serif" size="2">
+											&#xA0;
+											<xsl:value-of select="//cac:ShipmentStage/cac:DriverPerson/cac:IdentityDocumentReference/cbc:ID"/>
+										</font>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</td>
+					<td vAlign="top" width="1%">
+					</td>
+					<td vAlign="top" width="49%" height="100%">
+						<table rules="none" border="1" width="100%" height="100%" bordercolor="#000000" cellpadding="1" cellspacing="1">
+							<tbody  height="100%">
+								<tr>
+									<td width="100%" align="center" colspan="3">
+										<font face="Arial, Helvetica, sans-serif" size="2">
+											<strong>EMPRESA DE TRANSPORTES</strong>
+										</font>
+									</td>									
+								</tr>
+								<tr>
+									<td width="1%" align="left">&#xA0;</td>
+									<td width="25%" align="left">
+										<font face="Arial, Helvetica, sans-serif" size="2">
+											<strong>Razón Social:&#xA0;:</strong>
+										</font>										
+									</td>
+									<td width="74%" align="left">
+										<font face="Arial, Helvetica, sans-serif" size="2">
+											&#xA0;
+											<xsl:if test="//cbc:CustomizationID='1.0'">
+												<xsl:value-of select="//cac:Shipment/cac:ShipmentStage/cac:CarrierParty/cac:PartyName/cbc:Name"/>
+											</xsl:if>
+											<xsl:if test="//cbc:CustomizationID='2.0'">
+												<xsl:value-of select="//cac:ShipmentStage/cac:CarrierParty/cac:PartyLegalEntity/cbc:RegistrationName"/>
+											</xsl:if>
+										</font>
+									</td>
+								</tr>
+								<tr>
+									<td width="1%" align="left">&#xA0;</td>
+									<td width="25%" align="left">
+										<font face="Arial, Helvetica, sans-serif" size="2">
+											<strong>RUC&#xA0;:</strong>											
+										</font>										
+									</td>
+									<td width="74%" align="left">
+										<font face="Arial, Helvetica, sans-serif" size="2">
+											&#xA0;
+											<xsl:if test="//cbc:CustomizationID='1.0'">
+												<xsl:value-of select="//cac:Shipment/cac:ShipmentStage/cac:CarrierParty/cac:PartyIdentification/cbc:ID"/>
+											</xsl:if>
+											<xsl:if test="//cbc:CustomizationID='2.0'">
+												<xsl:value-of select="//cac:ShipmentStage/cac:CarrierParty/cac:PartyIdentification/cbc:ID"/>
+											</xsl:if>
+										</font>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</xsl:template>	
+
+	<xsl:template name="Datos_Generales">
+		<table border="0" width="100%" cellpadding="0" cellspacing="0" bordercolor="#000001">
+			<tbody>
+				<tr>
+					<td vAlign="top" width="100%">
+						<table rules="none" border="1" width="100%" bordercolor="#000000" cellpadding="1" cellspacing="1">
+							<tbody>
+								<tr>
+									<td width="1%" align="left">&#xA0;</td>
+									<td width="32%" align="left">
+										<font face="Arial, Helvetica, sans-serif" size="2">
+											<strong>Motivo de traslado&#xA0;:</strong>
+										</font>										
+									</td>
+									<td width="67%" align="left">
+										<font face="Arial, Helvetica, sans-serif" size="2">
+											&#xA0;
+											<xsl:if test="//cbc:CustomizationID='1.0'">
+												<xsl:value-of select="//cac:Shipment/cbc:Information"/>
+											</xsl:if>
+											<xsl:if test="//cbc:CustomizationID='2.0'">
+												<xsl:value-of select="//cac:Shipment/cbc:HandlingInstructions"/>
+											</xsl:if>
+										</font>										
+									</td>
+								</tr>
+								<tr>
+									<td width="1%" align="left">&#xA0;</td>
+									<td width="32%" align="left">
+										<font face="Arial, Helvetica, sans-serif" size="2">
+											<strong>Modalidad de traslado
+											&#xA0;:</strong>											
+										</font>										
+									</td>
+									<td width="67%" align="left">
+										<font face="Arial, Helvetica, sans-serif" size="2">
+											&#xA0;
+											<xsl:if test="//cac:Shipment/cac:ShipmentStage/cbc:TransportModeCode='01'">
+												Transporte público
+											</xsl:if>
+											<xsl:if test="//cac:Shipment/cac:ShipmentStage/cbc:TransportModeCode='02'">
+												Transporte privado	
+											</xsl:if>
+										</font>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</xsl:template>	
+
 	<xsl:template name="ReferenciaDocumento">
 
 		<xsl:for-each select="//cac:AdditionalDocumentReference">
