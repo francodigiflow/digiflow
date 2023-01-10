@@ -52,8 +52,8 @@
 										<br/>
 											Representacion impresa de la factura Electrónica. 
 											<br/>
-											consulte en <a href="https://facturacion.ecomprobantes.pe/SCANIA" 
-											target="_blank"> https://facturacion.ecomprobantes.pe/SCANIA</a>
+											consulte en <a href="https://facturacion.ecomprobantes.pe/SCANIA/formularios/frmInicio.aspx" 
+											target="_blank">https://facturacion.ecomprobantes.pe/SCANIA/formularios/frmInicio.aspx</a>
 										</font>
 									</td>
 								</tr>
