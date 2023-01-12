@@ -143,6 +143,66 @@
 								</td>
 						
 						</tr>
+						<tr>
+							<!--NÚMERO-->
+								<td width="10%" align="center" vAlign="top" style="border:solid 1px black;border-top:none;border-bottom:none">
+									<font face="Arial, Helvetica, sans-serif" size="2">
+										
+									</font>
+								</td>
+								<!--CODIGO-->
+								<td width="10%" align="center" vAlign="top" style="border:solid 1px black;border-top:none;border-bottom:none">
+									<font face="Arial, Helvetica, sans-serif" size="2">
+										
+									</font>
+								</td>
+								<!--DESCRIPCION-->
+								<td width="60%" align="left" vAlign="top" style="border:solid 1px black;border-top:none;border-bottom:none">
+									<font face="Arial, Helvetica, sans-serif" size="2">
+										<xsl:call-template name="RetourneValAdItem">
+											<xsl:with-param name="NumAd" select="1"/>
+											<xsl:with-param name="NumLinea" select="cbc:ID"/>
+										</xsl:call-template>&#xA0;
+									</font>
+								</td>
+								<!--UNIDAD-->
+								<td width="10%" align="center" vAlign="top" style="border:solid 1px black;border-top:none;border-bottom:none">
+									<font face="Arial, Helvetica, sans-serif" size="2">
+										
+									</font>
+								</td>
+								<!--CANTIDAD-->
+								<td width="10%" align="center" vAlign="top" style="border:solid 1px black;border-top:none;border-bottom:none">
+									<font face="Arial, Helvetica, sans-serif" size="2">
+										
+									</font>
+								</td>
+								<!--V. UNITARIO-->
+								<td width="10%" align="right" vAlign="top" style="border:solid 1px black;border-top:none;border-bottom:none">
+									<font face="Arial, Helvetica, sans-serif" size="2">
+										
+									</font>
+								</td>
+								<!--P.VENTA-->
+								<td width="10%" align="right" vAlign="top" style="border:solid 1px black;border-top:none;border-bottom:none">
+									<font face="Arial, Helvetica, sans-serif" size="2">
+										
+									</font>
+								</td>
+								<!--DESCUENTO-->
+								<td width="10%" align="right" vAlign="top" style="border:solid 1px black;border-top:none;border-bottom:none">
+									<font face="Arial, Helvetica, sans-serif" size="2">
+																	
+									</font>
+								</td>
+								<!--IMPORTE TOTAL-->
+								<td width="10%" align="right" vAlign="top" style="border:solid 1px black;border-top:none;border-bottom:none">
+									<font face="Arial, Helvetica, sans-serif" size="2">
+										
+									</font>
+								</td>
+						
+						</tr>
 						</xsl:for-each>
 										
 						

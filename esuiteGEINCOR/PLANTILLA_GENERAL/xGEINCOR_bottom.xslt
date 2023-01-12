@@ -68,14 +68,13 @@
 					<img width="120" height="120" align="center" src="data:image/*;base64,[ted_1]" />
 				</td>
 			</tr>
-			<tr>
-				<td>&#160;
-				</td>
-			</tr>
+			<!-- <tr> -->
+				<!-- <td>&#160; -->
+				<!-- </td> -->
+			<!-- </tr> -->
 			<tr>
 				<td valign="baseline" align="left" width="50%">
 					<font color="#000000" size="2" face="Arial, Helvetica, sans-serif">
-				
 						<br/>Representación impresa de la
 						<xsl:choose>
 							<xsl:when test="/pe:Invoice/cbc:InvoiceTypeCode = '01'">Factura Electrónica</xsl:when>
@@ -88,11 +87,23 @@
 							<strong> 
 							<a href="https://facturacion.ecomprobantes.pe/GEINCOR">https://facturacion.ecomprobantes.pe/GEINCOR</a>
 						</strong>
+						<br/><br/>
+					</font>
+				</td>			
+			</tr>
+			<table width="100%" cellpadding="4" cellspacing="0" border="0"  style="border-top:solid 1px black;border-bottom:none">
+			<tr>
+				<td valign="top" align="center" width="50%">
+					<font color="#000000" size="2" face="Arial, Helvetica, sans-serif">
+						<strong> 
+							Incorporado al Régimen de Buenos Contribuyentes(D. Leg 912) a partir del 01/02/2015
+							<br/>Mediante Resolución N° 0230050103259
+						</strong>
 						<br/>
 					</font>
 				</td>			
 			</tr>
-			
+			</table>
 		</table>
 	</xsl:template>
 

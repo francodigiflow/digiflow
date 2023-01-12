@@ -86,6 +86,42 @@
 										<xsl:when test="//cac:AccountingCustomerParty/cac:Party/cac:PartyIdentification/cbc:ID/@schemeID = '7'">PAS -
 										<xsl:value-of select="//cac:AccountingCustomerParty/cac:Party/cac:PartyIdentification/cbc:ID"/>
 										</xsl:when>
+										<xsl:when test="//cac:AccountingCustomerParty/cbc:AdditionalAccountID = 'A'">CDI -
+										<xsl:value-of select="//cac:AccountingCustomerParty/cac:Party/cac:PartyIdentification/cbc:ID"/>
+										</xsl:when>
+										<xsl:when test="//cac:AccountingCustomerParty/cac:Party/cac:PartyIdentification/cbc:ID/@schemeID = 'A'">CDI -
+										<xsl:value-of select="//cac:AccountingCustomerParty/cac:Party/cac:PartyIdentification/cbc:ID"/>
+										</xsl:when>
+										<xsl:when test="//cac:AccountingCustomerParty/cbc:AdditionalAccountID = 'B'">DIPRND -
+										<xsl:value-of select="//cac:AccountingCustomerParty/cac:Party/cac:PartyIdentification/cbc:ID"/>
+										</xsl:when>
+										<xsl:when test="//cac:AccountingCustomerParty/cac:Party/cac:PartyIdentification/cbc:ID/@schemeID = 'B'">DIPRND -
+										<xsl:value-of select="//cac:AccountingCustomerParty/cac:Party/cac:PartyIdentification/cbc:ID"/>
+										</xsl:when>
+										<xsl:when test="//cac:AccountingCustomerParty/cbc:AdditionalAccountID = 'C'">TIN -
+										<xsl:value-of select="//cac:AccountingCustomerParty/cac:Party/cac:PartyIdentification/cbc:ID"/>
+										</xsl:when>
+										<xsl:when test="//cac:AccountingCustomerParty/cac:Party/cac:PartyIdentification/cbc:ID/@schemeID = 'C'">TIN -
+										<xsl:value-of select="//cac:AccountingCustomerParty/cac:Party/cac:PartyIdentification/cbc:ID"/>
+										</xsl:when>
+										<xsl:when test="//cac:AccountingCustomerParty/cbc:AdditionalAccountID = 'D'">IN -
+										<xsl:value-of select="//cac:AccountingCustomerParty/cac:Party/cac:PartyIdentification/cbc:ID"/>
+										</xsl:when>
+										<xsl:when test="//cac:AccountingCustomerParty/cac:Party/cac:PartyIdentification/cbc:ID/@schemeID = 'D'">IN -
+										<xsl:value-of select="//cac:AccountingCustomerParty/cac:Party/cac:PartyIdentification/cbc:ID"/>
+										</xsl:when>
+										<xsl:when test="//cac:AccountingCustomerParty/cbc:AdditionalAccountID = 'E'">TAM -
+										<xsl:value-of select="//cac:AccountingCustomerParty/cac:Party/cac:PartyIdentification/cbc:ID"/>
+										</xsl:when>
+										<xsl:when test="//cac:AccountingCustomerParty/cac:Party/cac:PartyIdentification/cbc:ID/@schemeID = 'E'">TAM -
+										<xsl:value-of select="//cac:AccountingCustomerParty/cac:Party/cac:PartyIdentification/cbc:ID"/>
+										</xsl:when>
+										<xsl:when test="//cac:AccountingCustomerParty/cbc:AdditionalAccountID = 'F'">PTP -
+										<xsl:value-of select="//cac:AccountingCustomerParty/cac:Party/cac:PartyIdentification/cbc:ID"/>
+										</xsl:when>
+										<xsl:when test="//cac:AccountingCustomerParty/cac:Party/cac:PartyIdentification/cbc:ID/@schemeID = 'F'">PTP -
+										<xsl:value-of select="//cac:AccountingCustomerParty/cac:Party/cac:PartyIdentification/cbc:ID"/>
+										</xsl:when>
 									</xsl:choose>									
 									</xsl:if>
 								</font>
@@ -267,7 +303,7 @@
 											</xsl:if>
 										</font>
 							</td>
-							</xsl:if>
+							
 							<td width="18%">
 							  	<font face="Arial, Helvetica, sans-serif" size="2"> 
 									<Strong>Orden de Compra</Strong>
@@ -279,8 +315,11 @@
 										<xsl:value-of select="//cac:OrderReference/cbc:ID"/>
 									</font>
 							</td>
+							</xsl:if>
 						</tr>
+						<xsl:if test="/pe:Invoice/cbc:InvoiceTypeCode ='01'">
 						<tr>
+						
 							<td width="18%">
 							  	<font face="Arial, Helvetica, sans-serif" size="2"> 
 									<Strong>Guía de Remision Remitente: </Strong>
@@ -294,17 +333,23 @@
 							</td>
 							<td width="18%">
 							  	<font face="Arial, Helvetica, sans-serif" size="2"> 
-									<Strong></Strong>
+									<Strong>Orden de Venta</Strong>
 								</font>
 							</td>
 							<td width="30%">
-									<!-- <Strong>: </Strong> -->
+									<Strong>: </Strong>
 									<font face="Arial, Helvetica, sans-serif" size="2"> 
-										
+										<xsl:for-each select="//ext:UBLExtensions/ext:UBLExtension/ext:ExtensionContent/pe:DatosAdicionales/pe:DatoAdicional">
+										<xsl:if test="pe:Codigo='03'">
+											<xsl:if test="pe:Valor !='-'">
+												<xsl:value-of select="pe:Valor"/> 
+											</xsl:if>
+										</xsl:if>
+									</xsl:for-each>
 									</font>
 							</td>
 						</tr>
-
+						</xsl:if>
 					</table>
 				</td>
 			</tr>
@@ -439,6 +484,6 @@
 </xsl:stylesheet>
 <!-- Stylus Studio meta-information - (c) 2004-2006. Progress Software Corporation. All rights reserved.
 <metaInformation>
-<scenarios/><MapperMetaTag><MapperInfo srcSchemaPathIsRelative="yes" srcSchemaInterpretAsXML="no" destSchemaPath="" destSchemaRoot="" destSchemaPathIsRelative="yes" destSchemaInterpretAsXML="no"/><MapperBlockPosition></MapperBlockPosition><TemplateContext></TemplateContext><MapperFilter side="source"></MapperFilter></MapperMetaTag>
+<scenarios ><scenario default="yes" name="Scenario1" userelativepaths="yes" externalpreview="no" url="" htmlbaseurl="" outputurl="" processortype="internal" useresolver="yes" profilemode="0" profiledepth="" profilelength="" urlprofilexml="" commandline="" additionalpath="" additionalclasspath="" postprocessortype="none" postprocesscommandline="" postprocessadditionalpath="" postprocessgeneratedext="" validateoutput="no" validator="internal" customvalidator=""/></scenarios><MapperMetaTag><MapperInfo srcSchemaPathIsRelative="yes" srcSchemaInterpretAsXML="no" destSchemaPath="" destSchemaRoot="" destSchemaPathIsRelative="yes" destSchemaInterpretAsXML="no"/><MapperBlockPosition></MapperBlockPosition><TemplateContext></TemplateContext><MapperFilter side="source"></MapperFilter></MapperMetaTag>
 </metaInformation>
 -->

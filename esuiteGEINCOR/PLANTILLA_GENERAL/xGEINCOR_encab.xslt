@@ -105,11 +105,11 @@
 						<strong><font face="Arial, Helvetica, sans-serif" size="4">
 							R.U.C. N°
 							<xsl:if test="//cbc:UBLVersionID='2.0'">
-								<xsl:value-of select="format-number(//cac:AccountingSupplierParty/cbc:CustomerAssignedAccountID,'#########','pen')"/>
-							</xsl:if>
-							<xsl:if test="//cbc:UBLVersionID='2.1'">
-								<xsl:value-of select="format-number(//cac:PartyIdentification/cbc:ID,'###########','pen')"/>
-							</xsl:if>
+												<xsl:value-of select="format-number(//cac:AccountingSupplierParty/cbc:CustomerAssignedAccountID,'#########','pen')"/>
+												</xsl:if>
+												<xsl:if test="//cbc:UBLVersionID='2.1'">
+												<xsl:value-of select="format-number(//cac:PartyIdentification/cbc:ID,'###########','pen')"/>
+												</xsl:if>
 												<br/>
 												<br/>
 												
