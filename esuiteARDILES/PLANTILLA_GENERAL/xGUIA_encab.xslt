@@ -107,9 +107,19 @@ xmlns:sac="urn:sunat:names:specification:ubl:peru:schema:xsd:SunatAggregateCompo
 							<br/><br/><xsl:call-template name="NFolio"/>
 						</strong>
 				</td>
-				<td><font color="#000000" size="3" face="Arial, Helvetica, sans-serif">
-				<img width="150px" height="150px" align="center" src="data:image/*;base64,[ted_1]" />
-				</font></td>
+				<td>
+					<font color="#000000" size="3" face="Arial, Helvetica, sans-serif">
+						<!--<img width="150px" height="150px" align="center" src="data:image/*;base64,[ted_1]" />-->
+						<xsl:attribute name="src">
+						        <xsl:call-template name="timbre"/>
+						    </xsl:attribute>
+							<img width="150px" height="150px">
+						    <xsl:attribute name="src">
+						        <xsl:call-template name="timbre"/>
+						    </xsl:attribute>
+						</img>
+					</font>
+				</td>
 			</tr>
 		</table>
 	</xsl:template>

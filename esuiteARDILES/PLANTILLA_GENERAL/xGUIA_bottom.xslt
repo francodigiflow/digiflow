@@ -79,12 +79,10 @@ xmlns:sac="urn:sunat:names:specification:ubl:peru:schema:xsd:SunatAggregateCompo
 
 	
 
-	<xsl:template name="timbre">
-		
-		
-	<xsl:value-of select="pe:Invoice/ext:UBLExtensions/ext:UBLExtension/ext:ExtensionContent/pe:DatosAdicionales/pe:Documento/pe:Nombre"/>
-		<xsl:value-of select="'.jpg'"/>
-	</xsl:template>
+	<xsl:template name="timbre">        
+        <xsl:value-of select="//ext:UBLExtensions/ext:UBLExtension/ext:ExtensionContent/pe:DatosAdicionales/pe:Documento/pe:Nombre"/>
+        <xsl:value-of select="'.jpg'"/>
+    </xsl:template>
 	
 	<xsl:template name="nombreTed">
 		<xsl:param name="text"/>
