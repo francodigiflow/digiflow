@@ -27,16 +27,22 @@ xmlns:sac="urn:sunat:names:specification:ubl:peru:schema:xsd:SunatAggregateCompo
 	<xsl:template name="EncabezadoPeru">
 		<table cellSpacing="0" border="0"  style="font-family :Arial,Helvetica,sans-serif;font-size:15px;color:#000000" width="100%">
 			<tr>
+					<td valign="top" width="14%" align="left" colspan="3">
+							<!--<img width="100px" src="data:image/*;base64,[logo_2]" />-->
+							<img width="360" src="logo_wongcia.jpg" />
+					</td>
+					
+			</tr>
+			<tr>
 					<td valign="top" width="14%" align="left">
-							<img width="100px" src="data:image/*;base64,[logo_2]" />
-							<!--<img width="120px" src="logo_wongcia_guia.jpg" />-->
+							
 					</td>				
 					<td valign="top" width="1%" align="left">
 						
 					</td>
 					<td valign="top" align="center" width="85%" style="font-family :Arial,Helvetica,sans-serif;font-size:9px;color:#000000">	
-							<br/><br/>
-							<font size="6" >
+							<br/>
+							<font size="2" >
 							<strong><xsl:value-of select="//cac:DespatchSupplierParty/cac:Party/cac:PartyLegalEntity/cbc:RegistrationName"/>	</strong>
 							</font>
 							&#160;<br/>
@@ -73,7 +79,6 @@ xmlns:sac="urn:sunat:names:specification:ubl:peru:schema:xsd:SunatAggregateCompo
 							</font>
 					</td>
 			</tr>
-
 		</table>
 	</xsl:template>
 	
