@@ -1017,81 +1017,84 @@
 		
 		<xsl:if test="($totadicionales + $numitems)	&gt;'29'">
 		<xsl:choose>
-		<xsl:when test="($item1 + $item2 + $item3 + $item4 + $item5 + $item6) ='30'">
+				<xsl:when test="($item1 + $item2 + $item3 + $item4 + $item5 + $item6) &gt;'28' and ($item1 + $item2 + $item3 + $item4 + $item5 + $item6) &lt;'32' ">
 			<xsl:value-of select="6"/>
 		</xsl:when> 
-		<xsl:when test="($item1 + $item2 + $item3 + $item4 + $item5 + $item6 + $item7) ='30'">
+		<xsl:when test="($item1 + $item2 + $item3 + $item4 + $item5 + $item6 + $item7) &gt;'28' and ($item1 + $item2 + $item3 + $item4 + $item5 + $item6 + $item7) &lt;'32' ">
 			<xsl:value-of select="7"/>
 		</xsl:when> 
-		<xsl:when test="($item1 + $item2 + $item3 + $item4 + $item5 + $item6 + $item7 + $item8) ='30'">
+		<xsl:when test="($item1 + $item2 + $item3 + $item4 + $item5 + $item6 + $item7 + $item8) &gt;'28' and ($item1 + $item2 + $item3 + $item4 + $item5 + $item6 + $item7 + $item8) &lt;'32' ">
 			<xsl:value-of select="8"/>
 		</xsl:when>
-		<xsl:when test="($item1 + $item2 + $item3 + $item4 + $item5 + $item6 + $item7 + $item8 + $item9) ='30'">
+		<xsl:when test="($item1 + $item2 + $item3 + $item4 + $item5 + $item6 + $item7 + $item8 + $item9) &gt;'28' and ($item1 + $item2 + $item3 + $item4 + $item5 + $item6 + $item7 + $item8 + $item9) &lt;'32' ">
 			<xsl:value-of select="9"/>
 		</xsl:when>
-		<xsl:when test="($item1 + $item2 + $item3 + $item4 + $item5 + $item6 + $item7 + $item8 + $item9 + $item10 ) ='30'">
+		<xsl:when test="($item1 + $item2 + $item3 + $item4 + $item5 + $item6 + $item7 + $item8 + $item9 + $item10 ) &gt;'28' and ($item1 + $item2 + $item3 + $item4 + $item5 + $item6 + $item7 + $item8 + $item9 + $item10 ) &lt;'32' ">
 			<xsl:value-of select="10"/>
 		</xsl:when>
-		<xsl:when test="($item1 + $item2 + $item3 + $item4 + $item5 + $item6 + $item7 + $item8 + $item9 + $item10 + $item11 ) ='30'">
+		<xsl:when test="($item1 + $item2 + $item3 + $item4 + $item5 + $item6 + $item7 + $item8 + $item9 + $item10 + $item11 ) &gt;'28' and ($item1 + $item2 + $item3 + $item4 + $item5 + $item6 + $item7 + $item8 + $item9 + $item10 + $item11 ) &lt;'32' ">
 			<xsl:value-of select="11"/>
 		</xsl:when>
-		<xsl:when test="($item1 + $item2 + $item3 + $item4 + $item5 + $item6 + $item7 + $item8 + $item9 + $item10 + $item11 + $item12 ) ='30'">
+		<xsl:when test="($item1 + $item2 + $item3 + $item4 + $item5 + $item6 + $item7 + $item8 + $item9 + $item10 + $item11 + $item12 ) &gt;'28' and ($item1 + $item2 + $item3 + $item4 + $item5 + $item6 + $item7 + $item8 + $item9 + $item10 + $item11 + $item12 ) &lt;'32' ">
 			<xsl:value-of select="12"/>
 		</xsl:when>
-		<xsl:when test="($item1 + $item2 + $item3 + $item4 + $item5 + $item6 + $item7 + $item8 + $item9 + $item10 + $item11 + $item12 + $item13 ) ='30'">
+		<xsl:when test="($item1 + $item2 + $item3 + $item4 + $item5 + $item6 + $item7 + $item8 + $item9 + $item10 + $item11 + $item12 + $item13 ) &gt;'28' and ($item1 + $item2 + $item3 + $item4 + $item5 + $item6 + $item7 + $item8 + $item9 + $item10 + $item11 + $item12 + $item13 ) &lt;'32' ">
 			<xsl:value-of select="13"/>
 		</xsl:when>
-		<xsl:when test="($item1 + $item2 + $item3 + $item4 + $item5 + $item6 + $item7 + $item8 + $item9 + $item10 + $item11 + $item12 + $item13 + $item14) ='30'">
+		<xsl:when test="($item1 + $item2 + $item3 + $item4 + $item5 + $item6 + $item7 + $item8 + $item9 + $item10 + $item11 + $item12 + $item13 + $item14) &gt;'28' and ($item1 + $item2 + $item3 + $item4 + $item5 + $item6 + $item7 + $item8 + $item9 + $item10 + $item11 + $item12 + $item13 + $item14) &lt;'32' ">
 			<xsl:value-of select="14"/>
 		</xsl:when>
-		<xsl:when test="($item1 + $item2 + $item3 + $item4 + $item5 + $item6 + $item7 + $item8 + $item9 + $item10 + $item11 + $item12 + $item13 + $item14 + $item15) ='30'">
+		<xsl:when test="($item1 + $item2 + $item3 + $item4 + $item5 + $item6 + $item7 + $item8 + $item9 + $item10 + $item11 + $item12 + $item13 + $item14 + $item15) &gt;'28' and ($item1 + $item2 + $item3 + $item4 + $item5 + $item6 + $item7 + $item8 + $item9 + $item10 + $item11 + $item12 + $item13 + $item14 + $item15) &lt;'32' ">
 			<xsl:value-of select="15"/>
 		</xsl:when>
-		<xsl:when test="($item1 + $item2 + $item3 + $item4 + $item5 + $item6 + $item7 + $item8 + $item9 + $item10 + $item11 + $item12 + $item13 + $item14 + $item15 + $item16 ) ='30'">
+		<xsl:when test="($item1 + $item2 + $item3 + $item4 + $item5 + $item6 + $item7 + $item8 + $item9 + $item10 + $item11 + $item12 + $item13 + $item14 + $item15 + $item16 ) &gt;'28' and ($item1 + $item2 + $item3 + $item4 + $item5 + $item6 + $item7 + $item8 + $item9 + $item10 + $item11 + $item12 + $item13 + $item14 + $item15 + $item16 ) &lt;'32' ">
 			<xsl:value-of select="16"/>
 		</xsl:when>
-		<xsl:when test="($item1 + $item2 + $item3 + $item4 + $item5 + $item6 + $item7 + $item8 + $item9 + $item10 + $item11 + $item12 + $item13 + $item14 + $item15 + $item16 + $item17 ) ='30'">
+		<xsl:when test="($item1 + $item2 + $item3 + $item4 + $item5 + $item6 + $item7 + $item8 + $item9 + $item10 + $item11 + $item12 + $item13 + $item14 + $item15 + $item16 + $item17 ) &gt;'28' and ($item1 + $item2 + $item3 + $item4 + $item5 + $item6 + $item7 + $item8 + $item9 + $item10 + $item11 + $item12 + $item13 + $item14 + $item15 + $item16 + $item17 ) &lt;'32' ">
 			<xsl:value-of select="17"/>
 		</xsl:when>
-		<xsl:when test="($item1 + $item2 + $item3 + $item4 + $item5 + $item6 + $item7 + $item8 + $item9 + $item10 + $item11 + $item12 + $item13 + $item14 + $item15 + $item16 + $item17 + $item18 ) ='30'">
+		<xsl:when test="($item1 + $item2 + $item3 + $item4 + $item5 + $item6 + $item7 + $item8 + $item9 + $item10 + $item11 + $item12 + $item13 + $item14 + $item15 + $item16 + $item17 + $item18 ) &gt;'28' and ($item1 + $item2 + $item3 + $item4 + $item5 + $item6 + $item7 + $item8 + $item9 + $item10 + $item11 + $item12 + $item13 + $item14 + $item15 + $item16 + $item17 + $item18 ) &lt;'32' ">
 			<xsl:value-of select="18"/>
 		</xsl:when>
-		<xsl:when test="($item1 + $item2 + $item3 + $item4 + $item5 + $item6 + $item7 + $item8 + $item9 + $item10 + $item11 + $item12 + $item13 + $item14 + $item15 + $item16 + $item17 + $item18 + $item19 ) ='30'">
+		<xsl:when test="($item1 + $item2 + $item3 + $item4 + $item5 + $item6 + $item7 + $item8 + $item9 + $item10 + $item11 + $item12 + $item13 + $item14 + $item15 + $item16 + $item17 + $item18 + $item19 ) &gt;'28' and ($item1 + $item2 + $item3 + $item4 + $item5 + $item6 + $item7 + $item8 + $item9 + $item10 + $item11 + $item12 + $item13 + $item14 + $item15 + $item16 + $item17 + $item18 + $item19 ) &lt;'32' ">
 			<xsl:value-of select="19"/>
 		</xsl:when>
-		<xsl:when test="($item1 + $item2 + $item3 + $item4 + $item5 + $item6 + $item7 + $item8 + $item9 + $item10 + $item11 + $item12 + $item13 + $item14 + $item15 + $item16 + $item17 + $item18 + $item19  + $item20 ) ='30'">
+		<xsl:when test="($item1 + $item2 + $item3 + $item4 + $item5 + $item6 + $item7 + $item8 + $item9 + $item10 + $item11 + $item12 + $item13 + $item14 + $item15 + $item16 + $item17 + $item18 + $item19  + $item20 ) &gt;'28' and ($item1 + $item2 + $item3 + $item4 + $item5 + $item6 + $item7 + $item8 + $item9 + $item10 + $item11 + $item12 + $item13 + $item14 + $item15 + $item16 + $item17 + $item18 + $item19  + $item20 ) &lt;'32' ">
 			<xsl:value-of select="20"/>
 		</xsl:when>
-		<xsl:when test="($item1 + $item2 + $item3 + $item4 + $item5 + $item6 + $item7 + $item8 + $item9 + $item10 + $item11 + $item12 + $item13 + $item14 + $item15 + $item16 + $item17 + $item18 + $item19  + $item20 + $item21 ) ='30'">
+		<xsl:when test="($item1 + $item2 + $item3 + $item4 + $item5 + $item6 + $item7 + $item8 + $item9 + $item10 + $item11 + $item12 + $item13 + $item14 + $item15 + $item16 + $item17 + $item18 + $item19  + $item20 + $item21 ) &gt;'28' and ($item1 + $item2 + $item3 + $item4 + $item5 + $item6 + $item7 + $item8 + $item9 + $item10 + $item11 + $item12 + $item13 + $item14 + $item15 + $item16 + $item17 + $item18 + $item19  + $item20 + $item21 ) &lt;'32' ">
 			<xsl:value-of select="21"/>
 		</xsl:when>
-		<xsl:when test="($item1 + $item2 + $item3 + $item4 + $item5 + $item6 + $item7 + $item8 + $item9 + $item10 + $item11 + $item12 + $item13 + $item14 + $item15 + $item16 + $item17 + $item18 + $item19  + $item20 + $item21 + $item22) ='30'">
+		<xsl:when test="($item1 + $item2 + $item3 + $item4 + $item5 + $item6 + $item7 + $item8 + $item9 + $item10 + $item11 + $item12 + $item13 + $item14 + $item15 + $item16 + $item17 + $item18 + $item19  + $item20 + $item21 + $item22) &gt;'28' and ($item1 + $item2 + $item3 + $item4 + $item5 + $item6 + $item7 + $item8 + $item9 + $item10 + $item11 + $item12 + $item13 + $item14 + $item15 + $item16 + $item17 + $item18 + $item19  + $item20 + $item21 + $item22) &lt;'32' ">
 			<xsl:value-of select="22"/>
 		</xsl:when>
-		<xsl:when test="($item1 + $item2 + $item3 + $item4 + $item5 + $item6 + $item7 + $item8 + $item9 + $item10 + $item11 + $item12 + $item13 + $item14 + $item15 + $item16 + $item17 + $item18 + $item19  + $item20 + $item21 + $item22 + $item23) ='30'">
+		<xsl:when test="($item1 + $item2 + $item3 + $item4 + $item5 + $item6 + $item7 + $item8 + $item9 + $item10 + $item11 + $item12 + $item13 + $item14 + $item15 + $item16 + $item17 + $item18 + $item19  + $item20 + $item21 + $item22 + $item23) &gt;'28' and ($item1 + $item2 + $item3 + $item4 + $item5 + $item6 + $item7 + $item8 + $item9 + $item10 + $item11 + $item12 + $item13 + $item14 + $item15 + $item16 + $item17 + $item18 + $item19  + $item20 + $item21 + $item22 + $item23) &lt;'32' ">
 			<xsl:value-of select="23"/>
 		</xsl:when>
-		<xsl:when test="($item1 + $item2 + $item3 + $item4 + $item5 + $item6 + $item7 + $item8 + $item9 + $item10 + $item11 + $item12 + $item13 + $item14 + $item15 + $item16 + $item17 + $item18 + $item19  + $item20 + $item21 + $item22 + $item23 + $item24) ='30'">
+		<xsl:when test="($item1 + $item2 + $item3 + $item4 + $item5 + $item6 + $item7 + $item8 + $item9 + $item10 + $item11 + $item12 + $item13 + $item14 + $item15 + $item16 + $item17 + $item18 + $item19  + $item20 + $item21 + $item22 + $item23 + $item24) &gt;'28' and ($item1 + $item2 + $item3 + $item4 + $item5 + $item6 + $item7 + $item8 + $item9 + $item10 + $item11 + $item12 + $item13 + $item14 + $item15 + $item16 + $item17 + $item18 + $item19  + $item20 + $item21 + $item22 + $item23 + $item24) &lt;'32' ">
 			<xsl:value-of select="24"/>
 		</xsl:when>
-		<xsl:when test="($item1 + $item2 + $item3 + $item4 + $item5 + $item6 + $item7 + $item8 + $item9 + $item10 + $item11 + $item12 + $item13 + $item14 + $item15 + $item16 + $item17 + $item18 + $item19  + $item20 + $item21 + $item22 + $item23 + $item24  + $item25) ='30'">
+		<xsl:when test="($item1 + $item2 + $item3 + $item4 + $item5 + $item6 + $item7 + $item8 + $item9 + $item10 + $item11 + $item12 + $item13 + $item14 + $item15 + $item16 + $item17 + $item18 + $item19  + $item20 + $item21 + $item22 + $item23 + $item24  + $item25) &gt;'28' and ($item1 + $item2 + $item3 + $item4 + $item5 + $item6 + $item7 + $item8 + $item9 + $item10 + $item11 + $item12 + $item13 + $item14 + $item15 + $item16 + $item17 + $item18 + $item19  + $item20 + $item21 + $item22 + $item23 + $item24  + $item25) &lt;'32' ">
 			<xsl:value-of select="25"/>
 		</xsl:when>
-		<xsl:when test="($item1 + $item2 + $item3 + $item4 + $item5 + $item6 + $item7 + $item8 + $item9 + $item10 + $item11 + $item12 + $item13 + $item14 + $item15 + $item16 + $item17 + $item18 + $item19  + $item20 + $item21 + $item22 + $item23 + $item24  + $item25  + $item26) ='30'">
+		<xsl:when test="($item1 + $item2 + $item3 + $item4 + $item5 + $item6 + $item7 + $item8 + $item9 + $item10 + $item11 + $item12 + $item13 + $item14 + $item15 + $item16 + $item17 + $item18 + $item19  + $item20 + $item21 + $item22 + $item23 + $item24  + $item25  + $item26) &gt;'28' and ($item1 + $item2 + $item3 + $item4 + $item5 + $item6 + $item7 + $item8 + $item9 + $item10 + $item11 + $item12 + $item13 + $item14 + $item15 + $item16 + $item17 + $item18 + $item19  + $item20 + $item21 + $item22 + $item23 + $item24  + $item25  + $item26) &lt;'32' ">
 			<xsl:value-of select="26"/>
 		</xsl:when>
-		<xsl:when test="($item1 + $item2 + $item3 + $item4 + $item5 + $item6 + $item7 + $item8 + $item9 + $item10 + $item11 + $item12 + $item13 + $item14 + $item15 + $item16 + $item17 + $item18 + $item19  + $item20 + $item21 + $item22 + $item23 + $item24  + $item25  + $item26  + $item27) ='30'">
+		<xsl:when test="($item1 + $item2 + $item3 + $item4 + $item5 + $item6 + $item7 + $item8 + $item9 + $item10 + $item11 + $item12 + $item13 + $item14 + $item15 + $item16 + $item17 + $item18 + $item19  + $item20 + $item21 + $item22 + $item23 + $item24  + $item25  + $item26  + $item27) &gt;'28' and ($item1 + $item2 + $item3 + $item4 + $item5 + $item6 + $item7 + $item8 + $item9 + $item10 + $item11 + $item12 + $item13 + $item14 + $item15 + $item16 + $item17 + $item18 + $item19  + $item20 + $item21 + $item22 + $item23 + $item24  + $item25  + $item26  + $item27) &lt;'32' ">
 			<xsl:value-of select="27"/>
 		</xsl:when>
-		<xsl:when test="($item1 + $item2 + $item3 + $item4 + $item5 + $item6 + $item7 + $item8 + $item9 + $item10 + $item11 + $item12 + $item13 + $item14 + $item15 + $item16 + $item17 + $item18 + $item19  + $item20 + $item21 + $item22 + $item23 + $item24  + $item25  + $item26  + $item27  + $item28) ='30'">
+		<xsl:when test="($item1 + $item2 + $item3 + $item4 + $item5 + $item6 + $item7 + $item8 + $item9 + $item10 + $item11 + $item12 + $item13 + $item14 + $item15 + $item16 + $item17 + $item18 + $item19  + $item20 + $item21 + $item22 + $item23 + $item24  + $item25  + $item26  + $item27  + $item28) &gt;'28' and ($item1 + $item2 + $item3 + $item4 + $item5 + $item6 + $item7 + $item8 + $item9 + $item10 + $item11 + $item12 + $item13 + $item14 + $item15 + $item16 + $item17 + $item18 + $item19  + $item20 + $item21 + $item22 + $item23 + $item24  + $item25  + $item26  + $item27  + $item28) &lt;'32' ">
 			<xsl:value-of select="28"/>
 		</xsl:when>
-		<xsl:when test="($item1 + $item2 + $item3 + $item4 + $item5 + $item6 + $item7 + $item8 + $item9 + $item10 + $item11 + $item12 + $item13 + $item14 + $item15 + $item16 + $item17 + $item18 + $item19  + $item20 + $item21 + $item22 + $item23 + $item24  + $item25  + $item26  + $item27  + $item28  + $item29) ='30'">
+		<xsl:when test="($item1 + $item2 + $item3 + $item4 + $item5 + $item6 + $item7 + $item8 + $item9 + $item10 + $item11 + $item12 + $item13 + $item14 + $item15 + $item16 + $item17 + $item18 + $item19  + $item20 + $item21 + $item22 + $item23 + $item24  + $item25  + $item26  + $item27  + $item28  + $item29) &gt;'28' and ($item1 + $item2 + $item3 + $item4 + $item5 + $item6 + $item7 + $item8 + $item9 + $item10 + $item11 + $item12 + $item13 + $item14 + $item15 + $item16 + $item17 + $item18 + $item19  + $item20 + $item21 + $item22 + $item23 + $item24  + $item25  + $item26  + $item27  + $item28  + $item29) &lt;'32' ">
 			<xsl:value-of select="29"/>
 		</xsl:when>
-		<xsl:when test="($item1 + $item2 + $item3 + $item4 + $item5 + $item6 + $item7 + $item8 + $item9 + $item10 + $item11 + $item12 + $item13 + $item14 + $item15 + $item16 + $item17 + $item18 + $item19  + $item20 + $item21 + $item22 + $item23 + $item24  + $item25  + $item26  + $item27  + $item28  + $item29  + $item30) ='30'">
+		<xsl:when test="($item1 + $item2 + $item3 + $item4 + $item5 + $item6 + $item7 + $item8 + $item9 + $item10 + $item11 + $item12 + $item13 + $item14 + $item15 + $item16 + $item17 + $item18 + $item19  + $item20 + $item21 + $item22 + $item23 + $item24  + $item25  + $item26  + $item27  + $item28  + $item29  + $item30) &gt;'28' and ($item1 + $item2 + $item3 + $item4 + $item5 + $item6 + $item7 + $item8 + $item9 + $item10 + $item11 + $item12 + $item13 + $item14 + $item15 + $item16 + $item17 + $item18 + $item19  + $item20 + $item21 + $item22 + $item23 + $item24  + $item25  + $item26  + $item27  + $item28  + $item29  + $item30) &lt;'32' ">
 			<xsl:value-of select="30"/>
 		</xsl:when>
+		<xsl:otherwise>
+			<xsl:value-of select="15"/>
+		</xsl:otherwise>
 		</xsl:choose>
 
 		</xsl:if>
@@ -1102,49 +1105,49 @@
 		
 		<xsl:if test="($totadicionales + $numitems)	&gt;'79'">
 		<xsl:choose>
-		<xsl:when test="($item1 + $item2 + $item3 + $item4 + $item5 + $item6 + $item7 + $item8 + $item9 + $item10 + $item11 + $item12 + $item13 + $item14 + $item15 + $item16 ) ='80'">
+		<xsl:when test="($item1 + $item2 + $item3 + $item4 + $item5 + $item6 + $item7 + $item8 + $item9 + $item10 + $item11 + $item12 + $item13 + $item14 + $item15 + $item16 ) &gt;'78' and ($item1 + $item2 + $item3 + $item4 + $item5 + $item6 + $item7 + $item8 + $item9 + $item10 + $item11 + $item12 + $item13 + $item14 + $item15 + $item16 ) &lt;'82'">
 			<xsl:value-of select="16"/>
 		</xsl:when>
-		<xsl:when test="($item1 + $item2 + $item3 + $item4 + $item5 + $item6 + $item7 + $item8 + $item9 + $item10 + $item11 + $item12 + $item13 + $item14 + $item15 + $item16 + $item17 ) ='80'">
+		<xsl:when test="($item1 + $item2 + $item3 + $item4 + $item5 + $item6 + $item7 + $item8 + $item9 + $item10 + $item11 + $item12 + $item13 + $item14 + $item15 + $item16 + $item17 ) &gt;'78' and ($item1 + $item2 + $item3 + $item4 + $item5 + $item6 + $item7 + $item8 + $item9 + $item10 + $item11 + $item12 + $item13 + $item14 + $item15 + $item16 + $item17 ) &lt;'82'">
 			<xsl:value-of select="17"/>
 		</xsl:when>
-		<xsl:when test="($item1 + $item2 + $item3 + $item4 + $item5 + $item6 + $item7 + $item8 + $item9 + $item10 + $item11 + $item12 + $item13 + $item14 + $item15 + $item16 + $item17 + $item18 ) ='80'">
+		<xsl:when test="($item1 + $item2 + $item3 + $item4 + $item5 + $item6 + $item7 + $item8 + $item9 + $item10 + $item11 + $item12 + $item13 + $item14 + $item15 + $item16 + $item17 + $item18 ) &gt;'78' and ($item1 + $item2 + $item3 + $item4 + $item5 + $item6 + $item7 + $item8 + $item9 + $item10 + $item11 + $item12 + $item13 + $item14 + $item15 + $item16 + $item17 + $item18 ) &lt;'82'">
 			<xsl:value-of select="18"/>
 		</xsl:when>
-		<xsl:when test="($item1 + $item2 + $item3 + $item4 + $item5 + $item6 + $item7 + $item8 + $item9 + $item10 + $item11 + $item12 + $item13 + $item14 + $item15 + $item16 + $item17 + $item18 + $item19 ) ='80'">
+		<xsl:when test="($item1 + $item2 + $item3 + $item4 + $item5 + $item6 + $item7 + $item8 + $item9 + $item10 + $item11 + $item12 + $item13 + $item14 + $item15 + $item16 + $item17 + $item18 + $item19 ) &gt;'78' and ($item1 + $item2 + $item3 + $item4 + $item5 + $item6 + $item7 + $item8 + $item9 + $item10 + $item11 + $item12 + $item13 + $item14 + $item15 + $item16 + $item17 + $item18 + $item19 ) &lt;'82'">
 			<xsl:value-of select="19"/>
 		</xsl:when>
-		<xsl:when test="($item1 + $item2 + $item3 + $item4 + $item5 + $item6 + $item7 + $item8 + $item9 + $item10 + $item11 + $item12 + $item13 + $item14 + $item15 + $item16 + $item17 + $item18 + $item19  + $item20 ) ='80'">
+		<xsl:when test="($item1 + $item2 + $item3 + $item4 + $item5 + $item6 + $item7 + $item8 + $item9 + $item10 + $item11 + $item12 + $item13 + $item14 + $item15 + $item16 + $item17 + $item18 + $item19  + $item20 ) &gt;'78' and ($item1 + $item2 + $item3 + $item4 + $item5 + $item6 + $item7 + $item8 + $item9 + $item10 + $item11 + $item12 + $item13 + $item14 + $item15 + $item16 + $item17 + $item18 + $item19  + $item20 ) &lt;'82'">
 			<xsl:value-of select="20"/>
 		</xsl:when>
-		<xsl:when test="($item1 + $item2 + $item3 + $item4 + $item5 + $item6 + $item7 + $item8 + $item9 + $item10 + $item11 + $item12 + $item13 + $item14 + $item15 + $item16 + $item17 + $item18 + $item19  + $item20 + $item21 ) ='80'">
+		<xsl:when test="($item1 + $item2 + $item3 + $item4 + $item5 + $item6 + $item7 + $item8 + $item9 + $item10 + $item11 + $item12 + $item13 + $item14 + $item15 + $item16 + $item17 + $item18 + $item19  + $item20 + $item21 ) &gt;'78' and ($item1 + $item2 + $item3 + $item4 + $item5 + $item6 + $item7 + $item8 + $item9 + $item10 + $item11 + $item12 + $item13 + $item14 + $item15 + $item16 + $item17 + $item18 + $item19  + $item20 + $item21 ) &lt;'82'">
 			<xsl:value-of select="21"/>
 		</xsl:when>
-		<xsl:when test="($item1 + $item2 + $item3 + $item4 + $item5 + $item6 + $item7 + $item8 + $item9 + $item10 + $item11 + $item12 + $item13 + $item14 + $item15 + $item16 + $item17 + $item18 + $item19  + $item20 + $item21 + $item22) ='80'">
+		<xsl:when test="($item1 + $item2 + $item3 + $item4 + $item5 + $item6 + $item7 + $item8 + $item9 + $item10 + $item11 + $item12 + $item13 + $item14 + $item15 + $item16 + $item17 + $item18 + $item19  + $item20 + $item21 + $item22) &gt;'78' and ($item1 + $item2 + $item3 + $item4 + $item5 + $item6 + $item7 + $item8 + $item9 + $item10 + $item11 + $item12 + $item13 + $item14 + $item15 + $item16 + $item17 + $item18 + $item19  + $item20 + $item21 + $item22) &lt;'82'">
 			<xsl:value-of select="22"/>
 		</xsl:when>
-		<xsl:when test="($item1 + $item2 + $item3 + $item4 + $item5 + $item6 + $item7 + $item8 + $item9 + $item10 + $item11 + $item12 + $item13 + $item14 + $item15 + $item16 + $item17 + $item18 + $item19  + $item20 + $item21 + $item22 + $item23) ='80'">
+		<xsl:when test="($item1 + $item2 + $item3 + $item4 + $item5 + $item6 + $item7 + $item8 + $item9 + $item10 + $item11 + $item12 + $item13 + $item14 + $item15 + $item16 + $item17 + $item18 + $item19  + $item20 + $item21 + $item22 + $item23) &gt;'78' and ($item1 + $item2 + $item3 + $item4 + $item5 + $item6 + $item7 + $item8 + $item9 + $item10 + $item11 + $item12 + $item13 + $item14 + $item15 + $item16 + $item17 + $item18 + $item19  + $item20 + $item21 + $item22 + $item23) &lt;'82'">
 			<xsl:value-of select="23"/>
 		</xsl:when>
-		<xsl:when test="($item1 + $item2 + $item3 + $item4 + $item5 + $item6 + $item7 + $item8 + $item9 + $item10 + $item11 + $item12 + $item13 + $item14 + $item15 + $item16 + $item17 + $item18 + $item19  + $item20 + $item21 + $item22 + $item23 + $item24) ='80'">
+		<xsl:when test="($item1 + $item2 + $item3 + $item4 + $item5 + $item6 + $item7 + $item8 + $item9 + $item10 + $item11 + $item12 + $item13 + $item14 + $item15 + $item16 + $item17 + $item18 + $item19  + $item20 + $item21 + $item22 + $item23 + $item24) &gt;'78' and ($item1 + $item2 + $item3 + $item4 + $item5 + $item6 + $item7 + $item8 + $item9 + $item10 + $item11 + $item12 + $item13 + $item14 + $item15 + $item16 + $item17 + $item18 + $item19  + $item20 + $item21 + $item22 + $item23 + $item24) &lt;'82'">
 			<xsl:value-of select="24"/>
 		</xsl:when>
-		<xsl:when test="($item1 + $item2 + $item3 + $item4 + $item5 + $item6 + $item7 + $item8 + $item9 + $item10 + $item11 + $item12 + $item13 + $item14 + $item15 + $item16 + $item17 + $item18 + $item19  + $item20 + $item21 + $item22 + $item23 + $item24  + $item25) ='80'">
+		<xsl:when test="($item1 + $item2 + $item3 + $item4 + $item5 + $item6 + $item7 + $item8 + $item9 + $item10 + $item11 + $item12 + $item13 + $item14 + $item15 + $item16 + $item17 + $item18 + $item19  + $item20 + $item21 + $item22 + $item23 + $item24  + $item25) &gt;'78' and ($item1 + $item2 + $item3 + $item4 + $item5 + $item6 + $item7 + $item8 + $item9 + $item10 + $item11 + $item12 + $item13 + $item14 + $item15 + $item16 + $item17 + $item18 + $item19  + $item20 + $item21 + $item22 + $item23 + $item24  + $item25) &lt;'82'">
 			<xsl:value-of select="25"/>
 		</xsl:when>
-		<xsl:when test="($item1 + $item2 + $item3 + $item4 + $item5 + $item6 + $item7 + $item8 + $item9 + $item10 + $item11 + $item12 + $item13 + $item14 + $item15 + $item16 + $item17 + $item18 + $item19  + $item20 + $item21 + $item22 + $item23 + $item24  + $item25  + $item26) ='80'">
+		<xsl:when test="($item1 + $item2 + $item3 + $item4 + $item5 + $item6 + $item7 + $item8 + $item9 + $item10 + $item11 + $item12 + $item13 + $item14 + $item15 + $item16 + $item17 + $item18 + $item19  + $item20 + $item21 + $item22 + $item23 + $item24  + $item25  + $item26) &gt;'78' and ($item1 + $item2 + $item3 + $item4 + $item5 + $item6 + $item7 + $item8 + $item9 + $item10 + $item11 + $item12 + $item13 + $item14 + $item15 + $item16 + $item17 + $item18 + $item19  + $item20 + $item21 + $item22 + $item23 + $item24  + $item25  + $item26) &lt;'82'">
 			<xsl:value-of select="26"/>
 		</xsl:when>
-		<xsl:when test="($item1 + $item2 + $item3 + $item4 + $item5 + $item6 + $item7 + $item8 + $item9 + $item10 + $item11 + $item12 + $item13 + $item14 + $item15 + $item16 + $item17 + $item18 + $item19  + $item20 + $item21 + $item22 + $item23 + $item24  + $item25  + $item26  + $item27) ='80'">
+		<xsl:when test="($item1 + $item2 + $item3 + $item4 + $item5 + $item6 + $item7 + $item8 + $item9 + $item10 + $item11 + $item12 + $item13 + $item14 + $item15 + $item16 + $item17 + $item18 + $item19  + $item20 + $item21 + $item22 + $item23 + $item24  + $item25  + $item26  + $item27) &gt;'78' and ($item1 + $item2 + $item3 + $item4 + $item5 + $item6 + $item7 + $item8 + $item9 + $item10 + $item11 + $item12 + $item13 + $item14 + $item15 + $item16 + $item17 + $item18 + $item19  + $item20 + $item21 + $item22 + $item23 + $item24  + $item25  + $item26  + $item27) &lt;'82'">
 			<xsl:value-of select="27"/>
 		</xsl:when>
-		<xsl:when test="($item1 + $item2 + $item3 + $item4 + $item5 + $item6 + $item7 + $item8 + $item9 + $item10 + $item11 + $item12 + $item13 + $item14 + $item15 + $item16 + $item17 + $item18 + $item19  + $item20 + $item21 + $item22 + $item23 + $item24  + $item25  + $item26  + $item27  + $item28) ='80'">
+		<xsl:when test="($item1 + $item2 + $item3 + $item4 + $item5 + $item6 + $item7 + $item8 + $item9 + $item10 + $item11 + $item12 + $item13 + $item14 + $item15 + $item16 + $item17 + $item18 + $item19  + $item20 + $item21 + $item22 + $item23 + $item24  + $item25  + $item26  + $item27  + $item28) &gt;'78' and ($item1 + $item2 + $item3 + $item4 + $item5 + $item6 + $item7 + $item8 + $item9 + $item10 + $item11 + $item12 + $item13 + $item14 + $item15 + $item16 + $item17 + $item18 + $item19  + $item20 + $item21 + $item22 + $item23 + $item24  + $item25  + $item26  + $item27  + $item28) &lt;'82'">
 			<xsl:value-of select="28"/>
 		</xsl:when>
-		<xsl:when test="($item1 + $item2 + $item3 + $item4 + $item5 + $item6 + $item7 + $item8 + $item9 + $item10 + $item11 + $item12 + $item13 + $item14 + $item15 + $item16 + $item17 + $item18 + $item19  + $item20 + $item21 + $item22 + $item23 + $item24  + $item25  + $item26  + $item27  + $item28  + $item29) ='80'">
+		<xsl:when test="($item1 + $item2 + $item3 + $item4 + $item5 + $item6 + $item7 + $item8 + $item9 + $item10 + $item11 + $item12 + $item13 + $item14 + $item15 + $item16 + $item17 + $item18 + $item19  + $item20 + $item21 + $item22 + $item23 + $item24  + $item25  + $item26  + $item27  + $item28  + $item29) &gt;'78' and ($item1 + $item2 + $item3 + $item4 + $item5 + $item6 + $item7 + $item8 + $item9 + $item10 + $item11 + $item12 + $item13 + $item14 + $item15 + $item16 + $item17 + $item18 + $item19  + $item20 + $item21 + $item22 + $item23 + $item24  + $item25  + $item26  + $item27  + $item28  + $item29) &lt;'82'">
 			<xsl:value-of select="29"/>
 		</xsl:when>
-		<xsl:when test="($item1 + $item2 + $item3 + $item4 + $item5 + $item6 + $item7 + $item8 + $item9 + $item10 + $item11 + $item12 + $item13 + $item14 + $item15 + $item16 + $item17 + $item18 + $item19  + $item20 + $item21 + $item22 + $item23 + $item24  + $item25  + $item26  + $item27  + $item28  + $item29  + $item30) ='80'">
+		<xsl:when test="($item1 + $item2 + $item3 + $item4 + $item5 + $item6 + $item7 + $item8 + $item9 + $item10 + $item11 + $item12 + $item13 + $item14 + $item15 + $item16 + $item17 + $item18 + $item19  + $item20 + $item21 + $item22 + $item23 + $item24  + $item25  + $item26  + $item27  + $item28  + $item29  + $item30) &gt;'78' and ($item1 + $item2 + $item3 + $item4 + $item5 + $item6 + $item7 + $item8 + $item9 + $item10 + $item11 + $item12 + $item13 + $item14 + $item15 + $item16 + $item17 + $item18 + $item19  + $item20 + $item21 + $item22 + $item23 + $item24  + $item25  + $item26  + $item27  + $item28  + $item29  + $item30) &lt;'82'">
 			<xsl:value-of select="30"/>
 		</xsl:when>
 		</xsl:choose>
@@ -1221,12 +1224,13 @@
 											</td>
 											<td width="78%" align="left" valign="top">
 												<font face="Arial, Helvetica, sans-serif" size="2">
-									<xsl:if test="//cbc:CustomizationID='1.0'">
-									<xsl:value-of select="cac:Item/cbc:Name"/>
-									</xsl:if>
-									<xsl:if test="//cbc:CustomizationID='2.0'">
-										<xsl:value-of select="cac:Item/cbc:Description"/>
-										</xsl:if>
+													<xsl:if test="//cbc:CustomizationID='1.0'">
+														<xsl:value-of select="cac:Item/cbc:Name"/>
+													</xsl:if>
+													<xsl:if test="//cbc:CustomizationID='2.0'">
+														<xsl:value-of select="cac:Item/cbc:Description"/>
+													</xsl:if>
+
 													<xsl:variable name="ValorAdicional1">
 														<xsl:call-template name="RetourneValAdItem">
 															<xsl:with-param name="NumLinea" select="cbc:ID"/>	
@@ -1313,12 +1317,12 @@
 											</td>
 											<td width="78%" align="left" valign="top">
 												<font face="Arial, Helvetica, sans-serif" size="2">
-									<xsl:if test="//cbc:CustomizationID='1.0'">
-									<xsl:value-of select="cac:Item/cbc:Name"/>
-									</xsl:if>
-									<xsl:if test="//cbc:CustomizationID='2.0'">
-										<xsl:value-of select="cac:Item/cbc:Description"/>
-										</xsl:if>
+													<xsl:if test="//cbc:CustomizationID='1.0'">
+														<xsl:value-of select="cac:Item/cbc:Name"/>
+													</xsl:if>
+													<xsl:if test="//cbc:CustomizationID='2.0'">
+														<xsl:value-of select="cac:Item/cbc:Description"/>
+													</xsl:if>
 													
 													<xsl:variable name="ValorAdicional1">
 														<xsl:call-template name="RetourneValAdItem">
@@ -1427,7 +1431,9 @@
 
 			<tr>
 				<td>
+					<!--Hoja 1: <xsl:value-of select="$hoja1"/>-->
 					<table rules="cols" border="1" width="100%" bordercolor="#000000" cellpadding="2" cellspacing="0">
+						
 						
 						<xsl:if test="($numitems + $totadicionales) &gt;'30'  and ($numitems + $totadicionales) &lt;'81' ">
 						<xsl:for-each select="//cac:DespatchLine">

@@ -486,50 +486,6 @@ xmlns:sac="urn:sunat:names:specification:ubl:peru:schema:xsd:SunatAggregateCompo
 			</tr>
 		</table>
 	</xsl:template>
-		<xsl:template name="unidad_medida">
-		<xsl:choose>
-			<xsl:when test="//cac:Shipment/cbc:GrossWeightMeasure/@unitCode='PL'">BAL</xsl:when>
-			<xsl:when test="//cac:Shipment/cbc:GrossWeightMeasure/@unitCode='D64'">BLK</xsl:when>
-			<xsl:when test="//cac:Shipment/cbc:GrossWeightMeasure/@unitCode='BG'">BOL</xsl:when>
-			<xsl:when test="//cac:Shipment/cbc:GrossWeightMeasure/@unitCode='BO'">BOT</xsl:when>
-			<xsl:when test="//cac:Shipment/cbc:GrossWeightMeasure/@unitCode='BX'">CAJ</xsl:when>
-			<xsl:when test="//cac:Shipment/cbc:GrossWeightMeasure/@unitCode='CY'">CIL</xsl:when>
-			<xsl:when test="//cac:Shipment/cbc:GrossWeightMeasure/@unitCode='CLT'">CL</xsl:when>
-			<xsl:when test="//cac:Shipment/cbc:GrossWeightMeasure/@unitCode='CMT'">CM</xsl:when>
-			<xsl:when test="//cac:Shipment/cbc:GrossWeightMeasure/@unitCode='CJ'">CON</xsl:when>
-			<xsl:when test="//cac:Shipment/cbc:GrossWeightMeasure/@unitCode='DLT'">DL</xsl:when>
-			<xsl:when test="//cac:Shipment/cbc:GrossWeightMeasure/@unitCode='GLL'">GAL</xsl:when>
-			<xsl:when test="//cac:Shipment/cbc:GrossWeightMeasure/@unitCode='GRM'">GR</xsl:when>
-			<xsl:when test="//cac:Shipment/cbc:GrossWeightMeasure/@unitCode='HUR'">HRA</xsl:when>
-			<xsl:when test="//cac:Shipment/cbc:GrossWeightMeasure/@unitCode='KT'">JGO</xsl:when>
-			<xsl:when test="//cac:Shipment/cbc:GrossWeightMeasure/@unitCode='KGM'">KG</xsl:when>
-			<xsl:when test="//cac:Shipment/cbc:GrossWeightMeasure/@unitCode='KWT'">KW</xsl:when>
-			<xsl:when test="//cac:Shipment/cbc:GrossWeightMeasure/@unitCode='LBR'">LB</xsl:when>
-			<xsl:when test="//cac:Shipment/cbc:GrossWeightMeasure/@unitCode='LTR'">LT</xsl:when>
-			<xsl:when test="//cac:Shipment/cbc:GrossWeightMeasure/@unitCode='MTR'">M</xsl:when>
-			<xsl:when test="//cac:Shipment/cbc:GrossWeightMeasure/@unitCode='MTK'">M2</xsl:when>
-			<xsl:when test="//cac:Shipment/cbc:GrossWeightMeasure/@unitCode='MTQ'">M3</xsl:when>
-			<xsl:when test="//cac:Shipment/cbc:GrossWeightMeasure/@unitCode='MIL'">MIL</xsl:when>
-			<xsl:when test="//cac:Shipment/cbc:GrossWeightMeasure/@unitCode='D61'">MIN</xsl:when>
-			<xsl:when test="//cac:Shipment/cbc:GrossWeightMeasure/@unitCode='MLT'">ML</xsl:when>
-			<xsl:when test="//cac:Shipment/cbc:GrossWeightMeasure/@unitCode='MMT'">MM</xsl:when>
-			<xsl:when test="//cac:Shipment/cbc:GrossWeightMeasure/@unitCode='NPR'">PAR</xsl:when>
-			<xsl:when test="//cac:Shipment/cbc:GrossWeightMeasure/@unitCode='FTK'">PI2</xsl:when>
-			<xsl:when test="//cac:Shipment/cbc:GrossWeightMeasure/@unitCode='FTQ'">PI3</xsl:when>
-			<xsl:when test="//cac:Shipment/cbc:GrossWeightMeasure/@unitCode='PA'">PQT</xsl:when>
-			<xsl:when test="//cac:Shipment/cbc:GrossWeightMeasure/@unitCode='INH'">PUL</xsl:when>
-			<xsl:when test="//cac:Shipment/cbc:GrossWeightMeasure/@unitCode='NRL'">ROL</xsl:when>
-			<xsl:when test="//cac:Shipment/cbc:GrossWeightMeasure/@unitCode='TNE'">TON</xsl:when>
-			<xsl:when test="//cac:Shipment/cbc:GrossWeightMeasure/@unitCode='NIU'">UNI</xsl:when>
-			<xsl:when test="//cac:Shipment/cbc:GrossWeightMeasure/@unitCode='SA'">SAC</xsl:when>
-			<xsl:when test="//cac:Shipment/cbc:GrossWeightMeasure/@unitCode='JR'">FC</xsl:when>
-			<xsl:when test="//cac:Shipment/cbc:GrossWeightMeasure/@unitCode='SO'">SO</xsl:when>
-			<xsl:when test="//cac:Shipment/cbc:GrossWeightMeasure/@unitCode='JE'">JER</xsl:when>
-			<xsl:when test="//cac:Shipment/cbc:GrossWeightMeasure/@unitCode='PS'">POTE</xsl:when>
-			<xsl:otherwise>UNI</xsl:otherwise>
-
-		</xsl:choose>
-	</xsl:template>
 </xsl:stylesheet><!-- Stylus Studio meta-information - (c) 2004-2006. Progress Software Corporation. All rights reserved.
 <metaInformation>
 <scenarios ><scenario default="yes" name="Scenario1" userelativepaths="yes" externalpreview="no" url="..\Ejemplo_retencion_final.xml" htmlbaseurl="" outputurl="" processortype="internal" useresolver="yes" profilemode="0" profiledepth="" profilelength="" urlprofilexml="" commandline="" additionalpath="" additionalclasspath="" postprocessortype="none" postprocesscommandline="" postprocessadditionalpath="" postprocessgeneratedext="" validateoutput="no" validator="internal" customvalidator=""/></scenarios><MapperMetaTag><MapperInfo srcSchemaPathIsRelative="yes" srcSchemaInterpretAsXML="no" destSchemaPath="" destSchemaRoot="" destSchemaPathIsRelative="yes" destSchemaInterpretAsXML="no"/><MapperBlockPosition></MapperBlockPosition><TemplateContext></TemplateContext><MapperFilter side="source"></MapperFilter></MapperMetaTag>
