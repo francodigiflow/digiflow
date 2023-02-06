@@ -396,14 +396,14 @@
 								</td>
 								<td width="8%" align="center">
 									<font face="Arial, Helvetica, sans-serif" size="1">
-										<xsl:variable name="ValorAdicional2">
+										<xsl:variable name="ValorAdicional6">
 											<xsl:call-template name="RetourneValAdItem">
-												<xsl:with-param name="NumAd" select="2"/>
+												<xsl:with-param name="NumAd" select="6"/>
 												<xsl:with-param name="NumLinea" select="cbc:ID"/>
 											</xsl:call-template>
 										</xsl:variable>
-										<xsl:if test="$ValorAdicional2">
-											<xsl:value-of select="$ValorAdicional2"/>
+										<xsl:if test="$ValorAdicional6">
+											<xsl:value-of select="$ValorAdicional6"/>
 										</xsl:if>
 									</font>
 								</td>
