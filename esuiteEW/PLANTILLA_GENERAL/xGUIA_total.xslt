@@ -327,6 +327,7 @@ xmlns:sac="urn:sunat:names:specification:ubl:peru:schema:xsd:SunatAggregateCompo
 					<td width="100%" align="center">
 						<font face="Arial, Helvetica, sans-serif" size="2">
 							Representación impresa Guía de Remisión electrónica: http://comprobantescew.com
+							
 						</font>
 					</td>
 				</tr>	
@@ -335,7 +336,16 @@ xmlns:sac="urn:sunat:names:specification:ubl:peru:schema:xsd:SunatAggregateCompo
 	</xsl:template>
 
 
-
+	<xsl:template name="EnlaceWEB2">
+		<xsl:if test="//cac:SignatoryParty/cac:PartyIdentification/cbc:ID='20514020907' or 
+				  //cac:SignatoryParty/cac:PartyIdentification/cbc:ID='20507884823' or 
+				  //cac:SignatoryParty/cac:PartyIdentification/cbc:ID='20553255881' or 
+				  //cac:SignatoryParty/cac:PartyIdentification/cbc:ID='20601510287' or 
+				  //cac:SignatoryParty/cac:PartyIdentification/cbc:ID='20416026948'">
+			<br/>
+			Desde el 31/01/2023 debe de ingresar al enlace http://comprobantescew2.com
+		</xsl:if>
+	</xsl:template>
 
 
 	<xsl:template name="Simbolo_Moneda">

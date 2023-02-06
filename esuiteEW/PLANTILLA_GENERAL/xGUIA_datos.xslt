@@ -367,7 +367,7 @@ xmlns:sac="urn:sunat:names:specification:ubl:peru:schema:xsd:SunatAggregateCompo
 						<font face="Arial, Helvetica, sans-serif" size="2">
 						<strong>&#160;OTROS</strong> :&#160;
 							<xsl:for-each select="//ext:UBLExtensions/ext:UBLExtension/ext:ExtensionContent/pe:DatosAdicionales/pe:DatoAdicional">
-								<xsl:if test="pe:Codigo='08'">
+								<xsl:if test="pe:Codigo='09'">
 									<xsl:value-of select="pe:Valor"/>
 								</xsl:if>
 						    </xsl:for-each>
