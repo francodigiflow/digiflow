@@ -40,12 +40,12 @@
 											<br/>
 											<xsl:value-of select="//cac:AccountingSupplierParty/cac:Party/cac:PartyLegalEntity/cbc:RegistrationName"/>
 											<br/>
-											<b>Calle el parque 149, 2do piso, Av. Javier Prado Este 4200 - Surco 4340603</b>
+											<b>Calle el Parque 149, 2do Piso, Distrito San Isidro, Lima</b>
 										</font>
 										<font color="#000000" size="0.5" face="Arial, Helvetica, sans-serif">
 											<br/>
 											<br/>
-											Establecimiento: <xsl:call-template name="RetourneValAd"><xsl:with-param name="NumAd" select="13"/></xsl:call-template>
+											Establecimiento: <xsl:call-template name="DireccionPorSerie"/>
 										</font>
 									</td>
 								</tr>
@@ -111,7 +111,7 @@
 	</table>
 </xsl:template>
 
-	<xsl:template name="tipodocu">
+<xsl:template name="tipodocu">
 	<xsl:choose>
 		<xsl:when test="/pe:Invoice/cbc:InvoiceTypeCode='01'">
 				<font color="#000000" size="4" face="Arial, Helvetica, sans-serif">FACTURA ELECTRÓNICA</font>
@@ -130,7 +130,51 @@
 	</xsl:choose>
 </xsl:template>
 
-	<xsl:template name="NFolio">
+<xsl:template name="DireccionPorSerie">
+	<xsl:choose>
+		<xsl:when test="substring-before(/pe:Invoice/cbc:ID,'0')='BK'">
+			Av Javier Prado este 4200, interior 163, Santiago de Surco
+		</xsl:when>
+		<xsl:when test="substring-before(/pe:Invoice/cbc:ID,'0')='FK'">
+			Av Javier Prado este 4200, interior 163, Santiago de Surco
+		</xsl:when>
+		<xsl:when test="substring-before(/pe:Invoice/cbc:ID,'0')='BL'">
+			Av. America Oeste 750, Interior D111, Urbanización el Ingenio, Distrito y provincia Trujillo, Departamento La Libertad
+		</xsl:when>
+		<xsl:when test="substring-before(/pe:Invoice/cbc:ID,'0')='FL'">
+			Av. America Oeste 750, Interior D111, Urbanización el Ingenio, Distrito y provincia Trujillo, Departamento La Libertad
+		</xsl:when>
+		<xsl:when test="substring-before(/pe1:CreditNote/cbc:ID,'0')='BK'">
+			Av Javier Prado este 4200, interior 163, Santiago de Surco
+		</xsl:when>
+		<xsl:when test="substring-before(/pe1:CreditNote/cbc:ID,'0')='FK'">
+			Av Javier Prado este 4200, interior 163, Santiago de Surco
+		</xsl:when>
+		<xsl:when test="substring-before(/pe1:CreditNote/cbc:ID,'0')='BL'">
+			Av. America Oeste 750, Interior D111, Urbanización el Ingenio, Distrito y provincia Trujillo, Departamento La Libertad
+		</xsl:when>
+		<xsl:when test="substring-before(/pe1:CreditNote/cbc:ID,'0')='FL'">
+			Av. America Oeste 750, Interior D111, Urbanización el Ingenio, Distrito y provincia Trujillo, Departamento La Libertad
+		</xsl:when>
+		<xsl:when test="substring-before(/pe2:DebitNote/cbc:ID,'0')='BK'">
+			Av Javier Prado este 4200, interior 163, Santiago de Surco
+		</xsl:when>
+		<xsl:when test="substring-before(/pe2:DebitNote/cbc:ID,'0')='FK'">
+			Av Javier Prado este 4200, interior 163, Santiago de Surco
+		</xsl:when>
+		<xsl:when test="substring-before(/pe2:DebitNote/cbc:ID,'0')='BL'">
+			Av. America Oeste 750, Interior D111, Urbanización el Ingenio, Distrito y provincia Trujillo, Departamento La Libertad
+		</xsl:when>
+		<xsl:when test="substring-before(/pe2:DebitNote/cbc:ID,'0')='FL'">
+			Av. America Oeste 750, Interior D111, Urbanización el Ingenio, Distrito y provincia Trujillo, Departamento La Libertad
+		</xsl:when>
+		<xsl:otherwise>
+			<xsl:call-template name="RetourneValAd"><xsl:with-param name="NumAd" select="13"/></xsl:call-template>
+		</xsl:otherwise>
+	</xsl:choose>	
+</xsl:template>
+
+<xsl:template name="NFolio">
 	<br/>
 	<font color="#000000" size="4" face="Arial, Helvetica, sans-serif">Nº 
 		<xsl:value-of select="/pe:Invoice/cbc:ID"/>
@@ -149,6 +193,6 @@
 	</xsl:template>
 </xsl:stylesheet><!-- Stylus Studio meta-information - (c) 2004-2006. Progress Software Corporation. All rights reserved.
 <metaInformation>
-<scenarios ><scenario default="yes" name="Scenario1" userelativepaths="yes" externalpreview="no" url="20254053822&#x2D;01&#x2D;FF11&#x2D;10331676.xml" htmlbaseurl="" outputurl="" processortype="internal" useresolver="no" profilemode="0" profiledepth="" profilelength="" urlprofilexml="" commandline="" additionalpath="" additionalclasspath="" postprocessortype="none" postprocesscommandline="" postprocessadditionalpath="" postprocessgeneratedext="" validateoutput="no" validator="internal" customvalidator="" ><advancedProp name="sInitialMode" value=""/><advancedProp name="bXsltOneIsOkay" value="true"/><advancedProp name="bSchemaAware" value="false"/><advancedProp name="bXml11" value="false"/><advancedProp name="iValidation" value="0"/><advancedProp name="bExtensions" value="true"/><advancedProp name="iWhitespace" value="0"/><advancedProp name="sInitialTemplate" value=""/><advancedProp name="bTinyTree" value="true"/><advancedProp name="bWarnings" value="true"/><advancedProp name="bUseDTD" value="false"/><advancedProp name="iErrorHandling" value="fatal"/></scenario></scenarios><MapperMetaTag><MapperInfo srcSchemaPathIsRelative="yes" srcSchemaInterpretAsXML="no" destSchemaPath="" destSchemaRoot="" destSchemaPathIsRelative="yes" destSchemaInterpretAsXML="no"/><MapperBlockPosition></MapperBlockPosition><TemplateContext></TemplateContext><MapperFilter side="source"></MapperFilter></MapperMetaTag>
+<scenarios ><scenario default="yes" name="Scenario1" userelativepaths="yes" externalpreview="no" url="20254053822&#x2D;01&#x2D;FF11&#x2D;10331676.xml" htmlbaseurl="" outputurl="" processortype="internal" useresolver="no" profilemode="0" profiledepth="" profilelength="" urlprofilexml="" commandline="" additionalpath="" additionalclasspath="" postprocessortype="none" postprocesscommandline="" postprocessadditionalpath="" postprocessgeneratedext="" validateoutput="no" validator="internal" customvalidator="" ><advancedProp name="sInitialMode" value=""/><advancedProp name="bSchemaAware" value="false"/><advancedProp name="bXsltOneIsOkay" value="true"/><advancedProp name="bXml11" value="false"/><advancedProp name="iValidation" value="0"/><advancedProp name="bExtensions" value="true"/><advancedProp name="iWhitespace" value="0"/><advancedProp name="sInitialTemplate" value=""/><advancedProp name="bTinyTree" value="true"/><advancedProp name="bUseDTD" value="false"/><advancedProp name="bWarnings" value="true"/><advancedProp name="iErrorHandling" value="fatal"/></scenario></scenarios><MapperMetaTag><MapperInfo srcSchemaPathIsRelative="yes" srcSchemaInterpretAsXML="no" destSchemaPath="" destSchemaRoot="" destSchemaPathIsRelative="yes" destSchemaInterpretAsXML="no"/><MapperBlockPosition></MapperBlockPosition><TemplateContext></TemplateContext><MapperFilter side="source"></MapperFilter></MapperMetaTag>
 </metaInformation>
 -->
