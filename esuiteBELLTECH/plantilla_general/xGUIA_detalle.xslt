@@ -53,7 +53,12 @@
 								</td>
 								<td width="72%" align="left">
 									<font face="Arial, Helvetica, sans-serif" size="2">
-										<xsl:value-of select="cac:Item/cbc:Name"/>
+										<xsl:if test="//cbc:CustomizationID='1.0'">
+											<xsl:value-of select="cac:Item/cbc:Name"/>
+										</xsl:if>
+										<xsl:if test="//cbc:CustomizationID='2.0'">
+											<xsl:value-of select="cac:Item/cbc:Description"/>
+										</xsl:if>
 										<br/>
 										<xsl:variable name="ValorAdicional1">
 											<xsl:call-template name="RetourneValAdItem">

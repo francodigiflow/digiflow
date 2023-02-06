@@ -16,7 +16,12 @@ xmlns:sac="urn:sunat:names:specification:ubl:peru:schema:xsd:SunatAggregateCompo
 						<xsl:call-template name="EncabezadoPeru"/>
 					</td>
 					<td vAlign="top" width="40%">
-						<xsl:call-template name="EncabezadoRecuadro"/>
+						<xsl:if test="//cbc:CustomizationID='1.0'">
+							<xsl:call-template name="EncabezadoRecuadro"/>
+						</xsl:if>
+						<xsl:if test="//cbc:CustomizationID='2.0'">
+							<xsl:call-template name="EncabezadoRecuadro20"/>
+						</xsl:if>
 					</td>
 				</tr>
 			</tbody>
@@ -70,10 +75,45 @@ xmlns:sac="urn:sunat:names:specification:ubl:peru:schema:xsd:SunatAggregateCompo
 				<td width="100%" align="center">
 						<strong>
 							R.U.C. N°&#160;&#160;
-							<xsl:value-of select="format-number(//cac:DespatchSupplierParty/cbc:CustomerAssignedAccountID, '###########', 'pen')"/>
+							<xsl:if test="//cbc:CustomizationID='1.0'">
+													<xsl:value-of select="format-number(//cac:DespatchSupplierParty/cbc:CustomerAssignedAccountID, '###########', 'pen')"/>
+							</xsl:if>
+							<xsl:if test="//cbc:CustomizationID='2.0'">
+								<xsl:value-of select="format-number(//cac:SignatoryParty/cac:PartyIdentification/cbc:ID, '###########', 'pen')"/>
+							</xsl:if>
 							<br/><br/><xsl:call-template name="tipodocu"/>
 							<br/><br/><xsl:call-template name="NFolio"/>
 						</strong>
+				</td>
+			</tr>
+		</table>
+	</xsl:template>
+
+<xsl:template name="EncabezadoRecuadro20">
+		<table cellSpacing="0" width="100%" border="1" cellpadding="10" borderColor="#000000"  style="font-family Arial,Helvetica,sans-serif;font-size:15px;color:#000000">
+			<tr>
+				<td width="60%" align="center">
+					<strong>
+						R.U.C. N&#xFFFD;&#160;&#160;
+						<xsl:if test="//cbc:CustomizationID='1.0'">
+							<xsl:value-of select="format-number(//cac:DespatchSupplierParty/cbc:CustomerAssignedAccountID, '###########', 'pen')"/>
+						</xsl:if>
+						<xsl:if test="//cbc:CustomizationID='2.0'">
+							<xsl:value-of select="format-number(//cac:SignatoryParty/cac:PartyIdentification/cbc:ID, '###########', 'pen')"/>
+						</xsl:if>
+						<br/><br/><xsl:call-template name="tipodocu"/>
+						<br/><br/><xsl:call-template name="NFolio"/>
+					</strong>
+				</td>
+				<td>
+					<font color="#000000" size="3" face="Arial, Helvetica, sans-serif">
+						<!-- <img width="150px" height="150px" align="center" src="data:image/*;base64,[ted_1]" /> -->
+						<img width="150px" height="150px" align="center" >
+							<xsl:attribute name="src">
+								<xsl:call-template name="timbre"/>
+							</xsl:attribute>
+						</img>
+					</font>
 				</td>
 			</tr>
 		</table>
@@ -92,11 +132,17 @@ xmlns:sac="urn:sunat:names:specification:ubl:peru:schema:xsd:SunatAggregateCompo
 	</font>-->
 </xsl:template>
 
+<xsl:template name="timbre">		
+		<xsl:value-of select="pe:Invoice/ext:UBLExtensions/ext:UBLExtension/ext:ExtensionContent/pe:DatosAdicionales/pe:Documento/pe:Nombre"/>
+		<xsl:value-of select="'.jpg'"/>
+	</xsl:template>
+
 <xsl:template name="NFolio">
 	Nº 
 	<xsl:value-of select="substring-before(//cbc:ID,'-')"/>- 
 	<xsl:value-of select="format-number(substring-after(//cbc:ID,'-'),'00000000')"/>
 </xsl:template>
+
 
 <xsl:template match="/">
 	<html><head></head>
