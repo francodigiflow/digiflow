@@ -10,6 +10,9 @@
 	<xsl:output method="html" indent="yes" encoding="ISO-8859-1" omit-xml-declaration="yes"/>
 
 	<xsl:template name="DetallesEncabezado">
+		<xsl:param name="titems"/>
+		<xsl:param name="tpaginas"/>
+		<xsl:param name="pagina"/>
 		<table border="0" width="100%" cellpadding="0" cellspacing="2">
 			<tr>
 				<td>
@@ -59,74 +62,100 @@
 					</table>
 				</td>
 			</tr>
+			<xsl:variable name="min">
+				<xsl:choose>
+					<xsl:when test="$pagina = '1'">0</xsl:when>
+					<xsl:when test="$pagina = '2'">48</xsl:when>
+					<xsl:when test="$pagina = '3'">96</xsl:when>
+					<xsl:when test="$pagina = '4'">144</xsl:when>
+					<xsl:when test="$pagina = '5'">192</xsl:when>
+					<xsl:when test="$pagina = '6'">240</xsl:when>
+					<xsl:otherwise></xsl:otherwise>
+				</xsl:choose>
+			</xsl:variable>
+			<xsl:variable name="max">
+				<xsl:choose>					
+					<xsl:when test="$pagina = '1'">49</xsl:when>
+					<xsl:when test="$pagina = '2'">97</xsl:when>
+					<xsl:when test="$pagina = '3'">145</xsl:when>
+					<xsl:when test="$pagina = '4'">193</xsl:when>
+					<xsl:when test="$pagina = '5'">241</xsl:when>
+					<xsl:when test="$pagina = '6'">289</xsl:when>
+					<xsl:otherwise></xsl:otherwise>
+				</xsl:choose>
+			</xsl:variable>
 
 			<tr>
 				<td>
 					<table rules="cols" border="1" width="100%" bordercolor="#000000" cellpadding="1" cellspacing="0">
 						<xsl:for-each select="/pe:Invoice/cac:InvoiceLine">
-							<xsl:variable name="Descuento">
-								<xsl:value-of select="0"/>
-								<xsl:if test="cac:AllowanceCharge/cbc:Amount">
-									<xsl:value-of select="cac:AllowanceCharge/cbc:Amount"/>
-								</xsl:if>
-							</xsl:variable>
-							<tr>
-								<td width="7%" align="center">
-									<font face="Arial, Helvetica, sans-serif" size="1">
-										<xsl:value-of select="cac:Item/cac:SellersItemIdentification/cbc:ID"/>
-									</font>
-								</td>
-								<td width="7%" align="center">
-									<font face="Arial, Helvetica, sans-serif" size="1">
-										<xsl:value-of select="cbc:InvoicedQuantity"/>
-									</font>
-								</td>
-								<td width="39%">
-									<font face="Arial, Helvetica, sans-serif" size="1">
-										<xsl:value-of select="cac:Item/cbc:Description"/>
-									</font>
-								</td>
-								<td width="7%" align="center">
-									<font face="Arial, Helvetica, sans-serif" size="1">
-										<xsl:call-template name="unidad_medida"/>
-									</font>
-								</td>
+							<xsl:if test="cbc:ID &gt; $min and cbc:ID &lt; $max ">
+								<xsl:variable name="Descuento">
+									<xsl:value-of select="0"/>
+									<xsl:if test="cac:AllowanceCharge/cbc:Amount">
+										<xsl:value-of select="cac:AllowanceCharge/cbc:Amount"/>
+									</xsl:if>
+								</xsl:variable>
+								<tr>
+									<td width="7%" align="center">
+										<font face="Arial, Helvetica, sans-serif" size="1">
+											<xsl:value-of select="cac:Item/cac:SellersItemIdentification/cbc:ID"/>
+										</font>
+									</td>
+									<td width="7%" align="center">
+										<font face="Arial, Helvetica, sans-serif" size="1">
+											<xsl:value-of select="cbc:InvoicedQuantity"/>
+										</font>
+									</td>
+									<td width="39%">
+										<font face="Arial, Helvetica, sans-serif" size="1">
+											<xsl:value-of select="cac:Item/cbc:Description"/>
+										</font>
+									</td>
+									<td width="7%" align="center">
+										<font face="Arial, Helvetica, sans-serif" size="1">
+											<xsl:call-template name="unidad_medida"/>
+										</font>
+									</td>
 								
-								<td width="10%" align="right">
-									<font face="Arial, Helvetica, sans-serif" size="1">
-										<xsl:value-of select="format-number(cac:Price/cbc:PriceAmount, '###,###,##0.0000', 'pen')"/>
-									</font>
-								</td>
-								<td width="10%" align="right">
-									<font face="Arial, Helvetica, sans-serif" size="1">
-										<xsl:for-each select="cac:PricingReference/cac:AlternativeConditionPrice">
-			                            	<xsl:if test="cbc:PriceTypeCode='01' and cbc:PriceAmount!='0.00'">
-			                                	<xsl:value-of select="format-number(cbc:PriceAmount, '###,###,##0.00', 'pen')"/>
-			                                </xsl:if>
-			                                <xsl:if test="cbc:PriceTypeCode='02' and cbc:PriceAmount!='0.00'">
-			                                	<xsl:value-of select="format-number(cbc:PriceAmount, '###,###,##0.00', 'pen')"/>
-			                                </xsl:if>
-			                           	</xsl:for-each>
-									</font>
-								</td>
-								<td width="10%" align="right">
-									<font face="Arial, Helvetica, sans-serif" size="1">
-										<xsl:choose>
-											<xsl:when test="cac:AllowanceCharge/cbc:Amount!=''">
-												<xsl:value-of select="format-number(cac:AllowanceCharge/cbc:Amount, '###,###,##0.00', 'pen')"/>
-											</xsl:when>
-											<xsl:otherwise>
-												<xsl:value-of select="format-number(0, '###,###,##0.00', 'pen')"/>
-											</xsl:otherwise>
-										</xsl:choose>
-									</font>
-								</td>
-								<td width="10%" align="right">
-									<font face="Arial, Helvetica, sans-serif" size="1">
-										<xsl:value-of select="format-number(cbc:LineExtensionAmount, '###,###,##0.00', 'pen')"/>
-									</font> 
-								</td>
-							</tr>
+									<td width="10%" align="right">
+										<font face="Arial, Helvetica, sans-serif" size="1">
+											<xsl:value-of select="format-number(cac:Price/cbc:PriceAmount, '###,###,##0.0000', 'pen')"/>
+										</font>
+									</td>
+									<td width="10%" align="right">
+										<font face="Arial, Helvetica, sans-serif" size="1">
+											<xsl:for-each select="cac:PricingReference/cac:AlternativeConditionPrice">
+				                            	<xsl:if test="cbc:PriceTypeCode='01' and cbc:PriceAmount!='0.00'">
+				                                	<xsl:value-of select="format-number(cbc:PriceAmount, '###,###,##0.00', 'pen')"/>
+				                                </xsl:if>
+				                                <xsl:if test="cbc:PriceTypeCode='02' and cbc:PriceAmount!='0.00'">
+				                                	<xsl:value-of select="format-number(cbc:PriceAmount, '###,###,##0.00', 'pen')"/>
+				                                </xsl:if>
+				                           	</xsl:for-each>
+										</font>
+									</td>
+									<td width="10%" align="right">
+										<font face="Arial, Helvetica, sans-serif" size="1">
+											<xsl:choose>
+												<xsl:when test="cac:AllowanceCharge/cbc:Amount!=''">
+													<xsl:value-of select="format-number(cac:AllowanceCharge/cbc:Amount, '###,###,##0.00', 'pen')"/>
+												</xsl:when>
+												<xsl:otherwise>
+													<xsl:value-of select="format-number(0, '###,###,##0.00', 'pen')"/>
+												</xsl:otherwise>
+											</xsl:choose>
+										</font>
+									</td>
+									<td width="10%" align="right">
+										<font face="Arial, Helvetica, sans-serif" size="1">
+											<xsl:value-of select="format-number(cbc:LineExtensionAmount, '###,###,##0.00', 'pen')"/>
+										</font> 
+									</td>
+								</tr>
+							</xsl:if>
+
+							
 						</xsl:for-each>
 
 						<xsl:if test="$tipo_factura='02'">
@@ -344,104 +373,107 @@
 						</xsl:if>
 
 						<xsl:for-each select="/pe1:CreditNote/cac:CreditNoteLine">
-							<xsl:variable name="Descuento1">
-								<xsl:value-of select="0"/>
-								<xsl:if test="cac:AllowanceCharge/cbc:Amount">
-									<xsl:value-of select="cac:AllowanceCharge/cbc:Amount"/>
-								</xsl:if>
-							</xsl:variable>
-							<tr>
-								<td width="7%" align="center">
-									<font face="Arial, Helvetica, sans-serif" size="1">
-										<xsl:value-of select="cac:Item/cac:SellersItemIdentification/cbc:ID"/>
-									</font>
-								</td>
-								<td width="7%" align="center">
-									<font face="Arial, Helvetica, sans-serif" size="1">
-										<xsl:value-of select="cbc:CreditedQuantity"/>
-									</font>
-								</td>
-								<td width="39%" align="left">
-									<font face="Arial, Helvetica, sans-serif" size="1"> 
-										<xsl:value-of select="cac:Item/cbc:Description"/>
-									</font>
-								</td>
-								<td width="7%" align="center">
-									<font face="Arial, Helvetica, sans-serif" size="1">
-										<xsl:call-template name="unidad_medida"/>
-									</font>
-								</td>
-								<td width="10%" align="right">
-									<font face="Arial, Helvetica, sans-serif" size="1">
-										<xsl:value-of select="format-number(cac:Price/cbc:PriceAmount,'###,###,##0.0000','pen')"/>
-									</font>
-								</td>
-								<td width="10%" align="right">
-									<font face="Arial, Helvetica, sans-serif" size="1">
-										<xsl:value-of select="format-number(cac:PricingReference/cac:AlternativeConditionPrice/cbc:PriceAmount,'###,###,##0.0000','pen')"/>
-									</font>
-								</td>
-								<td width="10%" align="right">
-									<font face="Arial, Helvetica, sans-serif" size="1">
-									</font>
-								</td>
-								<td width="10%" align="right">
-									<font face="Arial, Helvetica, sans-serif" size="1">
-										<xsl:value-of select="format-number(cbc:LineExtensionAmount,'###,###,##0.00','pen')"/>
-									</font>
-								</td>
-							</tr>
+							<xsl:if test="cbc:ID &gt; $min and cbc:ID &lt; $max ">
+								<xsl:variable name="Descuento1">
+									<xsl:value-of select="0"/>
+									<xsl:if test="cac:AllowanceCharge/cbc:Amount">
+										<xsl:value-of select="cac:AllowanceCharge/cbc:Amount"/>
+									</xsl:if>
+								</xsl:variable>
+								<tr>
+									<td width="7%" align="center">
+										<font face="Arial, Helvetica, sans-serif" size="1">
+											<xsl:value-of select="cac:Item/cac:SellersItemIdentification/cbc:ID"/>
+										</font>
+									</td>
+									<td width="7%" align="center">
+										<font face="Arial, Helvetica, sans-serif" size="1">
+											<xsl:value-of select="cbc:CreditedQuantity"/>
+										</font>
+									</td>
+									<td width="39%" align="left">
+										<font face="Arial, Helvetica, sans-serif" size="1"> 
+											<xsl:value-of select="cac:Item/cbc:Description"/>
+										</font>
+									</td>
+									<td width="7%" align="center">
+										<font face="Arial, Helvetica, sans-serif" size="1">
+											<xsl:call-template name="unidad_medida"/>
+										</font>
+									</td>
+									<td width="10%" align="right">
+										<font face="Arial, Helvetica, sans-serif" size="1">
+											<xsl:value-of select="format-number(cac:Price/cbc:PriceAmount,'###,###,##0.0000','pen')"/>
+										</font>
+									</td>
+									<td width="10%" align="right">
+										<font face="Arial, Helvetica, sans-serif" size="1">
+											<xsl:value-of select="format-number(cac:PricingReference/cac:AlternativeConditionPrice/cbc:PriceAmount,'###,###,##0.0000','pen')"/>
+										</font>
+									</td>
+									<td width="10%" align="right">
+										<font face="Arial, Helvetica, sans-serif" size="1">
+										</font>
+									</td>
+									<td width="10%" align="right">
+										<font face="Arial, Helvetica, sans-serif" size="1">
+											<xsl:value-of select="format-number(cbc:LineExtensionAmount,'###,###,##0.00','pen')"/>
+										</font>
+									</td>
+								</tr>
+							</xsl:if>
 						</xsl:for-each>
 
 						<xsl:for-each select="/pe2:DebitNote/cac:DebitNoteLine">
-							<xsl:variable name="Descuento1">
-								<xsl:value-of select="0"/>
-								<xsl:if test="cac:AllowanceCharge/cbc:Amount">
-									<xsl:value-of select="cac:AllowanceCharge/cbc:Amount"/>
-								</xsl:if>
-							</xsl:variable>
-
-							<tr>
-								<td width="7%" align="center">
-									<font face="Arial, Helvetica, sans-serif" size="1">
-										<xsl:value-of select="cac:Item/cac:SellersItemIdentification/cbc:ID"/>
-									</font>
-								</td>
-								<td width="7%" align="center">
-									<font face="Arial, Helvetica, sans-serif" size="1">
-										<xsl:value-of select="cbc:DebitedQuantity"/>
-									</font>
-								</td>
-								<td width="39%" align="left">
-									<font face="Arial, Helvetica, sans-serif" size="1"> 
-										<xsl:value-of select="cac:Item/cbc:Description"/>
-									</font>
-								</td>
-								<td width="7%" align="center">
-									<font face="Arial, Helvetica, sans-serif" size="1">
-										<xsl:call-template name="unidad_medida"/>
-									</font>
-								</td>
-								<td width="10%" align="right">
-									<font face="Arial, Helvetica, sans-serif" size="1">
-										<xsl:value-of select="format-number(cac:Price/cbc:PriceAmount,'###,###,##0.0000','pen')"/>
-									</font>
-								</td>
-								<td width="10%" align="right">
-									<font face="Arial, Helvetica, sans-serif" size="1">
-										<xsl:value-of select="format-number(cac:PricingReference/cac:AlternativeConditionPrice/cbc:PriceAmount,'###,###,##0.0000','pen')"/>
-									</font>
-								</td>
-								<td width="10%" align="right">
-									<font face="Arial, Helvetica, sans-serif" size="1">
-									</font>
-								</td>
-								<td width="10%" align="right">
-									<font face="Arial, Helvetica, sans-serif" size="1">
-										<xsl:value-of select="format-number(cbc:LineExtensionAmount,'###,###,##0.00','pen')"/>
-									</font>
-								</td>
-							</tr>
+							<xsl:if test="cbc:ID &gt; $min and cbc:ID &lt; $max ">
+								<xsl:variable name="Descuento1">
+									<xsl:value-of select="0"/>
+									<xsl:if test="cac:AllowanceCharge/cbc:Amount">
+										<xsl:value-of select="cac:AllowanceCharge/cbc:Amount"/>
+									</xsl:if>
+								</xsl:variable>
+								<tr>
+									<td width="7%" align="center">
+										<font face="Arial, Helvetica, sans-serif" size="1">
+											<xsl:value-of select="cac:Item/cac:SellersItemIdentification/cbc:ID"/>
+										</font>
+									</td>
+									<td width="7%" align="center">
+										<font face="Arial, Helvetica, sans-serif" size="1">
+											<xsl:value-of select="cbc:DebitedQuantity"/>
+										</font>
+									</td>
+									<td width="39%" align="left">
+										<font face="Arial, Helvetica, sans-serif" size="1"> 
+											<xsl:value-of select="cac:Item/cbc:Description"/>
+										</font>
+									</td>
+									<td width="7%" align="center">
+										<font face="Arial, Helvetica, sans-serif" size="1">
+											<xsl:call-template name="unidad_medida"/>
+										</font>
+									</td>
+									<td width="10%" align="right">
+										<font face="Arial, Helvetica, sans-serif" size="1">
+											<xsl:value-of select="format-number(cac:Price/cbc:PriceAmount,'###,###,##0.0000','pen')"/>
+										</font>
+									</td>
+									<td width="10%" align="right">
+										<font face="Arial, Helvetica, sans-serif" size="1">
+											<xsl:value-of select="format-number(cac:PricingReference/cac:AlternativeConditionPrice/cbc:PriceAmount,'###,###,##0.0000','pen')"/>
+										</font>
+									</td>
+									<td width="10%" align="right">
+										<font face="Arial, Helvetica, sans-serif" size="1">
+										</font>
+									</td>
+									<td width="10%" align="right">
+										<font face="Arial, Helvetica, sans-serif" size="1">
+											<xsl:value-of select="format-number(cbc:LineExtensionAmount,'###,###,##0.00','pen')"/>
+										</font>
+									</td>
+								</tr>
+							</xsl:if>
 						</xsl:for-each>
 
 						<xsl:call-template name="lineaBl">
