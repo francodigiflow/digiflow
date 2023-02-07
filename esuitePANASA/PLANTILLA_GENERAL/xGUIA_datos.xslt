@@ -106,25 +106,27 @@
 										</font>
 									</td>
 								</tr>
-								<tr>
-									<td width="16%" align="left">
-										<font face="Arial, Helvetica, sans-serif" size="1">
-											<strong>VENDEDOR</strong>
-										</font>
-									</td>
-									<td width="1%" align="left">
-										<font face="Arial, Helvetica, sans-serif" size="1">
-											<strong>:</strong>
-										</font>
-									</td>
-									<td colspan="4" align="left">
-										<font face="Arial, Helvetica, sans-serif" size="1">
-											<xsl:call-template name="TraeValorVariable">
-												<xsl:with-param name="varNumVA" select="9"/>
-											</xsl:call-template> 
-										</font>
-									</td>
-								</tr>
+								<xsl:if test="//cac:SignatoryParty/cac:PartyIdentification/cbc:ID!='20330791501'">
+									<tr>
+										<td width="16%" align="left">
+											<font face="Arial, Helvetica, sans-serif" size="1">
+												<strong>VENDEDOR</strong>
+											</font>
+										</td>
+										<td width="1%" align="left">
+											<font face="Arial, Helvetica, sans-serif" size="1">
+												<strong>:</strong>
+											</font>
+										</td>
+										<td colspan="4" align="left">
+											<font face="Arial, Helvetica, sans-serif" size="1">
+												<xsl:call-template name="TraeValorVariable">
+													<xsl:with-param name="varNumVA" select="9"/>
+												</xsl:call-template> 
+											</font>
+										</td>
+									</tr>									
+								</xsl:if>		
 								<tr>
 									<!--<td width="16%" align="left">-->
 									<!--<td width="18%" align="left">

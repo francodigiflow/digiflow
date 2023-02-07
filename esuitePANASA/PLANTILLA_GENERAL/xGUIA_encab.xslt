@@ -38,13 +38,16 @@ exclude-result-prefixes="cac cbc ccts ds ext pe qdt sac udt xsi">
 	<p>
 		<table cellSpacing="2" cellPadding="0" width="100%" border="0">
 			<tbody>
-				<tr>
-					<td width="100%" align="left" valign="top">
-						<font color="#000000" size="4" face="Arial, Helvetica, sans-serif">
-							<strong><xsl:value-of select="//cbc:Name"/></strong>
-						</font>
-					</td>
-				</tr>
+				
+				<xsl:if test="//cac:SignatoryParty/cac:PartyIdentification/cbc:ID!='20330791501'">
+					<tr>
+						<td width="100%" align="left" valign="top">
+							<font color="#000000" size="4" face="Arial, Helvetica, sans-serif">
+								<strong><xsl:value-of select="//cbc:Name"/></strong>
+							</font>
+						</td>
+					</tr>
+				</xsl:if>					
 				
 				<tr>
 					<td width="100%" align="left">
@@ -78,20 +81,23 @@ exclude-result-prefixes="cac cbc ccts ds ext pe qdt sac udt xsi">
 							<xsl:call-template name="TraeValorVariable">
 								<xsl:with-param name="varNumVA" select="2"/>
 							</xsl:call-template> 
-							&#160;&#160;&#160;
-							<strong>Ventas : </strong>
-								<xsl:call-template name="TraeValorVariable">
-									<xsl:with-param name="varNumVA" select="3"/>
-								 </xsl:call-template> 
-							 <br/><strong>Email : </strong>
-								<xsl:call-template name="TraeValorVariable">
-									<xsl:with-param name="varNumVA" select="5"/>
-								</xsl:call-template> 
-                            <br/><strong>Web : </strong>
-								<xsl:call-template name="TraeValorVariable">
-									<xsl:with-param name="varNumVA" select="6"/>
-								</xsl:call-template> 
-                            <br/>
+							<xsl:if test="//cac:SignatoryParty/cac:PartyIdentification/cbc:ID!='20330791501'">
+								&#160;&#160;&#160;
+								<strong>Ventas : </strong>
+									<xsl:call-template name="TraeValorVariable">
+										<xsl:with-param name="varNumVA" select="3"/>
+									 </xsl:call-template> 
+								 <br/><strong>Email : </strong>
+									<xsl:call-template name="TraeValorVariable">
+										<xsl:with-param name="varNumVA" select="5"/>
+									</xsl:call-template> 
+	                            <br/><strong>Web : </strong>
+									<xsl:call-template name="TraeValorVariable">
+										<xsl:with-param name="varNumVA" select="6"/>
+									</xsl:call-template> 
+	                            <br/>
+								
+							</xsl:if>					
 						</font>
 					</td>
 				</tr>
