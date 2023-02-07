@@ -478,7 +478,7 @@
 
 						<xsl:call-template name="lineaBl">
 							<xsl:with-param name="cont" select="$numColBl"/>
-							<table>
+							<!--<table>
 								<tr>
 									<td align="center" valign="top" width="15%">
 										<font face="Arial, Helvetica, sans-serif" size="1">
@@ -486,7 +486,7 @@
 										</font>
 									</td>
 								</tr>
-							</table>
+							</table>-->
 						</xsl:call-template>
 					</table>
 				</td>
