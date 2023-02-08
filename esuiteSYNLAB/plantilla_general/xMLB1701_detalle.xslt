@@ -65,22 +65,22 @@
 			<xsl:variable name="min">
 				<xsl:choose>
 					<xsl:when test="$pagina = '1'">0</xsl:when>
-					<xsl:when test="$pagina = '2'">30</xsl:when>
-					<xsl:when test="$pagina = '3'">60</xsl:when>
-					<xsl:when test="$pagina = '4'">90</xsl:when>
-					<xsl:when test="$pagina = '5'">120</xsl:when>
-					<xsl:when test="$pagina = '6'">150</xsl:when>
+					<xsl:when test="$pagina = '2'">28</xsl:when>
+					<xsl:when test="$pagina = '3'">56</xsl:when>
+					<xsl:when test="$pagina = '4'">84</xsl:when>
+					<xsl:when test="$pagina = '5'">112</xsl:when>
+					<xsl:when test="$pagina = '6'">140</xsl:when>
 					<xsl:otherwise></xsl:otherwise>
 				</xsl:choose>
 			</xsl:variable>
 			<xsl:variable name="max">
 				<xsl:choose>					
-					<xsl:when test="$pagina = '1'">31</xsl:when>
-					<xsl:when test="$pagina = '2'">61</xsl:when>
-					<xsl:when test="$pagina = '3'">91</xsl:when>
-					<xsl:when test="$pagina = '4'">121</xsl:when>
-					<xsl:when test="$pagina = '5'">151</xsl:when>
-					<xsl:when test="$pagina = '6'">181</xsl:when>
+					<xsl:when test="$pagina = '1'">29</xsl:when>
+					<xsl:when test="$pagina = '2'">57</xsl:when>
+					<xsl:when test="$pagina = '3'">85</xsl:when>
+					<xsl:when test="$pagina = '4'">113</xsl:when>
+					<xsl:when test="$pagina = '5'">141</xsl:when>
+					<xsl:when test="$pagina = '6'">169</xsl:when>
 					<xsl:otherwise></xsl:otherwise>
 				</xsl:choose>
 			</xsl:variable>
