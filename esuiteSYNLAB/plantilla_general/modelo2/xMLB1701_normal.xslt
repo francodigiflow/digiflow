@@ -739,6 +739,27 @@
 		</xsl:for-each>
 	</xsl:variable>
 
+	<xsl:template name="Fecha">
+		<xsl:if test="/pe:Invoice">
+			<xsl:variable name="date1" select="substring-before(/pe:Invoice/cbc:IssueDate,'-')"/>
+			<xsl:variable name="date2" select="substring-before(substring-after(/pe:Invoice/cbc:IssueDate,'-'),'-')"/>
+			<xsl:variable name="date3" select="substring-after(substring-after(/pe:Invoice/cbc:IssueDate,'-'),'-')"/>
+			<xsl:value-of select="concat($date1,$date2,$date3)"/>
+		</xsl:if>
+		<xsl:if test="/pe1:CreditNote">
+			<xsl:variable name="date1" select="substring-before(/pe1:CreditNote/cbc:IssueDate,'-')"/>
+			<xsl:variable name="date2" select="substring-before(substring-after(/pe1:CreditNote/cbc:IssueDate,'-'),'-')"/>
+			<xsl:variable name="date3" select="substring-after(substring-after(/pe1:CreditNote/cbc:IssueDate,'-'),'-')"/>
+			<xsl:value-of select="concat($date1,$date2,$date3)"/>
+		</xsl:if>
+		<xsl:if test="/pe2:DebitNote">
+			<xsl:variable name="date1" select="substring-before(/pe2:DebitNote/cbc:IssueDate,'-')"/>
+			<xsl:variable name="date2" select="substring-before(substring-after(/pe2:DebitNote/cbc:IssueDate,'-'),'-')"/>
+			<xsl:variable name="date3" select="substring-after(substring-after(/pe2:DebitNote/cbc:IssueDate,'-'),'-')"/>
+			<xsl:value-of select="concat($date1,$date2,$date3)"/>
+		</xsl:if>
+	</xsl:template>
+
 </xsl:stylesheet>
 <!-- Stylus Studio meta-information - (c) 2004-2006. Progress Software Corporation. All rights reserved.
 <metaInformation>
