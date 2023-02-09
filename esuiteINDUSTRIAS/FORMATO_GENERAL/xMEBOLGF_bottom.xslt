@@ -43,7 +43,7 @@
 				<tr>
 					<td valign="top" width="50%" align="center">
 						<font face="Arial, Helvetica, sans-serif" size="1">Representación impresa de la <xsl:call-template name="tipoDoc_Footer"/>
-							<br/>Podrá ser consultada en: www.ecomprobantes.pe/industrias
+							<br/>Podrá ser consultada en: https://factura.ecomprobantes.pe/mebol/formularios/frmInicio.aspx
 							<br/>Autorizado mediante Resolución de <br/>Intendencia N° 0180050003363/SUNAT
 							<br/>
 							<!--<strong>Valor Resumen : </strong>

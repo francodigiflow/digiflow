@@ -212,6 +212,104 @@
 			</tr>
 		</table>
 	</xsl:template>
+	
+	
+	
+		<xsl:template name="tmpCuentaExportacion">
+		<table border="0" width="100%">
+			<tr>
+				<td width="22%" valign="top" align="justify">
+					<font face="Arial, Helvetica, sans-serif" size="1">
+						<br /><strong><u>FOR PAYMENTS FROM OUTSIDE THE USA</u></strong>
+						<br />
+						<strong>BENEFICIARY BANK : </strong> 
+							<xsl:for-each select="//ext:UBLExtensions/ext:UBLExtension/ext:ExtensionContent/pe:DatosAdicionales/pe:DatoAdicional">
+							<xsl:if test="pe:Codigo='24'">
+							<xsl:value-of select="pe:Valor"/>
+							</xsl:if>
+						</xsl:for-each>
+						<br /><strong>ADDRESS : </strong>
+							<xsl:for-each select="//ext:UBLExtensions/ext:UBLExtension/ext:ExtensionContent/pe:DatosAdicionales/pe:DatoAdicional">
+							<xsl:if test="pe:Codigo='25'">
+							<xsl:value-of select="pe:Valor"/>
+							</xsl:if>
+						</xsl:for-each>
+						<br /><strong>SWIFT : </strong>
+							<xsl:for-each select="//ext:UBLExtensions/ext:UBLExtension/ext:ExtensionContent/pe:DatosAdicionales/pe:DatoAdicional">
+							<xsl:if test="pe:Codigo='26'">
+							<xsl:value-of select="pe:Valor"/>
+							</xsl:if>
+						</xsl:for-each>
+						<br /><strong>ABA : </strong>
+							<xsl:for-each select="//ext:UBLExtensions/ext:UBLExtension/ext:ExtensionContent/pe:DatosAdicionales/pe:DatoAdicional">
+							<xsl:if test="pe:Codigo='27'">
+							<xsl:value-of select="pe:Valor"/>
+							</xsl:if>
+						</xsl:for-each>
+						<br /><strong>INTERMEDIARY BANK : </strong>
+							<xsl:for-each select="//ext:UBLExtensions/ext:UBLExtension/ext:ExtensionContent/pe:DatosAdicionales/pe:DatoAdicional">
+							<xsl:if test="pe:Codigo='28'">
+							<xsl:value-of select="pe:Valor"/>
+							</xsl:if>
+						</xsl:for-each>
+						<br /><strong>SWIFT : </strong>
+							<xsl:for-each select="//ext:UBLExtensions/ext:UBLExtension/ext:ExtensionContent/pe:DatosAdicionales/pe:DatoAdicional">
+							<xsl:if test="pe:Codigo='29'">
+							<xsl:value-of select="pe:Valor"/>
+							</xsl:if>
+						</xsl:for-each>
+						<br /><strong>BENEFICIARY ACCOUNT NAME : </strong>
+							<xsl:for-each select="//ext:UBLExtensions/ext:UBLExtension/ext:ExtensionContent/pe:DatosAdicionales/pe:DatoAdicional">
+							<xsl:if test="pe:Codigo='30'">
+							<xsl:value-of select="pe:Valor"/>
+							</xsl:if>
+						</xsl:for-each>
+						<br /><strong>BENEFICIARY ACCOUNT NUMBER : </strong>
+							<xsl:for-each select="//ext:UBLExtensions/ext:UBLExtension/ext:ExtensionContent/pe:DatosAdicionales/pe:DatoAdicional">
+							<xsl:if test="pe:Codigo='31'">
+							<xsl:value-of select="pe:Valor"/>
+							</xsl:if>
+						</xsl:for-each>
+					</font>
+				</td>
+								<td width="30%" valign="top" align="justify">
+					<font face="Arial, Helvetica, sans-serif" size="1">
+						<br /><strong><u>FOR PAYMENTS FROM OUTSIDE THE USA</u></strong>
+						<br /><strong>AGENCY BENEFICIARY BANK : </strong>
+							<xsl:for-each select="//ext:UBLExtensions/ext:UBLExtension/ext:ExtensionContent/pe:DatosAdicionales/pe:DatoAdicional">
+							<xsl:if test="pe:Codigo='32'">
+							<xsl:value-of select="pe:Valor"/>
+							</xsl:if>
+						</xsl:for-each>
+						<br /><strong>ADDRESS : </strong>
+							<xsl:for-each select="//ext:UBLExtensions/ext:UBLExtension/ext:ExtensionContent/pe:DatosAdicionales/pe:DatoAdicional">
+							<xsl:if test="pe:Codigo='33'">
+							<xsl:value-of select="pe:Valor"/>
+							</xsl:if>
+						</xsl:for-each>
+						<br /><strong>ABA : </strong>
+							<xsl:for-each select="//ext:UBLExtensions/ext:UBLExtension/ext:ExtensionContent/pe:DatosAdicionales/pe:DatoAdicional">
+							<xsl:if test="pe:Codigo='34'">
+							<xsl:value-of select="pe:Valor"/>
+							</xsl:if>
+						</xsl:for-each>
+						<br /><strong>ACCOUNT NAME : </strong>
+							<xsl:for-each select="//ext:UBLExtensions/ext:UBLExtension/ext:ExtensionContent/pe:DatosAdicionales/pe:DatoAdicional">
+							<xsl:if test="pe:Codigo='35'">
+							<xsl:value-of select="pe:Valor"/>
+							</xsl:if>
+						</xsl:for-each>
+						<br /><strong>ACCOUNT NUMBER : </strong>
+							<xsl:for-each select="//ext:UBLExtensions/ext:UBLExtension/ext:ExtensionContent/pe:DatosAdicionales/pe:DatoAdicional">
+							<xsl:if test="pe:Codigo='36'">
+							<xsl:value-of select="pe:Valor"/>
+							</xsl:if>
+						</xsl:for-each>
+					</font>
+				</td>
+			</tr>
+		</table>
+	</xsl:template>
 
 	<xsl:template name="tmpPieComprobante_NCND">
 		<table border="0" width="100%">
@@ -476,11 +574,18 @@
 										<xsl:choose>
 											<xsl:when test="/pe:Invoice">
 												<xsl:call-template name="tmpPieComprobante_FB"/>
+												
+												
+												
 											</xsl:when>
 											<xsl:otherwise>
 												<xsl:call-template name="tmpPieComprobante_NCND"/>
 											</xsl:otherwise>
 										</xsl:choose>
+										
+										<xsl:if test="$tipoDoc = '40'">
+												<xsl:call-template name="tmpCuentaExportacion"/>
+												</xsl:if>
 									</td>
 								</tr>
 							</tbody>

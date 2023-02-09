@@ -15,12 +15,9 @@
 						</xsl:for-each>
 						<xsl:value-of select="//cbc:Note[@languageLocaleID='1000']"/>
 						<xsl:if test="//cbc:UBLVersionID='2.0'">
-						<xsl:if test="//ext:ExtensionContent/pe:DatosAdicionales/pe:DatoAdicional[pe:Codigo='03' and pe:Valor='E'] or /pe:Invoice/cbc:ID='F004-00002825' or /pe:Invoice/cbc:ID='F004-00002826'">
+						<xsl:if test="//ext:ExtensionContent/pe:DatosAdicionales/pe:DatoAdicional[pe:Codigo='03' and pe:Valor='E']">
 						<br/>
-						<strong>SAY :</strong>
-							
-							
-							<xsl:for-each select="//ext:UBLExtensions/ext:UBLExtension/ext:ExtensionContent/pe:DatosAdicionales/pe:DatoAdicional">
+						<strong>SAY :</strong><xsl:for-each select="//ext:UBLExtensions/ext:UBLExtension/ext:ExtensionContent/pe:DatosAdicionales/pe:DatoAdicional">
 								<xsl:if test="pe:Codigo='19'">
 									<xsl:value-of select="pe:Valor"/>
 								</xsl:if>
@@ -41,15 +38,7 @@
 						<xsl:if test="//cbc:UBLVersionID='2.1'">
 							<xsl:if test="$tipoDoc = '40'">
 								<br/>
-								<strong>SAY :</strong>
-								<xsl:if test="/pe:Invoice/cbc:ID='F004-00002825'">
-								TWENTYNINE THOUSAND FOUR HUNDRED SIXTY TWO AND 93/100 US DOLLARS
-							</xsl:if>
-
-							<xsl:if test="/pe:Invoice/cbc:ID='F004-00002826'">
-								FORTY TWO THOUSAND SEVEN HUNDRED THIRTY FOUR AND 31/100 US DOLLARS
-							</xsl:if>
-								<xsl:for-each select="//ext:UBLExtensions/ext:UBLExtension/ext:ExtensionContent/pe:DatosAdicionales/pe:DatoAdicional">
+								<strong>SAY :</strong><xsl:for-each select="//ext:UBLExtensions/ext:UBLExtension/ext:ExtensionContent/pe:DatosAdicionales/pe:DatoAdicional">
 								<xsl:if test="pe:Codigo='19'">
 									<xsl:value-of select="pe:Valor"/>
 								</xsl:if>
@@ -137,7 +126,7 @@
 				<td width="100%" valign="top" align="justify">
 					<font face="Arial, Helvetica, sans-serif" size="1">
 						<xsl:choose>
-							<xsl:when test="//ext:ExtensionContent/pe:DatosAdicionales/pe:DatoAdicional[pe:Codigo='03' and pe:Valor='E'] or /pe:Invoice/cbc:ID='F004-00002825' or /pe:Invoice/cbc:ID='F004-00002826'">
+							<xsl:when test="//ext:ExtensionContent/pe:DatosAdicionales/pe:DatoAdicional[pe:Codigo='03' and pe:Valor='E']">
 							</xsl:when>
 							<xsl:otherwise>
 								** MEBOL SAC es agente de RETENCION. **
@@ -532,13 +521,6 @@
 										<xsl:call-template name="tmpImporteLetras"/>
 									</td>
 								</tr>
-								<xsl:if test="/pe:Invoice/cbc:ID='F004-00002825' or /pe:Invoice/cbc:ID='F004-00002826'">
-									<tr>
-										<td width="100%" align="left">
-											<xsl:call-template name="tmpInformacionAdicDirecto"/>
-										</td>
-									</tr>
-								</xsl:if>
 								<tr>
 									<td width="100%" align="left">
 										<xsl:choose>
@@ -549,10 +531,11 @@
 												<xsl:call-template name="tmpPieComprobante_NCND"/>
 											</xsl:otherwise>
 										</xsl:choose>
+										<xsl:if test="$tipoDoc = '40'">
+												<xsl:call-template name="tmpCuentaExportacion"/>
+												</xsl:if>
 									</td>
-								</tr>						
-								
-
+								</tr>
 							</tbody>
 						</table>
 					</td>
@@ -670,7 +653,6 @@
 		</tbody>
 	</table>
 </xsl:template>
-
 <xsl:template name="tmpInformacionAdicExportacion">
 	<table border="0" width="100%" cellpadding="0" cellspacing="0">
 		<tr>
@@ -686,12 +668,6 @@
 			</td>
 			<td width="26%" align="left" style="border-bottom:solid 1px black">
 				<font face="Arial, Helvetica, sans-serif" size="1">
-					<xsl:if test="/pe:Invoice/cbc:ID='F004-00002826'">
-						CALLAO-PERU
-					</xsl:if>
-					<xsl:if test="/pe:Invoice/cbc:ID='F004-00002825'">
-						CALLAO-PERU
-					</xsl:if>
 					<xsl:for-each select="//ext:UBLExtensions/ext:UBLExtension/ext:ExtensionContent/pe:DatosAdicionales/pe:DatoAdicional">
 						<xsl:if test="pe:Codigo='08'">
 							<xsl:value-of select="pe:Valor"/>
@@ -724,12 +700,6 @@
 			</td>
 			<td width="26%" style="border-bottom:solid 1px black">
 				<font face="Arial, Helvetica, sans-serif" size="1">
-					<xsl:if test="/pe:Invoice/cbc:ID='F004-00002826'">
-						45 DAYS BL
-					</xsl:if>
-					<xsl:if test="/pe:Invoice/cbc:ID='F004-00002825'">
-						45 DAYS BL
-					</xsl:if>
 					<xsl:for-each select="//ext:UBLExtensions/ext:UBLExtension/ext:ExtensionContent/pe:DatosAdicionales/pe:DatoAdicional">
 						<xsl:if test="pe:Codigo='14'">
 							<xsl:value-of select="pe:Valor"/>
@@ -763,12 +733,6 @@
 			</td>
 			<td width="26%" align="left" style="border-bottom:solid 1px black">
 				<font face="Arial, Helvetica, sans-serif" size="1">
-					<xsl:if test="/pe:Invoice/cbc:ID='F004-00002826'">
-						19/10/2022
-					</xsl:if>
-					<xsl:if test="/pe:Invoice/cbc:ID='F004-00002825'">
-						19/10/2022
-					</xsl:if>
 					<xsl:for-each select="//ext:UBLExtensions/ext:UBLExtension/ext:ExtensionContent/pe:DatosAdicionales/pe:DatoAdicional">
 						<xsl:if test="pe:Codigo='09'">
 							<xsl:value-of select="pe:Valor"/>
@@ -803,12 +767,6 @@
 			</td>
 			<td width="26%" style="border-bottom:solid 1px black">
 				<font face="Arial, Helvetica, sans-serif" size="1">
-					<xsl:if test="/pe:Invoice/cbc:ID='F004-00002826'">
-						PORCOBRAR/COLLECT
-					</xsl:if>
-					<xsl:if test="/pe:Invoice/cbc:ID='F004-00002825'">
-						PORCOBRAR/COLLECT
-					</xsl:if>
 					<xsl:for-each select="//ext:UBLExtensions/ext:UBLExtension/ext:ExtensionContent/pe:DatosAdicionales/pe:DatoAdicional">
 						<xsl:if test="pe:Codigo='15'">
 							<xsl:value-of select="pe:Valor"/>
@@ -842,12 +800,6 @@
 			</td>
 			<td width="26%" align="left" style="border-bottom:solid 1px black">
 				<font face="Arial, Helvetica, sans-serif" size="1">
-					<xsl:if test="/pe:Invoice/cbc:ID='F004-00002826'">
-						MSCROMANE NX241R 
-					</xsl:if>
-					<xsl:if test="/pe:Invoice/cbc:ID='F004-00002825'">
-						MSCROMANE NX241R 
-					</xsl:if>
 					<xsl:for-each select="//ext:UBLExtensions/ext:UBLExtension/ext:ExtensionContent/pe:DatosAdicionales/pe:DatoAdicional">
 						<xsl:if test="pe:Codigo='10'">
 							<xsl:value-of select="pe:Valor"/>
@@ -880,12 +832,6 @@
 			</td>
 			<td width="26%" style="border-bottom:solid 1px black">
 				<font face="Arial, Helvetica, sans-serif" size="1">
-					<xsl:if test="/pe:Invoice/cbc:ID='F004-00002826'">
-						FSCU5682582 
-					</xsl:if>
-					<xsl:if test="/pe:Invoice/cbc:ID='F004-00002825'">
-						MSCU7484942
-					</xsl:if>
 					<xsl:for-each select="//ext:UBLExtensions/ext:UBLExtension/ext:ExtensionContent/pe:DatosAdicionales/pe:DatoAdicional">
 						<xsl:if test="pe:Codigo='16'">
 							<xsl:value-of select="pe:Valor"/>
@@ -917,12 +863,6 @@
 			</td>
 			<td width="26%" align="left" style="border-bottom:solid 1px black">
 				<font face="Arial, Helvetica, sans-serif" size="1">
-					<xsl:if test="/pe:Invoice/cbc:ID='F004-00002826'">
-						24008.04 KG
-					</xsl:if>
-					<xsl:if test="/pe:Invoice/cbc:ID='F004-00002825'">
-						17965.20 KG
-					</xsl:if>
 					<xsl:for-each select="//ext:UBLExtensions/ext:UBLExtension/ext:ExtensionContent/pe:DatosAdicionales/pe:DatoAdicional">
 						<xsl:if test="pe:Codigo='11'">
 							<!-- <xsl:value-of select="format-number(pe:Valor,'###,###,##0.00','pen')"/> -->
@@ -960,12 +900,6 @@
 			</td>
 			<td width="26%" style="border-bottom:solid 1px black">
 				<font face="Arial, Helvetica, sans-serif" size="1">
-					<xsl:if test="/pe:Invoice/cbc:ID='F004-00002826'">
-						PO29969-2
-					</xsl:if>
-					<xsl:if test="/pe:Invoice/cbc:ID='F004-00002825'">
-						PO29968-8
-					</xsl:if>
 					<xsl:for-each select="//ext:UBLExtensions/ext:UBLExtension/ext:ExtensionContent/pe:DatosAdicionales/pe:DatoAdicional">
 						<xsl:if test="pe:Codigo='17'">
 							<xsl:value-of select="pe:Valor"/>
@@ -999,12 +933,6 @@
 			</td>
 			<td width="26%" align="left" style="border-bottom:solid 1px black">
 				<font face="Arial, Helvetica, sans-serif" size="1">
-					<xsl:if test="/pe:Invoice/cbc:ID='F004-00002826'">
-						0.00
-					</xsl:if>
-					<xsl:if test="/pe:Invoice/cbc:ID='F004-00002825'">
-						0.00
-					</xsl:if>
 					<xsl:for-each select="//ext:UBLExtensions/ext:UBLExtension/ext:ExtensionContent/pe:DatosAdicionales/pe:DatoAdicional">
 						<xsl:if test="pe:Codigo='12'">
 							<!-- <xsl:value-of select="format-number(pe:Valor,'###,###,##0.00','pen')"/> -->
@@ -1042,12 +970,6 @@
 			</td>
 			<td width="26%" style="border-bottom:solid 1px black">
 				<font face="Arial, Helvetica, sans-serif" size="1">
-					<xsl:if test="/pe:Invoice/cbc:ID='F004-00002826'">
-						260000725780/260000725800
-					</xsl:if>
-					<xsl:if test="/pe:Invoice/cbc:ID='F004-00002825'">
-						260000725781/260000725837
-					</xsl:if>
 					<xsl:for-each select="//ext:UBLExtensions/ext:UBLExtension/ext:ExtensionContent/pe:DatosAdicionales/pe:DatoAdicional">
 						<xsl:if test="pe:Codigo='18'">
 							<xsl:value-of select="pe:Valor"/>
@@ -1081,12 +1003,6 @@
 			</td>
 			<td width="26%" align="left" style="border-bottom:solid 1px black">
 				<font face="Arial, Helvetica, sans-serif" size="1">
-					<xsl:if test="/pe:Invoice/cbc:ID='F004-00002826'">
-						1764 BOXES
-					</xsl:if>
-					<xsl:if test="/pe:Invoice/cbc:ID='F004-00002825'">
-						1320 BOXES IN18 PALLETS
-					</xsl:if>
 					<xsl:for-each select="//ext:UBLExtensions/ext:UBLExtension/ext:ExtensionContent/pe:DatosAdicionales/pe:DatoAdicional">
 						<xsl:if test="pe:Codigo='13'">
 							<xsl:value-of select="pe:Valor"/>
@@ -1112,145 +1028,101 @@
 	</table>
 </xsl:template>
 
-<xsl:template name="tmpInformacionAdicDirecto">
-	<table border="0" width="100%" cellpadding="0" cellspacing="0">
-		<tr>
-			<td width="40%" align="left">
-				<font face="Arial, Helvetica, sans-serif" size="1">
-					<u><strong>FOR PAYMENTS FROM OUTSIDE THE USA</strong></u>
-				</font>
-			</td>			
-			<td width="2%">&#xA0;</td>
-			<td width="40%" align="left">
-				<font face="Arial, Helvetica, sans-serif" size="1">
-					<u><strong>FOR PAYMENTS FROM A BANK WITHIN THE USA</strong></u>
-				</font>
-			</td>
-			<td width="18%">&#xA0;</td>
-		</tr>
-
-		<tr>
-			<td width="34%" align="left">
-				<font face="Arial, Helvetica, sans-serif" size="1">
-					<strong>BENEFICIARY BANK : </strong> BANCO DE CREDITO DEL PERU- MIAMI AGENCY
-				</font>
-			</td>			
-			<td width="2%">&#xA0;</td>
-			<td width="34%" align="left">
-				<font face="Arial, Helvetica, sans-serif" size="1">
-					<strong>BENEFICIARY BANK : </strong>BANCO DE CREDITO DEL PERU- MIAMI AGENCY
-				</font>
-			</td>
-			<td width="15%">&#xA0;</td>
-		</tr>
-		
-		<tr>
-			<td width="34%" align="left">
-				<font face="Arial, Helvetica, sans-serif" size="1">
-					<strong>ADRESS : </strong>121 ALHAMBRA PLAZA, SUITE 1200, CORAL GABLES, FL 33134
-				</font>
-			</td>			
-			<td width="2%">&#xA0;</td>
-			<td width="30%" align="left">
-				<font face="Arial, Helvetica, sans-serif" size="1">
-					<strong>ADRESS : </strong>121 ALHAMBRA PLAZA, SUITE 1200, CORAL GABLES, FL 33134
-				</font>
-			</td>
-			<td width="15%">&#xA0;</td>
-		</tr>
-
-		<tr>
-			<td width="20%" align="left">
-				<font face="Arial, Helvetica, sans-serif" size="1">
-					<strong>SWIFT : </strong>BCPLUS33
-				</font>
-			</td>			
-			<td width="8%">&#xA0;</td>
-			<td width="15%" align="left">
-				<font face="Arial, Helvetica, sans-serif" size="1">
-					<strong>ABA : </strong>067015355
-				</font>
-			</td>
-			<td width="30%">&#xA0;</td>
-		</tr>
-
-		<tr>
-			<td width="20%" align="left">
-				<font face="Arial, Helvetica, sans-serif" size="1">
-					<strong>ABA : </strong>067015355
-				</font>
-			</td>			
-			<td width="8%">&#xA0;</td>
-			<td width="15%" align="left">
-				<font face="Arial, Helvetica, sans-serif" size="1">
-					<strong>BENEFICIARY ACCOUNTNAME : </strong>MEBOL SAC
-				</font>
-			</td>
-			<td width="30%">&#xA0;</td>
-		</tr>
-
-		<tr>
-			<td width="27%" align="left">
-				<font face="Arial, Helvetica, sans-serif" size="1">
-					<strong>INTERMEDIARY BANK : </strong>STANDARD CHARTERED BANK - NEW YORK
-				</font>
-			</td>			
-			<td width="1%">&#xA0;</td>
-			<td width="15%" align="left">
-				<font face="Arial, Helvetica, sans-serif" size="1">
-					<strong>BENEFICIARY ACCOUNT NUMBER : </strong>201030010007046
-				</font>
-			</td>
-			<td width="30%">&#xA0;</td>
-		</tr>
-
-		<tr>
-			<td width="20%" align="left">
-				<font face="Arial, Helvetica, sans-serif" size="1">
-					<strong>SWIFT: </strong>SCBLUS33
-				</font>
-			</td>			
-			<td width="8%">&#xA0;</td>
-			<td width="15%" align="left">
-				<font face="Arial, Helvetica, sans-serif" size="1">
-					<strong></strong>
-				</font>
-			</td>
-			<td width="30%">&#xA0;</td>
-		</tr>
-
-		<tr>
-			<td width="20%" align="left">
-				<font face="Arial, Helvetica, sans-serif" size="1">
-					<strong>BENEFICIARY ACCOUNT NAME : </strong>MEBOL SAC
-				</font>
-			</td>			
-			<td width="8%">&#xA0;</td>
-			<td width="15%" align="left">
-				<font face="Arial, Helvetica, sans-serif" size="1">
-					<strong></strong>
-				</font>
-			</td>
-			<td width="30%">&#xA0;</td>
-		</tr>
-
-		<tr>
-			<td width="27%" align="left">
-				<font face="Arial, Helvetica, sans-serif" size="1">
-					<strong>BENEFICIARY ACCOUNT NUMBER : </strong>201030010007046
-				</font>
-			</td>			
-			<td width="1%">&#xA0;</td>
-			<td width="15%" align="left">
-				<font face="Arial, Helvetica, sans-serif" size="1">
-					<strong></strong>
-				</font>
-			</td>
-			<td width="30%">&#xA0;</td>
-		</tr>
-
-	</table>
-</xsl:template>
+	<xsl:template name="tmpCuentaExportacion">
+		<table border="0" width="100%">
+			<tr>
+				<td width="22%" valign="top" align="justify">
+					<font face="Arial, Helvetica, sans-serif" size="1">
+						<br /><strong><u>FOR PAYMENTS FROM OUTSIDE THE USA</u></strong>
+						<br />
+						<strong>BENEFICIARY BANK : </strong> 
+							<xsl:for-each select="//ext:UBLExtensions/ext:UBLExtension/ext:ExtensionContent/pe:DatosAdicionales/pe:DatoAdicional">
+							<xsl:if test="pe:Codigo='24'">
+							<xsl:value-of select="pe:Valor"/>
+							</xsl:if>
+						</xsl:for-each>
+						<br /><strong>ADDRESS : </strong>
+							<xsl:for-each select="//ext:UBLExtensions/ext:UBLExtension/ext:ExtensionContent/pe:DatosAdicionales/pe:DatoAdicional">
+							<xsl:if test="pe:Codigo='25'">
+							<xsl:value-of select="pe:Valor"/>
+							</xsl:if>
+						</xsl:for-each>
+						<br /><strong>SWIFT : </strong>
+							<xsl:for-each select="//ext:UBLExtensions/ext:UBLExtension/ext:ExtensionContent/pe:DatosAdicionales/pe:DatoAdicional">
+							<xsl:if test="pe:Codigo='26'">
+							<xsl:value-of select="pe:Valor"/>
+							</xsl:if>
+						</xsl:for-each>
+						<br /><strong>ABA : </strong>
+							<xsl:for-each select="//ext:UBLExtensions/ext:UBLExtension/ext:ExtensionContent/pe:DatosAdicionales/pe:DatoAdicional">
+							<xsl:if test="pe:Codigo='27'">
+							<xsl:value-of select="pe:Valor"/>
+							</xsl:if>
+						</xsl:for-each>
+						<br /><strong>INTERMEDIARY BANK : </strong>
+							<xsl:for-each select="//ext:UBLExtensions/ext:UBLExtension/ext:ExtensionContent/pe:DatosAdicionales/pe:DatoAdicional">
+							<xsl:if test="pe:Codigo='28'">
+							<xsl:value-of select="pe:Valor"/>
+							</xsl:if>
+						</xsl:for-each>
+						<br /><strong>SWIFT : </strong>
+							<xsl:for-each select="//ext:UBLExtensions/ext:UBLExtension/ext:ExtensionContent/pe:DatosAdicionales/pe:DatoAdicional">
+							<xsl:if test="pe:Codigo='29'">
+							<xsl:value-of select="pe:Valor"/>
+							</xsl:if>
+						</xsl:for-each>
+						<br /><strong>BENEFICIARY ACCOUNT NAME : </strong>
+							<xsl:for-each select="//ext:UBLExtensions/ext:UBLExtension/ext:ExtensionContent/pe:DatosAdicionales/pe:DatoAdicional">
+							<xsl:if test="pe:Codigo='30'">
+							<xsl:value-of select="pe:Valor"/>
+							</xsl:if>
+						</xsl:for-each>
+						<br /><strong>BENEFICIARY ACCOUNT NUMBER : </strong>
+							<xsl:for-each select="//ext:UBLExtensions/ext:UBLExtension/ext:ExtensionContent/pe:DatosAdicionales/pe:DatoAdicional">
+							<xsl:if test="pe:Codigo='31'">
+							<xsl:value-of select="pe:Valor"/>
+							</xsl:if>
+						</xsl:for-each>
+					</font>
+				</td>
+								<td width="30%" valign="top" align="justify">
+					<font face="Arial, Helvetica, sans-serif" size="1">
+						<br /><strong><u>FOR PAYMENTS FROM OUTSIDE THE USA</u></strong>
+						<br /><strong>AGENCY BENEFICIARY BANK : </strong>
+							<xsl:for-each select="//ext:UBLExtensions/ext:UBLExtension/ext:ExtensionContent/pe:DatosAdicionales/pe:DatoAdicional">
+							<xsl:if test="pe:Codigo='32'">
+							<xsl:value-of select="pe:Valor"/>
+							</xsl:if>
+						</xsl:for-each>
+						<br /><strong>ADDRESS : </strong>
+							<xsl:for-each select="//ext:UBLExtensions/ext:UBLExtension/ext:ExtensionContent/pe:DatosAdicionales/pe:DatoAdicional">
+							<xsl:if test="pe:Codigo='33'">
+							<xsl:value-of select="pe:Valor"/>
+							</xsl:if>
+						</xsl:for-each>
+						<br /><strong>ABA : </strong>
+							<xsl:for-each select="//ext:UBLExtensions/ext:UBLExtension/ext:ExtensionContent/pe:DatosAdicionales/pe:DatoAdicional">
+							<xsl:if test="pe:Codigo='34'">
+							<xsl:value-of select="pe:Valor"/>
+							</xsl:if>
+						</xsl:for-each>
+						<br /><strong>ACCOUNT NAME : </strong>
+							<xsl:for-each select="//ext:UBLExtensions/ext:UBLExtension/ext:ExtensionContent/pe:DatosAdicionales/pe:DatoAdicional">
+							<xsl:if test="pe:Codigo='35'">
+							<xsl:value-of select="pe:Valor"/>
+							</xsl:if>
+						</xsl:for-each>
+						<br /><strong>ACCOUNT NUMBER : </strong>
+							<xsl:for-each select="//ext:UBLExtensions/ext:UBLExtension/ext:ExtensionContent/pe:DatosAdicionales/pe:DatoAdicional">
+							<xsl:if test="pe:Codigo='36'">
+							<xsl:value-of select="pe:Valor"/>
+							</xsl:if>
+						</xsl:for-each>
+					</font>
+				</td>
+			</tr>
+		</table>
+	</xsl:template>
 
 
 <xsl:template name="TipoDeDocumento">
