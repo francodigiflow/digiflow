@@ -139,8 +139,16 @@
 										<font face="Arial, Helvetica, sans-serif" size="1">
 											<strong>FECHA EMISIÓN :&#160;</strong>
 											<xsl:value-of select="//cbc:IssueDate"/>
-											&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;
-											<strong>FECHA INICIO TRASLADO :&#160;</strong>
+											&#160;&#160;&#160;&#160;&#160;&#160;
+											<strong>
+												<xsl:if test="//cac:Shipment/cac:ShipmentStage/cbc:TransportModeCode='01'">
+													FECHA DE ENTREGA DE LOS BIENES AL TRANSPORTISTA :&#160;
+												</xsl:if>
+												<xsl:if test="//cac:Shipment/cac:ShipmentStage/cbc:TransportModeCode='02'">
+													FECHA DE INICIO TRASLADO DE LOS BIENES  :&#160;
+												</xsl:if>
+												
+											</strong>
 											<xsl:value-of select="//cac:Shipment/cac:ShipmentStage/cac:TransitPeriod/cbc:StartDate"/>
 										</font>
 									</td>
