@@ -157,26 +157,12 @@
 	<xsl:template name="Total">
 		<table border="2" borderColor="#000000" width="100%" cellpadding="1" cellspacing="0" style="border: double">
 
-			<!--xsl:for-each select="//ext:UBLExtensions/ext:UBLExtension/ext:ExtensionContent/sac:AdditionalInformation/sac:AdditionalMonetaryTotal">
-				<xsl:if test="cbc:ID='2005'">
-					<xsl:if test="cbc:PayableAmount!='0'">
-						<tr>
-							<td width="48%">
-								<font face="Arial, Helvetica, sans-serif" size="2">
-									<strong>TOTAL DESCUENTOS</strong>
-								</font>
-							</td>
-							<td width="52%" align="right">
-								<font face="Arial, Helvetica, sans-serif" size="2">
-									<xsl:value-of select="format-number(cbc:PayableAmount, '###,###,##0.00', 'pen')"/>
-								</font>
-							</td>
-						</tr>
-					</xsl:if>
-				</xsl:if>
-			</xsl:for-each-->
-			
-			<tr>
+			<xsl:variable name="ValorDate">
+				<xsl:call-template name="Fecha"/>
+			</xsl:variable>
+									
+			<xsl:if test="$ValorDate &gt;'20230203'">
+				<tr>
 				<td width="48%">
 					<font face="Arial, Helvetica, sans-serif" size="2">
 						<strong>SUB TOTAL</strong>
@@ -254,11 +240,11 @@
 						<xsl:if test="$Gravado = '' ">
 							0.00&#xA0;
 						</xsl:if>
-
 					</font>
 				</td>
 			</tr>
-						<tr>
+
+				<tr>
 				<td width="48%">
 					<font face="Arial, Helvetica, sans-serif" size="2">
 						<strong>DESCUENTO</strong>
@@ -288,7 +274,8 @@
 					</font>
 				</td>
 			</tr>
-						<tr>
+			</xsl:if>
+			<tr>
 				<td width="48%">
 					<font face="Arial, Helvetica, sans-serif" size="2">
 						<strong>OP. GRAVADA</strong>

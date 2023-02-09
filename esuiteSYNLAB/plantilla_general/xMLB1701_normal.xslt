@@ -65,7 +65,7 @@
 			</head>
 			
 			<xsl:variable name="totalitems">
-				<!--<xsl:value-of select="count(/pe:Invoice/cac:InvoiceLine/cbc:ID)"/>-->
+				<xsl:value-of select="count(/pe:Invoice/cac:InvoiceLine/cbc:ID)"/>
 				<xsl:if test="/pe:Invoice != ''">
 					<xsl:value-of select="count(/pe:Invoice/cac:InvoiceLine)"/>
 				</xsl:if>
@@ -78,11 +78,11 @@
 			</xsl:variable>
 
 			<xsl:variable name="totalpag">
-				<xsl:if test="$totalitems &lt; '49'">
+				<xsl:if test="$totalitems &lt; '28'">
 					<xsl:value-of select="1"/>
 				</xsl:if>
-				<xsl:if test="$totalitems &gt;'48'">
-					<xsl:value-of select="ceiling($totalitems div 48)"/>
+				<xsl:if test="$totalitems &gt;'28'">
+					<xsl:value-of select="ceiling($totalitems div 30)"/>
 				</xsl:if>
 			</xsl:variable>
 
@@ -101,7 +101,7 @@
 									</xsl:call-template>
 								</td>
 							</tr>
-							<xsl:if test="$totalpag=1">
+							<!--<xsl:if test="$totalpag=1">-->
 								<tr>
 									<td>
 										<table border="0" cellSpacing="0" cellPadding="0" width="100%" align="center" heigth="100%">
@@ -177,7 +177,7 @@
 										<xsl:call-template name="bottom_hash"/>
 									</td>
 								</tr>						
-							</xsl:if>
+							<!--</xsl:if>-->
 						</tbody>
 					</table>
 					<div align="right">
@@ -201,7 +201,7 @@
 										</xsl:call-template>
 									</td>
 								</tr>
-								<xsl:if test="$totalpag=2">
+								<!--<xsl:if test="$totalpag=2">-->
 									<tr>
 										<td>
 											<table border="0" cellSpacing="0" cellPadding="0" width="100%" align="center" heigth="100%">
@@ -277,7 +277,7 @@
 											<xsl:call-template name="bottom_hash"/>
 										</td>
 									</tr>						
-								</xsl:if>
+								<!--</xsl:if>-->
 							</tbody>
 						</table>
 						<div align="right">
@@ -302,7 +302,7 @@
 										</xsl:call-template>
 									</td>
 								</tr>
-								<xsl:if test="$totalpag=3">
+								<!--<xsl:if test="$totalpag=3">-->
 									<tr>
 										<td>
 											<table border="0" cellSpacing="0" cellPadding="0" width="100%" align="center" heigth="100%">
@@ -378,11 +378,11 @@
 											<xsl:call-template name="bottom_hash"/>
 										</td>
 									</tr>						
-								</xsl:if>
+								<!--</xsl:if>-->
 							</tbody>
 						</table>
 						<div align="right">
-							<font color="#000000" size="2" face="Arial, Helvetica, sans-serif">Pág 2/<xsl:value-of select="$totalpag"/>&#xA0;&#xA0;</font>
+							<font color="#000000" size="2" face="Arial, Helvetica, sans-serif">Pág 3/<xsl:value-of select="$totalpag"/>&#xA0;&#xA0;</font>
 						</div>
 					</h2>
 				</xsl:if>
@@ -403,7 +403,7 @@
 										</xsl:call-template>
 									</td>
 								</tr>
-								<xsl:if test="$totalpag=4">
+								<!--<xsl:if test="$totalpag=4">-->
 									<tr>
 										<td>
 											<table border="0" cellSpacing="0" cellPadding="0" width="100%" align="center" heigth="100%">
@@ -479,11 +479,11 @@
 											<xsl:call-template name="bottom_hash"/>
 										</td>
 									</tr>						
-								</xsl:if>
+								<!--</xsl:if>-->
 							</tbody>
 						</table>
 						<div align="right">
-							<font color="#000000" size="2" face="Arial, Helvetica, sans-serif">Pág 2/<xsl:value-of select="$totalpag"/>&#xA0;&#xA0;</font>
+							<font color="#000000" size="2" face="Arial, Helvetica, sans-serif">Pág 4/<xsl:value-of select="$totalpag"/>&#xA0;&#xA0;</font>
 						</div>
 					</h2>
 				</xsl:if>
@@ -504,7 +504,7 @@
 										</xsl:call-template>
 									</td>
 								</tr>
-								<xsl:if test="$totalpag=5">
+								<!--<xsl:if test="$totalpag=5">-->
 									<tr>
 										<td>
 											<table border="0" cellSpacing="0" cellPadding="0" width="100%" align="center" heigth="100%">
@@ -580,11 +580,11 @@
 											<xsl:call-template name="bottom_hash"/>
 										</td>
 									</tr>						
-								</xsl:if>
+								<!--</xsl:if>-->
 							</tbody>
 						</table>
 						<div align="right">
-							<font color="#000000" size="2" face="Arial, Helvetica, sans-serif">Pág 2/<xsl:value-of select="$totalpag"/>&#xA0;&#xA0;</font>
+							<font color="#000000" size="2" face="Arial, Helvetica, sans-serif">Pág 5/<xsl:value-of select="$totalpag"/>&#xA0;&#xA0;</font>
 						</div>
 					</h2>
 				</xsl:if>
@@ -605,7 +605,7 @@
 										</xsl:call-template>
 									</td>
 								</tr>
-								<xsl:if test="$totalpag=6">
+								<!--<xsl:if test="$totalpag=6">-->
 									<tr>
 										<td>
 											<table border="0" cellSpacing="0" cellPadding="0" width="100%" align="center" heigth="100%">
@@ -681,11 +681,11 @@
 											<xsl:call-template name="bottom_hash"/>
 										</td>
 									</tr>						
-								</xsl:if>
+								<!--</xsl:if>-->
 							</tbody>
 						</table>
 						<div align="right">
-							<font color="#000000" size="2" face="Arial, Helvetica, sans-serif">Pág 2/<xsl:value-of select="$totalpag"/>&#xA0;&#xA0;</font>
+							<font color="#000000" size="2" face="Arial, Helvetica, sans-serif">Pág 6/<xsl:value-of select="$totalpag"/>&#xA0;&#xA0;</font>
 						</div>
 					</h2>
 				</xsl:if>
@@ -739,9 +739,30 @@
 		</xsl:for-each>
 	</xsl:variable>
 
+	<xsl:template name="Fecha">
+		<xsl:if test="/pe:Invoice">
+			<xsl:variable name="date1" select="substring-before(/pe:Invoice/cbc:IssueDate,'-')"/>
+			<xsl:variable name="date2" select="substring-before(substring-after(/pe:Invoice/cbc:IssueDate,'-'),'-')"/>
+			<xsl:variable name="date3" select="substring-after(substring-after(/pe:Invoice/cbc:IssueDate,'-'),'-')"/>
+			<xsl:value-of select="concat($date1,$date2,$date3)"/>
+		</xsl:if>
+		<xsl:if test="/pe1:CreditNote">
+			<xsl:variable name="date1" select="substring-before(/pe1:CreditNote/cbc:IssueDate,'-')"/>
+			<xsl:variable name="date2" select="substring-before(substring-after(/pe1:CreditNote/cbc:IssueDate,'-'),'-')"/>
+			<xsl:variable name="date3" select="substring-after(substring-after(/pe1:CreditNote/cbc:IssueDate,'-'),'-')"/>
+			<xsl:value-of select="concat($date1,$date2,$date3)"/>
+		</xsl:if>
+		<xsl:if test="/pe2:DebitNote">
+			<xsl:variable name="date1" select="substring-before(/pe2:DebitNote/cbc:IssueDate,'-')"/>
+			<xsl:variable name="date2" select="substring-before(substring-after(/pe2:DebitNote/cbc:IssueDate,'-'),'-')"/>
+			<xsl:variable name="date3" select="substring-after(substring-after(/pe2:DebitNote/cbc:IssueDate,'-'),'-')"/>
+			<xsl:value-of select="concat($date1,$date2,$date3)"/>
+		</xsl:if>
+	</xsl:template>
+
 </xsl:stylesheet>
 <!-- Stylus Studio meta-information - (c) 2004-2006. Progress Software Corporation. All rights reserved.
 <metaInformation>
-<scenarios ><scenario default="yes" name="Scenario1" userelativepaths="yes" externalpreview="yes" url="..\xml\20304706211&#x2D;01&#x2D;F002&#x2D;00047503.xml" htmlbaseurl="" outputurl="" processortype="internal" useresolver="yes" profilemode="0" profiledepth="" profilelength="" urlprofilexml="" commandline="" additionalpath="" additionalclasspath="" postprocessortype="none" postprocesscommandline="" postprocessadditionalpath="" postprocessgeneratedext="" validateoutput="yes" validator="internal" customvalidator=""/></scenarios><MapperMetaTag><MapperInfo srcSchemaPathIsRelative="yes" srcSchemaInterpretAsXML="no" destSchemaPath="" destSchemaRoot="" destSchemaPathIsRelative="yes" destSchemaInterpretAsXML="no" ><SourceSchema srcSchemaPath="20124148970&#x2D;08&#x2D;BB11&#x2D;30000011.xml" srcSchemaRoot="DebitNote" AssociatedInstance="" loaderFunction="document" loaderFunctionUsesURI="no"/></MapperInfo><MapperBlockPosition><template match="/"><block path="html/body/table/tbody/tr/td/xsl:call&#x2D;template" x="361" y="69"/><block path="html/body/table/tbody/tr[1]/td/xsl:call&#x2D;template" x="401" y="69"/><block path="html/body/table/tbody/tr[2]/td/xsl:call&#x2D;template" x="166" y="60"/><block path="html/body/table/tbody/tr[3]/td/table/tbody/tr/td/xsl:call&#x2D;template" x="246" y="20"/><block path="html/body/table/tbody/tr[3]/td/table/tbody/tr/td[2]/xsl:call&#x2D;template" x="166" y="20"/><block path="html/body/table/tbody/tr[4]/td/xsl:choose" x="86" y="60"/><block path="html/body/table/tbody/tr[4]/td/xsl:choose/=[0]" x="40" y="54"/><block path="html/body/table/tbody/tr[4]/td/xsl:choose/=[1]" x="40" y="82"/><block path="html/body/table/tbody/tr[4]/td/xsl:choose/xsl:otherwise/xsl:if" x="46" y="60"/><block path="html/body/table/tbody/tr[4]/td/xsl:choose/xsl:otherwise/xsl:if[1]" x="206" y="20"/><block path="html/body/table/tbody/tr[5]/td/xsl:call&#x2D;template" x="126" y="60"/></template></MapperBlockPosition><TemplateContext></TemplateContext><MapperFilter side="source"></MapperFilter></MapperMetaTag>
+<scenarios ><scenario default="yes" name="Scenario1" userelativepaths="yes" externalpreview="yes" url="..\xml\20304706211&#x2D;01&#x2D;F001&#x2D;00022140&#x2D;40items.xml" htmlbaseurl="" outputurl="" processortype="internal" useresolver="yes" profilemode="0" profiledepth="" profilelength="" urlprofilexml="" commandline="" additionalpath="" additionalclasspath="" postprocessortype="none" postprocesscommandline="" postprocessadditionalpath="" postprocessgeneratedext="" validateoutput="yes" validator="internal" customvalidator=""/></scenarios><MapperMetaTag><MapperInfo srcSchemaPathIsRelative="yes" srcSchemaInterpretAsXML="no" destSchemaPath="" destSchemaRoot="" destSchemaPathIsRelative="yes" destSchemaInterpretAsXML="no" ><SourceSchema srcSchemaPath="20124148970&#x2D;08&#x2D;BB11&#x2D;30000011.xml" srcSchemaRoot="DebitNote" AssociatedInstance="" loaderFunction="document" loaderFunctionUsesURI="no"/></MapperInfo><MapperBlockPosition><template match="/"><block path="html/body/table/tbody/tr/td/xsl:call&#x2D;template" x="361" y="69"/><block path="html/body/table/tbody/tr[1]/td/xsl:call&#x2D;template" x="401" y="69"/><block path="html/body/table/tbody/tr[2]/td/xsl:call&#x2D;template" x="166" y="60"/><block path="html/body/table/tbody/tr[3]/td/table/tbody/tr/td/xsl:call&#x2D;template" x="246" y="20"/><block path="html/body/table/tbody/tr[3]/td/table/tbody/tr/td[2]/xsl:call&#x2D;template" x="166" y="20"/><block path="html/body/table/tbody/tr[4]/td/xsl:choose" x="86" y="60"/><block path="html/body/table/tbody/tr[4]/td/xsl:choose/=[0]" x="40" y="54"/><block path="html/body/table/tbody/tr[4]/td/xsl:choose/=[1]" x="40" y="82"/><block path="html/body/table/tbody/tr[4]/td/xsl:choose/xsl:otherwise/xsl:if" x="46" y="60"/><block path="html/body/table/tbody/tr[4]/td/xsl:choose/xsl:otherwise/xsl:if[1]" x="206" y="20"/><block path="html/body/table/tbody/tr[5]/td/xsl:call&#x2D;template" x="126" y="60"/></template></MapperBlockPosition><TemplateContext></TemplateContext><MapperFilter side="source"></MapperFilter></MapperMetaTag>
 </metaInformation>
 -->
