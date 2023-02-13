@@ -21,13 +21,13 @@
 
 	<xsl:variable name="numColBl">
 		<xsl:if test="/pe:Invoice != ''">
-			<xsl:value-of select="25 - count(/pe:Invoice/cac:InvoiceLine)"/>
+			<xsl:value-of select="20 - count(/pe:Invoice/cac:InvoiceLine)"/>
 		</xsl:if>
 		<xsl:if test="/pe1:CreditNote != ''">
-			<xsl:value-of select="20 - count(/pe1:CreditNote/cac:CreditNoteLine)"/>
+			<xsl:value-of select="21 - count(/pe1:CreditNote/cac:CreditNoteLine)"/>
 		</xsl:if>
 		<xsl:if test="/pe2:DebitNote != ''">
-			<xsl:value-of select="20 - count(/pe2:DebitNote/cac:DebitNoteLine)"/>
+			<xsl:value-of select="21 - count(/pe2:DebitNote/cac:DebitNoteLine)"/>
 		</xsl:if>
 	</xsl:variable>
 
@@ -65,31 +65,36 @@
 			</head>
 			
 			<xsl:variable name="totalitems">
-				<xsl:value-of select="count(/pe:Invoice/cac:InvoiceLine/cbc:ID)"/>
-				<xsl:if test="/pe:Invoice != ''">
+				
+				<xsl:if test="/pe:Invoice">
 					<xsl:value-of select="count(/pe:Invoice/cac:InvoiceLine)"/>
 				</xsl:if>
-				<xsl:if test="/pe1:CreditNote != ''">
+				<xsl:if test="/pe1:CreditNote">
 					<xsl:value-of select="count(/pe1:CreditNote/cac:CreditNoteLine)"/>
 				</xsl:if>
-				<xsl:if test="/pe2:DebitNote != ''">
+				<xsl:if test="/pe2:DebitNote">
 					<xsl:value-of select="count(/pe2:DebitNote/cac:DebitNoteLine)"/>
 				</xsl:if>
 			</xsl:variable>
 
 			<xsl:variable name="totalpag">
-				<xsl:if test="$totalitems &lt; '28'">
+				<xsl:if test="$totalitems &lt; '26'">
 					<xsl:value-of select="1"/>
 				</xsl:if>
-				<xsl:if test="$totalitems &gt;'28'">
-					<xsl:value-of select="ceiling($totalitems div 30)"/>
+				<xsl:if test="$totalitems &gt;'25'">
+					<xsl:value-of select="ceiling($totalitems div 25)"/>
 				</xsl:if>
 			</xsl:variable>
 
 			<body>
 				<h1>
+					<!--totalitems:
+					<xsl:value-of select="$totalitems"/>
+					-totalpag:
+					<xsl:value-of select="$totalpag"/>-->
 					<table cellSpacing="1" width="100%" border="0">
 						<tbody>
+							
 							<tr><td><xsl:call-template name="Encabezado"/></td></tr>
 							<tr><td><xsl:call-template name="DatosReceptor"/></td></tr>
 							<tr>
@@ -763,6 +768,6 @@
 </xsl:stylesheet>
 <!-- Stylus Studio meta-information - (c) 2004-2006. Progress Software Corporation. All rights reserved.
 <metaInformation>
-<scenarios ><scenario default="yes" name="Scenario1" userelativepaths="yes" externalpreview="yes" url="..\xml\20304706211&#x2D;01&#x2D;F001&#x2D;00022140&#x2D;40items.xml" htmlbaseurl="" outputurl="" processortype="internal" useresolver="yes" profilemode="0" profiledepth="" profilelength="" urlprofilexml="" commandline="" additionalpath="" additionalclasspath="" postprocessortype="none" postprocesscommandline="" postprocessadditionalpath="" postprocessgeneratedext="" validateoutput="yes" validator="internal" customvalidator=""/></scenarios><MapperMetaTag><MapperInfo srcSchemaPathIsRelative="yes" srcSchemaInterpretAsXML="no" destSchemaPath="" destSchemaRoot="" destSchemaPathIsRelative="yes" destSchemaInterpretAsXML="no" ><SourceSchema srcSchemaPath="20124148970&#x2D;08&#x2D;BB11&#x2D;30000011.xml" srcSchemaRoot="DebitNote" AssociatedInstance="" loaderFunction="document" loaderFunctionUsesURI="no"/></MapperInfo><MapperBlockPosition><template match="/"><block path="html/body/table/tbody/tr/td/xsl:call&#x2D;template" x="361" y="69"/><block path="html/body/table/tbody/tr[1]/td/xsl:call&#x2D;template" x="401" y="69"/><block path="html/body/table/tbody/tr[2]/td/xsl:call&#x2D;template" x="166" y="60"/><block path="html/body/table/tbody/tr[3]/td/table/tbody/tr/td/xsl:call&#x2D;template" x="246" y="20"/><block path="html/body/table/tbody/tr[3]/td/table/tbody/tr/td[2]/xsl:call&#x2D;template" x="166" y="20"/><block path="html/body/table/tbody/tr[4]/td/xsl:choose" x="86" y="60"/><block path="html/body/table/tbody/tr[4]/td/xsl:choose/=[0]" x="40" y="54"/><block path="html/body/table/tbody/tr[4]/td/xsl:choose/=[1]" x="40" y="82"/><block path="html/body/table/tbody/tr[4]/td/xsl:choose/xsl:otherwise/xsl:if" x="46" y="60"/><block path="html/body/table/tbody/tr[4]/td/xsl:choose/xsl:otherwise/xsl:if[1]" x="206" y="20"/><block path="html/body/table/tbody/tr[5]/td/xsl:call&#x2D;template" x="126" y="60"/></template></MapperBlockPosition><TemplateContext></TemplateContext><MapperFilter side="source"></MapperFilter></MapperMetaTag>
+<scenarios ><scenario default="yes" name="Scenario1" userelativepaths="yes" externalpreview="yes" url="..\xml\20304706211&#x2D;01&#x2D;F001&#x2D;00022175.xml" htmlbaseurl="" outputurl="" processortype="internal" useresolver="yes" profilemode="0" profiledepth="" profilelength="" urlprofilexml="" commandline="" additionalpath="" additionalclasspath="" postprocessortype="none" postprocesscommandline="" postprocessadditionalpath="" postprocessgeneratedext="" validateoutput="yes" validator="internal" customvalidator=""/></scenarios><MapperMetaTag><MapperInfo srcSchemaPathIsRelative="yes" srcSchemaInterpretAsXML="no" destSchemaPath="" destSchemaRoot="" destSchemaPathIsRelative="yes" destSchemaInterpretAsXML="no" ><SourceSchema srcSchemaPath="20124148970&#x2D;08&#x2D;BB11&#x2D;30000011.xml" srcSchemaRoot="DebitNote" AssociatedInstance="" loaderFunction="document" loaderFunctionUsesURI="no"/></MapperInfo><MapperBlockPosition><template match="/"><block path="html/body/table/tbody/tr/td/xsl:call&#x2D;template" x="361" y="69"/><block path="html/body/table/tbody/tr[1]/td/xsl:call&#x2D;template" x="401" y="69"/><block path="html/body/table/tbody/tr[2]/td/xsl:call&#x2D;template" x="166" y="60"/><block path="html/body/table/tbody/tr[3]/td/table/tbody/tr/td/xsl:call&#x2D;template" x="246" y="20"/><block path="html/body/table/tbody/tr[3]/td/table/tbody/tr/td[2]/xsl:call&#x2D;template" x="166" y="20"/><block path="html/body/table/tbody/tr[4]/td/xsl:choose" x="86" y="60"/><block path="html/body/table/tbody/tr[4]/td/xsl:choose/=[0]" x="40" y="54"/><block path="html/body/table/tbody/tr[4]/td/xsl:choose/=[1]" x="40" y="82"/><block path="html/body/table/tbody/tr[4]/td/xsl:choose/xsl:otherwise/xsl:if" x="46" y="60"/><block path="html/body/table/tbody/tr[4]/td/xsl:choose/xsl:otherwise/xsl:if[1]" x="206" y="20"/><block path="html/body/table/tbody/tr[5]/td/xsl:call&#x2D;template" x="126" y="60"/></template></MapperBlockPosition><TemplateContext></TemplateContext><MapperFilter side="source"></MapperFilter></MapperMetaTag>
 </metaInformation>
 -->
