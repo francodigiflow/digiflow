@@ -93,17 +93,17 @@
 					<font face="Arial, Helvetica, sans-serif" size="1">
 						<strong>OBSERVACIONES: </strong>
 						<xsl:for-each select="//ext:UBLExtensions/ext:UBLExtension/ext:ExtensionContent/pe:DatosAdicionales/pe:DatoAdicional">
-								<xsl:if test="pe:Codigo='03'">
+								<xsl:if test="pe:Codigo='02'">
 									<xsl:value-of select="pe:Valor"/>
 								</xsl:if>
 							</xsl:for-each>
 							<xsl:for-each select="//ext:UBLExtensions/ext:UBLExtension/ext:ExtensionContent/pe1:DatosAdicionales/pe1:DatoAdicional">
-								<xsl:if test="pe1:Codigo='03'">
+								<xsl:if test="pe1:Codigo='02'">
 									<xsl:value-of select="pe1:Valor"/>
 								</xsl:if>
 							</xsl:for-each>
 							<xsl:for-each select="//ext:UBLExtensions/ext:UBLExtension/ext:ExtensionContent/pe2:DatosAdicionales/pe2:DatoAdicional">
-								<xsl:if test="pe2:Codigo='03'">
+								<xsl:if test="pe2:Codigo='02'">
 									<xsl:value-of select="pe2:Valor"/>
 								</xsl:if>
 							</xsl:for-each>
@@ -592,7 +592,7 @@
 								</xsl:if>
 								</xsl:for-each>
 								<xsl:for-each select="//ext:UBLExtensions/ext:UBLExtension/ext:ExtensionContent/pe2:DatosAdicionales/pe2:DatoAdicional">
-								<xsl:if test="pe2:Codigo='02'">
+								<xsl:if test="pe2:Codigo='01'">
 
 									<xsl:value-of select="pe2:Valor"/>
 								</xsl:if>

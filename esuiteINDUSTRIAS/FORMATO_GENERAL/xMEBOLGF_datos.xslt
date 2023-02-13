@@ -40,7 +40,7 @@
 				<tr>
 					<td width="10%">
 						<font face="Arial, Helvetica, sans-serif" size="1">
-							<strong>SEÑOR (ES)</strong>
+							<strong>SEï¿½OR (ES)</strong>
 						</font>
 					</td>
 					<td width="2%">
@@ -76,7 +76,7 @@
 				<tr>
 					<td width="10%">
 						<font face="Arial, Helvetica, sans-serif" size="1">
-							<strong>DIRECCIÓN</strong>
+							<strong>DIRECCIï¿½N</strong>
 						</font>
 					</td>
 					<td width="2%">
@@ -147,7 +147,7 @@
 					<td width="10%">
 						<!--style="border:solid 1px black;background-color:#C0C0C0"-->
 						<font face="Arial, Helvetica, sans-serif" size="1">
-							<strong>SEÑOR (ES)</strong>
+							<strong>SEï¿½OR (ES)</strong>
 						</font>
 					</td>
 					<td width="2%">
@@ -189,7 +189,7 @@
 				<tr>
 					<td width="10%">
 						<font face="Arial, Helvetica, sans-serif" size="1">
-							<strong>DIRECCIÓN</strong>
+							<strong>DIRECCIï¿½N</strong>
 						</font>
 					</td>
 					<td width="2%">
@@ -348,7 +348,7 @@
 					<td width="12%">
 						<!-- style="border:solid 1px black;background-color:#C0C0C0"-->
 						<font face="Arial, Helvetica, sans-serif" size="1">
-							<strong>Código (Code)</strong>
+							<strong>Cï¿½digo (Code)</strong>
 						</font>
 					</td>
 					<td width="1%">
@@ -514,7 +514,7 @@
 				<tr>
 					<td width="8%">
 						<font face="Arial, Helvetica, sans-serif" size="1">
-							<strong>SEÑOR (ES)</strong>
+							<strong>SEï¿½OR (ES)</strong>
 						</font>
 					</td>
 					<td width="1%">
@@ -542,12 +542,12 @@
 						<!-- style="border:solid 1px black"-->
 						<font face="Arial, Helvetica, sans-serif" size="1">
 							<xsl:for-each select="//ext:UBLExtensions/ext:UBLExtension/ext:ExtensionContent/pe:DatosAdicionales/pe:DatoAdicional">
-								<xsl:if test="pe:Codigo='01'">
+								<xsl:if test="pe">
 									<xsl:value-of select="pe:Valor"/>
 								</xsl:if>
 							</xsl:for-each>
 							<xsl:for-each select="//ext:UBLExtensions/ext:UBLExtension/ext:ExtensionContent/pe1:DatosAdicionales/pe1:DatoAdicional">
-								<xsl:if test="pe1:Codigo='01'">
+								<xsl:if test="pe1">
 									<xsl:value-of select="pe1:Valor"/>
 								</xsl:if>
 							</xsl:for-each>
@@ -602,7 +602,7 @@
 				<tr>
 					<td width="8%">
 						<font face="Arial, Helvetica, sans-serif" size="1">
-							<strong>DIRECCIÓN</strong>
+							<strong>DIRECCIï¿½N</strong>
 						</font>
 					</td>
 					<td width="1%">
@@ -706,7 +706,7 @@
 					<td width="15%" colspan="4"> <!--style="border:solid 1px black" -->
 						<font face="Arial, Helvetica, sans-serif" size="1">
 								<xsl:if test="//cac:PaymentTerms/cbc:PaymentMeansID='Credito'">
-								Crédito		
+								Crï¿½dito		
 								</xsl:if>
 								<xsl:if test="//cac:PaymentTerms/cbc:PaymentMeansID='Contado'">
 								Contado		
@@ -729,27 +729,27 @@
 					</td>
 					<td width="16%" style="border:solid 1px black;background-color:#C0C0C0" align="center">
 						<font face="Arial, Helvetica, sans-serif" size="1">
-							<strong>FECHA EMISIÓN</strong>
+							<strong>FECHA EMISIï¿½N</strong>
 						</font>
 					</td>
 					<td width="16%" style="border:solid 1px black;background-color:#C0C0C0" align="center">
 						<font face="Arial, Helvetica, sans-serif" size="1">
-							<strong>N° PEDIDO</strong>
+							<strong>Nï¿½ PEDIDO</strong>
 						</font>
 					</td>
 					<td width="16%" style="border:solid 1px black;background-color:#C0C0C0" align="center">
 						<font face="Arial, Helvetica, sans-serif" size="1">
-							<strong>N° O/COMPRA</strong>
+							<strong>Nï¿½ O/COMPRA</strong>
 						</font>
 					</td>
 					<td width="16%" style="border:solid 1px black;background-color:#C0C0C0" align="center">
 						<font face="Arial, Helvetica, sans-serif" size="1">
-							<strong>N° GUÍA</strong>
+							<strong>Nï¿½ GUï¿½A</strong>
 						</font>
 					</td>
 					<td width="16%" style="border:solid 1px black;background-color:#C0C0C0" align="center">
 						<font face="Arial, Helvetica, sans-serif" size="1">
-							<strong>FECHA GUÍA</strong>
+							<strong>FECHA GUï¿½A</strong>
 						</font>
 					</td>
 				</tr>

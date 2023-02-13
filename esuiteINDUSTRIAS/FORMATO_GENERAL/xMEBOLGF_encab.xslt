@@ -27,8 +27,8 @@
 				<tr>
 					<td valign="middle" align="center" width="32%">
 						<!--<img src="Logo_MEBOL.jpg" width="115" height="155"/>-->
-						<!-- <img src="Logo_MEBOL.jpg"/> -->			 
-						<img src="data:image/*;base64,[logo_1]" />
+						 <img src="Logo_MEBOL.jpg"/> 			 
+						<!--<img src="data:image/*;base64,[logo_1]" />-->
 					</td>
 					<td valign="middle" align="left" width="68%">
 						<b>

@@ -108,13 +108,12 @@
 						<tr align="center">
 							<td valign="top" align="center" height="108">
 								<font face="Arial" size="1">
-									<!-- <img height="100" width="100">
-									<img> 
+									<img height="120" width="120">
 										<xsl:attribute name="src">
 											<xsl:call-template name="timbre"/>
 										</xsl:attribute>
-									</img> -->
-									<img width="100" height="100" align="center" src="data:image/*;base64,[ted_1]" />
+									</img>
+									<!--<img width="100" height="100" align="center" src="data:image/*;base64,[ted_1]" />-->
 								</font>
 							</td>
 						</tr>
