@@ -376,7 +376,7 @@
 												<xsl:with-param name="NumLinea" select="cbc:ID"/>
 											</xsl:call-template>
 										</xsl:variable>
-										<xsl:if test="$ValorAdicional4">
+										<xsl:if test="$ValorAdicional4!='0.000' ">
 											<xsl:value-of select="$ValorAdicional4"/>
 										</xsl:if>
 									</font>
@@ -389,7 +389,7 @@
 												<xsl:with-param name="NumLinea" select="cbc:ID"/>
 											</xsl:call-template>
 										</xsl:variable>
-										<xsl:if test="$ValorAdicional5">
+										<xsl:if test="$ValorAdicional5!='' or $ValorAdicional5!='-' or $ValorAdicional5!='0.000' ">
 											<xsl:value-of select="$ValorAdicional5"/>
 										</xsl:if>
 									</font>

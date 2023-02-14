@@ -80,7 +80,10 @@
 						</tr>
 						<tr>
 							<td>
-								<xsl:call-template name="TRANSPORTISTA"/>
+								<xsl:if test="//cac:Shipment/cac:ShipmentStage/cbc:TransportModeCode='01'">
+									<xsl:call-template name="TRANSPORTISTA"/>
+								</xsl:if>
+								
 							</td>
 						</tr>
 						<xsl:variable name="flag1" >
