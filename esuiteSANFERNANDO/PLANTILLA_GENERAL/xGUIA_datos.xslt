@@ -160,10 +160,19 @@ xmlns:sac="urn:sunat:names:specification:ubl:peru:schema:xsd:SunatAggregateCompo
 											</xsl:if>
 										    </xsl:for-each></font>
 									</td>
-									<td width="10%" align="left">
-										<font face="Arial, Helvetica, sans-serif" size="2"><strong>Fecha Inicio Traslado</strong></font>
+									<td width="19%" align="left">
+										<font face="Arial, Helvetica, sans-serif" size="2">
+											<strong>
+												<xsl:if test="//cac:Shipment/cac:ShipmentStage/cbc:TransportModeCode='01'">
+													Fecha de entrega de los bienes al transportista
+												</xsl:if>
+												<xsl:if test="//cac:Shipment/cac:ShipmentStage/cbc:TransportModeCode='02'">
+													Fecha de inicio de traslado de los bienes
+												</xsl:if>
+											</strong>
+										</font>
 									</td>
-									<td width="20%" align="left">
+									<td width="15%" align="left">
 										<font face="Arial, Helvetica, sans-serif" size="2">:
  										<xsl:value-of select="//cac:ShipmentStage/cac:TransitPeriod/cbc:StartDate"/>
 										</font>
@@ -171,7 +180,7 @@ xmlns:sac="urn:sunat:names:specification:ubl:peru:schema:xsd:SunatAggregateCompo
 									<td width="10%" align="left">
 										<font face="Arial, Helvetica, sans-serif" size="2"><strong>Sol.Com</strong></font>
 									</td>
-									<td width="20%" align="left">
+									<td width="16%" align="left">
 										<font face="Arial, Helvetica, sans-serif" size="2">:
 											<xsl:for-each select="//ext:UBLExtensions/ext:UBLExtension/ext:ExtensionContent/pe:DatosAdicionales/pe:DatoAdicional">
 											<xsl:if test="pe:Codigo='16'">
@@ -191,10 +200,10 @@ xmlns:sac="urn:sunat:names:specification:ubl:peru:schema:xsd:SunatAggregateCompo
 											<xsl:value-of select="//cbc:IssueDate"/>
 										</font>
 									</td>
-									<td width="10%" align="left">
+									<td width="19%" align="left">
 										<font face="Arial, Helvetica, sans-serif" size="2"><strong>Transp.</strong></font>
 									</td>
-									<td width="20%" align="left">
+									<td width="15%" align="left">
 										<font face="Arial, Helvetica, sans-serif" size="2">:
 											<xsl:for-each select="//ext:UBLExtensions/ext:UBLExtension/ext:ExtensionContent/pe:DatosAdicionales/pe:DatoAdicional">
 											<xsl:if test="pe:Codigo='03'">
@@ -206,7 +215,7 @@ xmlns:sac="urn:sunat:names:specification:ubl:peru:schema:xsd:SunatAggregateCompo
 									<td width="10%" align="left">
 										<font face="Arial, Helvetica, sans-serif" size="2"><strong>Comp.Pago</strong></font>
 									</td>
-									<td width="20%" align="left">
+									<td width="16%" align="left">
 										<font face="Arial, Helvetica, sans-serif" size="2">:
 											<xsl:for-each select="//ext:UBLExtensions/ext:UBLExtension/ext:ExtensionContent/pe:DatosAdicionales/pe:DatoAdicional">
 											<xsl:if test="pe:Codigo='17'">
@@ -223,25 +232,25 @@ xmlns:sac="urn:sunat:names:specification:ubl:peru:schema:xsd:SunatAggregateCompo
 									</td>
 									<td width="30%" align="left">
 										<font face="Arial, Helvetica, sans-serif" size="2">:
-										<xsl:variable name="varVALOR">
-											<xsl:value-of select="//cac:Shipment/cac:ShipmentStage/cbc:TransportModeCode"/>
-										</xsl:variable>
-<xsl:choose>
-			<xsl:when test="$varVALOR='01'">
-				01 Transporte Público
-			</xsl:when>
-			<xsl:when test="$varVALOR='02'">
-				02 Transporte Privado
-			</xsl:when>
-			<xsl:otherwise>
-			</xsl:otherwise>
-	</xsl:choose>
+											<xsl:variable name="varVALOR">
+												<xsl:value-of select="//cac:Shipment/cac:ShipmentStage/cbc:TransportModeCode"/>
+											</xsl:variable>
+											<xsl:choose>
+												<xsl:when test="$varVALOR='01'">
+													01 Transporte Público
+												</xsl:when>
+												<xsl:when test="$varVALOR='02'">
+													02 Transporte Privado
+												</xsl:when>
+												<xsl:otherwise>
+												</xsl:otherwise>
+											</xsl:choose>
 										</font>
 									</td>
-									<td width="10%" align="left">
+									<td width="19%" align="left">
 										<font face="Arial, Helvetica, sans-serif" size="2"><strong></strong></font>
 									</td>
-									<td width="20%" align="left">
+									<td width="15%" align="left">
 										<font face="Arial, Helvetica, sans-serif" size="2">
 											
 										</font>
@@ -250,7 +259,7 @@ xmlns:sac="urn:sunat:names:specification:ubl:peru:schema:xsd:SunatAggregateCompo
 									<td width="10%" align="left">
 										<font face="Arial, Helvetica, sans-serif" size="2"><strong>Guía de Reemplazo</strong></font>
 									</td>
-									<td width="20%" align="left">
+									<td width="16%" align="left">
 										<font face="Arial, Helvetica, sans-serif" size="2">:
 											<!--<xsl:if test="//cac:OrderReference/cbc:OrderTypeCode='09'">-->
  												<xsl:value-of select="//cac:OrderReference/cbc:ID"/>
@@ -259,17 +268,6 @@ xmlns:sac="urn:sunat:names:specification:ubl:peru:schema:xsd:SunatAggregateCompo
 									</td>
 									</xsl:if>
 								</tr>
-								<!--<tr>
-									<td width="15%" align="left">
-										<font face="Arial, Helvetica, sans-serif" size="2"><strong>Motivo Traslado</strong></font>
-									</td>
-									<td width="35%" align="left">
-										<font face="Arial, Helvetica, sans-serif" size="2">:
-											<xsl:value-of select="//cac:Shipment/cbc:Information"/>
-										</font>
-									</td>
-								</tr>-->
-
 							</tbody>
 						</table>
 					</td>
