@@ -63,10 +63,10 @@ xmlns:sac="urn:sunat:names:specification:ubl:peru:schema:xsd:SunatAggregateCompo
 									<xsl:if test="//cac:DespatchSupplierParty/cbc:CustomerAssignedAccountID='20608989197'">
 										
 										<!--CLOUD-->
-										<!--<img src="data:image/*;base64,[logo_2]" width="418" height="117" />-->
+										<img src="data:image/*;base64,[logo_2]" width="418" height="117" />
 										
 										<!--SUCURSAL-->
-										<img src="logo_sf.jpg" width="190px" height="90px" />
+										<!--<img src="logo_sf.jpg" width="190px" height="90px" />-->
 
 									</xsl:if>
 							</xsl:if>
@@ -74,10 +74,10 @@ xmlns:sac="urn:sunat:names:specification:ubl:peru:schema:xsd:SunatAggregateCompo
 									<xsl:if test="//cac:SignatoryParty/cac:PartyIdentification/cbc:ID='20100154308'">
 
 										<!--CLOUD-->
-										<!--<img src="data:image/*;base64,[logo_1]"  width="190px" height="90px" />-->
+										<img src="data:image/*;base64,[logo_1]"  width="190px" height="90px" />
 										
 										<!--SUCURSAL-->
-										<img src="logo_sf.jpg" width="190px" height="90px" />
+										<!--<img src="logo_sf.jpg" width="190px" height="90px" />-->
 
 									</xsl:if>
 									<xsl:if test="//cac:SignatoryParty/cac:PartyIdentification/cbc:ID='20608989197'">
@@ -196,14 +196,14 @@ xmlns:sac="urn:sunat:names:specification:ubl:peru:schema:xsd:SunatAggregateCompo
 				<td><font color="#000000" size="3" face="Arial, Helvetica, sans-serif">
 				
 						<!--CLOUD-->
-						<!--<img width="150px" height="150px" align="center" src="data:image/*;base64,[ted_1]" />-->
+						<img width="150px" height="150px" align="center" src="data:image/*;base64,[ted_1]" />
 						
 						<!--SUCURSAL-->
-						<img width="150px" height="150px">
+						<!--<img width="150px" height="150px">
 						    <xsl:attribute name="src">
 						        <xsl:call-template name="timbre"/>
 						    </xsl:attribute>
-						</img>
+						</img>-->
 
 				</font></td>
 			</tr>
