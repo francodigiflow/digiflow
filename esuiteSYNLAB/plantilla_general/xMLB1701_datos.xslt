@@ -10,6 +10,31 @@
 
 	<xsl:output method="html" indent="yes" encoding="ISO-8859-1" omit-xml-declaration="yes"/>
 
+	<xsl:template name="TipoDeDocumento">
+		<xsl:choose>
+			<xsl:when test="//cac:AccountingCustomerParty/cbc:AdditionalAccountID='0'">NO DOMICILIADO</xsl:when>
+			<xsl:when test="//cac:AccountingCustomerParty/cac:Party/cac:PartyIdentification/cbc:ID/@schemeID = '0'">NO DOMICILIADO</xsl:when>
+			<xsl:when test="//cac:AccountingCustomerParty/cbc:AdditionalAccountID='-'">NO DOMICILIADO</xsl:when>
+			<xsl:when test="//cac:AccountingCustomerParty/cac:Party/cac:PartyIdentification/cbc:ID/@schemeID = '-'">NO DOMICILIADO</xsl:when>
+			<xsl:when test="//cac:AccountingCustomerParty/cbc:AdditionalAccountID='1'">DNI</xsl:when>
+			<xsl:when test="//cac:AccountingCustomerParty/cac:Party/cac:PartyIdentification/cbc:ID/@schemeID = '1'">DNI</xsl:when>
+			<xsl:when test="//cac:AccountingCustomerParty/cbc:AdditionalAccountID='4'">CARNET EXTR.</xsl:when>
+			<xsl:when test="//cac:AccountingCustomerParty/cac:Party/cac:PartyIdentification/cbc:ID/@schemeID = '4'">CARNET EXTR.</xsl:when>
+			<xsl:when test="//cac:AccountingCustomerParty/cbc:AdditionalAccountID='6'">R.U.C.</xsl:when>
+			<xsl:when test="//cac:AccountingCustomerParty/cac:Party/cac:PartyIdentification/cbc:ID/@schemeID = '6'">R.U.C.</xsl:when>
+			<xsl:when test="//cac:AccountingCustomerParty/cbc:AdditionalAccountID='7'">PASAPORTE</xsl:when>
+			<xsl:when test="//cac:AccountingCustomerParty/cac:Party/cac:PartyIdentification/cbc:ID/@schemeID = '7'">PASAPORTE</xsl:when>
+			<xsl:when test="//cac:AccountingCustomerParty/cbc:AdditionalAccountID='A'">CED. DIP. IDENT.</xsl:when>
+			<xsl:when test="//cac:AccountingCustomerParty/cac:Party/cac:PartyIdentification/cbc:ID/@schemeID = 'A'">CED. DIP. IDENT.</xsl:when>
+			<xsl:when test="//cac:AccountingCustomerParty/cbc:AdditionalAccountID='B'">DOC.IDENT. PAIS. RES. NO. DOM.</xsl:when>
+			<xsl:when test="//cac:AccountingCustomerParty/cac:Party/cac:PartyIdentification/cbc:ID/@schemeID='B'">DOC.IDENT. PAIS. RES. NO. DOM.</xsl:when>
+			<xsl:when test="//cac:AccountingCustomerParty/cbc:AdditionalAccountID='C'">DOC. TRIB. PP.NN.</xsl:when>
+			<xsl:when test="//cac:AccountingCustomerParty/cac:Party/cac:PartyIdentification/cbc:ID/@schemeID='C'">DOC. TRIB. PP.NN.</xsl:when>
+			<xsl:when test="//cac:AccountingCustomerParty/cbc:AdditionalAccountID='D'">DOC. TRIB. PP.JJ.</xsl:when>
+			<xsl:when test="//cac:AccountingCustomerParty/cac:Party/cac:PartyIdentification/cbc:ID/@schemeID='D'">DOC. TRIB. PP. JJ.</xsl:when>
+		</xsl:choose>
+	</xsl:template>
+
 	<xsl:template name="DatosReceptor">
 		<table width="100%" cellpadding="2" cellspacing="2" border="0" bordercolor="#000000" rules="none">
 			<tbody>
@@ -34,44 +59,9 @@
 
 							<tr>
 								<td width="15%">
-									<xsl:if test="//cac:AccountingCustomerParty/cbc:AdditionalAccountID='0'">
-										<font face="Arial, Helvetica, sans-serif" size="2">
-											<strong>NO DOMICILIADO</strong>
-										</font>
-									</xsl:if>
-									<xsl:if test="//cac:AccountingCustomerParty/cbc:AdditionalAccountID='1'">
-										<font face="Arial, Helvetica, sans-serif" size="2">
-											<strong>DNI</strong>
-										</font>
-									</xsl:if>
-									<xsl:if test="//cac:AccountingCustomerParty/cbc:AdditionalAccountID='4'">
-										<font face="Arial, Helvetica, sans-serif" size="2">
-											<strong>CARNET EXTR.</strong>
-										</font>
-									</xsl:if>
-									<xsl:if test="//cac:AccountingCustomerParty/cbc:AdditionalAccountID='6'">
-										<font face="Arial, Helvetica, sans-serif" size="2">
-											<strong>R.U.C.</strong>
-										</font>
-									</xsl:if>
-									<xsl:if test="//cac:AccountingCustomerParty/cac:Party/cac:PartyIdentification/cbc:ID/@schemeID='6'">
-										<font face="Arial, Helvetica, sans-serif" size="2">
-											<strong>R.U.C.</strong>
-										</font>
-									</xsl:if>
-									
-									
-									
-									<xsl:if test="//cac:AccountingCustomerParty/cbc:AdditionalAccountID='7'">
-										<font face="Arial, Helvetica, sans-serif" size="2">
-											<strong>PASAPORTE</strong>
-										</font>
-									</xsl:if>
-									<xsl:if test="//cac:AccountingCustomerParty/cbc:AdditionalAccountID='A'">
-										<font face="Arial, Helvetica, sans-serif" size="2">
-											<strong>CED. DIP. IDENT.</strong>
-										</font>
-									</xsl:if>
+									<font face="Arial, Helvetica, sans-serif" size="2">
+										<xsl:call-template name="TipoDeDocumento"/>
+									</font>									
 								</td>
 								<td width="35%">
 									<font face="Arial, Helvetica, sans-serif" size="2">

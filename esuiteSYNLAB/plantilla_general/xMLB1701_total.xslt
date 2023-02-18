@@ -187,34 +187,34 @@
 								</xsl:variable>
 
 								<xsl:if test="/pe:Invoice">
-									<xsl:value-of select="format-number($DsctoGlobal1, '###,###,##0.00', 'pen')" />&#xA0;
+									<xsl:value-of select="format-number($DsctoGlobal1, '###,###,##0.00', 'pen')" />
 								</xsl:if>
 
 								<xsl:if test="/pe1:CreditNote">
-			                  		<xsl:value-of select="format-number($DsctoGlobal1, '###,###,##0.00', 'pen')" />&#xA0;
+			                  		<xsl:value-of select="format-number($DsctoGlobal1, '###,###,##0.00', 'pen')" />
 								</xsl:if>
 								
 								<xsl:if test="/pe2:DebitNote">
-			                  		<xsl:value-of select="format-number($DsctoGlobal1, '###,###,##0.00', 'pen')" />&#xA0;
+			                  		<xsl:value-of select="format-number($DsctoGlobal1, '###,###,##0.00', 'pen')" />
 								</xsl:if>
 							</xsl:when>
 							<xsl:when test="//cac:AllowanceCharge/cbc:AllowanceChargeReasonCode='04'">
-								<xsl:value-of select="//cac:LegalMonetaryTotal/cbc:LineExtensionAmount"/>&#xA0;
+								<xsl:value-of select="//cac:LegalMonetaryTotal/cbc:LineExtensionAmount"/>
 							</xsl:when>
 							<xsl:otherwise>
 								<xsl:for-each select="/pe:Invoice/cac:TaxTotal/cac:TaxSubtotal">
 									<xsl:if test="cac:TaxCategory/cac:TaxScheme/cbc:ID='1000'">
-										<xsl:value-of select="format-number(cbc:TaxableAmount,'###,###,##0.00','pen')"/>&#xA0;
+										<xsl:value-of select="format-number(cbc:TaxableAmount,'###,###,##0.00','pen')"/>
 									</xsl:if>
 								</xsl:for-each>
 								<xsl:for-each select="/pe1:CreditNote/cac:TaxTotal/cac:TaxSubtotal">
 									<xsl:if test="cac:TaxCategory/cac:TaxScheme/cbc:ID='1000'">					
-										<xsl:value-of select="format-number(cbc:TaxableAmount, '###,###,##0.00', 'pen')"/>&#xA0;
+										<xsl:value-of select="format-number(cbc:TaxableAmount, '###,###,##0.00', 'pen')"/>
 									</xsl:if>
 								</xsl:for-each>
 								<xsl:for-each select="/pe2:DebitNote/cac:TaxTotal/cac:TaxSubtotal">
 									<xsl:if test="cac:TaxCategory/cac:TaxScheme/cbc:ID='1000'">
-										<xsl:value-of select="format-number(cbc:TaxableAmount,'###.###.##0,00','pen')"/>&#xA0;
+										<xsl:value-of select="format-number(cbc:TaxableAmount,'###.###.##0,00','pen')"/>
 									</xsl:if>
 								</xsl:for-each>
 							</xsl:otherwise>
@@ -222,23 +222,23 @@
 						<xsl:variable name="Gravado">
 							<xsl:for-each select="/pe:Invoice/cac:TaxTotal/cac:TaxSubtotal">
 								<xsl:if test="cac:TaxCategory/cac:TaxScheme/cbc:ID='1000'">
-						  			<xsl:value-of select="cbc:TaxableAmount"/>&#xA0;
+						  			<xsl:value-of select="cbc:TaxableAmount"/>
 								</xsl:if>
 							</xsl:for-each>
 							<xsl:for-each select="/pe1:CreditNote/cac:TaxTotal/cac:TaxSubtotal">
 								<xsl:if test="cac:TaxCategory/cac:TaxScheme/cbc:ID='1000'">
-									<xsl:value-of select="cbc:TaxableAmount"/>&#xA0;
+									<xsl:value-of select="cbc:TaxableAmount"/>
 								</xsl:if>
 							</xsl:for-each>
 							<xsl:for-each select="/pe2:DebitNote/cac:TaxTotal/cac:TaxSubtotal">
 								<xsl:if test="cac:TaxCategory/cac:TaxScheme/cbc:ID='1000'">
-						  			<xsl:value-of select="cbc:TaxableAmount"/>&#xA0;
+						  			<xsl:value-of select="cbc:TaxableAmount"/>
 								</xsl:if>
 							</xsl:for-each>
 						</xsl:variable>
  						
 						<xsl:if test="$Gravado = '' ">
-							0.00&#xA0;
+							0.00
 						</xsl:if>
 					</font>
 				</td>
