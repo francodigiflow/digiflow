@@ -28,6 +28,18 @@ xmlns:sac="urn:sunat:names:specification:ubl:peru:schema:xsd:SunatAggregateCompo
 							<strong>Documento Referenciado: </strong> <xsl:value-of select="//cac:AdditionalDocumentReference/cbc:ID"/>
 						</font>
 						</td>
+						
+					</tr>
+					<tr>
+						<td valign="top" align="left" width="15%" colspan="5">
+								<font size="2" face="Arial, Helvetica, sans-serif">
+									<xsl:for-each select="//ext:UBLExtensions/ext:UBLExtension/ext:ExtensionContent/pe:DatosAdicionales/pe:DatoAdicional">
+										<xsl:if test="pe:Codigo='01'">
+											<xsl:value-of select="pe:Valor"/>
+										</xsl:if>
+									</xsl:for-each> 
+								</font>
+						</td>
 					</tr>
 					</table>
 					<table width="100%" cellpadding="4" cellspacing="0" border="0"  style="border-top:solid 2px black;border-bottom:none">
@@ -56,7 +68,7 @@ xmlns:sac="urn:sunat:names:specification:ubl:peru:schema:xsd:SunatAggregateCompo
 						 *La mercadería viaja por cuenta y riesgo del cliente.
 						 <br/>*La mora en el pago causará intereses de ley vigente.
 						 <br/>*Después de entregada la mercadería no se aceptan devoluciones.
-						 <br/>*GEINCOR se reserva el derecho de dominio de la mercaderia hasta la cencelación total de la factura.
+						 <br/>*GEINCOR se reserva el derecho de dominio de la mercaderia hasta la cancelación total de la factura
 						 <br/>*La persona que recibe la mercadería se presume el derecho que está autorizada por el representante legal para recibir y comprometer a la empresa.
 						 <br/>*Este documento carece de valor si no lleva el sello de cancelado y firma autorizada
 						</font>
@@ -89,37 +101,6 @@ xmlns:sac="urn:sunat:names:specification:ubl:peru:schema:xsd:SunatAggregateCompo
 		</table>
 	</xsl:template>
 
-
-	
-	<!-- <xsl:template name="bottom_hash"> -->
-		<!-- <table border="0" bordercolor="#000000" cellpadding="0" cellspacing="0" width="100%"> -->
-			<!-- <tbody> -->
-				<!-- <tr> -->
-					<!-- <td valign="baseline" width="100%" align="center"> -->
-						<!-- <font face="Arial, Helvetica, sans-serif" size="1"> -->
-						<!-- <br/> -->
-						    <!-- Representación Impresa - Guía de Remisión Electrónico -->
-							<!-- <br/>  -->
-							<!-- Consultar su comprobante en <xsl:for-each select="//ext:UBLExtensions/ext:UBLExtension/ext:ExtensionContent/pe:DatosAdicionales/pe:DatoAdicional"> -->
-								<!-- <xsl:if test="pe:Codigo='03'"> -->
-										<!-- <xsl:value-of select="pe:Valor"/> -->
-								<!-- </xsl:if> -->
-							<!-- </xsl:for-each> -->
-							<!-- <br/> -->
-							<!-- Autorizado mediante Resolución de Intendencia Nro 0340050005929 / SUNAT -->
-							<!-- </font> -->
-					<!-- </td> -->
-				<!-- </tr> -->
-				<!-- <tr> -->
-					<!-- <td width="100%"> -->
-						<!-- <xsl:call-template name="imp_timbre"/> -->
-					<!-- </td> -->
-				<!-- </tr> -->
-				
-			<!-- </tbody> -->
-		<!-- </table> -->
-	<!-- </xsl:template> -->
-
 	<xsl:template name="imp_timbre">
 		<table border="0" bordercolor="#000000" cellpadding="2" cellspacing="0" width="100%">
 			<tr>
@@ -142,12 +123,8 @@ xmlns:sac="urn:sunat:names:specification:ubl:peru:schema:xsd:SunatAggregateCompo
 		</table>
 	</xsl:template>
 
-	
-
 	<xsl:template name="timbre">
-		
-		
-	<xsl:value-of select="pe:Invoice/ext:UBLExtensions/ext:UBLExtension/ext:ExtensionContent/pe:DatosAdicionales/pe:Documento/pe:Nombre"/>
+		<xsl:value-of select="pe:Invoice/ext:UBLExtensions/ext:UBLExtension/ext:ExtensionContent/pe:DatosAdicionales/pe:Documento/pe:Nombre"/>
 		<xsl:value-of select="'.jpg'"/>
 	</xsl:template>
 	

@@ -42,7 +42,7 @@ xmlns:sac="urn:sunat:names:specification:ubl:peru:schema:xsd:SunatAggregateCompo
 						
 						<tr>
 							<td width="25%"  >
-								<strong>Direccion del punto de partida: </strong>
+								<strong>Dirección del punto de partida: </strong>
 							</td>
 							<td valign="top" align="left" width="40%"  >
 								
@@ -56,7 +56,7 @@ xmlns:sac="urn:sunat:names:specification:ubl:peru:schema:xsd:SunatAggregateCompo
 						</tr>
 						<tr>
 							<td width="25%"  >
-								<strong>Direccion del punto de llegada: </strong>
+								<strong>Dirección del punto de llegada: </strong>
 							</td>
 							<td valign="top" align="left" width="40%"  >
 								
@@ -101,13 +101,23 @@ xmlns:sac="urn:sunat:names:specification:ubl:peru:schema:xsd:SunatAggregateCompo
 								<strong>Documento de Identidad: </strong>
 							</td>
 							<td align="left" width="15%"  >
-								<xsl:value-of select="//cac:Shipment/cac:ShipmentStage/cac:CarrierParty/cac:PartyIdentification/cbc:ID"/>
+								<xsl:if test="//cbc:CustomizationID='1.0'">
+									<xsl:value-of select="//cac:Shipment/cac:ShipmentStage/cac:CarrierParty/cac:PartyIdentification/cbc:ID"/>
+								</xsl:if>
+								<xsl:if test="//cbc:CustomizationID='2.0'">
+									<xsl:value-of select="//cac:ShipmentStage/cac:CarrierParty/cac:PartyIdentification/cbc:ID"/>
+								</xsl:if>
 							</td>
 							<td width="14%"  >
 								<strong>Razón Social: </strong>
 							</td>
 							<td valign="top" align="left" width="50%"  >
-								<xsl:value-of select="//cac:Shipment/cac:ShipmentStage/cac:CarrierParty/cac:PartyName/cbc:Name"/>
+								<xsl:if test="//cbc:CustomizationID='1.0'">
+									<xsl:value-of select="//cac:Shipment/cac:ShipmentStage/cac:CarrierParty/cac:PartyName/cbc:Name"/>
+								</xsl:if>
+								<xsl:if test="//cbc:CustomizationID='2.0'">
+									<xsl:value-of select="//cac:ShipmentStage/cac:CarrierParty/cac:PartyLegalEntity/cbc:RegistrationName"/>
+								</xsl:if>
 							</td>
 						</tr>
 						</xsl:if>
@@ -123,7 +133,7 @@ xmlns:sac="urn:sunat:names:specification:ubl:peru:schema:xsd:SunatAggregateCompo
 								<strong>Nombre Conductor: </strong>
 							</td>
 							<td valign="top" align="left" width="30%"  >
-								
+								<xsl:value-of select="//cac:ShipmentStage/cac:DriverPerson/cbc:FirstName"/>&#160;<xsl:value-of select="//cac:ShipmentStage/cac:DriverPerson/cbc:FamilyName"/>
 							</td>
 						</tr>
 						<tr>
@@ -131,17 +141,28 @@ xmlns:sac="urn:sunat:names:specification:ubl:peru:schema:xsd:SunatAggregateCompo
 								<strong>Placa: </strong>
 							</td>
 							<td align="left" width="15%"  >
-								<xsl:value-of select="//cac:Shipment/cac:ShipmentStage/cac:TransportMeans/cac:RoadTransport/cbc:LicensePlateID"/>
+									<xsl:if test="//cbc:CustomizationID='1.0'">
+										<xsl:value-of select="//cac:TransportMeans/cac:RoadTransport/cbc:LicensePlateID"/>
+									</xsl:if>
+									<xsl:if test="//cbc:CustomizationID='2.0'">
+										<xsl:value-of select="//cac:Shipment/cac:TransportHandlingUnit/cac:TransportEquipment/cbc:ID"/>
+									</xsl:if>
 							</td>
 							<td width="12%"  >
 								<strong>Licencia Conductor: </strong>
 							</td>
 							<td valign="top" align="left" width="30%"  >
-								<xsl:for-each select="//ext:UBLExtensions/ext:UBLExtension/ext:ExtensionContent/pe:DatosAdicionales/pe:DatoAdicional">
-									<xsl:if test="pe:Codigo='03'">
-										<xsl:value-of select="pe:Valor"/>
+									<xsl:if test="//cbc:CustomizationID='1.0'">
+										<xsl:for-each select="//ext:UBLExtensions/ext:UBLExtension/ext:ExtensionContent/pe:DatosAdicionales/pe:DatoAdicional">
+											<xsl:if test="pe:Codigo='03'">
+												<xsl:value-of select="pe:Valor"/>
+											</xsl:if>
+										</xsl:for-each>
 									</xsl:if>
-								</xsl:for-each>
+									<xsl:if test="//cbc:CustomizationID='2.0'">
+										<xsl:value-of select="//cac:ShipmentStage/cac:DriverPerson/cac:IdentityDocumentReference/cbc:ID"/>
+									</xsl:if>								
+								
 							</td>
 						</tr>
 						</xsl:if>
@@ -290,7 +311,7 @@ xmlns:sac="urn:sunat:names:specification:ubl:peru:schema:xsd:SunatAggregateCompo
 										<font face="Arial, Helvetica, sans-serif" size="2">
 											&#xA0;
 											<xsl:for-each select="//ext:UBLExtensions/ext:UBLExtension/ext:ExtensionContent/pe:DatosAdicionales/pe:DatoAdicional">
-												<xsl:if test="pe:Codigo='01'">
+												<xsl:if test="pe:Codigo='04'">
 													<xsl:value-of select="pe:Valor"/>
 												</xsl:if>
 											</xsl:for-each> 
@@ -465,50 +486,7 @@ xmlns:sac="urn:sunat:names:specification:ubl:peru:schema:xsd:SunatAggregateCompo
 						<xsl:otherwise>Documento NN</xsl:otherwise>
 					</xsl:choose>
 				</font>
-
-
-				<!--<font face="Arial, Helvetica, sans-serif" size="2">
-					<xsl:value-of select="cbc:ID"/>
-				</font>-->
-			<!--</xsl:if>-->
 		</xsl:for-each>
-
-	<!--	<xsl:for-each select="//cac:BillingReference/cac:InvoiceDocumentReference">
-			<xsl:if test="cbc:DocumentTypeCode != '10'">
-				<font face="Arial, Helvetica, sans-serif" size="2">
-					<xsl:choose>
-						<xsl:when test="cbc:DocumentTypeCode='01' and substring(cbc:ID,1,1) = 'F'">FACTURA ELECTRONICA</xsl:when>
-						<xsl:when test="cbc:DocumentTypeCode='01' and substring(cbc:ID,1,1) != 'F'">FACTURA</xsl:when>
-						<xsl:when test="cbc:DocumentTypeCode='03' and substring(cbc:ID,1,1) = 'B'">BOLETA DE VENTA ELECTRONICA</xsl:when>
-						<xsl:when test="cbc:DocumentTypeCode='03' and substring(cbc:ID,1,1) != 'B'">BOLETA DE VENTA</xsl:when>
-						<xsl:when test="cbc:DocumentTypeCode='07' and substring(cbc:ID,1,1) = 'F'">NOTA DE CREDITO ELECTRONICA</xsl:when>
-						<xsl:when test="cbc:DocumentTypeCode='07' and substring(cbc:ID,1,1) = 'B'">NOTA DE CREDITO ELECTRONICA</xsl:when>
-						<xsl:when test="cbc:DocumentTypeCode='07' and substring(cbc:ID,1,1) != 'F'">NOTA DE CREDITO</xsl:when>
-						<xsl:when test="cbc:DocumentTypeCode='07' and substring(cbc:ID,1,1) != 'B'">NOTA DE CREDITO</xsl:when>
-						<xsl:when test="cbc:DocumentTypeCode='08' and substring(cbc:ID,1,1) = 'F'">NOTA DE DEBITO ELECTRONICA</xsl:when>
-						<xsl:when test="cbc:DocumentTypeCode='08' and substring(cbc:ID,1,1) = 'B'">NOTA DE DEBITO ELECTRONICA</xsl:when>
-						<xsl:when test="cbc:DocumentTypeCode='08' and substring(cbc:ID,1,1) != 'F'">NOTA DE DEBITO ELECTRONICA</xsl:when>
-						<xsl:when test="cbc:DocumentTypeCode='08' and substring(cbc:ID,1,1) != 'B'">NOTA DE DEBITO ELECTRONICA</xsl:when>
-						<xsl:otherwise>Documento NN</xsl:otherwise>
-					</xsl:choose>
-				</font>
-			</xsl:if>
-		</xsl:for-each>-->
-
-<!--		<xsl:for-each select="//cac:BillingReference/cac:InvoiceDocumentReference">
-			<xsl:if test="cbc:DocumentTypeCode != '10'">
-
-				<xsl:variable name="attribute">
-					<xsl:call-template name="RepeatString">
-						<xsl:with-param name="string" select="'0'"/>
-						<xsl:with-param name="times" select="8-(string-length(substring-after(cbc:ID,'-')))"/>
-					</xsl:call-template>
-				</xsl:variable>
-
-				<font face="Arial, Helvetica, sans-serif" size="2">
-					<xsl:value-of select="substring-before(cbc:ID,'-')"/>-<xsl:value-of select="concat($attribute,substring-after(cbc:ID,'-'))"/></font>
-			</xsl:if>
-		</xsl:for-each>-->
 	</xsl:template>
 
 

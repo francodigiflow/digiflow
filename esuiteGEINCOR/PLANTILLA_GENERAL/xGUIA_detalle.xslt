@@ -55,12 +55,6 @@
 									<strong>Descripción</strong>
 								</font>
 							</td>
-							<!-- <td width="8%" align="center" style="color:WHITE"> -->
-								<!-- <font face="Arial, Helvetica, sans-serif" size="2"> -->
-									<!-- <strong>Und</strong> -->
-								<!-- </font> -->
-							<!-- </td> -->
-							
 						</tr>
 					</table>
 				</td>
@@ -93,15 +87,6 @@
 										<xsl:value-of select="cac:Item/cbc:Name"/>
 									</font>
 								</td>
-								<!-- <td width="8%" align="center" valign="top"> -->
-									<!-- <font face="Arial, Helvetica, sans-serif" size="2"> -->
-										<!-- <xsl:call-template name="RetourneValAdItem"> -->
-											<!-- <xsl:with-param name="NumAd" select="3"/> -->
-												<!-- <xsl:with-param name="NumLinea" select="cbc:ID"/> -->
-										<!-- </xsl:call-template> -->
-									<!-- </font> -->
-								<!-- </td> -->
-								
 							</tr>
 						</xsl:if>
 										
@@ -127,16 +112,7 @@
 									<font face="Arial, Helvetica, sans-serif" size="2">
 										<xsl:value-of select="cac:Item/cbc:Name"/>
 									</font>
-								</td>
-								<!-- <td width="8%" align="center" class="td_detalle"> -->
-									<!-- <font face="Arial, Helvetica, sans-serif" size="2"> -->
-										<!-- <xsl:call-template name="RetourneValAdItem"> -->
-											<!-- <xsl:with-param name="NumAd" select="3"/> -->
-												<!-- <xsl:with-param name="NumLinea" select="cbc:ID"/> -->
-										<!-- </xsl:call-template> -->
-									<!-- </font> -->
-								<!-- </td> -->
-								
+								</td>								
 							</tr>
 						</xsl:if>
 						
@@ -162,42 +138,13 @@
 										<xsl:value-of select="cac:Item/cbc:Name"/>
 									</font>
 								</td>
-								<!-- <td width="8%" align="center" class="td_detalle">
-									<font face="Arial, Helvetica, sans-serif" size="2">
-										<xsl:call-template name="RetourneValAdItem">
-											<xsl:with-param name="NumAd" select="3"/>
-												<xsl:with-param name="NumLinea" select="cbc:ID"/>
-										</xsl:call-template>
-									</font>
-								</td> -->
-								
 							</tr>
 						</xsl:if>
 						</xsl:for-each>
 						<xsl:call-template name="lineaBl"> 
 							 <xsl:with-param name="cont" select="30 - ($numitems)"/>							 
 						 </xsl:call-template>
-
-						<!-- <xsl:if test="$v_Contador = $v_CantidadTotalPagina"> -->
-							<!-- <xsl:if test="$v_Contador = 1"> -->
-							 <!-- <xsl:call-template name="lineaBl">  -->
-								 <!-- <xsl:with-param name="cont" select="23 - $numitems"/>							  -->
-							 <!-- </xsl:call-template> -->
-							 <!-- </xsl:if> -->
-							 <!-- <xsl:if test="$v_Contador = 2"> -->
-							 <!-- <xsl:call-template name="lineaBl">  -->
-								 <!-- <xsl:with-param name="cont" select="50 - $numitems"/>							  -->
-							 <!-- </xsl:call-template> -->
-							 <!-- </xsl:if> -->
-							 <!-- <xsl:if test="$v_Contador = 3"> -->
-							 <!-- <xsl:call-template name="lineaBl">  -->
-								 <!-- <xsl:with-param name="cont" select="90 - $numitems"/>							  -->
-							 <!-- </xsl:call-template> -->
-							 <!-- </xsl:if> -->
-						 <!-- </xsl:if> -->
-						<!-- <xsl:if test="$v_Contador = $v_CantidadTotalPagina"> -->
-							
-						<!-- </xsl:if> -->
+						
 		</table>
 				</td>
 			</tr>
@@ -234,12 +181,6 @@
 									<strong>Descripción</strong>
 								</font>
 							</td>
-							<!-- <td width="8%" align="center" style="color:WHITE"> -->
-								<!-- <font face="Arial, Helvetica, sans-serif" size="2"> -->
-									<!-- <strong>Und</strong> -->
-								<!-- </font> -->
-							<!-- </td> -->
-							
 						</tr>
 					</table>
 				</td>
@@ -271,15 +212,6 @@
 										<xsl:value-of select="cac:Item/cbc:Name"/>
 									</font>
 								</td>
-								<!-- <td width="8%" align="center" class="td_detalle"> -->
-									<!-- <font face="Arial, Helvetica, sans-serif" size="2"> -->
-										<!-- <xsl:call-template name="RetourneValAdItem"> -->
-											<!-- <xsl:with-param name="NumAd" select="3"/> -->
-												<!-- <xsl:with-param name="NumLinea" select="cbc:ID"/> -->
-										<!-- </xsl:call-template> -->
-									<!-- </font> -->
-								<!-- </td> -->
-								
 							</tr>
 							</xsl:if>						
 							</xsl:for-each>
@@ -287,40 +219,6 @@
  						 <xsl:call-template name="lineaBl"> 
 							 <xsl:with-param name="cont" select="30 - ($numitems)"/>							 
 						 </xsl:call-template>
-							
-						
-						
-						
-						<!-- <xsl:if test="($numitems) &lt;'39'"> -->
-							<!-- <tr> -->
-								<!-- <td width="10%" align="center"  style="border:solid 1px black;border-top:none;border-bottom:none"> -->
-								
-									<!-- &#xA0; -->
-								
-								<!-- </td> -->
-								<!-- <td width="64%" align="center"  style="border:solid 1px black;border-top:none;border-bottom:none"> -->
-									
-										<!-- &#xA0; -->
-									
-								<!-- </td> -->
-								<!-- <td width="12%" align="center"  style="border:solid 1px black;border-top:none;border-bottom:none"> -->
-								
-										<!-- &#xA0; -->
-								
-								<!-- </td> -->
-								<!-- <td width="6%" align="center"   style="border:solid 1px black;border-top:none;border-bottom:none"> -->
-								
-										<!-- &#xA0; -->
-								
-								<!-- </td> -->
-								<!-- <td width="8%" align="center"  style="border:solid 1px black;border-top:none;border-bottom:none"> -->
-								
-										<!-- &#xA0; -->
-									
-								<!-- </td> -->
-							<!-- </tr>  -->
-						<!-- </xsl:if> -->
-
 					</table>
 				</td>
 			</tr>
@@ -355,12 +253,6 @@
 									<strong>Descripción</strong>
 								</font>
 							</td>
-							<!-- <td width="8%" align="center" style="color:WHITE"> -->
-								<!-- <font face="Arial, Helvetica, sans-serif" size="2"> -->
-									<!-- <strong>Und</strong> -->
-								<!-- </font> -->
-							<!-- </td> -->
-							
 						</tr>
 					</table>
 				</td>
@@ -393,53 +285,12 @@
 										<xsl:value-of select="cac:Item/cbc:Name"/>
 									</font>
 								</td>
-								<!-- <td width="8%" align="center" class="td_detalle"> -->
-									<!-- <font face="Arial, Helvetica, sans-serif" size="2"> -->
-										<!-- <xsl:call-template name="RetourneValAdItem"> -->
-											<!-- <xsl:with-param name="NumAd" select="3"/> -->
-												<!-- <xsl:with-param name="NumLinea" select="cbc:ID"/> -->
-										<!-- </xsl:call-template> -->
-									<!-- </font> -->
-								<!-- </td> -->
-
 							</tr>
 					</xsl:if>
 					</xsl:for-each>
 					<xsl:call-template name="lineaBl"> 
 							 <xsl:with-param name="cont" select="30 - ($numitems)"/>							 
 						 </xsl:call-template>
-				
-						 <!-- <xsl:call-template name="lineaBl">  -->
-							 <!-- <xsl:with-param name="cont" select="157 - ($numitems)"/>							  -->
-						 <!-- </xsl:call-template>  -->
-						<!-- <tr> -->
-							<!-- <td width="10%" align="center" class="td_detalle"> -->
-							
-									<!-- &#xA0; -->
-								
-							<!-- </td> -->
-							<!-- <td width="64%" align="center" class="td_detalle"> -->
-								
-									<!-- &#xA0; -->
-								
-							<!-- </td> -->
-							<!-- <td width="12%" align="center" class="td_detalle"> -->
-								
-									<!-- &#xA0; -->
-								
-							<!-- </td> -->
-							<!-- <td width="6%" align="center" class="td_detalle"> -->
-								
-									<!-- &#xA0; -->
-								
-							<!-- </td> -->
-							<!-- <td width="8%" align="center" class="td_detalle"> -->
-								
-									<!-- &#xA0; -->
-								
-							<!-- </td> -->
-							
-						<!-- </tr> -->
 						
 					</table>
 				</td>
@@ -533,18 +384,6 @@
 		</xsl:for-each>
 	</xsl:template>
 
-	<!-- <xsl:template name="RetourneValAdItem"> -->
-		<!-- <xsl:param name="NumLinea"/> -->
-		<!-- <xsl:param name="NumAd"/> -->
-
-		<!-- <xsl:for-each select="//ext:UBLExtensions/ext:UBLExtension/ext:ExtensionContent/pe:DatosAdicionales/pe:LineaDetalle"> -->
-			<!-- <xsl:if test="pe:Codigo = concat($NumLinea, $NumAd)"> -->
-				<!-- <xsl:value-of select="pe:Valor"/> -->
-			<!-- </xsl:if> -->
-		<!-- </xsl:for-each> -->
-	<!-- </xsl:template> -->
-
-
 	<xsl:template name="lineaBl">
 		<xsl:param name="cont"/>
 		<xsl:if test="$cont&gt;0">
@@ -572,7 +411,7 @@
 	</xsl:template>
 
 
-</xsl:stylesheet><!-- Stylus Studio meta-information - (c) 2004-2007. Progress Software Corporation. All rights reserved.
+</xsl:stylesheet><!-- Stylus Studio meta-information - (c) 2004-2006. Progress Software Corporation. All rights reserved.
 <metaInformation>
 <scenarios/><MapperMetaTag><MapperInfo srcSchemaPathIsRelative="yes" srcSchemaInterpretAsXML="no" destSchemaPath="" destSchemaRoot="" destSchemaPathIsRelative="yes" destSchemaInterpretAsXML="no" ><SourceSchema srcSchemaPath="..\20513081236_2018111209T00100000005.xml" srcSchemaRoot="DespatchAdvice" AssociatedInstance="" loaderFunction="document" loaderFunctionUsesURI="no"/></MapperInfo><MapperBlockPosition><template name="DetallesEncabezado"></template><template name="RetourneValAdItem"></template></MapperBlockPosition><TemplateContext></TemplateContext><MapperFilter side="source"></MapperFilter></MapperMetaTag>
 </metaInformation>
