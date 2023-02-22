@@ -111,7 +111,7 @@ xmlns:sac="urn:sunat:names:specification:ubl:peru:schema:xsd:SunatAggregateCompo
 												<xsl:if test="//cac:DespatchSupplierParty/cbc:CustomerAssignedAccountID='20100154308'">
 															<font size="2">
 															&#160;<br/>	
-															Dirección: Jr. Portocarrero No. 333-Surquillo-Lima- SURQUILLO - LIMA - LIMA							
+															Dirección: Jr. Portocarrero No. 333-Surquillo-Lima- SURQUILLO - LIMA - LIMA
 															Teléfono: 213-5300<br/>
 															&#160;<br/>					
 															</font>
@@ -129,7 +129,7 @@ xmlns:sac="urn:sunat:names:specification:ubl:peru:schema:xsd:SunatAggregateCompo
 												<xsl:if test="//cac:SignatoryParty/cac:PartyIdentification/cbc:ID='20100154308'">
 													<font size="2">
 													&#160;<br/>	
-													Dirección: AV. REPÚBLICA DE PANAMÁ N° 4295 SURQUILLO LIMA Lima							
+													Dirección: Jr. Portocarrero No. 333-Surquillo-Lima- SURQUILLO - LIMA - LIMA	
 													Teléfono: 213-5300<br/>
 													&#160;<br/>					
 													</font>
