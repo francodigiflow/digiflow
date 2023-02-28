@@ -426,12 +426,12 @@ xmlns:sac="urn:sunat:names:specification:ubl:peru:schema:xsd:SunatAggregateCompo
 							<tbody>
 								<tr>
 									<td width="1%" align="left">&#xA0;</td>
-									<td width="32%" align="left">
+									<td width="14%" align="left">
 										<font face="Arial, Helvetica, sans-serif" size="2">
 											<strong>Motivo de traslado&#xA0;:</strong>
 										</font>										
 									</td>
-									<td width="67%" align="left">
+									<td width="85%" align="left">
 										<font face="Arial, Helvetica, sans-serif" size="2">
 											&#xA0;
 											<xsl:if test="//cbc:CustomizationID='1.0'">
@@ -445,13 +445,13 @@ xmlns:sac="urn:sunat:names:specification:ubl:peru:schema:xsd:SunatAggregateCompo
 								</tr>
 								<tr>
 									<td width="1%" align="left">&#xA0;</td>
-									<td width="32%" align="left">
+									<td width="14%" align="left">
 										<font face="Arial, Helvetica, sans-serif" size="2">
 											<strong>Modalidad de traslado
 											&#xA0;:</strong>											
 										</font>										
 									</td>
-									<td width="67%" align="left">
+									<td width="85%" align="left">
 										<font face="Arial, Helvetica, sans-serif" size="2">
 											&#xA0;
 											<xsl:if test="//cac:Shipment/cac:ShipmentStage/cbc:TransportModeCode='01'">

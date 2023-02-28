@@ -62,7 +62,12 @@ xmlns:sac="urn:sunat:names:specification:ubl:peru:schema:xsd:SunatAggregateCompo
 						<strong>
 							<font face="Arial, Helvetica, sans-serif" size="4">
 							R.U.C. N°
-							<xsl:value-of select="format-number(//cac:DespatchSupplierParty/cbc:CustomerAssignedAccountID, '###########', 'pen')"/>
+							<xsl:if test="//cbc:CustomizationID='1.0'">
+								<xsl:value-of select="format-number(//cac:DespatchSupplierParty/cbc:CustomerAssignedAccountID, '###########', 'pen')"/>
+							</xsl:if>
+							<xsl:if test="//cbc:CustomizationID='2.0'">
+								<xsl:value-of select="format-number(//cac:SignatoryParty/cac:PartyIdentification/cbc:ID, '###########', 'pen')"/>
+							</xsl:if>
 							<br/>
 							<br/>
 							<xsl:call-template name="tipodocu"/>

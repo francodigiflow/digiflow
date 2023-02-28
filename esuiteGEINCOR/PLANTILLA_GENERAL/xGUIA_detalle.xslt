@@ -84,7 +84,12 @@
 								</td>
 								<td width="60%" align="left" colspan="2">
 									<font face="Arial, Helvetica, sans-serif" size="2">
-										<xsl:value-of select="cac:Item/cbc:Name"/>
+										<xsl:if test="//cbc:CustomizationID='1.0'">
+											<xsl:value-of select="cac:Item/cbc:Name"/>
+										</xsl:if>
+										<xsl:if test="//cbc:CustomizationID='2.0'">
+											<xsl:value-of select="cac:Item/cbc:Description"/>
+										</xsl:if>
 									</font>
 								</td>
 							</tr>
