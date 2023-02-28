@@ -128,6 +128,13 @@
 									</tr>									
 								</xsl:if>		
 								<tr>
+									<!--<td width="16%" align="left">-->
+									<!--<td width="18%" align="left">
+										<font face="Arial, Helvetica, sans-serif" size="1">
+											<strong>FECHA EMISIÓN :&#160;</strong>
+										</font>
+									</td>-->
+									<!--<td width="1%" align="left">-->
 									<td colspan="6" align="left">
 										<font face="Arial, Helvetica, sans-serif" size="1">
 											<strong>FECHA EMISIÓN :&#160;</strong>
@@ -145,6 +152,26 @@
 											<xsl:value-of select="//cac:Shipment/cac:ShipmentStage/cac:TransitPeriod/cbc:StartDate"/>
 										</font>
 									</td>
+									<!--<td width="29%" align="left" valign="middle">
+										<font face="Arial, Helvetica, sans-serif" size="1">
+											<xsl:value-of select="//cbc:IssueDate"/>
+										</font>
+									</td>
+									<td width="25%" align="left">
+										<font face="Arial, Helvetica, sans-serif" size="1">
+											<strong>FECHA INICIO TRASLADO</strong>
+										</font>
+									</td>
+									<td width="1%" align="left">
+										<font face="Arial, Helvetica, sans-serif" size="1">
+											<strong>:</strong>
+										</font>
+									</td>
+									<td width="28%" align="left" valign="top">
+										<font face="Arial, Helvetica, sans-serif" size="1">
+											<xsl:value-of select="//cac:Shipment/cac:ShipmentStage/cac:TransitPeriod/cbc:StartDate"/>
+										</font>
+									</td>-->
 								</tr>
 							</tbody>
 						</table>
@@ -201,8 +228,21 @@
 											<xsl:when test="//cac:DeliveryCustomerParty/cbc:CustomerAssignedAccountID/@schemeID = 'D'">Id. Number PP.JJ.</xsl:when>
 											<xsl:when test="//cac:DeliveryCustomerParty/cbc:CustomerAssignedAccountID/@schemeID = 'E'">Tarjeta Andina de Migración</xsl:when>
 										</xsl:choose>
+						
 										</font>
 									</td>
+									<!--<td width="1%" align="left">
+										<font face="Arial, Helvetica, sans-serif" size="1">
+											<strong>:</strong>
+										</font>
+									</td>
+									<td width="74%" align="left">
+										<font face="Arial, Helvetica, sans-serif" size="1">
+											<xsl:call-template name="TraeValorVariable">
+												<xsl:with-param name="varNumVA" select="18"/>
+											</xsl:call-template> 
+										</font>
+									</td>-->
 								</tr>
 								<tr>
 									<td width="20%" align="left">
@@ -293,6 +333,18 @@
 											
 										</font>
 									</td>
+									<!--<td width="1%" align="left">
+										<font face="Arial, Helvetica, sans-serif" size="1">
+											<strong>:</strong>
+										</font>
+									</td>
+									<td width="72%" align="left">
+										<font face="Arial, Helvetica, sans-serif" size="1">
+											<xsl:call-template name="TraeValorVariable">
+												<xsl:with-param name="varNumVA" select="19"/>
+											</xsl:call-template> 
+										</font>
+									</td>-->
 								</tr>
 							</tbody>
 						</table>
@@ -498,6 +550,53 @@
 						<font face="Arial, Helvetica, sans-serif" size="1">
 							<strong>DATOS DEL TRANSPORTISTA</strong>
 						</font>
+					</td>
+				</tr>
+				<tr>
+					<td vAlign="top" align="left" >
+						<table border="0" width="100%" cellpadding="0" cellspacing="0">
+							<tbody>
+								<tr>
+									<td width="15%" align="left">
+										<font face="Arial, Helvetica, sans-serif" size="1">
+											<strong>NOMBRE O RAZ. SOCIAL</strong>
+										</font>
+									</td>
+									<td width="1%" align="left">
+										<font face="Arial, Helvetica, sans-serif" size="1">
+											<strong>:</strong>
+										</font>
+									</td>
+									<td width="84%" align="left">
+										<font face="Arial, Helvetica, sans-serif" size="1">
+											<xsl:if test="//cbc:CustomizationID='1.0'">
+												<xsl:value-of select="//cac:Shipment/cac:ShipmentStage/cac:CarrierParty/cac:PartyName/cbc:Name"/>
+											</xsl:if>
+											<xsl:if test="//cbc:CustomizationID='2.0'">
+												<xsl:value-of select="//cac:ShipmentStage/cac:CarrierParty/cac:PartyLegalEntity/cbc:RegistrationName"/>
+											</xsl:if>
+										</font>
+									</td>
+								</tr>
+								<tr>
+									<td width="15%" align="left">
+										<font face="Arial, Helvetica, sans-serif" size="1">
+											<strong>R.U.C.</strong>
+										</font>
+									</td>
+									<td width="1%" align="left">
+										<font face="Arial, Helvetica, sans-serif" size="1">
+											<strong>:</strong>
+										</font>
+									</td>
+									<td width="84%" align="left">
+										<font face="Arial, Helvetica, sans-serif" size="1">
+											<xsl:value-of select="//cac:Shipment/cac:ShipmentStage/cac:CarrierParty/cac:PartyIdentification/cbc:ID"/>
+										</font>
+									</td>
+								</tr>
+							</tbody>
+						</table>
 					</td>
 				</tr>
 
