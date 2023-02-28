@@ -60,7 +60,7 @@
 							<tr>
 								<td width="15%">
 									<font face="Arial, Helvetica, sans-serif" size="2">
-										<xsl:call-template name="TipoDeDocumento"/>
+										<strong>DOCUMENTO </strong>
 									</font>									
 								</td>
 								<td width="35%">
