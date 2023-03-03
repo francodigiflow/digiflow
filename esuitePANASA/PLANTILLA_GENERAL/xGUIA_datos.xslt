@@ -23,11 +23,11 @@
 	</xsl:variable>	
 
 	<xsl:template name="DESTINARIO">
-		<table border="1" width="100%" cellpadding="0" cellspacing="0">
+		<table border="0" width="100%" height="100%" cellpadding="0" cellspacing="0">
 			<tbody>
 				<tr>
 					<td vAlign="top" align="left" >
-						<table border="0" width="100%" cellpadding="3" cellspacing="0">
+						<table border="0" width="100%" height="100%" cellpadding="3" cellspacing="0">
 							<tbody>
 								<tr>
 									<td width="16%" align="left">
@@ -128,18 +128,16 @@
 									</tr>									
 								</xsl:if>		
 								<tr>
-									<!--<td width="16%" align="left">-->
-									<!--<td width="18%" align="left">
-										<font face="Arial, Helvetica, sans-serif" size="1">
-											<strong>FECHA EMISIÓN :&#160;</strong>
-										</font>
-									</td>-->
-									<!--<td width="1%" align="left">-->
 									<td colspan="6" align="left">
 										<font face="Arial, Helvetica, sans-serif" size="1">
 											<strong>FECHA EMISIÓN :&#160;</strong>
 											<xsl:value-of select="//cbc:IssueDate"/>
-											&#160;&#160;&#160;&#160;&#160;&#160;
+										</font>
+									</td>
+								</tr>
+								<tr>
+									<td colspan="6" align="left">
+										<font face="Arial, Helvetica, sans-serif" size="1">
 											<strong>
 												<xsl:if test="//cac:Shipment/cac:ShipmentStage/cbc:TransportModeCode='01'">
 													FECHA DE ENTREGA DE LOS BIENES AL TRANSPORTISTA :&#160;
@@ -152,26 +150,6 @@
 											<xsl:value-of select="//cac:Shipment/cac:ShipmentStage/cac:TransitPeriod/cbc:StartDate"/>
 										</font>
 									</td>
-									<!--<td width="29%" align="left" valign="middle">
-										<font face="Arial, Helvetica, sans-serif" size="1">
-											<xsl:value-of select="//cbc:IssueDate"/>
-										</font>
-									</td>
-									<td width="25%" align="left">
-										<font face="Arial, Helvetica, sans-serif" size="1">
-											<strong>FECHA INICIO TRASLADO</strong>
-										</font>
-									</td>
-									<td width="1%" align="left">
-										<font face="Arial, Helvetica, sans-serif" size="1">
-											<strong>:</strong>
-										</font>
-									</td>
-									<td width="28%" align="left" valign="top">
-										<font face="Arial, Helvetica, sans-serif" size="1">
-											<xsl:value-of select="//cac:Shipment/cac:ShipmentStage/cac:TransitPeriod/cbc:StartDate"/>
-										</font>
-									</td>-->
 								</tr>
 							</tbody>
 						</table>
