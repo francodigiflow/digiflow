@@ -18,15 +18,10 @@ exclude-result-prefixes="cac cbc ccts ds ext pe qdt sac udt xsi">
 	<table cellSpacing="0" cellPadding="0" width="100%" border="0">
 		<tbody>
 			<tr width="100%">
-				<td vAlign="top" width="59%">
-					<xsl:if test="//cac:SignatoryParty/cac:PartyIdentification/cbc:ID!='20330791501'">
-						<xsl:call-template name="EncabezadoPeru"/>	
-					</xsl:if>
-					<xsl:if test="//cac:SignatoryParty/cac:PartyIdentification/cbc:ID='20330791501'">
-						<xsl:call-template name="EncabezadoPeruQ"/>
-					</xsl:if>					
+				<td vAlign="top" width="60%">
+					<xsl:call-template name="EncabezadoPeru"/>
 				</td>
-				<td vAlign="top" width="41%">
+				<td vAlign="top" width="40%">
 					<xsl:if test="//cbc:CustomizationID='1.0'">
 						<xsl:call-template name="EncabezadoRecuadro"/>
 					</xsl:if>
@@ -39,61 +34,7 @@ exclude-result-prefixes="cac cbc ccts ds ext pe qdt sac udt xsi">
 	</table>
 </xsl:template>
 
-<!--<xsl:template name="EncabezadoPeru">
-	<p>
-		<table cellSpacing="2" cellPadding="0" width="100%" border="0">
-			<tbody>
-				<tr>
-					<td width="100%" align="left" valign="top">
-						<font color="#000000" size="4" face="Arial, Helvetica, sans-serif">
-							<strong><xsl:value-of select="//cbc:Name"/></strong>
-						</font>
-					</td>
-				</tr>
-				
-				<tr>
-					<td width="100%" align="left">
-						
-						<img src="logo_panasa_secundario.jpg"/>
-						
-					
-					</td>
-					
-				</tr>
-				<tr>
-					<td width="100%" align="left">
-						<font color="#000000" size="1" face="Arial, Helvetica, sans-serif">
-							<br/><strong>Planta Paramonga: </strong>
-							<xsl:call-template name="TraeValorVariable">
-								<xsl:with-param name="varNumVA" select="1"/>
-							</xsl:call-template> 									
-							<br/><strong>Teléfono : </strong>
-							<xsl:call-template name="TraeValorVariable">
-								<xsl:with-param name="varNumVA" select="2"/>
-							</xsl:call-template> 
-							&#160;&#160;&#160;
-							<strong>Ventas : </strong>
-								<xsl:call-template name="TraeValorVariable">
-									<xsl:with-param name="varNumVA" select="3"/>
-								 </xsl:call-template> 
-							 <br/><strong>Email : </strong>
-								<xsl:call-template name="TraeValorVariable">
-									<xsl:with-param name="varNumVA" select="5"/>
-								</xsl:call-template> 
-                            <br/><strong>Web : </strong>
-								<xsl:call-template name="TraeValorVariable">
-									<xsl:with-param name="varNumVA" select="6"/>
-								</xsl:call-template> 
-                            <br/>
-						</font>
-					</td>
-				</tr>
-			</tbody>
-		</table>
-	</p>
-</xsl:template>-->
-
-<xsl:template name="EncabezadoPeru">
+	<xsl:template name="EncabezadoPeru">
 	<p>
 		<table cellSpacing="2" cellPadding="0" width="100%" border="0">
 			<tbody>
@@ -147,47 +88,6 @@ exclude-result-prefixes="cac cbc ccts ds ext pe qdt sac udt xsi">
 	</p>
 </xsl:template>
 
-
-<xsl:template name="EncabezadoPeruQ">
-	<p>
-		<table cellSpacing="2" cellPadding="0" width="100%" border="0">
-			<tbody>
-				<tr>
-					<td width="65%" align="center">
-						<table cellSpacing="0" cellPadding="0" width="100%" border="0">
-							<tbody>
-								<tr>
-									<td align="center" width = "40%">
-										<!-- img src="D:\plantillas\Quimpac\Logo_Quimpac.jpg"/ -->
-										<img width="100%" src="Logo_Quimpac.jpg"/>
-									</td>
-									<td width="2%">
-									</td>
-									<td align="left" width = "33%">
-										<font color="#000000" size="2.5" face="Arial, Helvetica, sans-serif">
-											<br/><b>QUIMPAC S.A.</b>
-										</font>
-										<font color="#000000" size="1.5" face="Arial, Helvetica, sans-serif">
-											<br/>PLANTA: AV. NESTOR GAMBETTA N°8583
-											<br/>PROV. CONST. DEL CALLAO - PROV. CONST. DEL CALLAO - CALLAO - PERÚ
-											<br/>FAX: (511)614-2022
-											<br/>TELEFONO: (511)614-2000
-											<br/>REG. EXPORTADOR: 81-004735
-										</font>
-									</td>
-								</tr >						<tr>
-									<td>&#160;</td><td>&#160;</td>
-								</tr>
-
-							</tbody>
-						</table>
-					</td>
-				</tr>
-			</tbody>
-		</table>
-	</p>
-	</xsl:template>
-
 	<xsl:template name="EncabezadoRecuadro">
 	<table cellSpacing="0" cellPadding="5" width="100%" align="center" border="1" style="font-size: 14px; font-family: arial,helvetica,sans-serif; color: #000000;">
 				<!--	<table borderColor="#000000" cellSpacing="0" cellPadding="5" width="100%" border="1"> -->
@@ -233,10 +133,10 @@ exclude-result-prefixes="cac cbc ccts ds ext pe qdt sac udt xsi">
 							<br/><br/><xsl:call-template name="NFolio"/>
 						</strong>
 				</td>
-				<td>
+				<td width="40%" >
 					<font color="#000000" size="3" face="Arial, Helvetica, sans-serif">
 						<!--<img width="150px" height="150px" align="center" src="data:image/*;base64,[ted_1]" />-->
-						<img width="150px" height="150px">
+						<img width="150px" height="150px" align="center">
                             <xsl:attribute name="src">
                                 <xsl:call-template name="timbre"/>
                             </xsl:attribute>

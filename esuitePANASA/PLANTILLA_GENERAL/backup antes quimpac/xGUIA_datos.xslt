@@ -23,11 +23,11 @@
 	</xsl:variable>	
 
 	<xsl:template name="DESTINARIO">
-		<table border="0" width="100%" height="100%" cellpadding="0" cellspacing="0">
+		<table border="1" width="100%" cellpadding="0" cellspacing="0">
 			<tbody>
 				<tr>
 					<td vAlign="top" align="left" >
-						<table border="0" width="100%" height="100%" cellpadding="3" cellspacing="0">
+						<table border="0" width="100%" cellpadding="3" cellspacing="0">
 							<tbody>
 								<tr>
 									<td width="16%" align="left">
@@ -106,51 +106,62 @@
 										</font>
 									</td>
 								</tr>
-								<xsl:if test="//cac:SignatoryParty/cac:PartyIdentification/cbc:ID!='20330791501'">
-									<tr>
-										<td width="16%" align="left">
-											<font face="Arial, Helvetica, sans-serif" size="1">
-												<strong>VENDEDOR</strong>
-											</font>
-										</td>
-										<td width="1%" align="left">
-											<font face="Arial, Helvetica, sans-serif" size="1">
-												<strong>:</strong>
-											</font>
-										</td>
-										<td colspan="4" align="left">
-											<font face="Arial, Helvetica, sans-serif" size="1">
-												<xsl:call-template name="TraeValorVariable">
-													<xsl:with-param name="varNumVA" select="9"/>
-												</xsl:call-template> 
-											</font>
-										</td>
-									</tr>									
-								</xsl:if>		
 								<tr>
-									<td colspan="6" align="left">
+									<td width="16%" align="left">
 										<font face="Arial, Helvetica, sans-serif" size="1">
-											<strong>FECHA EMISIÓN :&#160;</strong>
-											<xsl:value-of select="//cbc:IssueDate"/>&#160;
-											<xsl:value-of select="//cbc:IssueTime"/>
+											<strong>VENDEDOR</strong>
+										</font>
+									</td>
+									<td width="1%" align="left">
+										<font face="Arial, Helvetica, sans-serif" size="1">
+											<strong>:</strong>
+										</font>
+									</td>
+									<td colspan="4" align="left">
+										<font face="Arial, Helvetica, sans-serif" size="1">
+											<xsl:call-template name="TraeValorVariable">
+												<xsl:with-param name="varNumVA" select="9"/>
+											</xsl:call-template> 
 										</font>
 									</td>
 								</tr>
 								<tr>
+									<!--<td width="16%" align="left">-->
+									<!--<td width="18%" align="left">
+										<font face="Arial, Helvetica, sans-serif" size="1">
+											<strong>FECHA EMISIÓN :&#160;</strong>
+										</font>
+									</td>-->
+									<!--<td width="1%" align="left">-->
 									<td colspan="6" align="left">
 										<font face="Arial, Helvetica, sans-serif" size="1">
-											<strong>
-												<xsl:if test="//cac:Shipment/cac:ShipmentStage/cbc:TransportModeCode='01'">
-													FECHA DE ENTREGA DE LOS BIENES AL TRANSPORTISTA :&#160;
-												</xsl:if>
-												<xsl:if test="//cac:Shipment/cac:ShipmentStage/cbc:TransportModeCode='02'">
-													FECHA DE INICIO TRASLADO DE LOS BIENES  :&#160;
-												</xsl:if>
-												
-											</strong>
+											<strong>FECHA EMISIÓN :&#160;</strong>
+											<xsl:value-of select="//cbc:IssueDate"/>
+											&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;
+											<strong>FECHA INICIO TRASLADO :&#160;</strong>
 											<xsl:value-of select="//cac:Shipment/cac:ShipmentStage/cac:TransitPeriod/cbc:StartDate"/>
 										</font>
 									</td>
+									<!--<td width="29%" align="left" valign="middle">
+										<font face="Arial, Helvetica, sans-serif" size="1">
+											<xsl:value-of select="//cbc:IssueDate"/>
+										</font>
+									</td>
+									<td width="25%" align="left">
+										<font face="Arial, Helvetica, sans-serif" size="1">
+											<strong>FECHA INICIO TRASLADO</strong>
+										</font>
+									</td>
+									<td width="1%" align="left">
+										<font face="Arial, Helvetica, sans-serif" size="1">
+											<strong>:</strong>
+										</font>
+									</td>
+									<td width="28%" align="left" valign="top">
+										<font face="Arial, Helvetica, sans-serif" size="1">
+											<xsl:value-of select="//cac:Shipment/cac:ShipmentStage/cac:TransitPeriod/cbc:StartDate"/>
+										</font>
+									</td>-->
 								</tr>
 							</tbody>
 						</table>
@@ -189,14 +200,9 @@
 									<td colspan="6" align="left">
 										<font face="Arial, Helvetica, sans-serif" size="1">
 											<strong>N° LIC. CONDUCIR : </strong>
-											<xsl:if test="//cbc:CustomizationID='1.0'">
-												<xsl:call-template name="TraeValorVariable">
-													<xsl:with-param name="varNumVA" select="17"/>
-												</xsl:call-template>
-											</xsl:if>
-											<xsl:if test="//cbc:CustomizationID='2.0'">
-												<xsl:value-of select="//cac:ShipmentStage/cac:DriverPerson/cac:IdentityDocumentReference/cbc:ID"/> 
-											</xsl:if>
+											<xsl:call-template name="TraeValorVariable">
+												<xsl:with-param name="varNumVA" select="17"/>
+											</xsl:call-template> 
 											&#160;&#160;&#160;&#160;&#160;&#160;
 
 											<strong>TIPO DOC : </strong>
@@ -958,17 +964,17 @@
 						<table border="0" width="100%" cellpadding="0" cellspacing="0">
 							<tbody>
 								<tr>
-									<td width="39%" align="left">
+									<td width="18%" align="left">
 										<font face="Arial, Helvetica, sans-serif" size="1">
-											<strong>N° PEDIDO </strong>
+											<strong>N° PEDIDO: </strong>
 										</font>
 									</td>
 									<td width="1%" align="left">
 										<font face="Arial, Helvetica, sans-serif" size="1">
-											<strong>:</strong>&#160;
+											<strong>:</strong>
 										</font>
 									</td>
-									<td width="60%" align="left">
+									<td width="81%" align="left">
 										<font face="Arial, Helvetica, sans-serif" size="1">
 											<xsl:call-template name="TraeValorVariable">
 												<xsl:with-param name="varNumVA" select="21"/>
@@ -977,17 +983,17 @@
 									</td>
 								</tr>
 								<tr>
-									<td width="39%" align="left">
+									<td width="18%" align="left">
 										<font face="Arial, Helvetica, sans-serif" size="1">
 											<strong>N° O.C.</strong>
 										</font>
 									</td>
 									<td width="1%" align="left">
 										<font face="Arial, Helvetica, sans-serif" size="1">
-											<strong>:</strong>&#160;
+											<strong>:</strong>
 										</font>
 									</td>
-									<td width="60%" align="left">
+									<td width="81%" align="left">
 										<font face="Arial, Helvetica, sans-serif" size="1">
 											<xsl:call-template name="TraeValorVariable">
 												<xsl:with-param name="varNumVA" select="22"/>
@@ -996,17 +1002,17 @@
 									</td>
 								</tr>
 								<tr>
-									<td width="39%" align="left">
+									<td width="18%" align="left">
 										<font face="Arial, Helvetica, sans-serif" size="1">
 											<strong>N° ENTREGA</strong>
 										</font>
 									</td>
 									<td width="1%" align="left">
 										<font face="Arial, Helvetica, sans-serif" size="1">
-											<strong>:</strong>&#160;
+											<strong>:</strong>
 										</font>
 									</td>
-									<td width="60%" align="left">
+									<td width="81%" align="left">
 										<font face="Arial, Helvetica, sans-serif" size="1">
 											<xsl:call-template name="TraeValorVariable">
 												<xsl:with-param name="varNumVA" select="23"/>
@@ -1015,17 +1021,17 @@
 									</td>
 								</tr>
 								<tr>
-									<td width="39%" align="left">
+									<td width="18%" align="left">
 										<font face="Arial, Helvetica, sans-serif" size="1">
 											<strong>N° TRANSPORTE</strong>
 										</font>
 									</td>
 									<td width="1%" align="left">
 										<font face="Arial, Helvetica, sans-serif" size="1">
-											<strong>:</strong>&#160;
+											<strong>:</strong>
 										</font>
 									</td>
-									<td width="60%" align="left">
+									<td width="81%" align="left">
 										<font face="Arial, Helvetica, sans-serif" size="1">
 											<xsl:call-template name="TraeValorVariable">
 												<xsl:with-param name="varNumVA" select="24"/>
@@ -1034,17 +1040,17 @@
 									</td>
 								</tr>
 								<tr>
-									<td width="39%" align="left">
+									<td width="18%" align="left">
 										<font face="Arial, Helvetica, sans-serif" size="1">
 											<strong>N° FACTURA</strong>
 										</font>
 									</td>
 									<td width="1%" align="left">
 										<font face="Arial, Helvetica, sans-serif" size="1">
-											<strong>:</strong>&#160;
+											<strong>:</strong>
 										</font>
 									</td>
-									<td width="60%" align="left">
+									<td width="81%" align="left">
 										<font face="Arial, Helvetica, sans-serif" size="1">
 											<xsl:call-template name="TraeValorVariable">
 												<xsl:with-param name="varNumVA" select="25"/>
