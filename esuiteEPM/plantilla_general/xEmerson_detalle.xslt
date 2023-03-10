@@ -281,6 +281,19 @@
 											</xsl:if>
 										</xsl:variable>
 
+										<xsl:variable name="ValorAdicional21">
+											<xsl:call-template name="RetourneValAdItem">
+												<xsl:with-param name="NumLinea" select="cbc:ID"/>
+												<xsl:with-param name="NumAd" select="21"/>
+											</xsl:call-template>
+										</xsl:variable>
+
+										<xsl:variable name="ValorAdicionalT5">
+											<xsl:call-template name="TraeValorVariable">
+												<xsl:with-param name="varNumVA" select="05"/>
+											</xsl:call-template>
+										</xsl:variable>
+
 										<xsl:if test="$ValorAdicional1 != '' and $ValorAdicional1 !='-' ">
 											<br/><xsl:value-of select="$ValorAdicional1"/>
 										</xsl:if>
@@ -340,6 +353,14 @@
 										</xsl:if>
 										<xsl:if test="$ValorAdicional20 != '' and $ValorAdicional20 !='-'">
 											<br/><xsl:value-of select="$ValorAdicional20"/>
+										</xsl:if>
+
+										<xsl:if test="$ValorAdicional21 != '' and $ValorAdicional21 !='-'">
+											<br/><xsl:value-of select="$ValorAdicional21"/>
+										</xsl:if>
+
+										<xsl:if test="$ValorAdicionalT5 != '' and $ValorAdicionalT5 !='-'">
+											<br/><xsl:value-of select="$ValorAdicionalT5"/>
 										</xsl:if>
 								</td>
 								

@@ -36,24 +36,14 @@
 					<xsl:if test="/pe:Invoice">		
 						<xsl:if test="/pe:Invoice/cbc:InvoiceTypeCode='01'">
 							<xsl:if test="//cbc:UBLVersionID='2.0'">
-							<xsl:for-each select="//ext:UBLExtensions/ext:UBLExtension/ext:ExtensionContent/sac:AdditionalInformation/sac:AdditionalMonetaryTotal">
-								<xsl:if test="cbc:ID='2003'">
-									Operación (CIIU 7421) Sujeta al Sistema de Pago de Detracciones <xsl:value-of select="cbc:Percent"/>%
-									<br/> D. LEG. N° 940 R. DE SUPERINTENDENCIA N° 056-2006/SUNAT (02-04-2006)
-									<br/> BANCO DE LA NACIÓN CTA. CTE. N° 00-000-393533
-									<br/><br/>
-								</xsl:if>
-							</xsl:for-each>
-							
-							<!--<xsl:for-each select="//ext:UBLExtensions/ext:UBLExtension/ext:ExtensionContent/sac:AdditionalInformation/sac:AdditionalMonetaryTotal">
-								<xsl:if test="cbc:ID='2003'">
-									OPERACION SUJETA AL SISTEMA DE PAGO DE OBLIGACIONES
-									<br/>TRIBUTARIAS CON EL GOBIERNO CENTRAL.
-									<br/>CUENTA ABIERTA EN EL BANCO DE LA NACION
-									<br/>NÂ° 00-000-434477
-									<br/><br/>
-								</xsl:if>
-							</xsl:for-each>-->
+								<xsl:for-each select="//ext:UBLExtensions/ext:UBLExtension/ext:ExtensionContent/sac:AdditionalInformation/sac:AdditionalMonetaryTotal">
+									<xsl:if test="cbc:ID='2003'">
+										Operación (CIIU 7421) Sujeta al Sistema de Pago de Detracciones <xsl:value-of select="cbc:Percent"/>%
+										<br/> D. LEG. N° 940 R. DE SUPERINTENDENCIA N° 056-2006/SUNAT (02-04-2006)
+										<br/> BANCO DE LA NACIÓN CTA. CTE. N° 00-000-393533
+										<br/><br/>
+									</xsl:if>
+								</xsl:for-each>
 							</xsl:if>
 							
 							<xsl:if test="//cbc:UBLVersionID='2.1'">
@@ -70,10 +60,11 @@
 
 						</xsl:if>					
 						
-						<xsl:if test="/pe1:CreditNote">
+					<xsl:if test="/pe1:CreditNote">
 							<xsl:call-template name="Dato_Notas"/>
 						</xsl:if>
-						<xsl:if test="/pe2:DebitNote">
+					
+					<xsl:if test="/pe2:DebitNote">
 						<xsl:if test="//cbc:UBLVersionID='2.0'">
 							<xsl:for-each select="//ext:UBLExtensions/ext:UBLExtension/ext:ExtensionContent/sac:AdditionalInformation/sac:AdditionalMonetaryTotal">
 								  
@@ -96,7 +87,24 @@
 						<xsl:call-template name="Dato_Notas"/>
 						</xsl:if>
 					
-						</th>
+					<xsl:call-template name="TraeValorVariable">
+     					<xsl:with-param name="varNumVA" select="11"/>
+					</xsl:call-template>
+					<br/>
+					<xsl:call-template name="TraeValorVariable">
+     					<xsl:with-param name="varNumVA" select="12"/>
+					</xsl:call-template>
+					<br/>
+					<xsl:call-template name="TraeValorVariable">
+     					<xsl:with-param name="varNumVA" select="13"/>
+					</xsl:call-template>
+					<br/>
+
+					<xsl:if test="//cac:PaymentTerms/cbc:PaymentMeansID='Credito'">
+					<xsl:call-template name="DatosCredito"/>
+					</xsl:if>
+
+					</th>
 
 						<th rowspan="2" width="50%" align="right">
 						        <xsl:call-template name="Total"/>
@@ -290,6 +298,31 @@
 							</td>
 
 							</tr>
+
+
+							<xsl:variable name="ValorAdicionalT6">
+								<xsl:call-template name="TraeValorVariable">
+									<xsl:with-param name="varNumVA" select="6"/>
+								</xsl:call-template>
+							</xsl:variable>
+							
+							<xsl:if test="$ValorAdicionalT6 != ''">
+								<tr>
+									<td width= "10%" align="left">
+										Flete
+									</td>
+
+									<td width= "3%" align="left">
+										<xsl:call-template name="SimboloMoneda"/>								
+									</td>
+
+									<td width= "10%" align="right">
+										&#160;
+										<xsl:value-of select="$ValorAdicionalT6"/>										
+									</td>
+								</tr>
+							</xsl:if>							
+
 						
 							<tr>
 							<td width= "10%" align="left">
@@ -402,6 +435,99 @@
 		
 	</xsl:template>
 	
+	<xsl:template name="DatosCredito">
+		<table width="100%" border="0" cellpadding="1" style="font-family :Arial,Helvetica,sans-serif;font-size:13px;color:#000000">
+			<tr>
+				<td>
+				<strong>CUOTAS: </strong>
+				</td>				
+			</tr>
+			<tr>
+				<td align="center">
+						<table width="50%" border="1" cellSpacing="0" borderColor="#000000" cellPadding="2" style="font-family :Arial,Helvetica,sans-serif;font-size:11px;color:#000000">
+							<tr>
+								<td width="10%" align="center" size="1">
+										<strong>N&#xFFFD; de Cuota</strong>
+								</td>
+								<td width="15%" align="center" size="1">
+										<strong>Fecha de Vencimiento</strong>
+								</td>
+								<td width="15%" align="center" size="1">
+										<strong>Tipo de Moneda</strong>
+								</td>
+								<td width="15%" align="center" size="1">
+										<strong>Monto de Cuota</strong>
+								</td>
+								
+							</tr>
+							<xsl:for-each select="/pe:Invoice/cac:PaymentTerms">
+							<xsl:if test="cbc:ID !='Detraccion'">
+								<xsl:if test="cbc:PaymentMeansID !='Credito'">	
+									<tr>
+											
+											<td width= "10%" align="center">
+												<font color="#000000" size="1" face="Arial, Helvetica, sans-serif">
+													<xsl:value-of select="substring-after(cbc:PaymentMeansID,'Cuota00')"/>
+												</font>							
+											</td>
+											<td width= "15%" align="center">
+												<font color="#000000" size="1" face="Arial, Helvetica, sans-serif">
+												<xsl:value-of select="cbc:PaymentDueDate"/>
+												</font>
+											</td>
+											<td width= "15%" align="center">
+												<font color="#000000" size="1" face="Arial, Helvetica, sans-serif">
+												<xsl:call-template name="LetraMoneda"/>
+												</font>
+											</td>
+											<td width= "15%" align="center">
+												<font color="#000000" size="1" face="Arial, Helvetica, sans-serif">
+													<!--<xsl:value-of select="cbc:Amount"/>-->
+													<xsl:value-of select="format-number(cbc:Amount,'###,###,##0.00','pen')"/>
+												</font>
+											</td>
+											
+									</tr>
+								</xsl:if>
+							</xsl:if>
+							</xsl:for-each>
+							
+							<xsl:for-each select="/pe1:CreditNote/cac:PaymentTerms">
+							<xsl:if test="cbc:ID !='Detraccion'">
+								<xsl:if test="cbc:PaymentMeansID !='Credito'">	
+									<tr>
+											<td width= "10%" align="center">
+												<font color="#000000" size="1" face="Arial, Helvetica, sans-serif">
+													<xsl:value-of select="substring-after(cbc:PaymentMeansID,'Cuota00')"/>
+												</font>							
+											</td>
+											<td width= "15%" align="center">
+												<font color="#000000" size="1" face="Arial, Helvetica, sans-serif">
+												<xsl:value-of select="cbc:PaymentDueDate"/>
+												</font>
+											</td>
+											<td width= "15%" align="center">
+												<font color="#000000" size="1" face="Arial, Helvetica, sans-serif">
+												<xsl:call-template name="LetraMoneda"/>
+												</font>
+											</td>
+											<td width= "15%" align="center">
+												<font color="#000000" size="1" face="Arial, Helvetica, sans-serif">
+													<!--<xsl:value-of select="cbc:Amount"/>-->
+													<xsl:value-of select="format-number(cbc:Amount,'###,###,##0.00','pen')"/>
+												</font>
+											</td>
+										</tr>
+								</xsl:if>
+							</xsl:if>
+							</xsl:for-each>				
+
+						</table>
+				</td>
+			</tr>
+		</table>
+
+	</xsl:template>
 	
 	<xsl:variable name="OPGravada">
 		<xsl:value-of select="0.00"/>
