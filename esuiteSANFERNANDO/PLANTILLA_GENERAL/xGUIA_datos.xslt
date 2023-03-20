@@ -292,12 +292,12 @@ xmlns:sac="urn:sunat:names:specification:ubl:peru:schema:xsd:SunatAggregateCompo
 									</td>
 								</tr>
 								<tr>
-									<td width="50%" align="left" valign="top">
+									<td width="30%" align="left" valign="top">
 										<font face="Arial, Helvetica, sans-serif" size="2">
 										<strong>CONDUCTOR</strong>
 										</font>
 									</td>
-									<td width="50%" align="left">
+									<td width="70%" align="left">
 										<font face="Arial, Helvetica, sans-serif" size="2">:
 										<xsl:for-each select="//ext:UBLExtensions/ext:UBLExtension/ext:ExtensionContent/pe:DatosAdicionales/pe:DatoAdicional">
 											<xsl:if test="pe:Codigo='13'">
@@ -314,24 +314,24 @@ xmlns:sac="urn:sunat:names:specification:ubl:peru:schema:xsd:SunatAggregateCompo
 									</td>
 								</tr>
 								<tr>
-									<td width="50%" align="left">
+									<td width="30%" align="left">
 										<font face="Arial, Helvetica, sans-serif" size="2">
 										<strong>DNI/RUC </strong>
 										</font>
 									</td>
-									<td width="50%" align="left">
+									<td width="70%" align="left">
 										<font face="Arial, Helvetica, sans-serif" size="2">:
 										<xsl:value-of select="//cac:Shipment/cac:ShipmentStage/cac:DriverPerson/cbc:ID"/>
 										</font>
 									</td>
 								</tr>
 								<tr>
-									<td width="50%" align="left">
+									<td width="30%" align="left">
 										<font face="Arial, Helvetica, sans-serif" size="2">
 										<strong>LICENCIA</strong>
 										</font>
 									</td>
-									<td width="50%" align="left">
+									<td width="70%" align="left">
 										<font face="Arial, Helvetica, sans-serif" size="2">:
 										<xsl:for-each select="//ext:UBLExtensions/ext:UBLExtension/ext:ExtensionContent/pe:DatosAdicionales/pe:DatoAdicional">
 											<xsl:if test="pe:Codigo='04'">
@@ -342,12 +342,12 @@ xmlns:sac="urn:sunat:names:specification:ubl:peru:schema:xsd:SunatAggregateCompo
 									</td>
 								</tr>
 								<tr>
-									<td width="50%" align="left">
+									<td width="30%" align="left">
 										<font face="Arial, Helvetica, sans-serif" size="2">
 										<strong>C.M.T.C.</strong>
 										</font>
 									</td>
-									<td width="50%" align="left">
+									<td width="70%" align="left">
 										<font face="Arial, Helvetica, sans-serif" size="2">:
 										<!--<xsl:value-of select="//cac:ShipmentStage/cac:TransportMeans/cbc:RegistrationNationalityID"/>-->
 										<xsl:for-each select="//ext:UBLExtensions/ext:UBLExtension/ext:ExtensionContent/pe:DatosAdicionales/pe:DatoAdicional">
