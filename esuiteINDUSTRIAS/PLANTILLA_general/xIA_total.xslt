@@ -93,17 +93,17 @@
 					<font face="Arial, Helvetica, sans-serif" size="1">
 						<strong>OBSERVACIONES: </strong>
 						<xsl:for-each select="//ext:UBLExtensions/ext:UBLExtension/ext:ExtensionContent/pe:DatosAdicionales/pe:DatoAdicional">
-								<xsl:if test="pe:Codigo='02'">
+								<xsl:if test="pe:Codigo='20'">
 									<xsl:value-of select="pe:Valor"/>
 								</xsl:if>
 							</xsl:for-each>
 							<xsl:for-each select="//ext:UBLExtensions/ext:UBLExtension/ext:ExtensionContent/pe1:DatosAdicionales/pe1:DatoAdicional">
-								<xsl:if test="pe1:Codigo='02'">
+								<xsl:if test="pe1:Codigo='20'">
 									<xsl:value-of select="pe1:Valor"/>
 								</xsl:if>
 							</xsl:for-each>
 							<xsl:for-each select="//ext:UBLExtensions/ext:UBLExtension/ext:ExtensionContent/pe2:DatosAdicionales/pe2:DatoAdicional">
-								<xsl:if test="pe2:Codigo='02'">
+								<xsl:if test="pe2:Codigo='20'">
 									<xsl:value-of select="pe2:Valor"/>
 								</xsl:if>
 							</xsl:for-each>
@@ -165,19 +165,19 @@
 					<font face="Arial, Helvetica, sans-serif" size="1">
 						<strong>OBSERVACIONES: </strong>
 						<xsl:for-each select="//ext:UBLExtensions/ext:UBLExtension/ext:ExtensionContent/pe:DatosAdicionales/pe:DatoAdicional">
-								<xsl:if test="pe:Codigo='03'">
+								<xsl:if test="pe:Codigo='02'">
 									<xsl:value-of select="pe:Valor"/>
 								</xsl:if>
 							</xsl:for-each>
 
 							<xsl:for-each select="//ext:UBLExtensions/ext:UBLExtension/ext:ExtensionContent/pe1:DatosAdicionales/pe1:DatoAdicional">
-								<xsl:if test="pe1:Codigo='03'">
+								<xsl:if test="pe1:Codigo='02'">
 									<xsl:value-of select="pe1:Valor"/>
 								</xsl:if>
 							</xsl:for-each>
 
 							<xsl:for-each select="//ext:UBLExtensions/ext:UBLExtension/ext:ExtensionContent/pe2:DatosAdicionales/pe2:DatoAdicional">
-								<xsl:if test="pe2:Codigo='03'">
+								<xsl:if test="pe2:Codigo='02'">
 									<xsl:value-of select="pe2:Valor"/>
 								</xsl:if>
 							</xsl:for-each>
@@ -586,7 +586,7 @@
 						<td width="20%" align="center" style="border-top: black 1px solid; border-right: black 1px solid; border-bottom: black 1px solid; border-left: black 1px solid">
 							<font size="1" face="Arial, Helvetica, sans-serif">
 								<xsl:for-each select="//ext:UBLExtensions/ext:UBLExtension/ext:ExtensionContent/pe1:DatosAdicionales/pe1:DatoAdicional">
-									<xsl:if test="pe1:Codigo='02'">
+									<xsl:if test="pe1:Codigo='01'">
 
 									<xsl:value-of select="pe1:Valor"/>
 								</xsl:if>
@@ -867,6 +867,6 @@
 
 </xsl:stylesheet><!-- Stylus Studio meta-information - (c) 2004-2006. Progress Software Corporation. All rights reserved.
 <metaInformation>
-<scenarios/><MapperMetaTag><MapperInfo srcSchemaPathIsRelative="yes" srcSchemaInterpretAsXML="no" destSchemaPath="" destSchemaRoot="" destSchemaPathIsRelative="yes" destSchemaInterpretAsXML="no"/><MapperBlockPosition></MapperBlockPosition><TemplateContext></TemplateContext><MapperFilter side="source"></MapperFilter></MapperMetaTag>
+<scenarios ><scenario default="yes" name="Scenario1" userelativepaths="yes" externalpreview="no" url="" htmlbaseurl="" outputurl="" processortype="internal" useresolver="yes" profilemode="0" profiledepth="" profilelength="" urlprofilexml="" commandline="" additionalpath="" additionalclasspath="" postprocessortype="none" postprocesscommandline="" postprocessadditionalpath="" postprocessgeneratedext="" validateoutput="no" validator="internal" customvalidator=""/></scenarios><MapperMetaTag><MapperInfo srcSchemaPathIsRelative="yes" srcSchemaInterpretAsXML="no" destSchemaPath="" destSchemaRoot="" destSchemaPathIsRelative="yes" destSchemaInterpretAsXML="no"/><MapperBlockPosition></MapperBlockPosition><TemplateContext></TemplateContext><MapperFilter side="source"></MapperFilter></MapperMetaTag>
 </metaInformation>
 -->

@@ -9,95 +9,603 @@
           </Documento>
           <DatoAdicional>
             <Codigo>01</Codigo>
-            <Valor><![CDATA[99000003]]></Valor>
+            <Valor><![CDATA[AD-01]]></Valor>
           </DatoAdicional>
           <DatoAdicional>
             <Codigo>02</Codigo>
-            <Valor><![CDATA[-]]></Valor>
+            <Valor><![CDATA[AD-02]]></Valor>
           </DatoAdicional>
           <DatoAdicional>
             <Codigo>03</Codigo>
-            <Valor><![CDATA[E]]></Valor>
+            <Valor><![CDATA[AD-03]]></Valor>
           </DatoAdicional>
           <DatoAdicional>
             <Codigo>04</Codigo>
-            <Valor><![CDATA[1-416-644 550]]></Valor>
+            <Valor><![CDATA[AD-04]]></Valor>
           </DatoAdicional>
           <DatoAdicional>
             <Codigo>05</Codigo>
-            <Valor><![CDATA[LIMA-31]]></Valor>
+            <Valor><![CDATA[AD-05]]></Valor>
           </DatoAdicional>
           <DatoAdicional>
             <Codigo>06</Codigo>
-            <Valor><![CDATA[TORONTO]]></Valor>
+            <Valor><![CDATA[AD-06]]></Valor>
           </DatoAdicional>
           <DatoAdicional>
             <Codigo>07</Codigo>
-            <Valor><![CDATA[FOB]]></Valor>
+            <Valor><![CDATA[AD-07]]></Valor>
           </DatoAdicional>
           <DatoAdicional>
             <Codigo>08</Codigo>
-            <Valor><![CDATA[CALLAO-PERU]]></Valor>
+            <Valor><![CDATA[AD-08]]></Valor>
           </DatoAdicional>
           <DatoAdicional>
             <Codigo>09</Codigo>
-            <Valor><![CDATA[15/10/2022]]></Valor>
+            <Valor><![CDATA[AD-09]]></Valor>
           </DatoAdicional>
           <DatoAdicional>
             <Codigo>10</Codigo>
-            <Valor><![CDATA[POLAR MEXICO 240N]]></Valor>
+            <Valor><![CDATA[AD-10]]></Valor>
           </DatoAdicional>
           <DatoAdicional>
             <Codigo>11</Codigo>
-            <Valor><![CDATA[23000.90 KG]]></Valor>
+            <Valor><![CDATA[AD-11]]></Valor>
           </DatoAdicional>
           <DatoAdicional>
             <Codigo>12</Codigo>
-            <Valor><![CDATA[24530.00 KG]]></Valor>
+            <Valor><![CDATA[AD-12]]></Valor>
           </DatoAdicional>
           <DatoAdicional>
             <Codigo>13</Codigo>
-            <Valor><![CDATA[1690 BOXES IN 20 PALLETS]]></Valor>
+            <Valor><![CDATA[AD-13]]></Valor>
           </DatoAdicional>
           <DatoAdicional>
             <Codigo>14</Codigo>
-            <Valor><![CDATA[30 DAYS BL]]></Valor>
+            <Valor><![CDATA[AD-14]]></Valor>
           </DatoAdicional>
           <DatoAdicional>
             <Codigo>15</Codigo>
-            <Valor><![CDATA[POR COBRAR/COLLECT]]></Valor>
+            <Valor><![CDATA[AD-15]]></Valor>
           </DatoAdicional>
           <DatoAdicional>
             <Codigo>16</Codigo>
-            <Valor><![CDATA[MNBU3207530]]></Valor>
+            <Valor><![CDATA[AD-16]]></Valor>
           </DatoAdicional>
           <DatoAdicional>
             <Codigo>17</Codigo>
-            <Valor><![CDATA[PO 110362]]></Valor>
+            <Valor><![CDATA[AD-17]]></Valor>
           </DatoAdicional>
           <DatoAdicional>
             <Codigo>18</Codigo>
-            <Valor><![CDATA[HK2QA00GJ0 / HK5QA00F80]]></Valor>
+            <Valor><![CDATA[AD-18]]></Valor>
           </DatoAdicional>
           <DatoAdicional>
             <Codigo>19</Codigo>
-            <Valor><![CDATA[FORTY THOUSAND NINE HUNDRED FORTY ONE AND 60/100 US DOLLARS]]></Valor>
+            <Valor><![CDATA[AD-19]]></Valor>
           </DatoAdicional>
           <DatoAdicional>
             <Codigo>20</Codigo>
-            <Valor><![CDATA[-"Product purchased for export to Canada]]></Valor>
+            <Valor><![CDATA[AD-20]]></Valor>
           </DatoAdicional>
           <DatoAdicional>
             <Codigo>21</Codigo>
-            <Valor><![CDATA[-NO country has refused entry of product contained in this shipment"]]></Valor>
+            <Valor><![CDATA[AD-21]]></Valor>
           </DatoAdicional>
           <DatoAdicional>
             <Codigo>22</Codigo>
-            <Valor><![CDATA[-]]></Valor>
+            <Valor><![CDATA[AD-22]]></Valor>
           </DatoAdicional>
           <DatoAdicional>
             <Codigo>23</Codigo>
-            <Valor><![CDATA[-]]></Valor>
+            <Valor><![CDATA[AD-23]]></Valor>
+          </DatoAdicional>
+          <DatoAdicional>
+            <Codigo>24</Codigo>
+            <Valor><![CDATA[AD-24]]></Valor>
+          </DatoAdicional>
+          <DatoAdicional>
+            <Codigo>25</Codigo>
+            <Valor><![CDATA[AD-25]]></Valor>
+          </DatoAdicional>
+          <DatoAdicional>
+            <Codigo>26</Codigo>
+            <Valor><![CDATA[AD-26]]></Valor>
+          </DatoAdicional>
+          <DatoAdicional>
+            <Codigo>27</Codigo>
+            <Valor><![CDATA[AD-27]]></Valor>
+          </DatoAdicional>
+          <DatoAdicional>
+            <Codigo>28</Codigo>
+            <Valor><![CDATA[AD-28]]></Valor>
+          </DatoAdicional>
+          <DatoAdicional>
+            <Codigo>29</Codigo>
+            <Valor><![CDATA[AD-29]]></Valor>
+          </DatoAdicional>
+          <DatoAdicional>
+            <Codigo>30</Codigo>
+            <Valor><![CDATA[AD-30]]></Valor>
+          </DatoAdicional>
+          <DatoAdicional>
+            <Codigo>31</Codigo>
+            <Valor><![CDATA[AD-31]]></Valor>
+          </DatoAdicional>
+          <DatoAdicional>
+            <Codigo>32</Codigo>
+            <Valor><![CDATA[AD-32]]></Valor>
+          </DatoAdicional>
+          <DatoAdicional>
+            <Codigo>33</Codigo>
+            <Valor><![CDATA[AD-33]]></Valor>
+          </DatoAdicional>
+          <DatoAdicional>
+            <Codigo>34</Codigo>
+            <Valor><![CDATA[AD-34]]></Valor>
+          </DatoAdicional>
+          <DatoAdicional>
+            <Codigo>35</Codigo>
+            <Valor><![CDATA[AD-35]]></Valor>
+          </DatoAdicional>
+          <DatoAdicional>
+            <Codigo>36</Codigo>
+            <Valor><![CDATA[AD-36]]></Valor>
+          </DatoAdicional>
+          <DatoAdicional>
+            <Codigo>37</Codigo>
+            <Valor><![CDATA[AD-37]]></Valor>
+          </DatoAdicional>
+          <DatoAdicional>
+            <Codigo>38</Codigo>
+            <Valor><![CDATA[AD-38]]></Valor>
+          </DatoAdicional>
+          <DatoAdicional>
+            <Codigo>39</Codigo>
+            <Valor><![CDATA[AD-39]]></Valor>
+          </DatoAdicional>
+          <DatoAdicional>
+            <Codigo>40</Codigo>
+            <Valor><![CDATA[AD-40]]></Valor>
+          </DatoAdicional>
+          <DatoAdicional>
+            <Codigo>41</Codigo>
+            <Valor><![CDATA[AD-41]]></Valor>
+          </DatoAdicional>
+          <DatoAdicional>
+            <Codigo>42</Codigo>
+            <Valor><![CDATA[AD-42]]></Valor>
+          </DatoAdicional>
+          <DatoAdicional>
+            <Codigo>43</Codigo>
+            <Valor><![CDATA[AD-43]]></Valor>
+          </DatoAdicional>
+          <DatoAdicional>
+            <Codigo>44</Codigo>
+            <Valor><![CDATA[AD-44]]></Valor>
+          </DatoAdicional>
+          <DatoAdicional>
+            <Codigo>45</Codigo>
+            <Valor><![CDATA[AD-45]]></Valor>
+          </DatoAdicional>
+          <DatoAdicional>
+            <Codigo>46</Codigo>
+            <Valor><![CDATA[AD-46]]></Valor>
+          </DatoAdicional>
+          <DatoAdicional>
+            <Codigo>47</Codigo>
+            <Valor><![CDATA[AD-47]]></Valor>
+          </DatoAdicional>
+          <DatoAdicional>
+            <Codigo>48</Codigo>
+            <Valor><![CDATA[AD-48]]></Valor>
+          </DatoAdicional>
+          <DatoAdicional>
+            <Codigo>49</Codigo>
+            <Valor><![CDATA[AD-49]]></Valor>
+          </DatoAdicional>
+          <DatoAdicional>
+            <Codigo>50</Codigo>
+            <Valor><![CDATA[AD-50]]></Valor>
+          </DatoAdicional>
+          <DatoAdicional>
+            <Codigo>51</Codigo>
+            <Valor><![CDATA[AD-51]]></Valor>
+          </DatoAdicional>
+          <DatoAdicional>
+            <Codigo>52</Codigo>
+            <Valor><![CDATA[AD-52]]></Valor>
+          </DatoAdicional>
+          <DatoAdicional>
+            <Codigo>53</Codigo>
+            <Valor><![CDATA[AD-53]]></Valor>
+          </DatoAdicional>
+          <DatoAdicional>
+            <Codigo>54</Codigo>
+            <Valor><![CDATA[AD-54]]></Valor>
+          </DatoAdicional>
+          <DatoAdicional>
+            <Codigo>55</Codigo>
+            <Valor><![CDATA[AD-55]]></Valor>
+          </DatoAdicional>
+          <DatoAdicional>
+            <Codigo>56</Codigo>
+            <Valor><![CDATA[AD-56]]></Valor>
+          </DatoAdicional>
+          <DatoAdicional>
+            <Codigo>57</Codigo>
+            <Valor><![CDATA[AD-57]]></Valor>
+          </DatoAdicional>
+          <DatoAdicional>
+            <Codigo>58</Codigo>
+            <Valor><![CDATA[AD-58]]></Valor>
+          </DatoAdicional>
+          <DatoAdicional>
+            <Codigo>59</Codigo>
+            <Valor><![CDATA[AD-59]]></Valor>
+          </DatoAdicional>
+          <DatoAdicional>
+            <Codigo>60</Codigo>
+            <Valor><![CDATA[AD-60]]></Valor>
+          </DatoAdicional>
+          <DatoAdicional>
+            <Codigo>61</Codigo>
+            <Valor><![CDATA[AD-61]]></Valor>
+          </DatoAdicional>
+          <DatoAdicional>
+            <Codigo>62</Codigo>
+            <Valor><![CDATA[AD-62]]></Valor>
+          </DatoAdicional>
+          <DatoAdicional>
+            <Codigo>63</Codigo>
+            <Valor><![CDATA[AD-63]]></Valor>
+          </DatoAdicional>
+          <DatoAdicional>
+            <Codigo>64</Codigo>
+            <Valor><![CDATA[AD-64]]></Valor>
+          </DatoAdicional>
+          <DatoAdicional>
+            <Codigo>65</Codigo>
+            <Valor><![CDATA[AD-65]]></Valor>
+          </DatoAdicional>
+          <DatoAdicional>
+            <Codigo>66</Codigo>
+            <Valor><![CDATA[AD-66]]></Valor>
+          </DatoAdicional>
+          <DatoAdicional>
+            <Codigo>67</Codigo>
+            <Valor><![CDATA[AD-67]]></Valor>
+          </DatoAdicional>
+          <DatoAdicional>
+            <Codigo>68</Codigo>
+            <Valor><![CDATA[AD-68]]></Valor>
+          </DatoAdicional>
+          <DatoAdicional>
+            <Codigo>69</Codigo>
+            <Valor><![CDATA[AD-69]]></Valor>
+          </DatoAdicional>
+          <DatoAdicional>
+            <Codigo>70</Codigo>
+            <Valor><![CDATA[AD-70]]></Valor>
+          </DatoAdicional>
+          <DatoAdicional>
+            <Codigo>71</Codigo>
+            <Valor><![CDATA[AD-71]]></Valor>
+          </DatoAdicional>
+          <DatoAdicional>
+            <Codigo>72</Codigo>
+            <Valor><![CDATA[AD-72]]></Valor>
+          </DatoAdicional>
+          <DatoAdicional>
+            <Codigo>73</Codigo>
+            <Valor><![CDATA[AD-73]]></Valor>
+          </DatoAdicional>
+          <DatoAdicional>
+            <Codigo>74</Codigo>
+            <Valor><![CDATA[AD-74]]></Valor>
+          </DatoAdicional>
+          <DatoAdicional>
+            <Codigo>75</Codigo>
+            <Valor><![CDATA[AD-75]]></Valor>
+          </DatoAdicional>
+          <DatoAdicional>
+            <Codigo>76</Codigo>
+            <Valor><![CDATA[AD-76]]></Valor>
+          </DatoAdicional>
+          <DatoAdicional>
+            <Codigo>77</Codigo>
+            <Valor><![CDATA[AD-77]]></Valor>
+          </DatoAdicional>
+          <DatoAdicional>
+            <Codigo>78</Codigo>
+            <Valor><![CDATA[AD-78]]></Valor>
+          </DatoAdicional>
+          <DatoAdicional>
+            <Codigo>79</Codigo>
+            <Valor><![CDATA[AD-79]]></Valor>
+          </DatoAdicional>
+          <DatoAdicional>
+            <Codigo>80</Codigo>
+            <Valor><![CDATA[AD-80]]></Valor>
+          </DatoAdicional>
+          <DatoAdicional>
+            <Codigo>81</Codigo>
+            <Valor><![CDATA[AD-81]]></Valor>
+          </DatoAdicional>
+          <DatoAdicional>
+            <Codigo>82</Codigo>
+            <Valor><![CDATA[AD-82]]></Valor>
+          </DatoAdicional>
+          <DatoAdicional>
+            <Codigo>83</Codigo>
+            <Valor><![CDATA[AD-83]]></Valor>
+          </DatoAdicional>
+          <DatoAdicional>
+            <Codigo>84</Codigo>
+            <Valor><![CDATA[AD-84]]></Valor>
+          </DatoAdicional>
+          <DatoAdicional>
+            <Codigo>85</Codigo>
+            <Valor><![CDATA[AD-85]]></Valor>
+          </DatoAdicional>
+          <DatoAdicional>
+            <Codigo>86</Codigo>
+            <Valor><![CDATA[AD-86]]></Valor>
+          </DatoAdicional>
+          <DatoAdicional>
+            <Codigo>87</Codigo>
+            <Valor><![CDATA[AD-87]]></Valor>
+          </DatoAdicional>
+          <DatoAdicional>
+            <Codigo>88</Codigo>
+            <Valor><![CDATA[AD-88]]></Valor>
+          </DatoAdicional>
+          <DatoAdicional>
+            <Codigo>89</Codigo>
+            <Valor><![CDATA[AD-89]]></Valor>
+          </DatoAdicional>
+          <DatoAdicional>
+            <Codigo>90</Codigo>
+            <Valor><![CDATA[AD-90]]></Valor>
+          </DatoAdicional>
+          <DatoAdicional>
+            <Codigo>91</Codigo>
+            <Valor><![CDATA[AD-91]]></Valor>
+          </DatoAdicional>
+          <DatoAdicional>
+            <Codigo>92</Codigo>
+            <Valor><![CDATA[AD-92]]></Valor>
+          </DatoAdicional>
+          <DatoAdicional>
+            <Codigo>93</Codigo>
+            <Valor><![CDATA[AD-93]]></Valor>
+          </DatoAdicional>
+          <DatoAdicional>
+            <Codigo>94</Codigo>
+            <Valor><![CDATA[AD-94]]></Valor>
+          </DatoAdicional>
+          <DatoAdicional>
+            <Codigo>95</Codigo>
+            <Valor><![CDATA[AD-95]]></Valor>
+          </DatoAdicional>
+          <DatoAdicional>
+            <Codigo>96</Codigo>
+            <Valor><![CDATA[AD-96]]></Valor>
+          </DatoAdicional>
+          <DatoAdicional>
+            <Codigo>97</Codigo>
+            <Valor><![CDATA[AD-97]]></Valor>
+          </DatoAdicional>
+          <DatoAdicional>
+            <Codigo>98</Codigo>
+            <Valor><![CDATA[AD-98]]></Valor>
+          </DatoAdicional>
+          <DatoAdicional>
+            <Codigo>99</Codigo>
+            <Valor><![CDATA[AD-99]]></Valor>
+          </DatoAdicional>
+          <DatoAdicional>
+            <Codigo>100</Codigo>
+            <Valor><![CDATA[AD-100]]></Valor>
+          </DatoAdicional>
+          <DatoAdicional>
+            <Codigo>101</Codigo>
+            <Valor><![CDATA[AD-101]]></Valor>
+          </DatoAdicional>
+          <DatoAdicional>
+            <Codigo>102</Codigo>
+            <Valor><![CDATA[AD-102]]></Valor>
+          </DatoAdicional>
+          <DatoAdicional>
+            <Codigo>103</Codigo>
+            <Valor><![CDATA[AD-103]]></Valor>
+          </DatoAdicional>
+          <DatoAdicional>
+            <Codigo>104</Codigo>
+            <Valor><![CDATA[AD-104]]></Valor>
+          </DatoAdicional>
+          <DatoAdicional>
+            <Codigo>105</Codigo>
+            <Valor><![CDATA[AD-105]]></Valor>
+          </DatoAdicional>
+          <DatoAdicional>
+            <Codigo>106</Codigo>
+            <Valor><![CDATA[AD-106]]></Valor>
+          </DatoAdicional>
+          <DatoAdicional>
+            <Codigo>107</Codigo>
+            <Valor><![CDATA[AD-107]]></Valor>
+          </DatoAdicional>
+          <DatoAdicional>
+            <Codigo>108</Codigo>
+            <Valor><![CDATA[AD-108]]></Valor>
+          </DatoAdicional>
+          <DatoAdicional>
+            <Codigo>109</Codigo>
+            <Valor><![CDATA[AD-109]]></Valor>
+          </DatoAdicional>
+          <DatoAdicional>
+            <Codigo>110</Codigo>
+            <Valor><![CDATA[AD-110]]></Valor>
+          </DatoAdicional>
+          <DatoAdicional>
+            <Codigo>111</Codigo>
+            <Valor><![CDATA[AD-111]]></Valor>
+          </DatoAdicional>
+          <DatoAdicional>
+            <Codigo>112</Codigo>
+            <Valor><![CDATA[AD-112]]></Valor>
+          </DatoAdicional>
+          <DatoAdicional>
+            <Codigo>113</Codigo>
+            <Valor><![CDATA[AD-113]]></Valor>
+          </DatoAdicional>
+          <DatoAdicional>
+            <Codigo>114</Codigo>
+            <Valor><![CDATA[AD-114]]></Valor>
+          </DatoAdicional>
+          <DatoAdicional>
+            <Codigo>115</Codigo>
+            <Valor><![CDATA[AD-115]]></Valor>
+          </DatoAdicional>
+          <DatoAdicional>
+            <Codigo>116</Codigo>
+            <Valor><![CDATA[AD-116]]></Valor>
+          </DatoAdicional>
+          <DatoAdicional>
+            <Codigo>117</Codigo>
+            <Valor><![CDATA[AD-117]]></Valor>
+          </DatoAdicional>
+          <DatoAdicional>
+            <Codigo>118</Codigo>
+            <Valor><![CDATA[AD-118]]></Valor>
+          </DatoAdicional>
+          <DatoAdicional>
+            <Codigo>119</Codigo>
+            <Valor><![CDATA[AD-119]]></Valor>
+          </DatoAdicional>
+          <DatoAdicional>
+            <Codigo>120</Codigo>
+            <Valor><![CDATA[AD-120]]></Valor>
+          </DatoAdicional>
+          <DatoAdicional>
+            <Codigo>121</Codigo>
+            <Valor><![CDATA[AD-121]]></Valor>
+          </DatoAdicional>
+          <DatoAdicional>
+            <Codigo>122</Codigo>
+            <Valor><![CDATA[AD-122]]></Valor>
+          </DatoAdicional>
+          <DatoAdicional>
+            <Codigo>123</Codigo>
+            <Valor><![CDATA[AD-123]]></Valor>
+          </DatoAdicional>
+          <DatoAdicional>
+            <Codigo>124</Codigo>
+            <Valor><![CDATA[AD-124]]></Valor>
+          </DatoAdicional>
+          <DatoAdicional>
+            <Codigo>125</Codigo>
+            <Valor><![CDATA[AD-125]]></Valor>
+          </DatoAdicional>
+          <DatoAdicional>
+            <Codigo>126</Codigo>
+            <Valor><![CDATA[AD-126]]></Valor>
+          </DatoAdicional>
+          <DatoAdicional>
+            <Codigo>127</Codigo>
+            <Valor><![CDATA[AD-127]]></Valor>
+          </DatoAdicional>
+          <DatoAdicional>
+            <Codigo>128</Codigo>
+            <Valor><![CDATA[AD-128]]></Valor>
+          </DatoAdicional>
+          <DatoAdicional>
+            <Codigo>129</Codigo>
+            <Valor><![CDATA[AD-129]]></Valor>
+          </DatoAdicional>
+          <DatoAdicional>
+            <Codigo>130</Codigo>
+            <Valor><![CDATA[AD-130]]></Valor>
+          </DatoAdicional>
+          <DatoAdicional>
+            <Codigo>131</Codigo>
+            <Valor><![CDATA[AD-131]]></Valor>
+          </DatoAdicional>
+          <DatoAdicional>
+            <Codigo>132</Codigo>
+            <Valor><![CDATA[AD-132]]></Valor>
+          </DatoAdicional>
+          <DatoAdicional>
+            <Codigo>133</Codigo>
+            <Valor><![CDATA[AD-133]]></Valor>
+          </DatoAdicional>
+          <DatoAdicional>
+            <Codigo>134</Codigo>
+            <Valor><![CDATA[AD-134]]></Valor>
+          </DatoAdicional>
+          <DatoAdicional>
+            <Codigo>135</Codigo>
+            <Valor><![CDATA[AD-135]]></Valor>
+          </DatoAdicional>
+          <DatoAdicional>
+            <Codigo>136</Codigo>
+            <Valor><![CDATA[AD-136]]></Valor>
+          </DatoAdicional>
+          <DatoAdicional>
+            <Codigo>137</Codigo>
+            <Valor><![CDATA[AD-137]]></Valor>
+          </DatoAdicional>
+          <DatoAdicional>
+            <Codigo>138</Codigo>
+            <Valor><![CDATA[AD-138]]></Valor>
+          </DatoAdicional>
+          <DatoAdicional>
+            <Codigo>139</Codigo>
+            <Valor><![CDATA[AD-139]]></Valor>
+          </DatoAdicional>
+          <DatoAdicional>
+            <Codigo>140</Codigo>
+            <Valor><![CDATA[AD-140]]></Valor>
+          </DatoAdicional>
+          <DatoAdicional>
+            <Codigo>141</Codigo>
+            <Valor><![CDATA[AD-141]]></Valor>
+          </DatoAdicional>
+          <DatoAdicional>
+            <Codigo>142</Codigo>
+            <Valor><![CDATA[AD-142]]></Valor>
+          </DatoAdicional>
+          <DatoAdicional>
+            <Codigo>143</Codigo>
+            <Valor><![CDATA[AD-143]]></Valor>
+          </DatoAdicional>
+          <DatoAdicional>
+            <Codigo>144</Codigo>
+            <Valor><![CDATA[AD-144]]></Valor>
+          </DatoAdicional>
+          <DatoAdicional>
+            <Codigo>145</Codigo>
+            <Valor><![CDATA[AD-145]]></Valor>
+          </DatoAdicional>
+          <DatoAdicional>
+            <Codigo>146</Codigo>
+            <Valor><![CDATA[AD-146]]></Valor>
+          </DatoAdicional>
+          <DatoAdicional>
+            <Codigo>147</Codigo>
+            <Valor><![CDATA[AD-147]]></Valor>
+          </DatoAdicional>
+          <DatoAdicional>
+            <Codigo>148</Codigo>
+            <Valor><![CDATA[AD-148]]></Valor>
+          </DatoAdicional>
+          <DatoAdicional>
+            <Codigo>149</Codigo>
+            <Valor><![CDATA[AD-149]]></Valor>
+          </DatoAdicional>
+          <DatoAdicional>
+            <Codigo>150</Codigo>
+            <Valor><![CDATA[AD-150]]></Valor>
           </DatoAdicional>
           <LineaDetalle>
             <Linea>1</Linea>
