@@ -71,7 +71,7 @@
 								<tr>
 									<td width="16%" align="left">
 										<font face="Arial, Helvetica, sans-serif" size="1">
-											<strong>CLIENTE</strong>
+											<strong>CLIENTE/PROV</strong>
 										</font>
 									</td>
 									<td width="1%" align="left">
@@ -514,7 +514,10 @@
 					</td>
 					<td width="88%" align="left">
 						<font face="Arial, Helvetica, sans-serif" size="1">
-							<xsl:value-of select="//cbc:Note"/>
+							<xsl:value-of select="//cbc:Note"/>&#160;
+							<xsl:call-template name="TraeValorVariable">
+								<xsl:with-param name="varNumVA" select="12"/>
+							</xsl:call-template>
 						</font>
 					</td>
 

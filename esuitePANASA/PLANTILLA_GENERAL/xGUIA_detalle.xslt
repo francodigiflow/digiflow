@@ -347,6 +347,12 @@
 									<xsl:value-of select="cac:Item/cac:SellersItemIdentification/cbc:ID"/>
 									</font>
 								</td>
+										<xsl:variable name="ValorAdicionalDetalle">
+											<xsl:call-template name="RetourneValAdItem">
+												<xsl:with-param name="NumAd" select="7"/>
+												<xsl:with-param name="NumLinea" select="cbc:ID"/>
+											</xsl:call-template>
+										</xsl:variable>
 								<td width="45%" align="left">
 									<font face="Arial, Helvetica, sans-serif" size="1">
 										<xsl:if test="//cbc:CustomizationID='1.0'">
@@ -354,6 +360,9 @@
 										</xsl:if>
 										<xsl:if test="//cbc:CustomizationID='2.0'">
 											<xsl:value-of select="cac:Item/cbc:Description"/>
+										</xsl:if>
+										<xsl:if test="$ValorAdicionalDetalle != '' and $ValorAdicionalDetalle != '-'">
+											<br/><xsl:value-of select="$ValorAdicionalDetalle"/>
 										</xsl:if>
 									</font>
 								</td>
