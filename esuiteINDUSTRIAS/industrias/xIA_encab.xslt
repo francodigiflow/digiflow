@@ -27,30 +27,33 @@
 							<tbody>
 								<tr>
 									<td vAlign="top" align="center" rowspan="2" width="22%">
-										<!--<img src="logo_mebol.jpg" width="115" height="155"/>-->
-										<img src="data:image/*;base64,[logo_2]" width="115" height="155" />
+										<img src="logo_industrias.jpg" width="115" height="155"></img>
+										<!--<img src="data:image/*;base64,[logo_1]" width="115" height="155" />-->
 									</td>
 									<td align="left" width="78%">
-										<b>
-										<font color="#000000" size="6" face="Arial, Helvetica, sans-serif">
-											MEBOL
+										<font color="#000000" size="5" face="Arial, Helvetica, sans-serif">
+											INDUSTRIAS ALIMENTARIAS
 										</font>
 										<font color="#000000" size="3.5" face="Arial, Helvetica, sans-serif">
 											S.A.C.
-										</font></b>
-										<br/>
-										<font color="#000000" size="2" face="Arial, Helvetica, sans-serif">
-											<xsl:variable name="ValorDate">
-													<xsl:call-template name="Fecha"/>
-												</xsl:variable>
-												<!--HACIA ADELANTE-->
-												<xsl:if test="$ValorDate &gt;'20170918'">Av. El Derby N° 254, Interior 1703 Urb. El Derby- SANTIAGO DE SURCO - LIMA - LIMA</xsl:if>
-												<!--FECHAS ANTIGUAS-->
-												<xsl:if test="$ValorDate &lt;= '20170918'">Cal. Los Metales  N° 245 Urb. Pro Industrial San Martin de Porres - Lima - Lima</xsl:if>
 										</font>
 										<br/>
 										<font color="#000000" size="2" face="Arial, Helvetica, sans-serif">
-										Telf: 536-9939
+											<xsl:variable name="ValorDate">
+												<xsl:call-template name="Fecha"/>
+											</xsl:variable>
+											<!--HACIA ADELANTE-->
+											<xsl:if test="$ValorDate &gt;'20170911'">
+											Av. El Derby N° 254 INT. 1703 Urb. El Derby Santiago de Surco -Lima - Lima
+											</xsl:if>
+											<!--FECHAS ANTIGUAS-->
+											<xsl:if test="$ValorDate &lt;= '20170911'">
+											Cal. Los Metales  N° 245 Urb. Pro Industrial San Martin de Porres - Lima - Lima
+											</xsl:if>
+										</font>
+										<br/>
+										<font color="#000000" size="2" face="Arial, Helvetica, sans-serif">
+										Telf: 536-9922 / 536-9939
 										</font>
 									</td>
 								</tr>
@@ -134,41 +137,41 @@
 	<xsl:template name="NFolio">
 	<br/>
 	<font color="#000000" size="4" face="Arial, Helvetica, sans-serif">Nº 
-		<xsl:value-of select="/pe:Invoice/cbc:ID"/>
-		<xsl:value-of select="/pe1:CreditNote/cbc:ID"/>
-		<xsl:value-of select="/pe2:DebitNote/cbc:ID"/>
+	<xsl:value-of select="/pe:Invoice/cbc:ID"/>
+	<xsl:value-of select="/pe1:CreditNote/cbc:ID"/>
+	<xsl:value-of select="/pe2:DebitNote/cbc:ID"/>
 	</font>
 	<br/>
-</xsl:template>
-<xsl:template name="Fecha">
-		<xsl:if test="/pe:Invoice">
-			<xsl:variable name="date1" select="substring-before(/pe:Invoice/cbc:IssueDate,'-')"/>
-			<xsl:variable name="date2" select="substring-before(substring-after(/pe:Invoice/cbc:IssueDate,'-'),'-')"/>
-			<xsl:variable name="date3" select="substring-after(substring-after(/pe:Invoice/cbc:IssueDate,'-'),'-')"/>
-			<xsl:value-of select="concat($date1,$date2,$date3)"/>
-		</xsl:if>
-		<xsl:if test="/pe1:CreditNote">
-			<xsl:variable name="date1" select="substring-before(/pe1:CreditNote/cbc:IssueDate,'-')"/>
-			<xsl:variable name="date2" select="substring-before(substring-after(/pe1:CreditNote/cbc:IssueDate,'-'),'-')"/>
-			<xsl:variable name="date3" select="substring-after(substring-after(/pe1:CreditNote/cbc:IssueDate,'-'),'-')"/>
-			<xsl:value-of select="concat($date1,$date2,$date3)"/>
-		</xsl:if>
-		<xsl:if test="/pe2:DebitNote">
-			<xsl:variable name="date1" select="substring-before(/pe2:DebitNote/cbc:IssueDate,'-')"/>
-			<xsl:variable name="date2" select="substring-before(substring-after(/pe2:DebitNote/cbc:IssueDate,'-'),'-')"/>
-			<xsl:variable name="date3" select="substring-after(substring-after(/pe2:DebitNote/cbc:IssueDate,'-'),'-')"/>
-			<xsl:value-of select="concat($date1,$date2,$date3)"/>
-		</xsl:if>
 	</xsl:template>
 
+<xsl:template name="Fecha">
+    <xsl:if test="/pe:Invoice">
+        <xsl:variable name="date1" select="substring-before(/pe:Invoice/cbc:IssueDate,'-')"/>
+        <xsl:variable name="date2" select="substring-before(substring-after(/pe:Invoice/cbc:IssueDate,'-'),'-')"/>
+        <xsl:variable name="date3" select="substring-after(substring-after(/pe:Invoice/cbc:IssueDate,'-'),'-')"/>
+        <xsl:value-of select="concat($date1,$date2,$date3)"/>
+    </xsl:if>
+    <xsl:if test="/pe1:CreditNote">
+        <xsl:variable name="date1" select="substring-before(/pe1:CreditNote/cbc:IssueDate,'-')"/>
+        <xsl:variable name="date2" select="substring-before(substring-after(/pe1:CreditNote/cbc:IssueDate,'-'),'-')"/>
+        <xsl:variable name="date3" select="substring-after(substring-after(/pe1:CreditNote/cbc:IssueDate,'-'),'-')"/>
+        <xsl:value-of select="concat($date1,$date2,$date3)"/>
+    </xsl:if>
+    <xsl:if test="/pe2:DebitNote">
+        <xsl:variable name="date1" select="substring-before(/pe2:DebitNote/cbc:IssueDate,'-')"/>
+        <xsl:variable name="date2" select="substring-before(substring-after(/pe2:DebitNote/cbc:IssueDate,'-'),'-')"/>
+        <xsl:variable name="date3" select="substring-after(substring-after(/pe2:DebitNote/cbc:IssueDate,'-'),'-')"/>
+        <xsl:value-of select="concat($date1,$date2,$date3)"/>
+    </xsl:if>
+</xsl:template>
 
 	<xsl:template match="/">
-
 		<html>
 			<head></head>
 			<body/>
 		</html>
 	</xsl:template>
+
 </xsl:stylesheet><!-- Stylus Studio meta-information - (c) 2004-2006. Progress Software Corporation. All rights reserved.
 <metaInformation>
 <scenarios/><MapperMetaTag><MapperInfo srcSchemaPathIsRelative="yes" srcSchemaInterpretAsXML="no" destSchemaPath="" destSchemaRoot="" destSchemaPathIsRelative="yes" destSchemaInterpretAsXML="no"/><MapperBlockPosition></MapperBlockPosition><TemplateContext></TemplateContext><MapperFilter side="source"></MapperFilter></MapperMetaTag>
