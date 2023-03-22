@@ -94,7 +94,7 @@ xmlns:sac="urn:sunat:names:specification:ubl:peru:schema:xsd:SunatAggregateCompo
 			<tr>
 				<td width="60%" align="center">
 					<strong>
-						R.U.C. N&#xFFFD;&#160;&#160;
+						R.U.C. N°&#160;&#160;
 						<xsl:if test="//cbc:CustomizationID='1.0'">
 							<xsl:value-of select="format-number(//cac:DespatchSupplierParty/cbc:CustomerAssignedAccountID, '###########', 'pen')"/>
 						</xsl:if>
