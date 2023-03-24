@@ -212,24 +212,16 @@
 							</tr>
 							<xsl:if test="$ContadorItem = 1">
 								<!-- DATOS CLIENTE -->
-								<tr>
-									<td>
-										<xsl:call-template name="Datos_Arriba"/>
-									</td>
-								</tr>
+								
 								<tr>
 									<td>
 										<xsl:call-template name="Datos_Puntos"/>
 									</td>
 								</tr>
+
 								<tr>
 									<td>
 										<xsl:call-template name="DatosReceptor"/>
-									</td>
-								</tr>
-								<tr>
-									<td>
-										<xsl:call-template name="DatosReceptorT"/>
 									</td>
 								</tr>
 								
@@ -244,13 +236,39 @@
 									</xsl:call-template>
 								</td>
 							</tr>
-							
 							<tr>
 								<td>
-									<xsl:call-template name="Datos_Final"/>
+									<xsl:call-template name="Datos_Peso"/>
 								</td>
 							</tr>
+							<tr>
+								<td>
+									<xsl:call-template name="DatosInfoTraslado"/>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<xsl:call-template name="DatosVehiculoConductor"/>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<xsl:call-template name="DatosTransportista"/>
+								</td>
+							</tr>
+														
+							<tr>
+								<td>
+									<xsl:call-template name="DatosInformacionAdicional"/>
+								</td>
+							</tr>	
+							
 							<xsl:if test="$ContadorItem = $Pag">
+								
+								
+
+
+								
 								<tr>
 									<td>
 										<xsl:call-template name="CuadroConformidad"/>
