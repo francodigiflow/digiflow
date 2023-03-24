@@ -466,7 +466,7 @@ xmlns:sac="urn:sunat:names:specification:ubl:peru:schema:xsd:SunatAggregateCompo
 								<tr>
 								    <td width="20%" align="left">
 										<font face="Arial, Helvetica, sans-serif" size="2">
-											<strong>SUNAT_Envio_IndicadorTransbordoProgramado : </strong>
+											<strong>Indicador Transbordo Programado : </strong>
 											<xsl:choose>
 												<xsl:when test="//cbc:SpecialInstructions='SUNAT_Envio_IndicadorTransbordoProgramado'">Si</xsl:when>
 												<xsl:otherwise>No</xsl:otherwise>
@@ -477,7 +477,7 @@ xmlns:sac="urn:sunat:names:specification:ubl:peru:schema:xsd:SunatAggregateCompo
 								<tr>
 								    <td width="20%" align="left">
 										<font face="Arial, Helvetica, sans-serif" size="2">
-											<strong>SUNAT_Envio_IndicadorTrasladoVehiculoM1L : </strong>
+											<strong>Indicador Traslado Vehiculo M1L : </strong>
 											<xsl:choose>
 												<xsl:when test="//cbc:SpecialInstructions='SUNAT_Envio_IndicadorTrasladoVehiculoM1L'">Si</xsl:when>
 												<xsl:otherwise>No</xsl:otherwise>
@@ -488,7 +488,7 @@ xmlns:sac="urn:sunat:names:specification:ubl:peru:schema:xsd:SunatAggregateCompo
 								<tr>
 								    <td width="20%" align="left">
 										<font face="Arial, Helvetica, sans-serif" size="2">
-											<strong>SUNAT_Envio_IndicadorVehiculoConductoresTransp : </strong>
+											<strong>Indicador Vehiculo Conductores Transp : </strong>
 											<xsl:choose>
 												<xsl:when test="//cbc:SpecialInstructions='SUNAT_Envio_IndicadorVehiculoConductoresTransp'">Si</xsl:when>
 												<xsl:otherwise>No</xsl:otherwise>
