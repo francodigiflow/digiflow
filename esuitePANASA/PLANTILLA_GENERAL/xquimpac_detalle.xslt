@@ -331,23 +331,133 @@
 								</td>
 							</tr>
 						</xsl:for-each>
-
+							<tr>
+								<!--CODIGO-->
+								<td width="10%" align="left">
+									<font face="Arial, Helvetica, sans-serif" size="1.7">
+										&#xA0;
+									</font>
+								</td>
+								<!--DESCRIPCION-->
+								<td width="45%" align="left">
+									<font face="Arial, Helvetica, sans-serif" size="1.7">
+										<xsl:if test="/pe:Invoice/cbc:InvoiceTypeCode = '01'">
+											<xsl:variable name="AdicionalCabecera33">
+												<xsl:call-template name="RetourneValAd">
+													<xsl:with-param name="NumAd"
+													                select="33"/>
+												</xsl:call-template>
+											</xsl:variable>
+											<xsl:variable name="AdicionalCabecera34">
+												<xsl:call-template name="RetourneValAd">
+													<xsl:with-param name="NumAd"
+													                select="34"/>
+												</xsl:call-template>
+											</xsl:variable>
+											<xsl:variable name="AdicionalCabecera35">
+												<xsl:call-template name="RetourneValAd">
+													<xsl:with-param name="NumAd"
+													                select="35"/>
+												</xsl:call-template>
+											</xsl:variable>
+											<xsl:variable name="AdicionalCabecera36">
+												<xsl:call-template name="RetourneValAd">
+													<xsl:with-param name="NumAd"
+													                select="36"/>
+												</xsl:call-template>
+											</xsl:variable>
+											<xsl:variable name="AdicionalCabecera37">
+												<xsl:call-template name="RetourneValAd">
+													<xsl:with-param name="NumAd"
+													                select="37"/>
+												</xsl:call-template>
+											</xsl:variable>
+											<xsl:if test="$AdicionalCabecera33!='' or $AdicionalCabecera33!='-' ">
+												<br/>
+												&#xA0;<xsl:value-of select="$AdicionalCabecera33"/><br/>
+											</xsl:if>
+											<xsl:if test="$AdicionalCabecera34!='' or $AdicionalCabecera34!='-' ">
+												&#xA0;<xsl:value-of select="$AdicionalCabecera34"/><br/>
+											</xsl:if>
+											<xsl:if test="$AdicionalCabecera35!='' or $AdicionalCabecera35!='-' ">
+												&#xA0;<xsl:value-of select="$AdicionalCabecera35"/><br/>
+											</xsl:if>
+											<xsl:if test="$AdicionalCabecera36!='' or $AdicionalCabecera36!='-' ">
+												&#xA0;<xsl:value-of select="$AdicionalCabecera36"/><br/>
+											</xsl:if>
+											<xsl:if test="$AdicionalCabecera37!='' or $AdicionalCabecera37!='-' ">
+												&#xA0;<xsl:value-of select="$AdicionalCabecera37"/><br/>
+											</xsl:if>
+											
+										</xsl:if>
+									</font>
+								</td>
+								<!--UNID-->
+								<td width="5%" align="center">
+									<font face="Arial, Helvetica, sans-serif" size="1.7">
+										&#xA0;
+									</font>
+								</td>
+								<!--CANTIDAD-->
+								<td width="10%" align="right">
+									<font face="Arial, Helvetica, sans-serif" size="1.7">
+										&#xA0;
+									</font>
+								</td>
+								<!-- VALOR VTA UNIT-->
+								<td width="10%" align="right">
+									<font face="Arial, Helvetica, sans-serif" size="1.7">
+										&#xA0;
+									</font>
+								</td>
+								<!--PRECIO VTA UNIT-->
+								<td width="10%" align="right">
+									<font face="Arial, Helvetica, sans-serif" size="1.7">
+										&#xA0;
+									</font>
+								</td>
+								<!--VALOR VENTA-->
+								<td width="10%" align="right">
+									<font face="Arial, Helvetica, sans-serif" size="1.7">
+										&#xA0;
+									</font>
+								</td>
+							</tr>
 						<xsl:call-template name="lineaBl">
 							<xsl:with-param name="cont" select="$numColBl"/>
-							<table>
-								<tr>
-									<td align="center" valign="top" width="15%">
-										<font face="Arial, Helvetica, sans-serif" size="1.7">
-											<xsl:call-template name="total"/>
-										</font>
-									</td>
-								</tr>
-							</table>
+							
 						</xsl:call-template>
 					</table>
 				</td>
 			</tr>
 		</table>
+	</xsl:template>
+
+	<xsl:template name="RetourneValAd">
+		<xsl:param name="NumAd"/>
+		<!-- Se especifica el numero de linea y adicional para su ubicacion y extraccion -->
+		<!-- Se indica que el proceso debe raelizarse para todos los tipos de documento Factura/Boleta y Notas de Credito/Debito -->
+		<xsl:for-each select="//ext:UBLExtensions/ext:UBLExtension/ext:ExtensionContent/pe:DatosAdicionales/pe:DatoAdicional">
+			<xsl:if test="pe:Codigo = $NumAd">
+				<xsl:if test="pe:Valor != '-'">
+					<xsl:value-of select="pe:Valor"/>
+				</xsl:if>
+			</xsl:if>
+		</xsl:for-each>
+		<xsl:for-each select="//ext:UBLExtensions/ext:UBLExtension/ext:ExtensionContent/pe1:DatosAdicionales/pe1:DatoAdicional">
+			<xsl:if test="pe1:Codigo = $NumAd">
+				<xsl:if test="pe1:Valor != '-'">
+					<xsl:value-of select="pe1:Valor"/>
+				</xsl:if>
+			</xsl:if>
+		</xsl:for-each>
+		<xsl:for-each select="//ext:UBLExtensions/ext:UBLExtension/ext:ExtensionContent/pe2:DatosAdicionales/pe2:DatoAdicional">
+			<xsl:if test="pe2:Codigo = $NumAd">
+				<xsl:if test="pe2:Valor != '-'">
+					<xsl:value-of select="pe2:Valor"/>
+				</xsl:if>
+			</xsl:if>
+		</xsl:for-each>
 	</xsl:template>
 
 	<xsl:template name="lineaBl">
@@ -361,6 +471,9 @@
 				</td>
 				<td width="45%" align="center" valign="top">
 					<font face="Arial, Helvetica, sans-serif" size="2">&#xA0;
+						
+						
+
 					</font>
 				</td>
 				<td width="5%" align="center" valign="top">
@@ -388,6 +501,7 @@
 				<xsl:with-param name="cont" select="$cont - 2"/>
 			</xsl:call-template>
 		</xsl:if>
+			
 	</xsl:template>
 
 
